@@ -68,7 +68,7 @@ namespace CapsLockIndicatorV3
             // Load settings
             enableNumIcon.Checked = Properties.Settings.Default.numIco;
             enableCapsIcon.Checked = Properties.Settings.Default.capsIco;
-            enableCapsIcon.Checked = Properties.Settings.Default.scrollIco;
+            enableScrollIcon.Checked = Properties.Settings.Default.scrollIco;
 
             enableNumInd.Checked = Properties.Settings.Default.numInd;
             enableCapsInd.Checked = Properties.Settings.Default.capsInd;
@@ -179,15 +179,21 @@ namespace CapsLockIndicatorV3
             }
         }
 
-		void MainFormLoad(object sender, EventArgs e)
-		{
-			Assembly assembly = Assembly.GetExecutingAssembly();
-			FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
-			string version = fvi.FileVersion;
-			string copyright = fvi.LegalCopyright;
-			aboutText.Text = String.Format(resources.GetString("aboutTextFormat"), version, copyright);
+        void doVersionCheck()
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+            string version = fvi.FileVersion;
+            string copyright = fvi.LegalCopyright;
+            aboutText.Text = String.Format(resources.GetString("aboutTextFormat"), version, copyright);
             VersionCheck.IsLatestVersion(handleVersion);
         }
+
+        void MainFormLoad(object sender, EventArgs e)
+		{
+            doVersionCheck();
+        }
+
 		void ExitApplicationClick(object sender, EventArgs e)
 		{
 			if (MessageBox.Show("Exiting the application means the icons and notifications are no longer displayed. Exit anyway?", "CapsLock Indicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
@@ -250,6 +256,11 @@ namespace CapsLockIndicatorV3
         {
             IndSettingsWindow indSettingsWindow = new IndSettingsWindow();
             indSettingsWindow.ShowDialog();
+        }
+
+        private void checkForUpdatesButton_Click(object sender, EventArgs e)
+        {
+            doVersionCheck();
         }
     }
 }

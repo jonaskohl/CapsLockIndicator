@@ -83,6 +83,7 @@ namespace CapsLockIndicatorV3
             this.exitApplication = new System.Windows.Forms.Button();
             this.generalIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.indSettings = new System.Windows.Forms.Button();
+            this.checkForUpdatesButton = new System.Windows.Forms.Button();
             this.iconsGroup.SuspendLayout();
             this.indicatorGroup.SuspendLayout();
             this.aboutPanel.SuspendLayout();
@@ -242,7 +243,7 @@ namespace CapsLockIndicatorV3
             this.aboutPanel.Controls.Add(this.appNameLabel);
             this.aboutPanel.Controls.Add(this.logo);
             this.aboutPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.aboutPanel.Location = new System.Drawing.Point(0, 212);
+            this.aboutPanel.Location = new System.Drawing.Point(0, 239);
             this.aboutPanel.Name = "aboutPanel";
             this.aboutPanel.Size = new System.Drawing.Size(306, 66);
             this.aboutPanel.TabIndex = 4;
@@ -330,12 +331,25 @@ namespace CapsLockIndicatorV3
             this.indSettings.UseVisualStyleBackColor = true;
             this.indSettings.Click += new System.EventHandler(this.indSettings_Click);
             // 
+            // checkForUpdatesButton
+            // 
+            this.checkForUpdatesButton.AutoSize = true;
+            this.checkForUpdatesButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.checkForUpdatesButton.Location = new System.Drawing.Point(51, 206);
+            this.checkForUpdatesButton.Name = "checkForUpdatesButton";
+            this.checkForUpdatesButton.Size = new System.Drawing.Size(202, 24);
+            this.checkForUpdatesButton.TabIndex = 9;
+            this.checkForUpdatesButton.Text = "Check for &updates";
+            this.checkForUpdatesButton.UseVisualStyleBackColor = true;
+            this.checkForUpdatesButton.Click += new System.EventHandler(this.checkForUpdatesButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(306, 278);
+            this.ClientSize = new System.Drawing.Size(306, 305);
+            this.Controls.Add(this.checkForUpdatesButton);
             this.Controls.Add(this.indSettings);
             this.Controls.Add(this.exitApplication);
             this.Controls.Add(this.hideWindow);
@@ -366,5 +380,6 @@ namespace CapsLockIndicatorV3
 		}
 
         private System.Windows.Forms.Button indSettings;
+        private System.Windows.Forms.Button checkForUpdatesButton;
     }
 }
