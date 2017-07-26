@@ -84,6 +84,9 @@ namespace CapsLockIndicatorV3
             this.generalIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.indSettings = new System.Windows.Forms.Button();
             this.checkForUpdatesButton = new System.Windows.Forms.Button();
+            this.startonlogonCheckBox = new System.Windows.Forms.CheckBox();
+            this.hideOnStartupCheckBox = new System.Windows.Forms.CheckBox();
+            this.hideWindowTimer = new System.Windows.Forms.Timer(this.components);
             this.iconsGroup.SuspendLayout();
             this.indicatorGroup.SuspendLayout();
             this.aboutPanel.SuspendLayout();
@@ -243,7 +246,7 @@ namespace CapsLockIndicatorV3
             this.aboutPanel.Controls.Add(this.appNameLabel);
             this.aboutPanel.Controls.Add(this.logo);
             this.aboutPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.aboutPanel.Location = new System.Drawing.Point(0, 239);
+            this.aboutPanel.Location = new System.Drawing.Point(0, 263);
             this.aboutPanel.Name = "aboutPanel";
             this.aboutPanel.Size = new System.Drawing.Size(306, 66);
             this.aboutPanel.TabIndex = 4;
@@ -290,7 +293,7 @@ namespace CapsLockIndicatorV3
             // 
             this.hideWindow.AutoSize = true;
             this.hideWindow.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.hideWindow.Location = new System.Drawing.Point(51, 146);
+            this.hideWindow.Location = new System.Drawing.Point(58, 169);
             this.hideWindow.Name = "hideWindow";
             this.hideWindow.Size = new System.Drawing.Size(94, 24);
             this.hideWindow.TabIndex = 5;
@@ -302,7 +305,7 @@ namespace CapsLockIndicatorV3
             // 
             this.exitApplication.AutoSize = true;
             this.exitApplication.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.exitApplication.Location = new System.Drawing.Point(152, 146);
+            this.exitApplication.Location = new System.Drawing.Point(159, 169);
             this.exitApplication.Name = "exitApplication";
             this.exitApplication.Size = new System.Drawing.Size(101, 24);
             this.exitApplication.TabIndex = 6;
@@ -323,7 +326,7 @@ namespace CapsLockIndicatorV3
             // 
             this.indSettings.AutoSize = true;
             this.indSettings.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.indSettings.Location = new System.Drawing.Point(51, 176);
+            this.indSettings.Location = new System.Drawing.Point(58, 199);
             this.indSettings.Name = "indSettings";
             this.indSettings.Size = new System.Drawing.Size(202, 24);
             this.indSettings.TabIndex = 7;
@@ -335,7 +338,7 @@ namespace CapsLockIndicatorV3
             // 
             this.checkForUpdatesButton.AutoSize = true;
             this.checkForUpdatesButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.checkForUpdatesButton.Location = new System.Drawing.Point(51, 206);
+            this.checkForUpdatesButton.Location = new System.Drawing.Point(58, 229);
             this.checkForUpdatesButton.Name = "checkForUpdatesButton";
             this.checkForUpdatesButton.Size = new System.Drawing.Size(202, 24);
             this.checkForUpdatesButton.TabIndex = 9;
@@ -343,12 +346,40 @@ namespace CapsLockIndicatorV3
             this.checkForUpdatesButton.UseVisualStyleBackColor = true;
             this.checkForUpdatesButton.Click += new System.EventHandler(this.checkForUpdatesButton_Click);
             // 
+            // startonlogonCheckBox
+            // 
+            this.startonlogonCheckBox.AutoSize = true;
+            this.startonlogonCheckBox.Location = new System.Drawing.Point(18, 143);
+            this.startonlogonCheckBox.Name = "startonlogonCheckBox";
+            this.startonlogonCheckBox.Size = new System.Drawing.Size(101, 19);
+            this.startonlogonCheckBox.TabIndex = 10;
+            this.startonlogonCheckBox.Text = "Start on logon";
+            this.startonlogonCheckBox.UseVisualStyleBackColor = true;
+            this.startonlogonCheckBox.CheckedChanged += new System.EventHandler(this.startonlogonCheckBox_CheckedChanged);
+            // 
+            // hideOnStartupCheckBox
+            // 
+            this.hideOnStartupCheckBox.AutoSize = true;
+            this.hideOnStartupCheckBox.Location = new System.Drawing.Point(137, 143);
+            this.hideOnStartupCheckBox.Name = "hideOnStartupCheckBox";
+            this.hideOnStartupCheckBox.Size = new System.Drawing.Size(108, 19);
+            this.hideOnStartupCheckBox.TabIndex = 11;
+            this.hideOnStartupCheckBox.Text = "Hide on startup";
+            this.hideOnStartupCheckBox.UseVisualStyleBackColor = true;
+            this.hideOnStartupCheckBox.CheckedChanged += new System.EventHandler(this.hideOnStartupCheckBox_CheckedChanged);
+            // 
+            // hideWindowTimer
+            // 
+            this.hideWindowTimer.Tick += new System.EventHandler(this.hideWindowTimer_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(306, 305);
+            this.ClientSize = new System.Drawing.Size(306, 329);
+            this.Controls.Add(this.hideOnStartupCheckBox);
+            this.Controls.Add(this.startonlogonCheckBox);
             this.Controls.Add(this.checkForUpdatesButton);
             this.Controls.Add(this.indSettings);
             this.Controls.Add(this.exitApplication);
@@ -381,5 +412,8 @@ namespace CapsLockIndicatorV3
 
         private System.Windows.Forms.Button indSettings;
         private System.Windows.Forms.Button checkForUpdatesButton;
+        private System.Windows.Forms.CheckBox startonlogonCheckBox;
+        private System.Windows.Forms.CheckBox hideOnStartupCheckBox;
+        private System.Windows.Forms.Timer hideWindowTimer;
     }
 }

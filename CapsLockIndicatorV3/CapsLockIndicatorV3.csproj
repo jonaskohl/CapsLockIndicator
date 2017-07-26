@@ -45,6 +45,9 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>jkohl.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>CLIv3_Icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
@@ -100,6 +103,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="VersionCheck.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +129,9 @@
       <DependentUpon>NumberInputDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CLIv3_Icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

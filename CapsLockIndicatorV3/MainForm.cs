@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.Resources;
 using System.Linq;
+using Microsoft.Win32;
 
 namespace CapsLockIndicatorV3
 {
@@ -40,6 +41,16 @@ namespace CapsLockIndicatorV3
 		
 		public MainForm()
 		{
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+            string version = fvi.FileVersion;
+            if (Properties.Settings.Default.versionNo != version)
+            {
+                Properties.Settings.Default.Upgrade();
+                Properties.Settings.Default.versionNo = version;
+                Properties.Settings.Default.Save();
+            }
+
 
             Properties.Settings.Default.beta_enableDarkMode = Properties.Settings.Default.beta_enableDarkMode;
             Properties.Settings.Default.Save();
@@ -88,6 +99,16 @@ namespace CapsLockIndicatorV3
 
                 iconsGroup.ForeColor = Color.White;
                 indicatorGroup.ForeColor = Color.White;
+            }
+
+            // Check if application is in startup
+            startonlogonCheckBox.Checked = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "CapsLock Indicator", null) != null;
+
+            // Hides the window on startup if enabled
+            if (Properties.Settings.Default.hideOnStartup)
+            {
+                hideOnStartupCheckBox.Checked = true;
+                hideWindowTimer.Start();
             }
         }
 		
@@ -261,6 +282,30 @@ namespace CapsLockIndicatorV3
         private void checkForUpdatesButton_Click(object sender, EventArgs e)
         {
             doVersionCheck();
+        }
+
+        private void startonlogonCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            RegistryKey rk = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+
+            if (startonlogonCheckBox.Checked)
+                rk.SetValue("CapsLock Indicator", Application.ExecutablePath);
+            else
+                rk.DeleteValue("CapsLock Indicator", false);
+        }
+
+        private void hideOnStartupCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.hideOnStartup = hideOnStartupCheckBox.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+
+        // This timer is required for some reason
+        private void hideWindowTimer_Tick(object sender, EventArgs e)
+        {
+            hideWindowTimer.Stop();
+            hideWindow.PerformClick();
         }
     }
 }

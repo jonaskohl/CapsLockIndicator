@@ -178,5 +178,29 @@ namespace CapsLockIndicatorV3.Properties {
                 this["indBdColour"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3.1.0.0")]
+        public string versionNo {
+            get {
+                return ((string)(this["versionNo"]));
+            }
+            set {
+                this["versionNo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool hideOnStartup {
+            get {
+                return ((bool)(this["hideOnStartup"]));
+            }
+            set {
+                this["hideOnStartup"] = value;
+            }
+        }
     }
 }

@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle ("CapsLock Indicator")]
-[assembly: AssemblyDescription ("")]
+[assembly: AssemblyDescription("A small utility that indicates the state of the num lock, caps lock and scroll lock key.")]
 [assembly: AssemblyConfiguration ("")]
 [assembly: AssemblyCompany ("Jonas Kohl")]
 [assembly: AssemblyProduct ("CapsLock Indicator")]
@@ -25,5 +25,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can use the default the Revision and 
 // Build Numbers by using the '*' as shown below:
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("3.1.0.0")]
+[assembly: AssemblyFileVersion("3.2.0.0")]
 [assembly: Guid ("6f54c357-0542-4d7d-9225-338bc3cd7834")]

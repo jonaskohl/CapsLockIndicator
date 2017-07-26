@@ -41,5 +41,11 @@
     <Setting Name="indBdColour" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">52, 77, 180</Value>
     </Setting>
+    <Setting Name="versionNo" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3.1.0.0</Value>
+    </Setting>
+    <Setting Name="hideOnStartup" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
