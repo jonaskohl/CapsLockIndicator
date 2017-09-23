@@ -1,2 +1,4 @@
 language: csharp
 solution: CapsLockIndicatorV3.sln
+script: 
+    - msbuild /p:Configuration=Release CapsLockIndicatorV3.sln
