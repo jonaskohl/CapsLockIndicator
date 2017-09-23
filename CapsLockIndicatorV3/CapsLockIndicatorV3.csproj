@@ -43,9 +43,6 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>jkohl.pfx</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-  <PropertyGroup>
     <ApplicationIcon>CLIv3_Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
