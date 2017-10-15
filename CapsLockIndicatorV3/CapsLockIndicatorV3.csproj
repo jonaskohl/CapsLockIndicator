@@ -68,6 +68,12 @@
     <Compile Include="ColourButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DownloadDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DownloadDialog.Designer.cs">
+      <DependentUpon>DownloadDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="IndicatorOverlay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
       <DependentUpon>IndSettingsWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="KeyHelper.cs" />
+    <Compile Include="LnkLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,19 +109,34 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="UpdateDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateDialog.Designer.cs">
+      <DependentUpon>UpdateDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="VersionCheck.cs" />
+    <Compile Include="ViewOnlyRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="jkohl.pfx" />
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DownloadDialog.resx">
+      <DependentUpon>DownloadDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IndicatorOverlay.resx">
       <DependentUpon>IndicatorOverlay.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,7 +149,13 @@
     <EmbeddedResource Include="NumberInputDialog.resx">
       <DependentUpon>NumberInputDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="resources.resx" />
+    <EmbeddedResource Include="resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateDialog.resx">
+      <DependentUpon>UpdateDialog.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="CLIv3_Icon.ico" />

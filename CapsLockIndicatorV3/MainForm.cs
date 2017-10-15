@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Created 09.07.2017 18:16
  * 
  * Copyright (c) Jonas Kohl <http://jonaskohl.de/>
@@ -8,6 +8,7 @@
 using CapsLockIndicatorV3;
 
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Diagnostics;
 using System.Windows.Forms;
@@ -15,6 +16,7 @@ using System.Reflection;
 using System.Resources;
 using System.Linq;
 using Microsoft.Win32;
+using System.Xml.Linq;
 
 namespace CapsLockIndicatorV3
 {
@@ -38,6 +40,8 @@ namespace CapsLockIndicatorV3
 		bool numState;
 		bool capsState;
 		bool scrollState;
+
+        public bool askCancel = true;
 		
 		public MainForm()
 		{
@@ -186,16 +190,59 @@ namespace CapsLockIndicatorV3
             Properties.Settings.Default.Save();
         }
 
-        void handleVersion(bool isCurrent)
+        void handleVersion(string xmlData)
         {
-            if (!isCurrent)
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+            string currentVersion = fvi.FileVersion;
+
+            XDocument doc = XDocument.Parse(xmlData);
+
+            IEnumerable<XElement> parent = doc.Descendants("cli");
+
+            string latestVersion = parent.Descendants()
+                                         .Where(x => (string)x.Attribute("name") == "version_number")
+                                         .FirstOrDefault()
+                                         .Value;
+
+            string release_date = parent.Descendants()
+                                        .Where(x => (string)x.Attribute("name") == "release_date")
+                                        .FirstOrDefault()
+                                        .Value;
+
+            string release_url = parent.Descendants()
+                                       .Where(x => (string)x.Attribute("name") == "release_url")
+                                       .FirstOrDefault()
+                                       .Value;
+
+            string download_url = parent.Descendants()
+                                        .Where(x => (string)x.Attribute("name") == "download_url")
+                                        .FirstOrDefault()
+                                        .Value;
+
+            string changelog = parent.Descendants()
+                                     .Where(x => (string)x.Attribute("name") == "changelog")
+                                     .FirstOrDefault()
+                                     .Value;
+
+            Version cVersion = new Version(currentVersion);
+            Version lVersion = new Version(latestVersion);
+
+            // TODO Change != to <
+            if (lVersion != cVersion)
             {
-                if (MessageBox.Show("A new version is available (" + VersionCheck.newVersion + ")! Open the download page now?", "New version", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                UpdateDialog ud = new UpdateDialog();
+                ud.changelogRtf.Rtf = changelog;
+                DialogResult res = ud.ShowDialog();
+
+                if (res == DialogResult.OK)
                 {
-                    Assembly assembly = Assembly.GetExecutingAssembly();
-                    FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
-                    string version = fvi.FileVersion;
-                    Process.Start(String.Format("http://cli.jonaskohl.de/_update.php?cv={0}", version));
+                    DownloadDialog dd = new DownloadDialog();
+                    dd.DownloadURL = download_url;
+                    dd.ShowDialog();
+                } else if (res == DialogResult.Ignore) // Download manually
+                {
+                    Process.Start(release_url + "&ov=" + currentVersion);
                 }
             }
         }
@@ -217,10 +264,7 @@ namespace CapsLockIndicatorV3
 
 		void ExitApplicationClick(object sender, EventArgs e)
 		{
-			if (MessageBox.Show("Exiting the application means the icons and notifications are no longer displayed. Exit anyway?", "CapsLock Indicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-			{
-				Application.Exit();
-			}
+            Close();
 		}
 		void HideWindowClick(object sender, EventArgs e)
 		{
@@ -306,6 +350,40 @@ namespace CapsLockIndicatorV3
         {
             hideWindowTimer.Stop();
             hideWindow.PerformClick();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (askCancel)
+            {
+                if (MessageBox.Show("Exiting the application means the icons and notifications are no longer displayed. Exit anyway?", "CapsLock Indicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+
+        private void lnkLabel1_Click(object sender, EventArgs e)
+        {
+            Process.Start("http://jonaskohl.de/");
+        }
+
+        private void showToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Show();
+            Focus();
+            generalIcon.Visible = false;
+            isHidden = false;
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void appNameLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("http://cli.jonaskohl.de/");
         }
     }
 }
