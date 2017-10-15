@@ -42,6 +42,7 @@ namespace CapsLockIndicatorV3
             this.downloadProgress.Location = new System.Drawing.Point(12, 27);
             this.downloadProgress.Name = "downloadProgress";
             this.downloadProgress.Size = new System.Drawing.Size(369, 23);
+            this.downloadProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.downloadProgress.TabIndex = 0;
             // 
             // statusLabel
@@ -104,7 +105,6 @@ namespace CapsLockIndicatorV3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(393, 91);
             this.Controls.Add(this.restartButton);
             this.Controls.Add(this.closeButton);

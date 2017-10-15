@@ -30,10 +30,11 @@ namespace CapsLockIndicatorV3
         {
             this.updateNowButton = new System.Windows.Forms.Button();
             this.dismissButton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.downloadManuallyButton = new System.Windows.Forms.Button();
+            this.borderPanel = new System.Windows.Forms.Panel();
             this.changelogRtf = new CapsLockIndicatorV3.ViewOnlyRichTextBox();
-            this.panel1.SuspendLayout();
+            this.downloadManuallyButton = new System.Windows.Forms.Button();
+            this.infoLabel = new System.Windows.Forms.Label();
+            this.borderPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // updateNowButton
@@ -59,14 +60,28 @@ namespace CapsLockIndicatorV3
             this.dismissButton.Text = "&Dismiss";
             this.dismissButton.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // borderPanel
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.changelogRtf);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(425, 186);
-            this.panel1.TabIndex = 3;
+            this.borderPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.borderPanel.Controls.Add(this.changelogRtf);
+            this.borderPanel.Location = new System.Drawing.Point(12, 27);
+            this.borderPanel.Name = "borderPanel";
+            this.borderPanel.Size = new System.Drawing.Size(425, 171);
+            this.borderPanel.TabIndex = 3;
+            // 
+            // changelogRtf
+            // 
+            this.changelogRtf.BackColor = System.Drawing.SystemColors.Window;
+            this.changelogRtf.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.changelogRtf.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.changelogRtf.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.changelogRtf.Location = new System.Drawing.Point(0, 0);
+            this.changelogRtf.Name = "changelogRtf";
+            this.changelogRtf.ReadOnly = true;
+            this.changelogRtf.Size = new System.Drawing.Size(423, 169);
+            this.changelogRtf.TabIndex = 0;
+            this.changelogRtf.TabStop = false;
+            this.changelogRtf.Text = "";
             // 
             // downloadManuallyButton
             // 
@@ -80,19 +95,16 @@ namespace CapsLockIndicatorV3
             this.downloadManuallyButton.UseVisualStyleBackColor = true;
             this.downloadManuallyButton.Click += new System.EventHandler(this.downloadManuallyButton_Click);
             // 
-            // changelogRtf
+            // infoLabel
             // 
-            this.changelogRtf.BackColor = System.Drawing.SystemColors.Window;
-            this.changelogRtf.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.changelogRtf.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.changelogRtf.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.changelogRtf.Location = new System.Drawing.Point(0, 0);
-            this.changelogRtf.Name = "changelogRtf";
-            this.changelogRtf.ReadOnly = true;
-            this.changelogRtf.Size = new System.Drawing.Size(423, 184);
-            this.changelogRtf.TabIndex = 0;
-            this.changelogRtf.TabStop = false;
-            this.changelogRtf.Text = "";
+            this.infoLabel.AutoSize = true;
+            this.infoLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.infoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(77)))), ((int)(((byte)(180)))));
+            this.infoLabel.Location = new System.Drawing.Point(12, 9);
+            this.infoLabel.Name = "infoLabel";
+            this.infoLabel.Size = new System.Drawing.Size(27, 15);
+            this.infoLabel.TabIndex = 5;
+            this.infoLabel.Text = "null";
             // 
             // UpdateDialog
             // 
@@ -101,8 +113,9 @@ namespace CapsLockIndicatorV3
             this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this.dismissButton;
             this.ClientSize = new System.Drawing.Size(449, 243);
+            this.Controls.Add(this.infoLabel);
             this.Controls.Add(this.downloadManuallyButton);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.borderPanel);
             this.Controls.Add(this.dismissButton);
             this.Controls.Add(this.updateNowButton);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -114,16 +127,18 @@ namespace CapsLockIndicatorV3
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CapsLock Indicator Update available!";
-            this.panel1.ResumeLayout(false);
+            this.borderPanel.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Button updateNowButton;
         private System.Windows.Forms.Button dismissButton;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel borderPanel;
         private System.Windows.Forms.Button downloadManuallyButton;
         public ViewOnlyRichTextBox changelogRtf;
+        public System.Windows.Forms.Label infoLabel;
     }
 }

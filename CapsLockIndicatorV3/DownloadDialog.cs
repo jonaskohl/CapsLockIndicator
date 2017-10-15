@@ -1,16 +1,9 @@
 using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CapsLockIndicatorV3
@@ -62,6 +55,7 @@ namespace CapsLockIndicatorV3
                 closeButton.Show();
                 closeButton.Enabled = true;
                 statusLabel.Text = "Download aborted.";
+                downloadProgress.Value = 0;
             }
             else
             {

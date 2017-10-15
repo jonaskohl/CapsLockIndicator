@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Created 09.07.2017 18:16
  * 
  * Copyright (c) Jonas Kohl <http://jonaskohl.de/>
@@ -27,6 +27,7 @@ namespace CapsLockIndicatorV3
             }
             else // An instance is already open
             {
+                Application.EnableVisualStyles();
                 MessageBox.Show("An instance is already open!");
             }
 		}

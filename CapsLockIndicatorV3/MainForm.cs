@@ -192,59 +192,70 @@ namespace CapsLockIndicatorV3
 
         void handleVersion(string xmlData)
         {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
-            string currentVersion = fvi.FileVersion;
+            try
+            {
+                Assembly assembly = Assembly.GetExecutingAssembly();
+                FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+                string currentVersion = fvi.FileVersion;
 
-            XDocument doc = XDocument.Parse(xmlData);
+                XDocument doc = XDocument.Parse(xmlData);
 
-            IEnumerable<XElement> parent = doc.Descendants("cli");
+                IEnumerable<XElement> parent = doc.Descendants("cli");
 
-            string latestVersion = parent.Descendants()
-                                         .Where(x => (string)x.Attribute("name") == "version_number")
+                string latestVersion = parent.Descendants()
+                                             .Where(x => (string)x.Attribute("name") == "version_number")
+                                             .FirstOrDefault()
+                                             .Value;
+
+                string release_date = parent.Descendants()
+                                            .Where(x => (string)x.Attribute("name") == "release_date")
+                                            .FirstOrDefault()
+                                            .Value;
+
+                string release_url = parent.Descendants()
+                                           .Where(x => (string)x.Attribute("name") == "release_url")
+                                           .FirstOrDefault()
+                                           .Value;
+
+                string download_url = parent.Descendants()
+                                            .Where(x => (string)x.Attribute("name") == "download_url")
+                                            .FirstOrDefault()
+                                            .Value;
+
+                string changelog = parent.Descendants()
+                                         .Where(x => (string)x.Attribute("name") == "changelog")
                                          .FirstOrDefault()
                                          .Value;
 
-            string release_date = parent.Descendants()
-                                        .Where(x => (string)x.Attribute("name") == "release_date")
-                                        .FirstOrDefault()
-                                        .Value;
-
-            string release_url = parent.Descendants()
-                                       .Where(x => (string)x.Attribute("name") == "release_url")
-                                       .FirstOrDefault()
-                                       .Value;
-
-            string download_url = parent.Descendants()
-                                        .Where(x => (string)x.Attribute("name") == "download_url")
-                                        .FirstOrDefault()
-                                        .Value;
-
-            string changelog = parent.Descendants()
-                                     .Where(x => (string)x.Attribute("name") == "changelog")
-                                     .FirstOrDefault()
-                                     .Value;
-
-            Version cVersion = new Version(currentVersion);
-            Version lVersion = new Version(latestVersion);
-
-            // TODO Change != to <
-            if (lVersion != cVersion)
-            {
-                UpdateDialog ud = new UpdateDialog();
-                ud.changelogRtf.Rtf = changelog;
-                DialogResult res = ud.ShowDialog();
-
-                if (res == DialogResult.OK)
+                Version cVersion = new Version(currentVersion);
+                Version lVersion = new Version(latestVersion);
+                
+                if (lVersion > cVersion)
                 {
-                    DownloadDialog dd = new DownloadDialog();
-                    dd.DownloadURL = download_url;
-                    dd.ShowDialog();
-                } else if (res == DialogResult.Ignore) // Download manually
-                {
-                    Process.Start(release_url + "&ov=" + currentVersion);
+                    UpdateDialog ud = new UpdateDialog();
+                    ud.changelogRtf.Rtf = changelog;
+                    ud.infoLabel.Text = string.Format("Version {0}, released {1}", latestVersion, release_date);
+                    DialogResult res = ud.ShowDialog();
+
+                    if (res == DialogResult.OK)
+                    {
+                        DownloadDialog dd = new DownloadDialog();
+                        dd.DownloadURL = download_url;
+                        dd.ShowDialog();
+                    }
+                    else if (res == DialogResult.Ignore) // Download manually
+                    {
+                        Process.Start(release_url + "&ov=" + currentVersion);
+                    }
                 }
             }
+            catch (Exception)
+            {
+                
+            }
+
+            checkForUpdatesButton.Text = "Check for &updates";
+            checkForUpdatesButton.Enabled = true;
         }
 
         void doVersionCheck()
@@ -325,6 +336,8 @@ namespace CapsLockIndicatorV3
 
         private void checkForUpdatesButton_Click(object sender, EventArgs e)
         {
+            checkForUpdatesButton.Enabled = false;
+            checkForUpdatesButton.Text = "Checking for updates...";
             doVersionCheck();
         }
 

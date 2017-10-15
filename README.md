@@ -2,7 +2,7 @@
 
 [![Visit project page](http://static.jonaskohl.de/q50c4wp6/cli-project-page_vlecvcbtz80tqvtt.svg)](http://cli.jonaskohl.de/index.html)
 [![License](https://img.shields.io/badge/License-Apache%202.0-red.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Version](http://cli.jonaskohl.de/version.php?shield=true)](http://cli.jonaskohl.de/CLIv3/release/bin/latest.php)
+[![Version](http://cli.jonaskohl.de/version.php?shield=true&_=2)](http://cli.jonaskohl.de/CLIv3/release/bin/latest.php)
 [![Build Status](https://travis-ci.org/jonaskohl/CapsLockIndicator.svg?branch=master)](https://travis-ci.org/jonaskohl/CapsLockIndicator)
 
 CapsLock Indicator is a small utility that indicates the state of the Num lock, Caps lock and Scroll lock key.

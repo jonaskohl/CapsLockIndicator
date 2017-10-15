@@ -45,6 +45,9 @@
   <PropertyGroup>
     <ApplicationIcon>CLIv3_Icon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>CapsLockIndicatorV3.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
