@@ -1,0 +1,12 @@
+C:\Users\Brennced\CapsLockIndicator\CapsLockIndicatorV3\bin\Release\CapsLockIndicatorV3.exe.config
+C:\Users\Brennced\CapsLockIndicator\CapsLockIndicatorV3\bin\Release\CapsLockIndicatorV3.exe
+C:\Users\Brennced\CapsLockIndicator\CapsLockIndicatorV3\obj\Release\CapsLockIndicatorV3.csprojResolveAssemblyReference.cache
+C:\Users\Brennced\CapsLockIndicator\CapsLockIndicatorV3\obj\Release\CapsLockIndicatorV3.DownloadDialog.resources
+C:\Users\Brennced\CapsLockIndicator\CapsLockIndicatorV3\obj\Release\CapsLockIndicatorV3.IndicatorOverlay.resources
+C:\Users\Brennced\CapsLockIndicator\CapsLockIndicatorV3\obj\Release\CapsLockIndicatorV3.IndSettingsWindow.resources
+C:\Users\Brennced\CapsLockIndicator\CapsLockIndicatorV3\obj\Release\CapsLockIndicatorV3.MainForm.resources
+C:\Users\Brennced\CapsLockIndicator\CapsLockIndicatorV3\obj\Release\CapsLockIndicatorV3.NumberInputDialog.resources
+C:\Users\Brennced\CapsLockIndicator\CapsLockIndicatorV3\obj\Release\CapsLockIndicatorV3.resources.resources
+C:\Users\Brennced\CapsLockIndicator\CapsLockIndicatorV3\obj\Release\CapsLockIndicatorV3.UpdateDialog.resources
+C:\Users\Brennced\CapsLockIndicator\CapsLockIndicatorV3\obj\Release\CapsLockIndicatorV3.csproj.GenerateResource.Cache
+C:\Users\Brennced\CapsLockIndicator\CapsLockIndicatorV3\obj\Release\CapsLockIndicatorV3.exe

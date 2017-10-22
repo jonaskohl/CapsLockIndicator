@@ -275,7 +275,10 @@ namespace CapsLockIndicatorV3
 
 		void ExitApplicationClick(object sender, EventArgs e)
 		{
-            Close();
+            if (MessageBox.Show("Exiting the application means the icons and notifications are no longer displayed. Exit anyway?", "CapsLock Indicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                Close();
+            }
 		}
 		void HideWindowClick(object sender, EventArgs e)
 		{
@@ -367,13 +370,7 @@ namespace CapsLockIndicatorV3
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (askCancel)
-            {
-                if (MessageBox.Show("Exiting the application means the icons and notifications are no longer displayed. Exit anyway?", "CapsLock Indicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
-                {
-                    e.Cancel = true;
-                }
-            }
+            
         }
 
         private void lnkLabel1_Click(object sender, EventArgs e)
