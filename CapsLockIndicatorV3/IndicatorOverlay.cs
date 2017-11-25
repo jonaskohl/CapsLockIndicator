@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Created 09.07.2017 20:22
  * 
  * Copyright (c) Jonas Kohl <http://jonaskohl.de/>
@@ -69,10 +69,11 @@ namespace CapsLockIndicatorV3
             fadeTimer.Interval = (int)Math.Floor((decimal)(timeoutInMs / 20));
 		}
 
-        public IndicatorOverlay(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour)
+        public IndicatorOverlay(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, Font font)
         {
             InitializeComponent();
             contentLabel.Text = content;
+            Font = font;
             windowCloseTimer.Interval = timeoutInMs;
             fadeTimer.Interval = (int)Math.Floor((decimal)(timeoutInMs / 20));
             BackColor = bgColour;
@@ -103,10 +104,11 @@ namespace CapsLockIndicatorV3
             fadeTimer.Start();
         }
 
-        public void UpdateIndicator(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour)
+        public void UpdateIndicator(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, Font font)
         {
             Opacity = 1;
             contentLabel.Text = content;
+            Font = font;
             opacity_timer_value = 2.0;
             windowCloseTimer.Stop();
             windowCloseTimer.Interval = timeoutInMs;
@@ -116,6 +118,7 @@ namespace CapsLockIndicatorV3
             BackColor = bgColour;
             ForeColor = fgColour;
             BorderColour = bdColour;
+            Invalidate();
         }
 
         void WindowCloseTimerTick(object sender, EventArgs e)

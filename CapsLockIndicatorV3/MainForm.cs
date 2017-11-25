@@ -137,13 +137,13 @@ namespace CapsLockIndicatorV3
 			
 			// Handle the overlay
 			if (numState != KeyHelper.isNumlockActive && enableNumInd.Checked && !showNoNotification.Checked)
-				ShowOverlay("Numlock is " + (KeyHelper.isNumlockActive ? "on" : "off"));
+				ShowOverlay("Numlock is " + (KeyHelper.isNumlockActive ? "on" : "off"), KeyHelper.isNumlockActive);
 			
 			if (capsState != KeyHelper.isCapslockActive && enableCapsInd.Checked && !showNoNotification.Checked)
-				ShowOverlay("Capslock is " + (KeyHelper.isCapslockActive ? "on" : "off"));
+				ShowOverlay("Capslock is " + (KeyHelper.isCapslockActive ? "on" : "off"), KeyHelper.isCapslockActive);
 			
 			if (scrollState != KeyHelper.isScrolllockActive && enableScrollInd.Checked && !showNoNotification.Checked)
-				ShowOverlay("Scrolllock is " + (KeyHelper.isScrolllockActive ? "on" : "off"));
+				ShowOverlay("Scrolllock is " + (KeyHelper.isScrolllockActive ? "on" : "off"), KeyHelper.isScrolllockActive);
 			
 			// Reset the values
 			numState = KeyHelper.isNumlockActive;
@@ -151,7 +151,7 @@ namespace CapsLockIndicatorV3
 			scrollState = KeyHelper.isScrolllockActive;
 		}
 		
-		void ShowOverlay(string message)
+		void ShowOverlay(string message, bool isActive)
 		{
             int timeOut = Properties.Settings.Default.indDisplayTime;
             if (Application.OpenForms.OfType<IndicatorOverlay>().Any())
@@ -160,9 +160,10 @@ namespace CapsLockIndicatorV3
                 indicatorOverlay.UpdateIndicator(
                       message
                     , timeOut
-                    , Properties.Settings.Default.indBgColour
-                    , Properties.Settings.Default.indFgColour
-                    , Properties.Settings.Default.indBdColour
+                    , isActive ? Properties.Settings.Default.indBgColourActive : Properties.Settings.Default.indBgColourInactive
+                    , isActive ? Properties.Settings.Default.indFgColourActive : Properties.Settings.Default.indFgColourInactive
+                    , isActive ? Properties.Settings.Default.indBdColourActive : Properties.Settings.Default.indBdColourInactive
+                    , Properties.Settings.Default.indFont
                 );
             }
             else
@@ -170,9 +171,10 @@ namespace CapsLockIndicatorV3
                 IndicatorOverlay indicatorOverlay = new IndicatorOverlay(
                       message
                     , timeOut
-                    , Properties.Settings.Default.indBgColour
-                    , Properties.Settings.Default.indFgColour
-                    , Properties.Settings.Default.indBdColour
+                    , isActive ? Properties.Settings.Default.indBgColourActive : Properties.Settings.Default.indBgColourInactive
+                    , isActive ? Properties.Settings.Default.indFgColourActive : Properties.Settings.Default.indFgColourInactive
+                    , isActive ? Properties.Settings.Default.indBdColourActive : Properties.Settings.Default.indBdColourInactive
+                    , Properties.Settings.Default.indFont
                 );
                 indicatorOverlay.Show();
             }

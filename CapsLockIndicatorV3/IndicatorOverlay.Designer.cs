@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Created 09.07.2017 20:22
  * 
  * Copyright (c) Jonas Kohl <http://jonaskohl.de/>
@@ -49,7 +49,6 @@ namespace CapsLockIndicatorV3
             // contentLabel
             // 
             this.contentLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contentLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contentLabel.Location = new System.Drawing.Point(2, 2);
             this.contentLabel.Name = "contentLabel";
             this.contentLabel.Size = new System.Drawing.Size(172, 38);
@@ -65,12 +64,13 @@ namespace CapsLockIndicatorV3
             // 
             // IndicatorOverlay
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.ClientSize = new System.Drawing.Size(176, 42);
             this.ControlBox = false;
             this.Controls.Add(this.contentLabel);
+            this.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;

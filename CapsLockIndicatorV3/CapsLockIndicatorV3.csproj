@@ -130,7 +130,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -162,6 +164,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CLIv3_Icon.ico" />
+    <None Include="Resources\CLIv3_Scroll_On.ico" />
+    <None Include="Resources\CLIv3_Scroll_Off.ico" />
+    <None Include="Resources\CLIv3_Num_On.ico" />
+    <None Include="Resources\CLIv3_Num_Off.ico" />
+    <None Include="Resources\CLIv3_Caps_On.ico" />
+    <None Include="Resources\CLIv3_Caps_Off.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CapsLockIndicatorV3.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
@@ -32,20 +32,32 @@
     <Setting Name="indDisplayTime" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">500</Value>
     </Setting>
-    <Setting Name="indBgColour" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="indBgColourActive" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">66, 66, 66</Value>
     </Setting>
-    <Setting Name="indFgColour" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="indFgColourActive" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">White</Value>
     </Setting>
-    <Setting Name="indBdColour" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">52, 77, 180</Value>
+    <Setting Name="indBdColourActive" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">77, 180, 52</Value>
     </Setting>
     <Setting Name="versionNo" Type="System.String" Scope="User">
-      <Value Profile="(Default)">3.1.0.0</Value>
+      <Value Profile="(Default)">3.4.0.0</Value>
     </Setting>
     <Setting Name="hideOnStartup" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="indFont" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Segoe UI, 12pt</Value>
+    </Setting>
+    <Setting Name="indBgColourInactive" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">66, 66, 66</Value>
+    </Setting>
+    <Setting Name="indFgColourInactive" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="indBdColourInactive" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">180, 52, 77</Value>
     </Setting>
   </Settings>
 </SettingsFile>
