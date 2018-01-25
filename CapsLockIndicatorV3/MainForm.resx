@@ -136,7 +136,7 @@
   <data name="logo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAB2G4AAdhuAUxFcPYAAALUSURBVGhD1Zo/btRAFIfTcACoyA04ANdAgi7cAAqoQIKK
+        YQUAAAAJcEhZcwAB2G0AAdhtAeH8UZsAAALUSURBVGhD1Zo/btRAFIfTcACoyA04ANdAgi7cAAqoQIKK
         BsoUgaukDFJEEwka+kBOAIqUTSJFijDvM/HI9v6MZzxv7OxKn7T7Zvzm/ez598a79fDRvgfbxlPjo3Fg
         /DBWxvUNfMdGGXWoyzXKVxLSGMk946XxzagmwrX4wJdqYxRpHOG+8cm4NFRQU8AXPvGt2hxEGge4Y7w1
         LgwVhAf4pg3aUjGsIY2CB8Z3QzVaAtqiTRVLB2ns8cQ4N1RDJaHNx4aKKSCNLZ4byvlc/DGIQcVWI403
@@ -183,6 +183,9 @@
   </data>
   <metadata name="hideWindowTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>593, 17</value>
+  </metadata>
+  <metadata name="mainToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>959, 17</value>
   </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -7,7 +7,7 @@
 
 CapsLock Indicator is a small utility that indicates the state of the Num lock, Caps lock and Scroll lock key.
 
-# [Download](http://cli.jonaskohl.de/index.html#download)
+# [Download](http://cli.jonaskohl.de/!/download)
 
 # Edit & compile source code
 You need at least SharpDevelop 5.1 or VisualStudio 2010 to edit and compile the source code.

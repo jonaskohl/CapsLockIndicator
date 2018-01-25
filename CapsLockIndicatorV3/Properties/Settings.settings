@@ -59,5 +59,8 @@
     <Setting Name="indBdColourInactive" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">180, 52, 77</Value>
     </Setting>
+    <Setting Name="checkForUpdates" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

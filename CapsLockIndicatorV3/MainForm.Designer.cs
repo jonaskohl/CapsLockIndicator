@@ -73,23 +73,24 @@ namespace CapsLockIndicatorV3
             this.showNoIcons = new System.Windows.Forms.CheckBox();
             this.showNoNotification = new System.Windows.Forms.CheckBox();
             this.aboutPanel = new System.Windows.Forms.Panel();
+            this.appNameLabel = new CapsLockIndicatorV3.LnkLabel();
             this.logo = new CapsLockIndicatorV3.LnkLabel();
             this.aboutPanelTopBorder = new System.Windows.Forms.PictureBox();
             this.aboutText = new System.Windows.Forms.Label();
             this.hideWindow = new System.Windows.Forms.Button();
             this.exitApplication = new System.Windows.Forms.Button();
             this.generalIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.generalIconContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.indSettings = new System.Windows.Forms.Button();
             this.checkForUpdatesButton = new System.Windows.Forms.Button();
             this.startonlogonCheckBox = new System.Windows.Forms.CheckBox();
             this.hideOnStartupCheckBox = new System.Windows.Forms.CheckBox();
             this.hideWindowTimer = new System.Windows.Forms.Timer(this.components);
-            this.generalIconContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.appNameLabel = new CapsLockIndicatorV3.LnkLabel();
             this.mainToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.checkForUpdatedCheckBox = new System.Windows.Forms.CheckBox();
             this.iconsGroup.SuspendLayout();
             this.indicatorGroup.SuspendLayout();
             this.aboutPanel.SuspendLayout();
@@ -254,6 +255,22 @@ namespace CapsLockIndicatorV3
             this.aboutPanel.Size = new System.Drawing.Size(306, 66);
             this.aboutPanel.TabIndex = 4;
             // 
+            // appNameLabel
+            // 
+            this.appNameLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(77)))), ((int)(((byte)(180)))));
+            this.appNameLabel.AutoSize = true;
+            this.appNameLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.appNameLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.appNameLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(77)))), ((int)(((byte)(180)))));
+            this.appNameLabel.Location = new System.Drawing.Point(63, 10);
+            this.appNameLabel.Name = "appNameLabel";
+            this.appNameLabel.Size = new System.Drawing.Size(111, 15);
+            this.appNameLabel.TabIndex = 5;
+            this.appNameLabel.TabStop = true;
+            this.appNameLabel.Text = "CapsLock Indicator";
+            this.mainToolTip.SetToolTip(this.appNameLabel, "Visit CapsLock Indicator website");
+            this.appNameLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.appNameLabel_LinkClicked);
+            // 
             // logo
             // 
             this.logo.Image = ((System.Drawing.Image)(resources.GetObject("logo.Image")));
@@ -315,6 +332,34 @@ namespace CapsLockIndicatorV3
             this.generalIcon.Text = "CapsLock Indicator";
             this.generalIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.GeneralIconMouseDoubleClick);
             // 
+            // generalIconContextMenuStrip
+            // 
+            this.generalIconContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.exitToolStripMenuItem});
+            this.generalIconContextMenuStrip.Name = "generalIconContextMenuStrip";
+            this.generalIconContextMenuStrip.Size = new System.Drawing.Size(104, 54);
+            // 
+            // showToolStripMenuItem
+            // 
+            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.showToolStripMenuItem.Text = "&Show";
+            this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(100, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.exitToolStripMenuItem.Text = "&Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // indSettings
             // 
             this.indSettings.AutoSize = true;
@@ -331,9 +376,9 @@ namespace CapsLockIndicatorV3
             // 
             this.checkForUpdatesButton.AutoSize = true;
             this.checkForUpdatesButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.checkForUpdatesButton.Location = new System.Drawing.Point(58, 229);
+            this.checkForUpdatesButton.Location = new System.Drawing.Point(79, 229);
             this.checkForUpdatesButton.Name = "checkForUpdatesButton";
-            this.checkForUpdatesButton.Size = new System.Drawing.Size(202, 24);
+            this.checkForUpdatesButton.Size = new System.Drawing.Size(181, 24);
             this.checkForUpdatesButton.TabIndex = 9;
             this.checkForUpdatesButton.Text = "Check for &updates";
             this.checkForUpdatesButton.UseVisualStyleBackColor = true;
@@ -365,49 +410,17 @@ namespace CapsLockIndicatorV3
             // 
             this.hideWindowTimer.Tick += new System.EventHandler(this.hideWindowTimer_Tick);
             // 
-            // generalIconContextMenuStrip
+            // checkForUpdatedCheckBox
             // 
-            this.generalIconContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.exitToolStripMenuItem});
-            this.generalIconContextMenuStrip.Name = "generalIconContextMenuStrip";
-            this.generalIconContextMenuStrip.Size = new System.Drawing.Size(104, 54);
-            // 
-            // showToolStripMenuItem
-            // 
-            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.showToolStripMenuItem.Text = "&Show";
-            this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.exitToolStripMenuItem.Text = "&Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(100, 6);
-            // 
-            // appNameLabel
-            // 
-            this.appNameLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(77)))), ((int)(((byte)(180)))));
-            this.appNameLabel.AutoSize = true;
-            this.appNameLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.appNameLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.appNameLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(77)))), ((int)(((byte)(180)))));
-            this.appNameLabel.Location = new System.Drawing.Point(63, 10);
-            this.appNameLabel.Name = "appNameLabel";
-            this.appNameLabel.Size = new System.Drawing.Size(111, 15);
-            this.appNameLabel.TabIndex = 5;
-            this.appNameLabel.TabStop = true;
-            this.appNameLabel.Text = "CapsLock Indicator";
-            this.mainToolTip.SetToolTip(this.appNameLabel, "Visit CapsLock Indicator website");
-            this.appNameLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.appNameLabel_LinkClicked);
+            this.checkForUpdatedCheckBox.AutoSize = true;
+            this.checkForUpdatedCheckBox.Checked = true;
+            this.checkForUpdatedCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkForUpdatedCheckBox.Location = new System.Drawing.Point(58, 235);
+            this.checkForUpdatedCheckBox.Name = "checkForUpdatedCheckBox";
+            this.checkForUpdatedCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.checkForUpdatedCheckBox.TabIndex = 12;
+            this.checkForUpdatedCheckBox.UseVisualStyleBackColor = true;
+            this.checkForUpdatedCheckBox.CheckedChanged += new System.EventHandler(this.checkForUpdatedCheckBox_CheckedChanged);
             // 
             // MainForm
             // 
@@ -415,6 +428,7 @@ namespace CapsLockIndicatorV3
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(306, 329);
+            this.Controls.Add(this.checkForUpdatedCheckBox);
             this.Controls.Add(this.hideOnStartupCheckBox);
             this.Controls.Add(this.startonlogonCheckBox);
             this.Controls.Add(this.checkForUpdatesButton);
@@ -460,5 +474,6 @@ namespace CapsLockIndicatorV3
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private LnkLabel appNameLabel;
         private System.Windows.Forms.ToolTip mainToolTip;
+        private System.Windows.Forms.CheckBox checkForUpdatedCheckBox;
     }
 }

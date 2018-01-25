@@ -250,5 +250,17 @@ namespace CapsLockIndicatorV3.Properties {
                 this["indBdColourInactive"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool checkForUpdates {
+            get {
+                return ((bool)(this["checkForUpdates"]));
+            }
+            set {
+                this["checkForUpdates"] = value;
+            }
+        }
     }
 }

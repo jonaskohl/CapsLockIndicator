@@ -114,6 +114,8 @@ namespace CapsLockIndicatorV3
                 hideOnStartupCheckBox.Checked = true;
                 hideWindowTimer.Start();
             }
+
+            checkForUpdatedCheckBox.Checked = Properties.Settings.Default.checkForUpdates;
         }
 		
 		// This timer ticks approx. 60 times a second (overkill?)
@@ -262,17 +264,19 @@ namespace CapsLockIndicatorV3
 
         void doVersionCheck()
         {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
-            string version = fvi.FileVersion;
-            string copyright = fvi.LegalCopyright;
-            aboutText.Text = String.Format(resources.GetString("aboutTextFormat"), version, copyright);
             VersionCheck.IsLatestVersion(handleVersion);
         }
 
         void MainFormLoad(object sender, EventArgs e)
 		{
-            doVersionCheck();
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+            string version = fvi.FileVersion;
+            string copyright = fvi.LegalCopyright;
+            aboutText.Text = String.Format(resources.GetString("aboutTextFormat"), version, copyright);
+
+            if (Properties.Settings.Default.checkForUpdates)
+                doVersionCheck();
         }
 
 		void ExitApplicationClick(object sender, EventArgs e)
@@ -396,6 +400,12 @@ namespace CapsLockIndicatorV3
         private void appNameLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("http://cli.jonaskohl.de/");
+        }
+
+        private void checkForUpdatedCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.checkForUpdates = checkForUpdatedCheckBox.Checked;
+            Properties.Settings.Default.Save();
         }
     }
 }
