@@ -43,8 +43,8 @@ namespace CapsLockIndicatorV3
 		protected override void OnShown(EventArgs e)
 		{
 			Rectangle workingArea = Screen.GetWorkingArea(new Point(0, 0));
-			Left = workingArea.X + workingArea.Left + (workingArea.Width - Width - WINDOW_MARGIN);
-			Top = workingArea.Y + workingArea.Top + (workingArea.Height - Height - WINDOW_MARGIN);
+			Left = workingArea.X + workingArea.Left + (workingArea.Width - Width - WINDOW_MARGIN - workingArea.Left);
+			Top = workingArea.Y + workingArea.Top + (workingArea.Height - Height - WINDOW_MARGIN - workingArea.Top);
 			
 			base.OnShown(e);
 		}
