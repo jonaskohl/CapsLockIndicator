@@ -102,9 +102,9 @@ namespace CapsLockIndicatorV3
             this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveButton.AutoSize = true;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.saveButton.Location = new System.Drawing.Point(168, 400);
+            this.saveButton.Location = new System.Drawing.Point(124, 400);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(88, 24);
+            this.saveButton.Size = new System.Drawing.Size(132, 24);
             this.saveButton.TabIndex = 10;
             this.saveButton.Text = "&Save && close";
             this.saveButton.UseVisualStyleBackColor = true;

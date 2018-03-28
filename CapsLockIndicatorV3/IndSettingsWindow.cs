@@ -22,6 +22,18 @@ namespace CapsLockIndicatorV3
             borderColourDeactivatedPreview.BackColor = Properties.Settings.Default.indBdColourInactive;
 
             fontButton.Font = Properties.Settings.Default.indFont;
+
+            displayTimeGroup.Text = strings.displayTime;
+            fontGroupBox.Text = strings.fontGroup;
+            coloursGroup.Text = strings.coloursGroup;
+            fontButton.Text = string.Format(strings.keyIsOff, strings.capsLock);
+            saveButton.Text = strings.saveAndCloseButton;
+            backgroundColourActivatedButton.Text = strings.backgroundColourActivatedButton;
+            backgroundColourDeactivatedButton.Text = strings.backgroundColourDeactivatedButton;
+            borderColourActivatedButton.Text = strings.borderColourActivatedButton;
+            borderColourDeactivatedButton.Text = strings.borderColourDeactivatedButton;
+            foregroundColourActivatedButton.Text = strings.foregroundColourActivatedButton;
+            foregroundColourDeactivatedButton.Text = strings.foregroundColourDeactivatedButton;
         }
 
         private void displayTimeSlider_Scroll(object sender, EventArgs e)

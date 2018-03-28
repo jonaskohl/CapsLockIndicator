@@ -15,6 +15,11 @@ namespace CapsLockIndicatorV3
         public UpdateDialog()
         {
             InitializeComponent();
+
+            Text = strings.updateAvailable;
+            updateNowButton.Text = strings.updateNow;
+            dismissButton.Text = strings.dismissButton;
+            downloadManuallyButton.Text = strings.downloadManuallyButton;
         }
 
         private void downloadManuallyButton_Click(object sender, EventArgs e)

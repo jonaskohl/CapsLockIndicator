@@ -17,6 +17,9 @@ using System.Resources;
 using System.Linq;
 using Microsoft.Win32;
 using System.Xml.Linq;
+using System.Globalization;
+using System.Threading;
+using System.IO;
 
 namespace CapsLockIndicatorV3
 {
@@ -43,6 +46,7 @@ namespace CapsLockIndicatorV3
 
         public bool askCancel = true;
 		
+
 		public MainForm()
 		{
             Assembly assembly = Assembly.GetExecutingAssembly();
@@ -116,6 +120,77 @@ namespace CapsLockIndicatorV3
             }
 
             checkForUpdatedCheckBox.Checked = Properties.Settings.Default.checkForUpdates;
+
+            AddCultures();
+
+            ApplyLocales();
+        }
+
+        private void AddCultures()
+        {
+            int index = 1;
+            int selectIndex = 0;
+
+            localeComboBox.Items.Clear();
+
+            localeComboBox.Items.Add(new DropDownLocale("en-GB", "English (United Kingdom)"));
+
+            foreach (CultureInfo c in GetSupportedCulture())
+            {
+                if (c.Name.Trim().Length < 1)
+                    continue;
+                else
+                {
+                    localeComboBox.Items.Add(new DropDownLocale(c.Name, c.NativeName));
+
+                    if (c.TwoLetterISOLanguageName == Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName)
+                        selectIndex = index;
+
+                    index++;
+                }
+            }
+
+            if (Properties.Settings.Default.selectedUICulture < 0)
+                localeComboBox.SelectedIndex = selectIndex;
+            else if (Properties.Settings.Default.selectedUICulture < localeComboBox.Items.Count)
+                localeComboBox.SelectedIndex = Properties.Settings.Default.selectedUICulture;
+            else
+                localeComboBox.SelectedIndex = 0;
+        }
+
+        public IEnumerable<CultureInfo> GetSupportedCulture()
+        {
+            //Get all culture 
+            CultureInfo[] culture = CultureInfo.GetCultures(CultureTypes.AllCultures);
+
+            //Find the location where application installed.
+            string exeLocation = Path.GetDirectoryName(Uri.UnescapeDataString(new UriBuilder(Assembly.GetExecutingAssembly().CodeBase).Path));
+
+            //Return all culture for which satellite folder found with culture code.
+            return culture.Where(cultureInfo => Directory.Exists(Path.Combine(exeLocation, cultureInfo.Name)));
+        }
+
+        void ApplyLocales()
+        {
+            iconsGroup.Text = strings.showIconsFor;
+            indicatorGroup.Text = strings.showNotificationWhen;
+            enableNumIcon.Text = strings.numLock;
+            enableCapsIcon.Text = strings.capsLock;
+            enableScrollIcon.Text = strings.scrollLock;
+            enableNumInd.Text = string.Format(strings.keyChanged, strings.numLock);
+            enableCapsInd.Text = string.Format(strings.keyChanged, strings.capsLock);
+            enableScrollInd.Text = string.Format(strings.keyChanged, strings.scrollLock);
+            showNoIcons.Text = strings.showNoIcons;
+            showNoNotification.Text = strings.showNoNotification;
+            hideWindow.Text = strings.hideWindow;
+            exitApplication.Text = strings.exitApplication;
+            indSettings.Text = strings.notificationSettings;
+            checkForUpdatesButton.Text = strings.checkForUpdates;
+            startonlogonCheckBox.Text = strings.startOnLogon;
+            generalIcon.BalloonTipText = strings.generalIconBalloonText;
+            showToolStripMenuItem.Text = strings.contextMenuShow;
+            exitToolStripMenuItem.Text = strings.contextMenuExit;
+            hideOnStartupCheckBox.Text = strings.hideOnStartup;
         }
 		
 		// This timer ticks approx. 60 times a second (overkill?)
@@ -136,19 +211,20 @@ namespace CapsLockIndicatorV3
 				scrollLockIcon.Icon = KeyHelper.isScrolllockActive ? ScrollOn : ScrollOff;
 			else
 				scrollLockIcon.Icon = null;
-			
-			// Handle the overlay
-			if (numState != KeyHelper.isNumlockActive && enableNumInd.Checked && !showNoNotification.Checked)
-				ShowOverlay("Numlock is " + (KeyHelper.isNumlockActive ? "on" : "off"), KeyHelper.isNumlockActive);
+
+            // Handle the overlay
+            if (numState != KeyHelper.isNumlockActive && enableNumInd.Checked && !showNoNotification.Checked)
+                ShowOverlay(string.Format(KeyHelper.isNumlockActive ? strings.keyIsOn : strings.keyIsOff, strings.numLock), KeyHelper.isNumlockActive);
+				//ShowOverlay("Numlock is " + (KeyHelper.isNumlockActive ? "on" : "off"), KeyHelper.isNumlockActive);
 			
 			if (capsState != KeyHelper.isCapslockActive && enableCapsInd.Checked && !showNoNotification.Checked)
-				ShowOverlay("Capslock is " + (KeyHelper.isCapslockActive ? "on" : "off"), KeyHelper.isCapslockActive);
-			
-			if (scrollState != KeyHelper.isScrolllockActive && enableScrollInd.Checked && !showNoNotification.Checked)
-				ShowOverlay("Scrolllock is " + (KeyHelper.isScrolllockActive ? "on" : "off"), KeyHelper.isScrolllockActive);
-			
-			// Reset the values
-			numState = KeyHelper.isNumlockActive;
+                ShowOverlay(string.Format(KeyHelper.isCapslockActive ? strings.keyIsOn : strings.keyIsOff, strings.capsLock), KeyHelper.isCapslockActive);
+
+            if (scrollState != KeyHelper.isScrolllockActive && enableScrollInd.Checked && !showNoNotification.Checked)
+                ShowOverlay(string.Format(KeyHelper.isScrolllockActive ? strings.keyIsOn : strings.keyIsOff, strings.scrollLock), KeyHelper.isScrolllockActive);
+
+            // Reset the values
+            numState = KeyHelper.isNumlockActive;
 			capsState = KeyHelper.isCapslockActive;
 			scrollState = KeyHelper.isScrolllockActive;
 		}
@@ -233,12 +309,12 @@ namespace CapsLockIndicatorV3
 
                 Version cVersion = new Version(currentVersion);
                 Version lVersion = new Version(latestVersion);
-                
+
                 if (lVersion > cVersion)
                 {
                     UpdateDialog ud = new UpdateDialog();
                     ud.changelogRtf.Rtf = changelog;
-                    ud.infoLabel.Text = string.Format("Version {0}, released {1}", latestVersion, release_date);
+                    ud.infoLabel.Text = string.Format(strings.updateInfoFormat, latestVersion, release_date);
                     DialogResult res = ud.ShowDialog();
 
                     if (res == DialogResult.OK)
@@ -258,7 +334,7 @@ namespace CapsLockIndicatorV3
                 
             }
 
-            checkForUpdatesButton.Text = "Check for &updates";
+            checkForUpdatesButton.Text = strings.checkForUpdates;
             checkForUpdatesButton.Enabled = true;
         }
 
@@ -281,7 +357,7 @@ namespace CapsLockIndicatorV3
 
 		void ExitApplicationClick(object sender, EventArgs e)
 		{
-            if (MessageBox.Show("Exiting the application means the icons and notifications are no longer displayed. Exit anyway?", "CapsLock Indicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            if (MessageBox.Show(strings.exitMessage, "CapsLock Indicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 Close();
             }
@@ -346,7 +422,7 @@ namespace CapsLockIndicatorV3
         private void checkForUpdatesButton_Click(object sender, EventArgs e)
         {
             checkForUpdatesButton.Enabled = false;
-            checkForUpdatesButton.Text = "Checking for updates...";
+            checkForUpdatesButton.Text = strings.checkingForUpdates;
             doVersionCheck();
         }
 
@@ -406,6 +482,24 @@ namespace CapsLockIndicatorV3
         {
             Properties.Settings.Default.checkForUpdates = checkForUpdatedCheckBox.Checked;
             Properties.Settings.Default.Save();
+        }
+
+        private void localeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownLocale locale = (DropDownLocale)localeComboBox.SelectedItem;
+
+            if (locale.localeString == "__default")
+            {
+                Thread.CurrentThread.CurrentUICulture = CultureInfo.DefaultThreadCurrentCulture;
+            } else
+            {
+                Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(locale.localeString);
+            }
+
+            Properties.Settings.Default.selectedUICulture = localeComboBox.SelectedIndex;
+            Properties.Settings.Default.Save();
+
+            ApplyLocales();
         }
     }
 }

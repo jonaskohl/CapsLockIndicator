@@ -2,65 +2,68 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CapsLockIndicatorV3.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="numIco" Type="System.Boolean" Scope="User">
+    <Setting Name="numIco" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="capsIco" Type="System.Boolean" Scope="User">
+    <Setting Name="capsIco" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="scrollIco" Type="System.Boolean" Scope="User">
+    <Setting Name="scrollIco" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="numInd" Type="System.Boolean" Scope="User">
+    <Setting Name="numInd" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="capsInd" Type="System.Boolean" Scope="User">
+    <Setting Name="capsInd" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="scrollInd" Type="System.Boolean" Scope="User">
+    <Setting Name="scrollInd" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="noIco" Type="System.Boolean" Scope="User">
+    <Setting Name="noIco" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="noInd" Type="System.Boolean" Scope="User">
+    <Setting Name="noInd" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="beta_enableDarkMode" Type="System.Boolean" Scope="User">
+    <Setting Name="beta_enableDarkMode" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="indDisplayTime" Type="System.Int32" Scope="User">
+    <Setting Name="indDisplayTime" Roaming="true" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">500</Value>
     </Setting>
-    <Setting Name="indBgColourActive" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="indBgColourActive" Roaming="true" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">66, 66, 66</Value>
     </Setting>
-    <Setting Name="indFgColourActive" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="indFgColourActive" Roaming="true" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">White</Value>
     </Setting>
-    <Setting Name="indBdColourActive" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="indBdColourActive" Roaming="true" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">77, 180, 52</Value>
     </Setting>
-    <Setting Name="versionNo" Type="System.String" Scope="User">
+    <Setting Name="versionNo" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)">3.4.0.0</Value>
     </Setting>
-    <Setting Name="hideOnStartup" Type="System.Boolean" Scope="User">
+    <Setting Name="hideOnStartup" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="indFont" Type="System.Drawing.Font" Scope="User">
+    <Setting Name="indFont" Roaming="true" Type="System.Drawing.Font" Scope="User">
       <Value Profile="(Default)">Segoe UI, 12pt</Value>
     </Setting>
-    <Setting Name="indBgColourInactive" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="indBgColourInactive" Roaming="true" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">66, 66, 66</Value>
     </Setting>
-    <Setting Name="indFgColourInactive" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="indFgColourInactive" Roaming="true" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">White</Value>
     </Setting>
-    <Setting Name="indBdColourInactive" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="indBdColourInactive" Roaming="true" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">180, 52, 77</Value>
     </Setting>
-    <Setting Name="checkForUpdates" Type="System.Boolean" Scope="User">
+    <Setting Name="checkForUpdates" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="selectedUICulture" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">-1</Value>
     </Setting>
   </Settings>
 </SettingsFile>

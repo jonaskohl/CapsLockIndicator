@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="backgroundColourActivatedButton" xml:space="preserve">
+    <value>Hintergrund aktiv</value>
+  </data>
+  <data name="backgroundColourDeactivatedButton" xml:space="preserve">
+    <value>Hintergrund inaktiv</value>
+  </data>
+  <data name="borderColourActivatedButton" xml:space="preserve">
+    <value>Rand aktiv</value>
+  </data>
+  <data name="borderColourDeactivatedButton" xml:space="preserve">
+    <value>Rand inaktiv</value>
+  </data>
+  <data name="capsLock" xml:space="preserve">
+    <value>Feststelltaste</value>
+  </data>
+  <data name="checkForUpdates" xml:space="preserve">
+    <value>Nach Updates suchen</value>
+  </data>
+  <data name="checkingForUpdates" xml:space="preserve">
+    <value>Suche nach Updates...</value>
+  </data>
+  <data name="coloursGroup" xml:space="preserve">
+    <value>Farben</value>
+  </data>
+  <data name="contextMenuExit" xml:space="preserve">
+    <value>&amp;Verlassen</value>
+  </data>
+  <data name="contextMenuShow" xml:space="preserve">
+    <value>&amp;Anzeigen</value>
+  </data>
+  <data name="dismissButton" xml:space="preserve">
+    <value>&amp;Schließen</value>
+  </data>
+  <data name="displayTime" xml:space="preserve">
+    <value>Anzeigedauer</value>
+  </data>
+  <data name="downloadManuallyButton" xml:space="preserve">
+    <value>&amp;Manuell runterladen</value>
+  </data>
+  <data name="exitApplication" xml:space="preserve">
+    <value>V&amp;erlassen</value>
+  </data>
+  <data name="exitMessage" xml:space="preserve">
+    <value>Die Anwendung zu verlassen heißt, dass die Icons und Benachrichtigungen nicht länger angezeigt weden. Trotzdem verlassen?</value>
+  </data>
+  <data name="fontGroup" xml:space="preserve">
+    <value>Schrift</value>
+  </data>
+  <data name="foregroundColourActivatedButton" xml:space="preserve">
+    <value>Text aktiv</value>
+  </data>
+  <data name="foregroundColourDeactivatedButton" xml:space="preserve">
+    <value>Text inaktiv</value>
+  </data>
+  <data name="generalIconBalloonText" xml:space="preserve">
+    <value>CapsLock Indicator kann wieder angezeigt werden, wenn Sie auf dieses Symbol doppelklicken.</value>
+  </data>
+  <data name="hideOnStartup" xml:space="preserve">
+    <value>Beim Starten verstecken</value>
+  </data>
+  <data name="hideWindow" xml:space="preserve">
+    <value>Verstecken</value>
+  </data>
+  <data name="keyChanged" xml:space="preserve">
+    <value>{0} sich ändert</value>
+  </data>
+  <data name="keyIsOff" xml:space="preserve">
+    <value>{0} ist aus</value>
+  </data>
+  <data name="keyIsOn" xml:space="preserve">
+    <value>{0} ist an</value>
+  </data>
+  <data name="notificationSettings" xml:space="preserve">
+    <value>Benachr.-Einst.</value>
+  </data>
+  <data name="notificationSettingsTitle" xml:space="preserve">
+    <value>Benachrichtiguns-Einstellungen</value>
+  </data>
+  <data name="numLock" xml:space="preserve">
+    <value>Num-Lock</value>
+  </data>
+  <data name="saveAndCloseButton" xml:space="preserve">
+    <value>&amp;Speichern &amp;&amp; schließen</value>
+  </data>
+  <data name="scrollLock" xml:space="preserve">
+    <value>Rollen</value>
+  </data>
+  <data name="showIconsFor" xml:space="preserve">
+    <value>Icons zeigen für...</value>
+  </data>
+  <data name="showNoIcons" xml:space="preserve">
+    <value>Keine Icons zeigen</value>
+  </data>
+  <data name="showNoNotification" xml:space="preserve">
+    <value>Keine Benachr. anzeigen</value>
+  </data>
+  <data name="showNotificationWhen" xml:space="preserve">
+    <value>Zeige Benachr., wenn...</value>
+  </data>
+  <data name="startOnLogon" xml:space="preserve">
+    <value>Autostart</value>
+  </data>
+  <data name="updateAvailable" xml:space="preserve">
+    <value>CapsLock Indicator Update verfügbar!</value>
+  </data>
+  <data name="updateInfoFormat" xml:space="preserve">
+    <value>Version {0}, erschienen {1}</value>
+  </data>
+  <data name="updateNow" xml:space="preserve">
+    <value>Jetzt update&amp;n</value>
+  </data>
+</root>
