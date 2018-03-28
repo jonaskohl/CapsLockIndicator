@@ -25,7 +25,9 @@ namespace CapsLockIndicatorV3
         {
             Uri uri = new Uri(url);
             string filename = Path.GetFileName(uri.LocalPath);
-            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Jonas_Kohl\" + filename);
+            string currentPath = Path.GetDirectoryName(Application.ExecutablePath);
+            string path = Path.Combine(currentPath, filename);
+            //string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Jonas_Kohl\" + filename);
 
             sw.Start();
 

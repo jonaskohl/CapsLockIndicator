@@ -89,6 +89,7 @@ namespace CapsLockIndicatorV3
             // 
             // restartButton
             // 
+            this.restartButton.BackColor = System.Drawing.SystemColors.Control;
             this.restartButton.Enabled = false;
             this.restartButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.restartButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -105,6 +106,7 @@ namespace CapsLockIndicatorV3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(393, 91);
             this.Controls.Add(this.restartButton);
             this.Controls.Add(this.closeButton);
