@@ -130,8 +130,8 @@
     <comment>The caption for the "Border colour activated" button.</comment>
   </data>
   <data name="borderColourDeactivatedButton" xml:space="preserve">
-    <value>Border colour decativated</value>
-    <comment>The caption for the "Border colour decativated" button.</comment>
+    <value>Border colour deactivated</value>
+    <comment>The caption for the "Border colour deactivated" button.</comment>
   </data>
   <data name="capsLock" xml:space="preserve">
     <value>Caps lock</value>
