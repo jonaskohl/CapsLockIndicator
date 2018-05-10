@@ -198,6 +198,12 @@
   <data name="numLock" xml:space="preserve">
     <value>Num-Lock</value>
   </data>
+  <data name="overlayPositionGroup" xml:space="preserve">
+    <value>Benachrichtigungsposition</value>
+  </data>
+  <data name="permanentIndicator" xml:space="preserve">
+    <value>Dauerhaft</value>
+  </data>
   <data name="saveAndCloseButton" xml:space="preserve">
     <value>&amp;Speichern &amp;&amp; schließen</value>
   </data>

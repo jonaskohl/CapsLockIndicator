@@ -68,16 +68,9 @@ namespace CapsLockIndicatorV3
 			
 			// Load "resources.resx" into a ResourceManager to access its resources
 			resources = new ResourceManager("CapsLockIndicatorV3.resources", Assembly.GetExecutingAssembly());
-			
-			// Load the icons into variables
-			CapsOff = (Icon)resources.GetObject("CLIv3_Caps_Off");
-			CapsOn = (Icon)resources.GetObject("CLIv3_Caps_On");
-			
-			NumOff = (Icon)resources.GetObject("CLIv3_Num_Off");
-			NumOn = (Icon)resources.GetObject("CLIv3_Num_On");
-			
-			ScrollOff = (Icon)resources.GetObject("CLIv3_Scroll_Off");
-			ScrollOn = (Icon)resources.GetObject("CLIv3_Scroll_On");
+
+            // Load the icons into variables
+            ReloadIcons();
 			
 			// Set the values
 			numState = KeyHelper.isNumlockActive;
@@ -124,6 +117,18 @@ namespace CapsLockIndicatorV3
             AddCultures();
 
             ApplyLocales();
+        }
+
+        private void ReloadIcons()
+        {
+            CapsOff = File.Exists("caps0.ico") ? Icon.ExtractAssociatedIcon("caps0.ico") : (Icon)resources.GetObject("CLIv3_Caps_Off");
+            CapsOn = File.Exists("caps1.ico") ? Icon.ExtractAssociatedIcon("caps1.ico") : (Icon)resources.GetObject("CLIv3_Caps_On");
+
+            NumOff = File.Exists("num0.ico") ? Icon.ExtractAssociatedIcon("num0.ico") : (Icon)resources.GetObject("CLIv3_Num_Off");
+            NumOn = File.Exists("num1.ico") ? Icon.ExtractAssociatedIcon("num1.ico") : (Icon)resources.GetObject("CLIv3_Num_On");
+
+            ScrollOff = File.Exists("scroll0.ico") ? Icon.ExtractAssociatedIcon("scroll0.ico") : (Icon)resources.GetObject("CLIv3_Scroll_Off");
+            ScrollOn = File.Exists("scroll1.ico") ? Icon.ExtractAssociatedIcon("scroll1.ico") : (Icon)resources.GetObject("CLIv3_Scroll_On");
         }
 
         private void AddCultures()
@@ -242,6 +247,7 @@ namespace CapsLockIndicatorV3
                     , isActive ? Properties.Settings.Default.indFgColourActive : Properties.Settings.Default.indFgColourInactive
                     , isActive ? Properties.Settings.Default.indBdColourActive : Properties.Settings.Default.indBdColourInactive
                     , Properties.Settings.Default.indFont
+                    , Properties.Settings.Default.overlayPosition
                 );
             }
             else
@@ -253,6 +259,7 @@ namespace CapsLockIndicatorV3
                     , isActive ? Properties.Settings.Default.indFgColourActive : Properties.Settings.Default.indFgColourInactive
                     , isActive ? Properties.Settings.Default.indBdColourActive : Properties.Settings.Default.indBdColourInactive
                     , Properties.Settings.Default.indFont
+                    , Properties.Settings.Default.overlayPosition
                 );
                 indicatorOverlay.Show();
             }
@@ -500,6 +507,16 @@ namespace CapsLockIndicatorV3
             Properties.Settings.Default.Save();
 
             ApplyLocales();
+        }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.Shift && !e.Alt && e.KeyCode == Keys.P)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+                ReloadIcons();
+            }
         }
     }
 }

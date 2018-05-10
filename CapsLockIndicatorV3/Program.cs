@@ -91,6 +91,11 @@ namespace CapsLockIndicatorV3
         {
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(l);
         }
+        static void SetDisplayLocation(string v)
+        {
+            if (Enum.TryParse(v, out IndicatorDisplayPosition position))
+                Properties.Settings.Default.overlayPosition = position;
+        }
 
         // Create a mutex to check if an instance is already running
         static Mutex mutex = new Mutex(true, "{6f54c357-0542-4d7d-9225-338bc3cd7834}");
@@ -114,7 +119,8 @@ namespace CapsLockIndicatorV3
                     { "a|autostart=", "Enable auto start (Type: Boolean)", (bool v) => SetStartup(v) },
                     { "s|hidestarup=", "Enable or disable hide on startup setting (Type: Boolean)", (bool v) => SetHideStartup(v) },
                     { "v|disverchk=", "Disable the automatic version checking (Type: Boolean)", (bool v) => SetVerCheck(v) },
-                    { "l|locale=", "Override the UI locale (Type: String)", (string v) => SetLocale(v) }
+                    { "l|locale=", "Override the UI locale (Type: String)", (string v) => SetLocale(v) },
+                    { "p|position=", "Set the indicator display position (Type: IndicatorDisplayPosition)", (string v) => SetDisplayLocation(v) }
                 };
 
                 List<string> extra;
@@ -148,5 +154,5 @@ namespace CapsLockIndicatorV3
                 MessageBox.Show("An instance is already open!");
             }
 		}
-	}
+    }
 }

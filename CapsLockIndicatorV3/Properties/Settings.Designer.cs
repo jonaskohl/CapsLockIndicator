@@ -294,5 +294,17 @@ namespace CapsLockIndicatorV3.Properties {
                 this["selectedUICulture"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("BottomRight")]
+        public global::CapsLockIndicatorV3.IndicatorDisplayPosition overlayPosition {
+            get {
+                return ((global::CapsLockIndicatorV3.IndicatorDisplayPosition)(this["overlayPosition"]));
+            }
+            set {
+                this["overlayPosition"] = value;
+            }
+        }
     }
 }

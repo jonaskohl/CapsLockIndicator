@@ -9,8 +9,8 @@ namespace CapsLockIndicatorV3
         {
             InitializeComponent();
 
-            displayTimeSlider.Value = Properties.Settings.Default.indDisplayTime;
-            displayTimeLabel.Text = String.Format("{0} ms", displayTimeSlider.Value);
+            displayTimeSlider.Value = Properties.Settings.Default.indDisplayTime > 0 ? Properties.Settings.Default.indDisplayTime : 2001;
+            displayTimeLabel.Text = displayTimeSlider.Value < 2001 ? string.Format("{0} ms", displayTimeSlider.Value) : strings.permanentIndicator;
 
             backgroundColourActivatedPreview.BackColor = Properties.Settings.Default.indBgColourActive;
             backgroundColourDeactivatedPreview.BackColor = Properties.Settings.Default.indBgColourInactive;
@@ -23,6 +23,39 @@ namespace CapsLockIndicatorV3
 
             fontButton.Font = Properties.Settings.Default.indFont;
 
+            switch (Properties.Settings.Default.overlayPosition)
+            {
+                case IndicatorDisplayPosition.TopLeft:
+                    positionTopLeft.Checked = true;
+                    break;
+                case IndicatorDisplayPosition.TopCenter:
+                    positionTopCenter.Checked = true;
+                    break;
+                case IndicatorDisplayPosition.TopRight:
+                    positionTopRight.Checked = true;
+                    break;
+                case IndicatorDisplayPosition.MiddleLeft:
+                    positionMiddleLeft.Checked = true;
+                    break;
+                case IndicatorDisplayPosition.MiddleCenter:
+                    positionMiddleCenter.Checked = true;
+                    break;
+                case IndicatorDisplayPosition.MiddleRight:
+                    positionMiddleRight.Checked = true;
+                    break;
+                case IndicatorDisplayPosition.BottomLeft:
+                    positionBottomLeft.Checked = true;
+                    break;
+                case IndicatorDisplayPosition.BottomCenter:
+                    positionBottomCenter.Checked = true;
+                    break;
+                case IndicatorDisplayPosition.BottomRight:
+                    positionBottomRight.Checked = true;
+                    break;
+                default:
+                    break;
+            }
+
             displayTimeGroup.Text = strings.displayTime;
             fontGroupBox.Text = strings.fontGroup;
             coloursGroup.Text = strings.coloursGroup;
@@ -34,12 +67,13 @@ namespace CapsLockIndicatorV3
             borderColourDeactivatedButton.Text = strings.borderColourDeactivatedButton;
             foregroundColourActivatedButton.Text = strings.foregroundColourActivatedButton;
             foregroundColourDeactivatedButton.Text = strings.foregroundColourDeactivatedButton;
+            positionGroup.Text = strings.overlayPositionGroup;
         }
 
         private void displayTimeSlider_Scroll(object sender, EventArgs e)
         {
-            Properties.Settings.Default.indDisplayTime = displayTimeSlider.Value;
-            displayTimeLabel.Text = string.Format("{0} ms", displayTimeSlider.Value);
+            Properties.Settings.Default.indDisplayTime = displayTimeSlider.Value < 2001 ? displayTimeSlider.Value : -1;
+            displayTimeLabel.Text = displayTimeSlider.Value < 2001 ? string.Format("{0} ms", displayTimeSlider.Value) : strings.permanentIndicator;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -51,7 +85,9 @@ namespace CapsLockIndicatorV3
 
         private void displayTimeLabel_Click(object sender, EventArgs e)
         {
-            NumberInputDialog numberInputDialog = new NumberInputDialog(displayTimeSlider.Value, displayTimeSlider.Minimum, displayTimeSlider.Maximum);
+            if (displayTimeSlider.Value > 2000)
+                return;
+            NumberInputDialog numberInputDialog = new NumberInputDialog(displayTimeSlider.Value, displayTimeSlider.Minimum, displayTimeSlider.Maximum - 1);
             if (numberInputDialog.ShowDialog() == DialogResult.OK)
             {
                 displayTimeSlider.Value = numberInputDialog.Value;
@@ -133,6 +169,14 @@ namespace CapsLockIndicatorV3
         private void cancelButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void positionButton_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton _sender = sender as RadioButton;
+            string posName = _sender.Name.Substring(8);
+            Enum.TryParse(posName, out IndicatorDisplayPosition position);
+            Properties.Settings.Default.overlayPosition = position;
         }
     }
 }

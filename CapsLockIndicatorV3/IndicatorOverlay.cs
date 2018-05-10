@@ -14,6 +14,8 @@ namespace CapsLockIndicatorV3
 	/// </summary>
 	public partial class IndicatorOverlay : Form
 	{
+        private IndicatorDisplayPosition pos = IndicatorDisplayPosition.BottomRight;
+
 		const int WINDOW_MARGIN = 16;
 
         Color BorderColour = Color.FromArgb(
@@ -42,12 +44,57 @@ namespace CapsLockIndicatorV3
 		
 		protected override void OnShown(EventArgs e)
 		{
-			Rectangle workingArea = Screen.GetWorkingArea(new Point(0, 0));
-			Left = workingArea.X + workingArea.Left + (workingArea.Width - Width - WINDOW_MARGIN - workingArea.Left);
-			Top = workingArea.Y + workingArea.Top + (workingArea.Height - Height - WINDOW_MARGIN - workingArea.Top);
-			
-			base.OnShown(e);
+            UpdatePosition();
+
+            base.OnShown(e);
 		}
+
+        void UpdatePosition()
+        {
+            Rectangle workingArea = Screen.GetWorkingArea(new Point(0, 0));
+
+            switch (pos)
+            {
+                case IndicatorDisplayPosition.TopLeft:
+                    Left = workingArea.X + WINDOW_MARGIN;
+                    Top = workingArea.Y + WINDOW_MARGIN;
+                    break;
+                case IndicatorDisplayPosition.TopCenter:
+                    Left = workingArea.X + (workingArea.Width / 2 - Width / 2);
+                    Top = workingArea.Y + WINDOW_MARGIN;
+                    break;
+                case IndicatorDisplayPosition.TopRight:
+                    Left = workingArea.X + workingArea.Left + (workingArea.Width - Width - WINDOW_MARGIN - workingArea.Left);
+                    Top = workingArea.Y + WINDOW_MARGIN;
+                    break;
+                case IndicatorDisplayPosition.MiddleLeft:
+                    Left = workingArea.X + WINDOW_MARGIN;
+                    Top = workingArea.Y + (workingArea.Height / 2 - Height / 2);
+                    break;
+                case IndicatorDisplayPosition.MiddleCenter:
+                    Left = workingArea.X + (workingArea.Width / 2 - Width / 2);
+                    Top = workingArea.Y + (workingArea.Height / 2 - Height / 2);
+                    break;
+                case IndicatorDisplayPosition.MiddleRight:
+                    Left = workingArea.X + workingArea.Left + (workingArea.Width - Width - WINDOW_MARGIN - workingArea.Left);
+                    Top = workingArea.Y + (workingArea.Height / 2 - Height / 2);
+                    break;
+                case IndicatorDisplayPosition.BottomLeft:
+                    Left = workingArea.X + WINDOW_MARGIN;
+                    Top = workingArea.Y + workingArea.Top + (workingArea.Height - Height - WINDOW_MARGIN - workingArea.Top);
+                    break;
+                case IndicatorDisplayPosition.BottomCenter:
+                    Left = workingArea.X + (workingArea.Width / 2 - Width / 2);
+                    Top = workingArea.Y + workingArea.Top + (workingArea.Height - Height - WINDOW_MARGIN - workingArea.Top);
+                    break;
+                case IndicatorDisplayPosition.BottomRight:
+                    Left = workingArea.X + workingArea.Left + (workingArea.Width - Width - WINDOW_MARGIN - workingArea.Left);
+                    Top = workingArea.Y + workingArea.Top + (workingArea.Height - Height - WINDOW_MARGIN - workingArea.Top);
+                    break;
+                default:
+                    break;
+            }
+        }
 		
 		protected override void OnPaint(PaintEventArgs e)
 		{
@@ -61,28 +108,47 @@ namespace CapsLockIndicatorV3
 			contentLabel.Text = content;
 		}
 		
-		public IndicatorOverlay(string content, int timeoutInMs)
-		{
-			InitializeComponent();
+		public IndicatorOverlay(string content, int timeoutInMs, IndicatorDisplayPosition position)
+        {
+            pos = position;
+            InitializeComponent();
 			contentLabel.Text = content;
-			windowCloseTimer.Interval = timeoutInMs;
-            fadeTimer.Interval = (int)Math.Floor((decimal)(timeoutInMs / 20));
+            if (timeoutInMs < 0)
+            {
+                windowCloseTimer.Enabled = false;
+                fadeTimer.Enabled = false;
+            }
+            else
+            {
+                windowCloseTimer.Interval = timeoutInMs;
+                fadeTimer.Interval = (int)Math.Floor((decimal)(timeoutInMs / 20));
+            }
 		}
 
-        public IndicatorOverlay(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, Font font)
+        public IndicatorOverlay(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, Font font, IndicatorDisplayPosition position)
         {
+            pos = position;
             InitializeComponent();
             contentLabel.Text = content;
             Font = font;
-            windowCloseTimer.Interval = timeoutInMs;
-            fadeTimer.Interval = (int)Math.Floor((decimal)(timeoutInMs / 20));
+            if (timeoutInMs < 0)
+            {
+                windowCloseTimer.Enabled = false;
+                fadeTimer.Enabled = false;
+            }
+            else
+            {
+                windowCloseTimer.Interval = timeoutInMs;
+                fadeTimer.Interval = (int)Math.Floor((decimal)(timeoutInMs / 20));
+            }
             BackColor = bgColour;
             ForeColor = fgColour;
             BorderColour = bdColour;
         }
 
-        public void UpdateIndicator(string content)
+        public void UpdateIndicator(string content, IndicatorDisplayPosition position)
         {
+            pos = position;
             Opacity = 1;
             contentLabel.Text = content;
             opacity_timer_value = 2.0;
@@ -90,35 +156,56 @@ namespace CapsLockIndicatorV3
             windowCloseTimer.Start();
             fadeTimer.Stop();
             fadeTimer.Start();
+            UpdatePosition();
         }
 
-        public void UpdateIndicator(string content, int timeoutInMs)
+        public void UpdateIndicator(string content, int timeoutInMs, IndicatorDisplayPosition position)
         {
+            pos = position;
             Opacity = 1;
             contentLabel.Text = content;
             opacity_timer_value = 2.0;
-            windowCloseTimer.Stop();
-            windowCloseTimer.Interval = timeoutInMs;
-            windowCloseTimer.Start();
-            fadeTimer.Stop();
-            fadeTimer.Start();
+            if (timeoutInMs < 0)
+            {
+                windowCloseTimer.Enabled = false;
+                fadeTimer.Enabled = false;
+            }
+            else
+            {
+                windowCloseTimer.Stop();
+                windowCloseTimer.Interval = timeoutInMs;
+                windowCloseTimer.Start();
+                fadeTimer.Stop();
+                fadeTimer.Start();
+            }
+            UpdatePosition();
         }
 
-        public void UpdateIndicator(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, Font font)
+        public void UpdateIndicator(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, Font font, IndicatorDisplayPosition position)
         {
+            pos = position;
             Opacity = 1;
             contentLabel.Text = content;
             Font = font;
             opacity_timer_value = 2.0;
-            windowCloseTimer.Stop();
-            windowCloseTimer.Interval = timeoutInMs;
-            windowCloseTimer.Start();
-            fadeTimer.Stop();
-            fadeTimer.Start();
+            if (timeoutInMs < 0)
+            {
+                windowCloseTimer.Enabled = false;
+                fadeTimer.Enabled = false;
+            }
+            else
+            {
+                windowCloseTimer.Stop();
+                windowCloseTimer.Interval = timeoutInMs;
+                windowCloseTimer.Start();
+                fadeTimer.Stop();
+                fadeTimer.Start();
+            }
             BackColor = bgColour;
             ForeColor = fgColour;
             BorderColour = bdColour;
             Invalidate();
+            UpdatePosition();
         }
 
         void WindowCloseTimerTick(object sender, EventArgs e)

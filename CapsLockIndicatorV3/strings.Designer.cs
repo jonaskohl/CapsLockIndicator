@@ -88,7 +88,7 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Border colour decativated ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Border colour deactivated ähnelt.
         /// </summary>
         internal static string borderColourDeactivatedButton {
             get {
@@ -300,6 +300,24 @@ namespace CapsLockIndicatorV3 {
         internal static string numLock {
             get {
                 return ResourceManager.GetString("numLock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Overlay position ähnelt.
+        /// </summary>
+        internal static string overlayPositionGroup {
+            get {
+                return ResourceManager.GetString("overlayPositionGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Permanently ähnelt.
+        /// </summary>
+        internal static string permanentIndicator {
+            get {
+                return ResourceManager.GetString("permanentIndicator", resourceCulture);
             }
         }
         

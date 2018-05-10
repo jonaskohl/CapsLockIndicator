@@ -84,6 +84,7 @@
     <Compile Include="HelpWindow.Designer.cs">
       <DependentUpon>HelpWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="IndicatorDisplayPosition.cs" />
     <Compile Include="IndicatorOverlay.cs">
       <SubType>Form</SubType>
     </Compile>

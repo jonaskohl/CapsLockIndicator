@@ -50,6 +50,17 @@ namespace CapsLockIndicatorV3
             this.fontGroupBox = new System.Windows.Forms.GroupBox();
             this.fontButton = new System.Windows.Forms.Button();
             this.indFontChooser = new System.Windows.Forms.FontDialog();
+            this.positionGroup = new System.Windows.Forms.GroupBox();
+            this.positionButtonLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.positionBottomRight = new System.Windows.Forms.RadioButton();
+            this.positionBottomCenter = new System.Windows.Forms.RadioButton();
+            this.positionBottomLeft = new System.Windows.Forms.RadioButton();
+            this.positionMiddleRight = new System.Windows.Forms.RadioButton();
+            this.positionMiddleCenter = new System.Windows.Forms.RadioButton();
+            this.positionMiddleLeft = new System.Windows.Forms.RadioButton();
+            this.positionTopRight = new System.Windows.Forms.RadioButton();
+            this.positionTopCenter = new System.Windows.Forms.RadioButton();
+            this.positionTopLeft = new System.Windows.Forms.RadioButton();
             this.displayTimeGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.displayTimeSlider)).BeginInit();
             this.coloursGroup.SuspendLayout();
@@ -60,6 +71,8 @@ namespace CapsLockIndicatorV3
             ((System.ComponentModel.ISupportInitialize)(this.foregroundColourActivatedPreview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backgroundColourActivatedPreview)).BeginInit();
             this.fontGroupBox.SuspendLayout();
+            this.positionGroup.SuspendLayout();
+            this.positionButtonLayout.SuspendLayout();
             this.SuspendLayout();
             // 
             // displayTimeGroup
@@ -77,7 +90,7 @@ namespace CapsLockIndicatorV3
             // 
             this.displayTimeLabel.Location = new System.Drawing.Point(159, 35);
             this.displayTimeLabel.Name = "displayTimeLabel";
-            this.displayTimeLabel.Size = new System.Drawing.Size(50, 15);
+            this.displayTimeLabel.Size = new System.Drawing.Size(76, 15);
             this.displayTimeLabel.TabIndex = 1;
             this.displayTimeLabel.Text = "500 ms";
             this.displayTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -87,7 +100,7 @@ namespace CapsLockIndicatorV3
             // 
             this.displayTimeSlider.LargeChange = 50;
             this.displayTimeSlider.Location = new System.Drawing.Point(6, 22);
-            this.displayTimeSlider.Maximum = 2000;
+            this.displayTimeSlider.Maximum = 2001;
             this.displayTimeSlider.Minimum = 50;
             this.displayTimeSlider.Name = "displayTimeSlider";
             this.displayTimeSlider.Size = new System.Drawing.Size(147, 45);
@@ -102,7 +115,7 @@ namespace CapsLockIndicatorV3
             this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveButton.AutoSize = true;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.saveButton.Location = new System.Drawing.Point(124, 400);
+            this.saveButton.Location = new System.Drawing.Point(124, 510);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(132, 24);
             this.saveButton.TabIndex = 10;
@@ -143,7 +156,7 @@ namespace CapsLockIndicatorV3
             // 
             // borderColourDeactivatedButton
             // 
-            this.borderColourDeactivatedButton.AutoSize = true;
+            this.borderColourDeactivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.borderColourDeactivatedButton.Location = new System.Drawing.Point(53, 177);
             this.borderColourDeactivatedButton.Name = "borderColourDeactivatedButton";
             this.borderColourDeactivatedButton.Size = new System.Drawing.Size(182, 25);
@@ -164,7 +177,7 @@ namespace CapsLockIndicatorV3
             // 
             // foregroundColourDeactivatedButton
             // 
-            this.foregroundColourDeactivatedButton.AutoSize = true;
+            this.foregroundColourDeactivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.foregroundColourDeactivatedButton.Location = new System.Drawing.Point(53, 115);
             this.foregroundColourDeactivatedButton.Name = "foregroundColourDeactivatedButton";
             this.foregroundColourDeactivatedButton.Size = new System.Drawing.Size(182, 25);
@@ -185,7 +198,7 @@ namespace CapsLockIndicatorV3
             // 
             // backgroundColourDeactivatedButton
             // 
-            this.backgroundColourDeactivatedButton.AutoSize = true;
+            this.backgroundColourDeactivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.backgroundColourDeactivatedButton.Location = new System.Drawing.Point(53, 53);
             this.backgroundColourDeactivatedButton.Name = "backgroundColourDeactivatedButton";
             this.backgroundColourDeactivatedButton.Size = new System.Drawing.Size(182, 25);
@@ -206,7 +219,7 @@ namespace CapsLockIndicatorV3
             // 
             // borderColourActivatedButton
             // 
-            this.borderColourActivatedButton.AutoSize = true;
+            this.borderColourActivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.borderColourActivatedButton.Location = new System.Drawing.Point(53, 146);
             this.borderColourActivatedButton.Name = "borderColourActivatedButton";
             this.borderColourActivatedButton.Size = new System.Drawing.Size(182, 25);
@@ -227,7 +240,7 @@ namespace CapsLockIndicatorV3
             // 
             // foregroundColourActivatedButton
             // 
-            this.foregroundColourActivatedButton.AutoSize = true;
+            this.foregroundColourActivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.foregroundColourActivatedButton.Location = new System.Drawing.Point(53, 84);
             this.foregroundColourActivatedButton.Name = "foregroundColourActivatedButton";
             this.foregroundColourActivatedButton.Size = new System.Drawing.Size(182, 25);
@@ -248,7 +261,7 @@ namespace CapsLockIndicatorV3
             // 
             // backgroundColourActivatedButton
             // 
-            this.backgroundColourActivatedButton.AutoSize = true;
+            this.backgroundColourActivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.backgroundColourActivatedButton.Location = new System.Drawing.Point(53, 22);
             this.backgroundColourActivatedButton.Name = "backgroundColourActivatedButton";
             this.backgroundColourActivatedButton.Size = new System.Drawing.Size(182, 25);
@@ -288,13 +301,166 @@ namespace CapsLockIndicatorV3
             this.indFontChooser.ScriptsOnly = true;
             this.indFontChooser.ShowEffects = false;
             // 
+            // positionGroup
+            // 
+            this.positionGroup.Controls.Add(this.positionButtonLayout);
+            this.positionGroup.Location = new System.Drawing.Point(12, 400);
+            this.positionGroup.Name = "positionGroup";
+            this.positionGroup.Size = new System.Drawing.Size(244, 100);
+            this.positionGroup.TabIndex = 11;
+            this.positionGroup.TabStop = false;
+            this.positionGroup.Text = "Overlay position";
+            // 
+            // positionButtonLayout
+            // 
+            this.positionButtonLayout.ColumnCount = 3;
+            this.positionButtonLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.positionButtonLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.positionButtonLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.positionButtonLayout.Controls.Add(this.positionBottomRight, 2, 2);
+            this.positionButtonLayout.Controls.Add(this.positionBottomCenter, 1, 2);
+            this.positionButtonLayout.Controls.Add(this.positionBottomLeft, 0, 2);
+            this.positionButtonLayout.Controls.Add(this.positionMiddleRight, 2, 1);
+            this.positionButtonLayout.Controls.Add(this.positionMiddleCenter, 1, 1);
+            this.positionButtonLayout.Controls.Add(this.positionMiddleLeft, 0, 1);
+            this.positionButtonLayout.Controls.Add(this.positionTopRight, 2, 0);
+            this.positionButtonLayout.Controls.Add(this.positionTopCenter, 1, 0);
+            this.positionButtonLayout.Controls.Add(this.positionTopLeft, 0, 0);
+            this.positionButtonLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.positionButtonLayout.Location = new System.Drawing.Point(3, 19);
+            this.positionButtonLayout.Name = "positionButtonLayout";
+            this.positionButtonLayout.RowCount = 3;
+            this.positionButtonLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.positionButtonLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.positionButtonLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.positionButtonLayout.Size = new System.Drawing.Size(238, 78);
+            this.positionButtonLayout.TabIndex = 0;
+            // 
+            // positionBottomRight
+            // 
+            this.positionBottomRight.Appearance = System.Windows.Forms.Appearance.Button;
+            this.positionBottomRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.positionBottomRight.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.positionBottomRight.Location = new System.Drawing.Point(158, 52);
+            this.positionBottomRight.Margin = new System.Windows.Forms.Padding(0);
+            this.positionBottomRight.Name = "positionBottomRight";
+            this.positionBottomRight.Size = new System.Drawing.Size(80, 26);
+            this.positionBottomRight.TabIndex = 8;
+            this.positionBottomRight.UseVisualStyleBackColor = true;
+            this.positionBottomRight.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
+            // 
+            // positionBottomCenter
+            // 
+            this.positionBottomCenter.Appearance = System.Windows.Forms.Appearance.Button;
+            this.positionBottomCenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.positionBottomCenter.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.positionBottomCenter.Location = new System.Drawing.Point(79, 52);
+            this.positionBottomCenter.Margin = new System.Windows.Forms.Padding(0);
+            this.positionBottomCenter.Name = "positionBottomCenter";
+            this.positionBottomCenter.Size = new System.Drawing.Size(79, 26);
+            this.positionBottomCenter.TabIndex = 7;
+            this.positionBottomCenter.UseVisualStyleBackColor = true;
+            this.positionBottomCenter.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
+            // 
+            // positionBottomLeft
+            // 
+            this.positionBottomLeft.Appearance = System.Windows.Forms.Appearance.Button;
+            this.positionBottomLeft.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.positionBottomLeft.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.positionBottomLeft.Location = new System.Drawing.Point(0, 52);
+            this.positionBottomLeft.Margin = new System.Windows.Forms.Padding(0);
+            this.positionBottomLeft.Name = "positionBottomLeft";
+            this.positionBottomLeft.Size = new System.Drawing.Size(79, 26);
+            this.positionBottomLeft.TabIndex = 6;
+            this.positionBottomLeft.UseVisualStyleBackColor = true;
+            this.positionBottomLeft.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
+            // 
+            // positionMiddleRight
+            // 
+            this.positionMiddleRight.Appearance = System.Windows.Forms.Appearance.Button;
+            this.positionMiddleRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.positionMiddleRight.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.positionMiddleRight.Location = new System.Drawing.Point(158, 26);
+            this.positionMiddleRight.Margin = new System.Windows.Forms.Padding(0);
+            this.positionMiddleRight.Name = "positionMiddleRight";
+            this.positionMiddleRight.Size = new System.Drawing.Size(80, 26);
+            this.positionMiddleRight.TabIndex = 5;
+            this.positionMiddleRight.UseVisualStyleBackColor = true;
+            this.positionMiddleRight.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
+            // 
+            // positionMiddleCenter
+            // 
+            this.positionMiddleCenter.Appearance = System.Windows.Forms.Appearance.Button;
+            this.positionMiddleCenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.positionMiddleCenter.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.positionMiddleCenter.Location = new System.Drawing.Point(79, 26);
+            this.positionMiddleCenter.Margin = new System.Windows.Forms.Padding(0);
+            this.positionMiddleCenter.Name = "positionMiddleCenter";
+            this.positionMiddleCenter.Size = new System.Drawing.Size(79, 26);
+            this.positionMiddleCenter.TabIndex = 4;
+            this.positionMiddleCenter.UseVisualStyleBackColor = true;
+            this.positionMiddleCenter.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
+            // 
+            // positionMiddleLeft
+            // 
+            this.positionMiddleLeft.Appearance = System.Windows.Forms.Appearance.Button;
+            this.positionMiddleLeft.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.positionMiddleLeft.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.positionMiddleLeft.Location = new System.Drawing.Point(0, 26);
+            this.positionMiddleLeft.Margin = new System.Windows.Forms.Padding(0);
+            this.positionMiddleLeft.Name = "positionMiddleLeft";
+            this.positionMiddleLeft.Size = new System.Drawing.Size(79, 26);
+            this.positionMiddleLeft.TabIndex = 3;
+            this.positionMiddleLeft.UseVisualStyleBackColor = true;
+            this.positionMiddleLeft.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
+            // 
+            // positionTopRight
+            // 
+            this.positionTopRight.Appearance = System.Windows.Forms.Appearance.Button;
+            this.positionTopRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.positionTopRight.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.positionTopRight.Location = new System.Drawing.Point(158, 0);
+            this.positionTopRight.Margin = new System.Windows.Forms.Padding(0);
+            this.positionTopRight.Name = "positionTopRight";
+            this.positionTopRight.Size = new System.Drawing.Size(80, 26);
+            this.positionTopRight.TabIndex = 2;
+            this.positionTopRight.UseVisualStyleBackColor = true;
+            this.positionTopRight.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
+            // 
+            // positionTopCenter
+            // 
+            this.positionTopCenter.Appearance = System.Windows.Forms.Appearance.Button;
+            this.positionTopCenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.positionTopCenter.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.positionTopCenter.Location = new System.Drawing.Point(79, 0);
+            this.positionTopCenter.Margin = new System.Windows.Forms.Padding(0);
+            this.positionTopCenter.Name = "positionTopCenter";
+            this.positionTopCenter.Size = new System.Drawing.Size(79, 26);
+            this.positionTopCenter.TabIndex = 1;
+            this.positionTopCenter.UseVisualStyleBackColor = true;
+            this.positionTopCenter.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
+            // 
+            // positionTopLeft
+            // 
+            this.positionTopLeft.Appearance = System.Windows.Forms.Appearance.Button;
+            this.positionTopLeft.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.positionTopLeft.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.positionTopLeft.Location = new System.Drawing.Point(0, 0);
+            this.positionTopLeft.Margin = new System.Windows.Forms.Padding(0);
+            this.positionTopLeft.Name = "positionTopLeft";
+            this.positionTopLeft.Size = new System.Drawing.Size(79, 26);
+            this.positionTopLeft.TabIndex = 0;
+            this.positionTopLeft.UseVisualStyleBackColor = true;
+            this.positionTopLeft.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
+            // 
             // IndSettingsWindow
             // 
             this.AcceptButton = this.saveButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(268, 436);
+            this.ClientSize = new System.Drawing.Size(268, 546);
+            this.Controls.Add(this.positionGroup);
             this.Controls.Add(this.fontGroupBox);
             this.Controls.Add(this.coloursGroup);
             this.Controls.Add(this.saveButton);
@@ -312,7 +478,6 @@ namespace CapsLockIndicatorV3
             this.displayTimeGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.displayTimeSlider)).EndInit();
             this.coloursGroup.ResumeLayout(false);
-            this.coloursGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.borderColourDeactivatedPreview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.foregroundColourDeactivatedPreview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.backgroundColourDeactivatedPreview)).EndInit();
@@ -320,6 +485,8 @@ namespace CapsLockIndicatorV3
             ((System.ComponentModel.ISupportInitialize)(this.foregroundColourActivatedPreview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.backgroundColourActivatedPreview)).EndInit();
             this.fontGroupBox.ResumeLayout(false);
+            this.positionGroup.ResumeLayout(false);
+            this.positionButtonLayout.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,5 +515,16 @@ namespace CapsLockIndicatorV3
         private System.Windows.Forms.PictureBox borderColourDeactivatedPreview;
         private System.Windows.Forms.Button borderColourDeactivatedButton;
         private System.Windows.Forms.FontDialog indFontChooser;
+        private System.Windows.Forms.GroupBox positionGroup;
+        private System.Windows.Forms.TableLayoutPanel positionButtonLayout;
+        private System.Windows.Forms.RadioButton positionBottomRight;
+        private System.Windows.Forms.RadioButton positionBottomCenter;
+        private System.Windows.Forms.RadioButton positionBottomLeft;
+        private System.Windows.Forms.RadioButton positionMiddleRight;
+        private System.Windows.Forms.RadioButton positionMiddleCenter;
+        private System.Windows.Forms.RadioButton positionMiddleLeft;
+        private System.Windows.Forms.RadioButton positionTopRight;
+        private System.Windows.Forms.RadioButton positionTopCenter;
+        private System.Windows.Forms.RadioButton positionTopLeft;
     }
 }
