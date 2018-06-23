@@ -1,7 +1,7 @@
 /*
  * Created 09.07.2017 18:16
  * 
- * Copyright (c) Jonas Kohl <http://jonaskohl.de/>
+ * Copyright (c) Jonas Kohl <https://jonaskohl.de/>
  */
 
 // Use project namespace, for easier access to e.g helper classes
@@ -464,7 +464,7 @@ namespace CapsLockIndicatorV3
 
         private void lnkLabel1_Click(object sender, EventArgs e)
         {
-            Process.Start("http://jonaskohl.de/");
+            Process.Start("https://jonaskohl.de/");
         }
 
         private void showToolStripMenuItem_Click(object sender, EventArgs e)
@@ -482,7 +482,7 @@ namespace CapsLockIndicatorV3
 
         private void appNameLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("http://cli.jonaskohl.de/");
+            Process.Start("https://cli.jonaskohl.de/");
         }
 
         private void checkForUpdatedCheckBox_CheckedChanged(object sender, EventArgs e)

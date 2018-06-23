@@ -10,7 +10,7 @@ namespace CapsLockIndicatorV3
     /// </summary>
     static class VersionCheck
     {
-        const string CheckURL = "http://cli.jonaskohl.de/version.php?details&xml";
+        const string CheckURL = "https://cli.jonaskohl.de/version.php?details&xml";
         public static string newVersion = null;
 
         public static async void IsLatestVersion(Action<string> callback)

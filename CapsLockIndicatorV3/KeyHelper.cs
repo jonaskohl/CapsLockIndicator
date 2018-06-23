@@ -1,7 +1,7 @@
-﻿/*
+/*
  * Created 09.07.2017 18:25
  * 
- * Copyright (c) Jonas Kohl <http://jonaskohl.de/>
+ * Copyright (c) Jonas Kohl <https://jonaskohl.de/>
  */
 using System;
 using System.Windows.Forms;
