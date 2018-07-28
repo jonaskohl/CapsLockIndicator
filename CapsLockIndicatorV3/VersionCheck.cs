@@ -16,6 +16,8 @@ namespace CapsLockIndicatorV3
         public static async void IsLatestVersion(Action<string> callback)
         {
             WebClient client = new WebClient();
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             try
             {
                 string data = await client.DownloadStringTaskAsync(CheckURL);
@@ -25,6 +27,7 @@ namespace CapsLockIndicatorV3
             {
                 System.Windows.Forms.MessageBox.Show("An error occured while searching for updates:\r\n" + e.Message, "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             }
+            client.Dispose();
         }
     }
 }
