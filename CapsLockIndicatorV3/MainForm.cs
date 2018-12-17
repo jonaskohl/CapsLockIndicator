@@ -45,7 +45,9 @@ namespace CapsLockIndicatorV3
 		bool scrollState;
 
         public bool askCancel = true;
-		
+
+        // Determines if Application Exit button is pressed
+        bool exitsource;
 
 		public MainForm()
 		{
@@ -364,18 +366,24 @@ namespace CapsLockIndicatorV3
 
 		void ExitApplicationClick(object sender, EventArgs e)
 		{
-            if (MessageBox.Show(strings.exitMessage, "CapsLock Indicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-            {
-                Close();
-            }
-		}
+            //Set exitsource to true signifying Exit Application button was pressed.
+            exitsource = true;
+            Close();
+        }
 		void HideWindowClick(object sender, EventArgs e)
 		{
-			generalIcon.Visible = true;
-			generalIcon.ShowBalloonTip(100);
-			Hide();
-            isHidden = true;
+            //Call HideWindow to hide the window.
+            HideWindow();
 		}
+
+        void HideWindow()
+        {
+            generalIcon.Visible = true;
+            generalIcon.ShowBalloonTip(100);
+            Hide();
+            isHidden = true;
+        }
+
 		void GeneralIconMouseDoubleClick(object sender, MouseEventArgs e)
 		{
 			Show();
@@ -459,9 +467,30 @@ namespace CapsLockIndicatorV3
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+            //Check if user closed application. If not, then application should terminate in Program.cs and/or initial parent.
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                //If Exit Application button or Exit in context menu pressed, prompt the ask message. Else, application was closed via close window window control 
+                if (exitsource == true)
+                {
+                    if (MessageBox.Show(strings.exitMessage, "CapsLock Indicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                        Application.Exit();
+                    else
+                    {
+                        //Stop application from exiting and change exitsource back to false.
+                        e.Cancel = true;
+                        exitsource = false;
+                    }
+                }
+                else
+                {
+                    //Stop application from exiting and call HideWindow() to hide the window.
+                    e.Cancel = true;
+                    HideWindow();
+                }
+            }
         }
-
+    
         private void lnkLabel1_Click(object sender, EventArgs e)
         {
             Process.Start("https://jonaskohl.de/");
@@ -477,6 +506,8 @@ namespace CapsLockIndicatorV3
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Set exitsource to true signifying Exit item in notification icon was pressed.
+            exitsource = true;
             Close();
         }
 
@@ -517,6 +548,11 @@ namespace CapsLockIndicatorV3
                 e.SuppressKeyPress = true;
                 ReloadIcons();
             }
+        }
+
+        private void generalIconContextMenuStrip_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
         }
     }
 }
