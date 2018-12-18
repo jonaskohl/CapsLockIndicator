@@ -68,5 +68,8 @@
     <Setting Name="overlayPosition" Type="CapsLockIndicatorV3.IndicatorDisplayPosition" Scope="User">
       <Value Profile="(Default)">BottomRight</Value>
     </Setting>
+    <Setting Name="indOpacity" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

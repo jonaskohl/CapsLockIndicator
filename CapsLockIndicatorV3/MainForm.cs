@@ -23,32 +23,34 @@ using System.IO;
 
 namespace CapsLockIndicatorV3
 {
-	public partial class MainForm : Form
-	{
+    public partial class MainForm : Form
+    {
         public bool isHidden = false;
 
-		// Define variables used to load the icons from resources.resx
-		ResourceManager resources;
-		
-		Icon CapsOff;
-		Icon CapsOn;
-		
-		Icon NumOff;
-		Icon NumOn;
-		
-		Icon ScrollOff;
-		Icon ScrollOn;
-		
-		// Store the key states of the previous timer tick
-		bool numState;
-		bool capsState;
-		bool scrollState;
+        // Define variables used to load the icons from resources.resx
+        ResourceManager resources;
+
+        Icon CapsOff;
+        Icon CapsOn;
+
+        Icon NumOff;
+        Icon NumOn;
+
+        Icon ScrollOff;
+        Icon ScrollOn;
+
+        // Store the key states of the previous timer tick
+        bool numState;
+        bool capsState;
+        bool scrollState;
 
         public bool askCancel = true;
-		
+        private bool shouldClose = false;
 
-		public MainForm()
-		{
+        private int previousLocaleIndex = -1;
+
+        public MainForm()
+        {
             Assembly assembly = Assembly.GetExecutingAssembly();
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
             string version = fvi.FileVersion;
@@ -63,19 +65,19 @@ namespace CapsLockIndicatorV3
             Properties.Settings.Default.beta_enableDarkMode = Properties.Settings.Default.beta_enableDarkMode;
             Properties.Settings.Default.Save();
 
-			// Initialize component
-			InitializeComponent();
-			
-			// Load "resources.resx" into a ResourceManager to access its resources
-			resources = new ResourceManager("CapsLockIndicatorV3.resources", Assembly.GetExecutingAssembly());
+            // Initialize component
+            InitializeComponent();
+
+            // Load "resources.resx" into a ResourceManager to access its resources
+            resources = new ResourceManager("CapsLockIndicatorV3.resources", Assembly.GetExecutingAssembly());
 
             // Load the icons into variables
             ReloadIcons();
-			
-			// Set the values
-			numState = KeyHelper.isNumlockActive;
-			capsState = KeyHelper.isCapslockActive;
-			scrollState = KeyHelper.isScrolllockActive;
+
+            // Set the values
+            numState = KeyHelper.isNumlockActive;
+            capsState = KeyHelper.isCapslockActive;
+            scrollState = KeyHelper.isScrolllockActive;
 
             // Load settings
             enableNumIcon.Checked = Properties.Settings.Default.numIco;
@@ -161,6 +163,9 @@ namespace CapsLockIndicatorV3
                 localeComboBox.SelectedIndex = Properties.Settings.Default.selectedUICulture;
             else
                 localeComboBox.SelectedIndex = 0;
+
+            localeComboBox.Items.Add(new DropDownLocale("--ln", ""));
+            localeComboBox.Items.Add(new DropDownLocale("--get-more", strings.downloadMoreTranslations));
         }
 
         public IEnumerable<CultureInfo> GetSupportedCulture()
@@ -197,32 +202,32 @@ namespace CapsLockIndicatorV3
             exitToolStripMenuItem.Text = strings.contextMenuExit;
             hideOnStartupCheckBox.Text = strings.hideOnStartup;
         }
-		
-		// This timer ticks approx. 60 times a second (overkill?)
-		void UpdateTimerTick(object sender, EventArgs e)
-		{
-			// Set the icons for the NotifyIcons depending on the key state
-			if (enableNumIcon.Checked && !showNoIcons.Checked)
-				numLockIcon.Icon = KeyHelper.isNumlockActive ? NumOn: NumOff;
-			else
-				numLockIcon.Icon = null;
-			
-			if (enableCapsIcon.Checked && !showNoIcons.Checked)
-				capsLockIcon.Icon = KeyHelper.isCapslockActive ? CapsOn : CapsOff;
-			else
-				capsLockIcon.Icon = null;
-			
-			if (enableScrollIcon.Checked && !showNoIcons.Checked)
-				scrollLockIcon.Icon = KeyHelper.isScrolllockActive ? ScrollOn : ScrollOff;
-			else
-				scrollLockIcon.Icon = null;
+
+        // This timer ticks approx. 60 times a second (overkill?)
+        void UpdateTimerTick(object sender, EventArgs e)
+        {
+            // Set the icons for the NotifyIcons depending on the key state
+            if (enableNumIcon.Checked && !showNoIcons.Checked)
+                numLockIcon.Icon = KeyHelper.isNumlockActive ? NumOn : NumOff;
+            else
+                numLockIcon.Icon = null;
+
+            if (enableCapsIcon.Checked && !showNoIcons.Checked)
+                capsLockIcon.Icon = KeyHelper.isCapslockActive ? CapsOn : CapsOff;
+            else
+                capsLockIcon.Icon = null;
+
+            if (enableScrollIcon.Checked && !showNoIcons.Checked)
+                scrollLockIcon.Icon = KeyHelper.isScrolllockActive ? ScrollOn : ScrollOff;
+            else
+                scrollLockIcon.Icon = null;
 
             // Handle the overlay
             if (numState != KeyHelper.isNumlockActive && enableNumInd.Checked && !showNoNotification.Checked)
                 ShowOverlay(string.Format(KeyHelper.isNumlockActive ? strings.keyIsOn : strings.keyIsOff, strings.numLock), KeyHelper.isNumlockActive);
-				//ShowOverlay("Numlock is " + (KeyHelper.isNumlockActive ? "on" : "off"), KeyHelper.isNumlockActive);
-			
-			if (capsState != KeyHelper.isCapslockActive && enableCapsInd.Checked && !showNoNotification.Checked)
+            //ShowOverlay("Numlock is " + (KeyHelper.isNumlockActive ? "on" : "off"), KeyHelper.isNumlockActive);
+
+            if (capsState != KeyHelper.isCapslockActive && enableCapsInd.Checked && !showNoNotification.Checked)
                 ShowOverlay(string.Format(KeyHelper.isCapslockActive ? strings.keyIsOn : strings.keyIsOff, strings.capsLock), KeyHelper.isCapslockActive);
 
             if (scrollState != KeyHelper.isScrolllockActive && enableScrollInd.Checked && !showNoNotification.Checked)
@@ -230,12 +235,12 @@ namespace CapsLockIndicatorV3
 
             // Reset the values
             numState = KeyHelper.isNumlockActive;
-			capsState = KeyHelper.isCapslockActive;
-			scrollState = KeyHelper.isScrolllockActive;
-		}
-		
-		void ShowOverlay(string message, bool isActive)
-		{
+            capsState = KeyHelper.isCapslockActive;
+            scrollState = KeyHelper.isScrolllockActive;
+        }
+
+        void ShowOverlay(string message, bool isActive)
+        {
             int timeOut = Properties.Settings.Default.indDisplayTime;
             if (Application.OpenForms.OfType<IndicatorOverlay>().Any())
             {
@@ -248,6 +253,7 @@ namespace CapsLockIndicatorV3
                     , isActive ? Properties.Settings.Default.indBdColourActive : Properties.Settings.Default.indBdColourInactive
                     , Properties.Settings.Default.indFont
                     , Properties.Settings.Default.overlayPosition
+                    , Properties.Settings.Default.indOpacity
                 );
             }
             else
@@ -260,19 +266,20 @@ namespace CapsLockIndicatorV3
                     , isActive ? Properties.Settings.Default.indBdColourActive : Properties.Settings.Default.indBdColourInactive
                     , Properties.Settings.Default.indFont
                     , Properties.Settings.Default.overlayPosition
+                    , Properties.Settings.Default.indOpacity
                 );
                 indicatorOverlay.Show();
             }
-		}
-		void ShowNoIconsCheckedChanged(object sender, EventArgs e)
-		{
-			iconsGroup.Enabled = !showNoIcons.Checked;
+        }
+        void ShowNoIconsCheckedChanged(object sender, EventArgs e)
+        {
+            iconsGroup.Enabled = !showNoIcons.Checked;
             Properties.Settings.Default.noIco = showNoIcons.Checked;
             Properties.Settings.Default.Save();
         }
-		void ShowNoNotificationCheckedChanged(object sender, EventArgs e)
-		{
-			indicatorGroup.Enabled = !showNoNotification.Checked;
+        void ShowNoNotificationCheckedChanged(object sender, EventArgs e)
+        {
+            indicatorGroup.Enabled = !showNoNotification.Checked;
             Properties.Settings.Default.noInd = showNoNotification.Checked;
             Properties.Settings.Default.Save();
         }
@@ -338,7 +345,7 @@ namespace CapsLockIndicatorV3
             }
             catch (Exception)
             {
-                
+
             }
 
             checkForUpdatesButton.Text = strings.checkForUpdates;
@@ -351,7 +358,7 @@ namespace CapsLockIndicatorV3
         }
 
         void MainFormLoad(object sender, EventArgs e)
-		{
+        {
             Assembly assembly = Assembly.GetExecutingAssembly();
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
             string version = fvi.FileVersion;
@@ -362,27 +369,34 @@ namespace CapsLockIndicatorV3
                 doVersionCheck();
         }
 
-		void ExitApplicationClick(object sender, EventArgs e)
-		{
+        void ExitApplicationClick(object sender, EventArgs e)
+        {
             if (MessageBox.Show(strings.exitMessage, "CapsLock Indicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
+                shouldClose = true;
                 Close();
             }
-		}
-		void HideWindowClick(object sender, EventArgs e)
-		{
-			generalIcon.Visible = true;
-			generalIcon.ShowBalloonTip(100);
-			Hide();
+        }
+        void HideWindowClick(object sender, EventArgs e)
+        {
+            HideForm();
+        }
+
+        private void HideForm()
+        {
+            generalIcon.Visible = true;
+            generalIcon.ShowBalloonTip(100);
+            Hide();
             isHidden = true;
-		}
-		void GeneralIconMouseDoubleClick(object sender, MouseEventArgs e)
-		{
-			Show();
-			Focus();
-			generalIcon.Visible = false;
+        }
+
+        void GeneralIconMouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Show();
+            Focus();
+            generalIcon.Visible = false;
             isHidden = false;
-		}
+        }
 
         private void enableNumIcon_CheckedChanged(object sender, EventArgs e)
         {
@@ -459,7 +473,11 @@ namespace CapsLockIndicatorV3
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+            if (e.CloseReason == CloseReason.UserClosing && !shouldClose)
+            {
+                e.Cancel = true;
+                HideForm();
+            }
         }
 
         private void lnkLabel1_Click(object sender, EventArgs e)
@@ -477,6 +495,7 @@ namespace CapsLockIndicatorV3
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            shouldClose = true;
             Close();
         }
 
@@ -498,9 +517,17 @@ namespace CapsLockIndicatorV3
             if (locale.localeString == "__default")
             {
                 Thread.CurrentThread.CurrentUICulture = CultureInfo.DefaultThreadCurrentCulture;
-            } else
+                previousLocaleIndex = localeComboBox.SelectedIndex;
+            }
+            else if (locale.localeString == "--get-more")
+            {
+                localeComboBox.SelectedIndex = previousLocaleIndex;
+                Process.Start("https://cli.jonaskohl.de/!/translations#download-translations");
+            }
+            else
             {
                 Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(locale.localeString);
+                previousLocaleIndex = localeComboBox.SelectedIndex;
             }
 
             Properties.Settings.Default.selectedUICulture = localeComboBox.SelectedIndex;
@@ -517,6 +544,19 @@ namespace CapsLockIndicatorV3
                 e.SuppressKeyPress = true;
                 ReloadIcons();
             }
+        }
+
+        private void localeComboBox_Format(object sender, ListControlConvertEventArgs e)
+        {
+            var itm = (DropDownLocale)e.ListItem;
+            if (itm.localeString == "--get-more")
+                e.Value = strings.downloadMoreTranslations;
+            else if (itm.localeString == "__default")
+                e.Value = itm.displayText;
+            else if (itm.localeString == "--ln")
+                e.Value = "--LINE--";
+            else
+                e.Value = string.Format("{0} ({1})", itm.displayText, itm.localeString);
         }
     }
 }

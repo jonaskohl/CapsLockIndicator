@@ -91,7 +91,7 @@ namespace CapsLockIndicatorV3
             this.hideWindowTimer = new System.Windows.Forms.Timer(this.components);
             this.mainToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.checkForUpdatedCheckBox = new System.Windows.Forms.CheckBox();
-            this.localeComboBox = new System.Windows.Forms.ComboBox();
+            this.localeComboBox = new CapsLockIndicatorV3.LnComboBox();
             this.iconsGroup.SuspendLayout();
             this.indicatorGroup.SuspendLayout();
             this.aboutPanel.SuspendLayout();
@@ -425,13 +425,15 @@ namespace CapsLockIndicatorV3
             // 
             // localeComboBox
             // 
+            this.localeComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.localeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.localeComboBox.FormattingEnabled = true;
             this.localeComboBox.Location = new System.Drawing.Point(58, 170);
             this.localeComboBox.Name = "localeComboBox";
-            this.localeComboBox.Size = new System.Drawing.Size(202, 23);
+            this.localeComboBox.Size = new System.Drawing.Size(202, 24);
             this.localeComboBox.TabIndex = 13;
             this.localeComboBox.SelectedIndexChanged += new System.EventHandler(this.localeComboBox_SelectedIndexChanged);
+            this.localeComboBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.localeComboBox_Format);
             // 
             // MainForm
             // 
@@ -489,6 +491,6 @@ namespace CapsLockIndicatorV3
         private LnkLabel appNameLabel;
         private System.Windows.Forms.ToolTip mainToolTip;
         private System.Windows.Forms.CheckBox checkForUpdatedCheckBox;
-        private System.Windows.Forms.ComboBox localeComboBox;
+        private CapsLockIndicatorV3.LnComboBox localeComboBox;
     }
 }

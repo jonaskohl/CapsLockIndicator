@@ -5,6 +5,7 @@
  */
 using System;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace CapsLockIndicatorV3
@@ -14,20 +15,37 @@ namespace CapsLockIndicatorV3
 	/// </summary>
 	public partial class IndicatorOverlay : Form
 	{
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern uint GetWindowLong(IntPtr hWnd, int nIndex);
+        [DllImport("user32.dll", EntryPoint = "SetWindowLong")]
+        private static extern int SetWindowLong32(IntPtr hWnd, int nIndex, uint dwNewLong);
+        [DllImport("user32.dll", CharSet = CharSet.Ansi, SetLastError = true)]
+        static extern int SetLayeredWindowAttributes(IntPtr hWnd, int crKey, byte bAlpha, uint dwFlags);
+        [DllImport("user32.dll", SetLastError = true, EntryPoint = "GetWindowLong")]
+        static extern int GetWindowLongInt(IntPtr hWnd, int nIndex);
+        [DllImport("user32.dll")]
+        static extern int SetWindowLong(IntPtr hWnd, int nIndex, uint dwNewLong);
+
+        const int GWL_EXSTYLE = -20;
+        const uint WS_EX_LAYERED = 0x80000;
+        const uint LWA_ALPHA = 0x2;
+        const uint LWA_COLORKEY = 0x1;
+        const uint WS_EX_TRANSPARENT = 0x00000020;
+        
         private IndicatorDisplayPosition pos = IndicatorDisplayPosition.BottomRight;
 
 		const int WINDOW_MARGIN = 16;
+        private double lastOpacity = 1;
+        double opacity_timer_value = 2.0;
 
         Color BorderColour = Color.FromArgb(
-                0xFF,
-                0x34,
-                0x4D,
-                0xB4
-            );
+            0xFF,
+            0x34,
+            0x4D,
+            0xB4
+        );
 
-        double opacity_timer_value = 2.0;
-		
-		protected override bool ShowWithoutActivation
+        protected override bool ShowWithoutActivation
 		{
 			get { return true; }
 		}
@@ -37,7 +55,7 @@ namespace CapsLockIndicatorV3
 			get
 			{
 				CreateParams cp = base.CreateParams;
-				cp.ExStyle |= 0x00000008 | 0x80; //WS_EX_TOPMOST
+				cp.ExStyle |= 0x00000008 | 0x80;
 				return cp;
 			}
 		}
@@ -48,6 +66,11 @@ namespace CapsLockIndicatorV3
 
             base.OnShown(e);
 		}
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+        }
 
         void UpdatePosition()
         {
@@ -100,22 +123,36 @@ namespace CapsLockIndicatorV3
 		{
 			base.OnPaint(e);
 			e.Graphics.DrawRectangle(new Pen(BorderColour, 4), e.ClipRectangle);
-		}
-		
-		public IndicatorOverlay(string content)
+        }
+
+        private void ClickThroughWindow(double opacity = 1d)
+        {
+
+            IntPtr Handle = this.Handle;
+            UInt32 windowLong = GetWindowLong(Handle, GWL_EXSTYLE);
+            SetWindowLong32(Handle, GWL_EXSTYLE, (uint)(windowLong ^ WS_EX_LAYERED));
+            SetLayeredWindowAttributes(Handle, 0, (byte)(opacity * 255), LWA_ALPHA);
+
+            var style = GetWindowLong(this.Handle, GWL_EXSTYLE);
+            SetWindowLong(this.Handle, GWL_EXSTYLE, style | WS_EX_LAYERED | WS_EX_TRANSPARENT);
+        }
+
+        public IndicatorOverlay(string content)
 		{
 			InitializeComponent();
 			contentLabel.Text = content;
-		}
-		
-		public IndicatorOverlay(string content, int timeoutInMs, IndicatorDisplayPosition position)
+
+            ClickThroughWindow();
+        }
+
+        public IndicatorOverlay(string content, int timeoutInMs, IndicatorDisplayPosition position)
         {
             pos = position;
             InitializeComponent();
 			contentLabel.Text = content;
             if (timeoutInMs < 0)
             {
-                windowCloseTimer.Enabled = false;
+                windowCloseTimer.Enabled = false;   
                 fadeTimer.Enabled = false;
             }
             else
@@ -123,14 +160,18 @@ namespace CapsLockIndicatorV3
                 windowCloseTimer.Interval = timeoutInMs;
                 fadeTimer.Interval = (int)Math.Floor((decimal)(timeoutInMs / 20));
             }
-		}
+            ClickThroughWindow();
+        }
 
-        public IndicatorOverlay(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, Font font, IndicatorDisplayPosition position)
+        public IndicatorOverlay(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, Font font, IndicatorDisplayPosition position, int indOpacity)
         {
             pos = position;
             InitializeComponent();
             contentLabel.Text = content;
             Font = font;
+            var op = indOpacity / 100d;
+            lastOpacity = op;
+            SetOpacity(op);
             if (timeoutInMs < 0)
             {
                 windowCloseTimer.Enabled = false;
@@ -144,6 +185,13 @@ namespace CapsLockIndicatorV3
             BackColor = bgColour;
             ForeColor = fgColour;
             BorderColour = bdColour;
+            ClickThroughWindow(op);
+        }
+
+        private void SetOpacity(double op)
+        {
+            byte opb = (byte)(op * 0xFF);
+            SetLayeredWindowAttributes(Handle, 0, opb, LWA_ALPHA);
         }
 
         public void UpdateIndicator(string content, IndicatorDisplayPosition position)
@@ -181,10 +229,12 @@ namespace CapsLockIndicatorV3
             UpdatePosition();
         }
 
-        public void UpdateIndicator(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, Font font, IndicatorDisplayPosition position)
+        public void UpdateIndicator(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, Font font, IndicatorDisplayPosition position, int indOpacity)
         {
             pos = position;
-            Opacity = 1;
+            var op = indOpacity / 100d;
+            lastOpacity = op;
+            SetOpacity(op);
             contentLabel.Text = content;
             Font = font;
             opacity_timer_value = 2.0;
@@ -217,9 +267,7 @@ namespace CapsLockIndicatorV3
         {
             opacity_timer_value -= 0.1;
             if (opacity_timer_value <= 1.0)
-            {
-                Opacity = opacity_timer_value;
-            }
+                SetOpacity(opacity_timer_value * lastOpacity);
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace CapsLockIndicatorV3
@@ -9,8 +10,14 @@ namespace CapsLockIndicatorV3
         {
             InitializeComponent();
 
+            MaximumSize = new Size(int.MaxValue, Screen.FromControl(this).WorkingArea.Height);
+            AutoScroll = true;
+
             displayTimeSlider.Value = Properties.Settings.Default.indDisplayTime > 0 ? Properties.Settings.Default.indDisplayTime : 2001;
             displayTimeLabel.Text = displayTimeSlider.Value < 2001 ? string.Format("{0} ms", displayTimeSlider.Value) : strings.permanentIndicator;
+
+            opacitySlider.Value = Properties.Settings.Default.indOpacity;
+            opacityLabel.Text = string.Format("{0} %", opacitySlider.Value);
 
             backgroundColourActivatedPreview.BackColor = Properties.Settings.Default.indBgColourActive;
             backgroundColourDeactivatedPreview.BackColor = Properties.Settings.Default.indBgColourInactive;
@@ -56,7 +63,9 @@ namespace CapsLockIndicatorV3
                     break;
             }
 
+            Text = strings.notificationSettingsTitle;
             displayTimeGroup.Text = strings.displayTime;
+            opacityGroup.Text = strings.opacity;
             fontGroupBox.Text = strings.fontGroup;
             coloursGroup.Text = strings.coloursGroup;
             fontButton.Text = string.Format(strings.keyIsOff, strings.capsLock);
@@ -177,6 +186,23 @@ namespace CapsLockIndicatorV3
             string posName = _sender.Name.Substring(8);
             Enum.TryParse(posName, out IndicatorDisplayPosition position);
             Properties.Settings.Default.overlayPosition = position;
+        }
+
+        private void opacityLabel_Click(object sender, EventArgs e)
+        {
+            NumberInputDialog numberInputDialog = new NumberInputDialog(opacitySlider.Value, opacitySlider.Minimum, opacitySlider.Maximum - 1);
+            if (numberInputDialog.ShowDialog() == DialogResult.OK)
+            {
+                opacitySlider.Value = numberInputDialog.Value;
+                Properties.Settings.Default.indOpacity = numberInputDialog.Value;
+                opacityLabel.Text = string.Format("{0} %", opacitySlider.Value);
+            }
+        }
+
+        private void opacitySlider_Scroll(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.indOpacity = opacitySlider.Value;
+            opacityLabel.Text = string.Format("{0} %", opacitySlider.Value);
         }
     }
 }

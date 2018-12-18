@@ -19,7 +19,7 @@ namespace CapsLockIndicatorV3 {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class strings {
@@ -178,6 +178,15 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Download more translations... ähnelt.
+        /// </summary>
+        internal static string downloadMoreTranslations {
+            get {
+                return ResourceManager.GetString("downloadMoreTranslations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &amp;Exit Application ähnelt.
         /// </summary>
         internal static string exitApplication {
@@ -300,6 +309,15 @@ namespace CapsLockIndicatorV3 {
         internal static string numLock {
             get {
                 return ResourceManager.GetString("numLock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Opacity ähnelt.
+        /// </summary>
+        internal static string opacity {
+            get {
+                return ResourceManager.GetString("opacity", resourceCulture);
             }
         }
         

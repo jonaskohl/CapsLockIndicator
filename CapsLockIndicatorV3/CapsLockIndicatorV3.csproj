@@ -10,7 +10,6 @@
     <AssemblyName>CapsLockIndicatorV3</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <NoWin32Manifest>False</NoWin32Manifest>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
@@ -98,6 +97,9 @@
       <DependentUpon>IndSettingsWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="KeyHelper.cs" />
+    <Compile Include="LnComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="LnkLabel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -176,10 +178,13 @@
       <LastGenOutput>resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="strings.de.resx" />
+    <EmbeddedResource Include="strings.es.resx" />
+    <EmbeddedResource Include="strings.fr.resx" />
     <EmbeddedResource Include="strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="strings.zh-CN.resx" />
     <EmbeddedResource Include="UpdateDialog.resx">
       <DependentUpon>UpdateDialog.cs</DependentUpon>
     </EmbeddedResource>

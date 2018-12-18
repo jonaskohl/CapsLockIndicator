@@ -169,6 +169,10 @@
     <value>Download &amp;manually</value>
     <comment>The caption for the "Download manually" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
+  <data name="downloadMoreTranslations" xml:space="preserve">
+    <value>Download more translations...</value>
+    <comment>The last dropdown item in the locale dropdown.</comment>
+  </data>
   <data name="exitApplication" xml:space="preserve">
     <value>&amp;Exit Application</value>
     <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -224,6 +228,10 @@
   <data name="numLock" xml:space="preserve">
     <value>Num lock</value>
     <comment>The name of the num lock key</comment>
+  </data>
+  <data name="opacity" xml:space="preserve">
+    <value>Opacity</value>
+    <comment>The title for the "Opacity" group box</comment>
   </data>
   <data name="overlayPositionGroup" xml:space="preserve">
     <value>Overlay position</value>

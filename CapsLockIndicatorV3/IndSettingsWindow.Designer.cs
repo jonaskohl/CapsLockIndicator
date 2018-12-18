@@ -61,6 +61,9 @@ namespace CapsLockIndicatorV3
             this.positionTopRight = new System.Windows.Forms.RadioButton();
             this.positionTopCenter = new System.Windows.Forms.RadioButton();
             this.positionTopLeft = new System.Windows.Forms.RadioButton();
+            this.opacityGroup = new System.Windows.Forms.GroupBox();
+            this.opacityLabel = new System.Windows.Forms.Label();
+            this.opacitySlider = new System.Windows.Forms.TrackBar();
             this.displayTimeGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.displayTimeSlider)).BeginInit();
             this.coloursGroup.SuspendLayout();
@@ -73,6 +76,8 @@ namespace CapsLockIndicatorV3
             this.fontGroupBox.SuspendLayout();
             this.positionGroup.SuspendLayout();
             this.positionButtonLayout.SuspendLayout();
+            this.opacityGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.opacitySlider)).BeginInit();
             this.SuspendLayout();
             // 
             // displayTimeGroup
@@ -115,7 +120,7 @@ namespace CapsLockIndicatorV3
             this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveButton.AutoSize = true;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.saveButton.Location = new System.Drawing.Point(124, 510);
+            this.saveButton.Location = new System.Drawing.Point(374, 316);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(132, 24);
             this.saveButton.TabIndex = 10;
@@ -137,7 +142,7 @@ namespace CapsLockIndicatorV3
             this.coloursGroup.Controls.Add(this.foregroundColourActivatedButton);
             this.coloursGroup.Controls.Add(this.backgroundColourActivatedPreview);
             this.coloursGroup.Controls.Add(this.backgroundColourActivatedButton);
-            this.coloursGroup.Location = new System.Drawing.Point(12, 164);
+            this.coloursGroup.Location = new System.Drawing.Point(262, 12);
             this.coloursGroup.Name = "coloursGroup";
             this.coloursGroup.Size = new System.Drawing.Size(244, 230);
             this.coloursGroup.TabIndex = 3;
@@ -304,7 +309,7 @@ namespace CapsLockIndicatorV3
             // positionGroup
             // 
             this.positionGroup.Controls.Add(this.positionButtonLayout);
-            this.positionGroup.Location = new System.Drawing.Point(12, 400);
+            this.positionGroup.Location = new System.Drawing.Point(12, 164);
             this.positionGroup.Name = "positionGroup";
             this.positionGroup.Size = new System.Drawing.Size(244, 100);
             this.positionGroup.TabIndex = 11;
@@ -453,13 +458,49 @@ namespace CapsLockIndicatorV3
             this.positionTopLeft.UseVisualStyleBackColor = true;
             this.positionTopLeft.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
             // 
+            // opacityGroup
+            // 
+            this.opacityGroup.Controls.Add(this.opacityLabel);
+            this.opacityGroup.Controls.Add(this.opacitySlider);
+            this.opacityGroup.Location = new System.Drawing.Point(12, 270);
+            this.opacityGroup.Name = "opacityGroup";
+            this.opacityGroup.Size = new System.Drawing.Size(244, 70);
+            this.opacityGroup.TabIndex = 2;
+            this.opacityGroup.TabStop = false;
+            this.opacityGroup.Text = "Opacity";
+            // 
+            // opacityLabel
+            // 
+            this.opacityLabel.Location = new System.Drawing.Point(159, 35);
+            this.opacityLabel.Name = "opacityLabel";
+            this.opacityLabel.Size = new System.Drawing.Size(76, 15);
+            this.opacityLabel.TabIndex = 1;
+            this.opacityLabel.Text = "100%";
+            this.opacityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.opacityLabel.Click += new System.EventHandler(this.opacityLabel_Click);
+            // 
+            // opacitySlider
+            // 
+            this.opacitySlider.LargeChange = 10;
+            this.opacitySlider.Location = new System.Drawing.Point(6, 22);
+            this.opacitySlider.Maximum = 100;
+            this.opacitySlider.Minimum = 1;
+            this.opacitySlider.Name = "opacitySlider";
+            this.opacitySlider.Size = new System.Drawing.Size(147, 45);
+            this.opacitySlider.TabIndex = 0;
+            this.opacitySlider.TickFrequency = 10;
+            this.opacitySlider.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.opacitySlider.Value = 100;
+            this.opacitySlider.Scroll += new System.EventHandler(this.opacitySlider_Scroll);
+            // 
             // IndSettingsWindow
             // 
             this.AcceptButton = this.saveButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(268, 546);
+            this.ClientSize = new System.Drawing.Size(518, 352);
+            this.Controls.Add(this.opacityGroup);
             this.Controls.Add(this.positionGroup);
             this.Controls.Add(this.fontGroupBox);
             this.Controls.Add(this.coloursGroup);
@@ -487,6 +528,9 @@ namespace CapsLockIndicatorV3
             this.fontGroupBox.ResumeLayout(false);
             this.positionGroup.ResumeLayout(false);
             this.positionButtonLayout.ResumeLayout(false);
+            this.opacityGroup.ResumeLayout(false);
+            this.opacityGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.opacitySlider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -526,5 +570,8 @@ namespace CapsLockIndicatorV3
         private System.Windows.Forms.RadioButton positionTopRight;
         private System.Windows.Forms.RadioButton positionTopCenter;
         private System.Windows.Forms.RadioButton positionTopLeft;
+        private System.Windows.Forms.GroupBox opacityGroup;
+        private System.Windows.Forms.Label opacityLabel;
+        private System.Windows.Forms.TrackBar opacitySlider;
     }
 }
