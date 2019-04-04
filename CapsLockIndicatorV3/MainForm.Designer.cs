@@ -109,16 +109,19 @@ namespace CapsLockIndicatorV3
             // 
             this.numLockIcon.Text = "Num Lock";
             this.numLockIcon.Visible = true;
+            this.numLockIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.GeneralIconMouseDoubleClick);
             // 
             // capsLockIcon
             // 
             this.capsLockIcon.Text = "Caps Lock";
             this.capsLockIcon.Visible = true;
+            this.capsLockIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.GeneralIconMouseDoubleClick);
             // 
             // scrollLockIcon
             // 
             this.scrollLockIcon.Text = "Scroll Lock";
             this.scrollLockIcon.Visible = true;
+            this.scrollLockIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.GeneralIconMouseDoubleClick);
             // 
             // iconsGroup
             // 
