@@ -187,7 +187,7 @@ namespace CapsLockIndicatorV3
             this.foregroundColourDeactivatedButton.Name = "foregroundColourDeactivatedButton";
             this.foregroundColourDeactivatedButton.Size = new System.Drawing.Size(182, 25);
             this.foregroundColourDeactivatedButton.TabIndex = 6;
-            this.foregroundColourDeactivatedButton.Text = "Text colour activated";
+            this.foregroundColourDeactivatedButton.Text = "Text colour deactivated";
             this.foregroundColourDeactivatedButton.UseVisualStyleBackColor = true;
             this.foregroundColourDeactivatedButton.Click += new System.EventHandler(this.foregroundColourDeactivatedButton_Click);
             // 

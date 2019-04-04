@@ -384,8 +384,14 @@ namespace CapsLockIndicatorV3
 
         private void HideForm()
         {
-            generalIcon.Visible = true;
-            generalIcon.ShowBalloonTip(100);
+            if (!checkTrayIcons())
+            {
+                generalIcon.Visible = true;
+                generalIcon.ShowBalloonTip(100);
+            }
+            else
+                generalIcon.Visible = false;
+
             Hide();
             isHidden = true;
         }
@@ -396,6 +402,15 @@ namespace CapsLockIndicatorV3
             Focus();
             generalIcon.Visible = false;
             isHidden = false;
+        }
+
+        // If any of the key icons in the tray are active, return true; else false
+        private bool checkTrayIcons()
+        {
+            if (Properties.Settings.Default.numIco || Properties.Settings.Default.capsIco || Properties.Settings.Default.scrollIco)
+                return true;
+
+            return false;
         }
 
         private void enableNumIcon_CheckedChanged(object sender, EventArgs e)
