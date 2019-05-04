@@ -60,6 +60,10 @@ namespace CapsLockIndicatorV3
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.updateTimer = new System.Windows.Forms.Timer(this.components);
             this.numLockIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.generalIconContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.capsLockIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.scrollLockIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.iconsGroup = new System.Windows.Forms.GroupBox();
@@ -73,17 +77,11 @@ namespace CapsLockIndicatorV3
             this.showNoIcons = new System.Windows.Forms.CheckBox();
             this.showNoNotification = new System.Windows.Forms.CheckBox();
             this.aboutPanel = new System.Windows.Forms.Panel();
-            this.appNameLabel = new CapsLockIndicatorV3.LnkLabel();
-            this.logo = new CapsLockIndicatorV3.LnkLabel();
             this.aboutPanelTopBorder = new System.Windows.Forms.PictureBox();
             this.aboutText = new System.Windows.Forms.Label();
             this.hideWindow = new System.Windows.Forms.Button();
             this.exitApplication = new System.Windows.Forms.Button();
             this.generalIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.generalIconContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.indSettings = new System.Windows.Forms.Button();
             this.checkForUpdatesButton = new System.Windows.Forms.Button();
             this.startonlogonCheckBox = new System.Windows.Forms.CheckBox();
@@ -92,11 +90,13 @@ namespace CapsLockIndicatorV3
             this.mainToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.checkForUpdatedCheckBox = new System.Windows.Forms.CheckBox();
             this.localeComboBox = new CapsLockIndicatorV3.LnComboBox();
+            this.appNameLabel = new CapsLockIndicatorV3.LnkLabel();
+            this.logo = new CapsLockIndicatorV3.LnkLabel();
+            this.generalIconContextMenuStrip.SuspendLayout();
             this.iconsGroup.SuspendLayout();
             this.indicatorGroup.SuspendLayout();
             this.aboutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.aboutPanelTopBorder)).BeginInit();
-            this.generalIconContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // updateTimer
@@ -107,16 +107,47 @@ namespace CapsLockIndicatorV3
             // 
             // numLockIcon
             // 
+            this.numLockIcon.ContextMenuStrip = this.generalIconContextMenuStrip;
             this.numLockIcon.Text = "Num Lock";
             this.numLockIcon.Visible = true;
             // 
+            // generalIconContextMenuStrip
+            // 
+            this.generalIconContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.exitToolStripMenuItem});
+            this.generalIconContextMenuStrip.Name = "generalIconContextMenuStrip";
+            this.generalIconContextMenuStrip.Size = new System.Drawing.Size(104, 54);
+            // 
+            // showToolStripMenuItem
+            // 
+            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.showToolStripMenuItem.Text = "&Show";
+            this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(100, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.exitToolStripMenuItem.Text = "&Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // capsLockIcon
             // 
+            this.capsLockIcon.ContextMenuStrip = this.generalIconContextMenuStrip;
             this.capsLockIcon.Text = "Caps Lock";
             this.capsLockIcon.Visible = true;
             // 
             // scrollLockIcon
             // 
+            this.scrollLockIcon.ContextMenuStrip = this.generalIconContextMenuStrip;
             this.scrollLockIcon.Text = "Scroll Lock";
             this.scrollLockIcon.Visible = true;
             // 
@@ -137,9 +168,10 @@ namespace CapsLockIndicatorV3
             this.enableScrollIcon.AutoSize = true;
             this.enableScrollIcon.Checked = true;
             this.enableScrollIcon.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.enableScrollIcon.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.enableScrollIcon.Location = new System.Drawing.Point(6, 72);
             this.enableScrollIcon.Name = "enableScrollIcon";
-            this.enableScrollIcon.Size = new System.Drawing.Size(80, 19);
+            this.enableScrollIcon.Size = new System.Drawing.Size(86, 20);
             this.enableScrollIcon.TabIndex = 2;
             this.enableScrollIcon.Text = "Scroll lock";
             this.enableScrollIcon.UseVisualStyleBackColor = true;
@@ -150,9 +182,10 @@ namespace CapsLockIndicatorV3
             this.enableCapsIcon.AutoSize = true;
             this.enableCapsIcon.Checked = true;
             this.enableCapsIcon.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.enableCapsIcon.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.enableCapsIcon.Location = new System.Drawing.Point(6, 47);
             this.enableCapsIcon.Name = "enableCapsIcon";
-            this.enableCapsIcon.Size = new System.Drawing.Size(77, 19);
+            this.enableCapsIcon.Size = new System.Drawing.Size(83, 20);
             this.enableCapsIcon.TabIndex = 1;
             this.enableCapsIcon.Text = "Caps lock";
             this.enableCapsIcon.UseVisualStyleBackColor = true;
@@ -163,9 +196,10 @@ namespace CapsLockIndicatorV3
             this.enableNumIcon.AutoSize = true;
             this.enableNumIcon.Checked = true;
             this.enableNumIcon.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.enableNumIcon.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.enableNumIcon.Location = new System.Drawing.Point(6, 22);
             this.enableNumIcon.Name = "enableNumIcon";
-            this.enableNumIcon.Size = new System.Drawing.Size(78, 19);
+            this.enableNumIcon.Size = new System.Drawing.Size(84, 20);
             this.enableNumIcon.TabIndex = 0;
             this.enableNumIcon.Text = "Num lock";
             this.enableNumIcon.UseVisualStyleBackColor = true;
@@ -188,9 +222,10 @@ namespace CapsLockIndicatorV3
             this.enableScrollInd.AutoSize = true;
             this.enableScrollInd.Checked = true;
             this.enableScrollInd.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.enableScrollInd.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.enableScrollInd.Location = new System.Drawing.Point(6, 72);
             this.enableScrollInd.Name = "enableScrollInd";
-            this.enableScrollInd.Size = new System.Drawing.Size(126, 19);
+            this.enableScrollInd.Size = new System.Drawing.Size(132, 20);
             this.enableScrollInd.TabIndex = 2;
             this.enableScrollInd.Text = "Scrolllock changed";
             this.enableScrollInd.UseVisualStyleBackColor = true;
@@ -201,9 +236,10 @@ namespace CapsLockIndicatorV3
             this.enableCapsInd.AutoSize = true;
             this.enableCapsInd.Checked = true;
             this.enableCapsInd.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.enableCapsInd.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.enableCapsInd.Location = new System.Drawing.Point(6, 47);
             this.enableCapsInd.Name = "enableCapsInd";
-            this.enableCapsInd.Size = new System.Drawing.Size(123, 19);
+            this.enableCapsInd.Size = new System.Drawing.Size(129, 20);
             this.enableCapsInd.TabIndex = 1;
             this.enableCapsInd.Text = "Capslock changed";
             this.enableCapsInd.UseVisualStyleBackColor = true;
@@ -214,9 +250,10 @@ namespace CapsLockIndicatorV3
             this.enableNumInd.AutoSize = true;
             this.enableNumInd.Checked = true;
             this.enableNumInd.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.enableNumInd.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.enableNumInd.Location = new System.Drawing.Point(6, 22);
             this.enableNumInd.Name = "enableNumInd";
-            this.enableNumInd.Size = new System.Drawing.Size(124, 19);
+            this.enableNumInd.Size = new System.Drawing.Size(130, 20);
             this.enableNumInd.TabIndex = 0;
             this.enableNumInd.Text = "Numlock changed";
             this.enableNumInd.UseVisualStyleBackColor = true;
@@ -225,9 +262,10 @@ namespace CapsLockIndicatorV3
             // showNoIcons
             // 
             this.showNoIcons.AutoSize = true;
+            this.showNoIcons.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.showNoIcons.Location = new System.Drawing.Point(18, 118);
             this.showNoIcons.Name = "showNoIcons";
-            this.showNoIcons.Size = new System.Drawing.Size(103, 19);
+            this.showNoIcons.Size = new System.Drawing.Size(109, 20);
             this.showNoIcons.TabIndex = 2;
             this.showNoIcons.Text = "Show no icons";
             this.showNoIcons.UseVisualStyleBackColor = true;
@@ -236,9 +274,10 @@ namespace CapsLockIndicatorV3
             // showNoNotification
             // 
             this.showNoNotification.AutoSize = true;
+            this.showNoNotification.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.showNoNotification.Location = new System.Drawing.Point(137, 118);
             this.showNoNotification.Name = "showNoNotification";
-            this.showNoNotification.Size = new System.Drawing.Size(136, 19);
+            this.showNoNotification.Size = new System.Drawing.Size(142, 20);
             this.showNoNotification.TabIndex = 3;
             this.showNoNotification.Text = "Show no notification";
             this.showNoNotification.UseVisualStyleBackColor = true;
@@ -255,31 +294,6 @@ namespace CapsLockIndicatorV3
             this.aboutPanel.Name = "aboutPanel";
             this.aboutPanel.Size = new System.Drawing.Size(306, 66);
             this.aboutPanel.TabIndex = 4;
-            // 
-            // appNameLabel
-            // 
-            this.appNameLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(77)))), ((int)(((byte)(180)))));
-            this.appNameLabel.AutoSize = true;
-            this.appNameLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.appNameLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.appNameLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(77)))), ((int)(((byte)(180)))));
-            this.appNameLabel.Location = new System.Drawing.Point(63, 10);
-            this.appNameLabel.Name = "appNameLabel";
-            this.appNameLabel.Size = new System.Drawing.Size(111, 15);
-            this.appNameLabel.TabIndex = 5;
-            this.appNameLabel.TabStop = true;
-            this.appNameLabel.Text = "CapsLock Indicator";
-            this.mainToolTip.SetToolTip(this.appNameLabel, "Visit CapsLock Indicator website");
-            this.appNameLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.appNameLabel_LinkClicked);
-            // 
-            // logo
-            // 
-            this.logo.Image = ((System.Drawing.Image)(resources.GetObject("logo.Image")));
-            this.logo.Location = new System.Drawing.Point(9, 10);
-            this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(48, 48);
-            this.logo.TabIndex = 4;
-            this.logo.Click += new System.EventHandler(this.lnkLabel1_Click);
             // 
             // aboutPanelTopBorder
             // 
@@ -333,34 +347,6 @@ namespace CapsLockIndicatorV3
             this.generalIcon.Text = "CapsLock Indicator";
             this.generalIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.GeneralIconMouseDoubleClick);
             // 
-            // generalIconContextMenuStrip
-            // 
-            this.generalIconContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.exitToolStripMenuItem});
-            this.generalIconContextMenuStrip.Name = "generalIconContextMenuStrip";
-            this.generalIconContextMenuStrip.Size = new System.Drawing.Size(104, 54);
-            // 
-            // showToolStripMenuItem
-            // 
-            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.showToolStripMenuItem.Text = "&Show";
-            this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(100, 6);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.exitToolStripMenuItem.Text = "&Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
             // indSettings
             // 
             this.indSettings.AutoSize = true;
@@ -388,9 +374,10 @@ namespace CapsLockIndicatorV3
             // startonlogonCheckBox
             // 
             this.startonlogonCheckBox.AutoSize = true;
+            this.startonlogonCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.startonlogonCheckBox.Location = new System.Drawing.Point(18, 143);
             this.startonlogonCheckBox.Name = "startonlogonCheckBox";
-            this.startonlogonCheckBox.Size = new System.Drawing.Size(101, 19);
+            this.startonlogonCheckBox.Size = new System.Drawing.Size(107, 20);
             this.startonlogonCheckBox.TabIndex = 10;
             this.startonlogonCheckBox.Text = "Start on logon";
             this.startonlogonCheckBox.UseVisualStyleBackColor = true;
@@ -399,9 +386,10 @@ namespace CapsLockIndicatorV3
             // hideOnStartupCheckBox
             // 
             this.hideOnStartupCheckBox.AutoSize = true;
+            this.hideOnStartupCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.hideOnStartupCheckBox.Location = new System.Drawing.Point(137, 143);
             this.hideOnStartupCheckBox.Name = "hideOnStartupCheckBox";
-            this.hideOnStartupCheckBox.Size = new System.Drawing.Size(108, 19);
+            this.hideOnStartupCheckBox.Size = new System.Drawing.Size(114, 20);
             this.hideOnStartupCheckBox.TabIndex = 11;
             this.hideOnStartupCheckBox.Text = "Hide on startup";
             this.hideOnStartupCheckBox.UseVisualStyleBackColor = true;
@@ -413,12 +401,12 @@ namespace CapsLockIndicatorV3
             // 
             // checkForUpdatedCheckBox
             // 
-            this.checkForUpdatedCheckBox.AutoSize = true;
             this.checkForUpdatedCheckBox.Checked = true;
             this.checkForUpdatedCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkForUpdatedCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.checkForUpdatedCheckBox.Location = new System.Drawing.Point(58, 265);
             this.checkForUpdatedCheckBox.Name = "checkForUpdatedCheckBox";
-            this.checkForUpdatedCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.checkForUpdatedCheckBox.Size = new System.Drawing.Size(15, 15);
             this.checkForUpdatedCheckBox.TabIndex = 12;
             this.checkForUpdatedCheckBox.UseVisualStyleBackColor = true;
             this.checkForUpdatedCheckBox.CheckedChanged += new System.EventHandler(this.checkForUpdatedCheckBox_CheckedChanged);
@@ -434,6 +422,31 @@ namespace CapsLockIndicatorV3
             this.localeComboBox.TabIndex = 13;
             this.localeComboBox.SelectedIndexChanged += new System.EventHandler(this.localeComboBox_SelectedIndexChanged);
             this.localeComboBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.localeComboBox_Format);
+            // 
+            // appNameLabel
+            // 
+            this.appNameLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(77)))), ((int)(((byte)(180)))));
+            this.appNameLabel.AutoSize = true;
+            this.appNameLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.appNameLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.appNameLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(77)))), ((int)(((byte)(180)))));
+            this.appNameLabel.Location = new System.Drawing.Point(63, 10);
+            this.appNameLabel.Name = "appNameLabel";
+            this.appNameLabel.Size = new System.Drawing.Size(111, 15);
+            this.appNameLabel.TabIndex = 5;
+            this.appNameLabel.TabStop = true;
+            this.appNameLabel.Text = "CapsLock Indicator";
+            this.mainToolTip.SetToolTip(this.appNameLabel, "Visit CapsLock Indicator website");
+            this.appNameLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.appNameLabel_LinkClicked);
+            // 
+            // logo
+            // 
+            this.logo.Image = ((System.Drawing.Image)(resources.GetObject("logo.Image")));
+            this.logo.Location = new System.Drawing.Point(9, 10);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(48, 48);
+            this.logo.TabIndex = 4;
+            this.logo.Click += new System.EventHandler(this.lnkLabel1_Click);
             // 
             // MainForm
             // 
@@ -465,6 +478,7 @@ namespace CapsLockIndicatorV3
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainFormLoad);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
+            this.generalIconContextMenuStrip.ResumeLayout(false);
             this.iconsGroup.ResumeLayout(false);
             this.iconsGroup.PerformLayout();
             this.indicatorGroup.ResumeLayout(false);
@@ -472,7 +486,6 @@ namespace CapsLockIndicatorV3
             this.aboutPanel.ResumeLayout(false);
             this.aboutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.aboutPanelTopBorder)).EndInit();
-            this.generalIconContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

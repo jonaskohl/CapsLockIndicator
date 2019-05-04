@@ -131,7 +131,7 @@
   </data>
   <data name="borderColourDeactivatedButton" xml:space="preserve">
     <value>边框-未激活</value>
-    <comment>The caption for the "Border colour decativated" button.</comment>
+    <comment>The caption for the "Border colour deactivated" button.</comment>
   </data>
   <data name="capsLock" xml:space="preserve">
     <value>Caps lock</value>
@@ -169,12 +169,16 @@
     <value>手动下载</value>
     <comment>The caption for the "Download manually" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
+  <data name="downloadMoreTranslations" xml:space="preserve">
+    <value>下载更多语言...</value>
+    <comment>The last dropdown item in the locale dropdown.</comment>
+  </data>
   <data name="exitApplication" xml:space="preserve">
     <value>退出程序</value>
     <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="exitMessage" xml:space="preserve">
-    <value>退出程序后，指示器图标和切换通知将不再显示，确定要退出么？</value>
+    <value>退出程序后，托盘指示器图标和切换通知将不再显示，确定要退出么？</value>
     <comment>The message to display on application exit</comment>
   </data>
   <data name="fontGroup" xml:space="preserve">
@@ -202,7 +206,7 @@
     <comment>The caption for the button that hides the window. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="keyChanged" xml:space="preserve">
-    <value>切换{0}状态</value>
+    <value>切换{0}状态时</value>
     <comment>Used for the check boxes in the "Show notification when..." group box. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="keyIsOff" xml:space="preserve">
@@ -225,6 +229,18 @@
     <value>Num lock</value>
     <comment>The name of the num lock key</comment>
   </data>
+  <data name="opacity" xml:space="preserve">
+    <value>透明度</value>
+    <comment>The title for the "Opacity" group box</comment>
+  </data>
+  <data name="overlayPositionGroup" xml:space="preserve">
+    <value>通知出现位置</value>
+    <comment>The title for the "Overlay position" group box</comment>
+  </data>
+  <data name="permanentIndicator" xml:space="preserve">
+    <value>一直显示</value>
+    <comment>Text to display instead of the time if indicator overlay display is set to permanently.</comment>
+  </data>
   <data name="saveAndCloseButton" xml:space="preserve">
     <value>保存并关闭</value>
     <comment>The caption for the "Save &amp; Close" button. The character after the "&amp;" is the hotkey that is used with the ALT key. Use two "&amp;" to display a "&amp;" character</comment>
@@ -234,11 +250,11 @@
     <comment>The name of the scroll lock key</comment>
   </data>
   <data name="showIconsFor" xml:space="preserve">
-    <value>展示以下指示器</value>
+    <value>在系统托盘中展示以下指示器</value>
     <comment>The title for the "Show icons for..." group box</comment>
   </data>
   <data name="showNoIcons" xml:space="preserve">
-    <value>不展示指示器</value>
+    <value>不展示托盘指示器</value>
     <comment>The label for the check box that enables or disables all icons</comment>
   </data>
   <data name="showNoNotification" xml:space="preserve">
@@ -265,6 +281,5 @@
     <value>立即升级</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
-
 
 </root>

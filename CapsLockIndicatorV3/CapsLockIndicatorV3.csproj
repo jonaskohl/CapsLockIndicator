@@ -180,10 +180,13 @@
     <EmbeddedResource Include="strings.de.resx" />
     <EmbeddedResource Include="strings.es.resx" />
     <EmbeddedResource Include="strings.fr.resx" />
+    <EmbeddedResource Include="strings.it.resx" />
+    <EmbeddedResource Include="strings.pt-PT.resx" />
     <EmbeddedResource Include="strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="strings.ru.resx" />
     <EmbeddedResource Include="strings.zh-CN.resx" />
     <EmbeddedResource Include="UpdateDialog.resx">
       <DependentUpon>UpdateDialog.cs</DependentUpon>

@@ -222,6 +222,12 @@ namespace CapsLockIndicatorV3
             else
                 scrollLockIcon.Icon = null;
 
+            generalIcon.Visible = 
+                !(enableNumIcon.Checked && !showNoIcons.Checked) &&
+                !(enableCapsIcon.Checked && !showNoIcons.Checked) &&
+                !(enableScrollIcon.Checked && !showNoIcons.Checked)
+            ;
+
             // Handle the overlay
             if (numState != KeyHelper.isNumlockActive && enableNumInd.Checked && !showNoNotification.Checked)
                 ShowOverlay(string.Format(KeyHelper.isNumlockActive ? strings.keyIsOn : strings.keyIsOff, strings.numLock), KeyHelper.isNumlockActive);
@@ -384,8 +390,8 @@ namespace CapsLockIndicatorV3
 
         private void HideForm()
         {
-            generalIcon.Visible = true;
-            generalIcon.ShowBalloonTip(100);
+            //generalIcon.Visible = true;
+            //generalIcon.ShowBalloonTip(100);
             Hide();
             isHidden = true;
         }

@@ -131,7 +131,7 @@
   </data>
   <data name="borderColourDeactivatedButton" xml:space="preserve">
     <value>Couleur de bord désactivée</value>
-    <comment>The caption for the "Border colour decativated" button.</comment>
+    <comment>The caption for the "Border colour deactivated" button.</comment>
   </data>
   <data name="capsLock" xml:space="preserve">
     <value>Verrouillage majuscules</value>
@@ -154,7 +154,7 @@
     <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
   <data name="contextMenuShow" xml:space="preserve">
-    <value>&amp;Restaurer</value>
+    <value>&amp;Afficher</value>
     <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
   <data name="dismissButton" xml:space="preserve">
@@ -168,6 +168,10 @@
   <data name="downloadManuallyButton" xml:space="preserve">
     <value>Télécharger &amp;manuellement</value>
     <comment>The caption for the "Download manually" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="downloadMoreTranslations" xml:space="preserve">
+    <value>Télécharger plus de traductions....</value>
+    <comment>The last dropdown item in the locale dropdown.</comment>
   </data>
   <data name="exitApplication" xml:space="preserve">
     <value>&amp;Quitter l'application</value>
@@ -225,12 +229,24 @@
     <value>Verrouillage Numérique</value>
     <comment>The name of the num lock key</comment>
   </data>
+  <data name="opacity" xml:space="preserve">
+    <value>Transparence</value>
+    <comment>The title for the "Opacity" group box</comment>
+  </data>
+  <data name="overlayPositionGroup" xml:space="preserve">
+    <value>Position de la notification</value>
+    <comment>The title for the "Overlay position" group box</comment>
+  </data>
+  <data name="permanentIndicator" xml:space="preserve">
+    <value>En permanence</value>
+    <comment>Text to display instead of the time if indicator overlay display is set to permanently.</comment>
+  </data>
   <data name="saveAndCloseButton" xml:space="preserve">
     <value>&amp;Sauvegarder &amp;&amp; et quitter</value>
     <comment>The caption for the "Save &amp; Close" button. The character after the "&amp;" is the hotkey that is used with the ALT key. Use two "&amp;" to display a "&amp;" character</comment>
   </data>
   <data name="scrollLock" xml:space="preserve">
-    <value>Verrouillage défilement</value>
+    <value>Arrêt défil.</value>
     <comment>The name of the scroll lock key</comment>
   </data>
   <data name="showIconsFor" xml:space="preserve">
@@ -254,17 +270,16 @@
     <comment>The label for the check box that enables or disabled the auto start.</comment>
   </data>
   <data name="updateAvailable" xml:space="preserve">
-    <value>Mise à jour de CapsLock Indicator disponible !</value>
+    <value>Une mise à jour de CapsLock Indicator est disponible !</value>
     <comment>The title for the update window.</comment>
   </data>
   <data name="updateInfoFormat" xml:space="preserve">
-    <value>Version  {0}, released {1}</value>
+    <value>Version  {0}, publiée le {1}</value>
     <comment>Displayed in the "Update Available" dialog. {0} is the version, {1} is the release date and time.</comment>
   </data>
   <data name="updateNow" xml:space="preserve">
     <value>&amp;Mettre à jour maintenant</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
-
 
 </root>

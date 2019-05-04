@@ -118,123 +118,123 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="backgroundColourActivatedButton" xml:space="preserve">
-    <value>Color de fondo activado</value>
+    <value>Colore sfondo attivato</value>
     <comment>The caption for the "Background colour activated" button.</comment>
   </data>
   <data name="backgroundColourDeactivatedButton" xml:space="preserve">
-    <value>Color de fondo desactivado</value>
+    <value>Colore sfondo disattivato</value>
     <comment>The caption for the "Background colour deactivated" button.</comment>
   </data>
   <data name="borderColourActivatedButton" xml:space="preserve">
-    <value>Color del borde activado</value>
+    <value>Colore bordo attivato</value>
     <comment>The caption for the "Border colour activated" button.</comment>
   </data>
   <data name="borderColourDeactivatedButton" xml:space="preserve">
-    <value>Color del borde desactivado</value>
+    <value>Colore bordo disattivato</value>
     <comment>The caption for the "Border colour deactivated" button.</comment>
   </data>
   <data name="capsLock" xml:space="preserve">
-    <value>Bloq. Mayúsculas</value>
+    <value>Blocco maiuscole</value>
     <comment>The name of the caps lock key</comment>
   </data>
   <data name="checkForUpdates" xml:space="preserve">
-    <value>Comprobar &amp;actualizaciones</value>
+    <value>Controllo a&amp;ggiornamenti</value>
     <comment>The caption for the button that manually checks for updates. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="checkingForUpdates" xml:space="preserve">
-    <value>Comprobando actualizaciones...</value>
+    <value>Sto controllando gli aggiornamenti...</value>
     <comment>The caption for the "Check for updates" button when it's searching for updates.</comment>
   </data>
   <data name="coloursGroup" xml:space="preserve">
-    <value>Colores</value>
+    <value>Colori</value>
     <comment>The title for the "Colours" group box</comment>
   </data>
   <data name="contextMenuExit" xml:space="preserve">
-    <value>&amp;Salir</value>
+    <value>&amp;Uscita</value>
     <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
   <data name="contextMenuShow" xml:space="preserve">
-    <value>&amp;Mostrar</value>
+    <value>&amp;Mostra</value>
     <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
   <data name="dismissButton" xml:space="preserve">
-    <value>&amp;Descartar</value>
+    <value>A&amp;nnulla</value>
     <comment>The caption for the "Dismiss" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="displayTime" xml:space="preserve">
-    <value>Mostrar tiempo</value>
+    <value>Tempo di visualizzazione</value>
     <comment>The title for the "Display time" group box</comment>
   </data>
   <data name="downloadManuallyButton" xml:space="preserve">
-    <value>Descargar &amp;manualmente</value>
+    <value>Scarica manua&amp;lmente</value>
     <comment>The caption for the "Download manually" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="downloadMoreTranslations" xml:space="preserve">
-    <value>Descargar más traducciones...</value>
+    <value>Scarica altre lingue...</value>
     <comment>The last dropdown item in the locale dropdown.</comment>
   </data>
   <data name="exitApplication" xml:space="preserve">
-    <value>&amp;Cerrar aplicación</value>
+    <value>&amp;Chiudi il programma</value>
     <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="exitMessage" xml:space="preserve">
-    <value>Saliendo de la aplicación, los iconos y notificaciones no se mostrarán. ¿Salir de todas maneras?.</value>
+    <value>Chiudendo il programma le icone e le notifiche non verranno più mostrate. Uscire comunque?</value>
     <comment>The message to display on application exit</comment>
   </data>
   <data name="fontGroup" xml:space="preserve">
-    <value>Fuente</value>
+    <value>Carattere</value>
     <comment>The title for the "Font" group box</comment>
   </data>
   <data name="foregroundColourActivatedButton" xml:space="preserve">
-    <value>Color de texto activado</value>
+    <value>Colore testo attivato</value>
     <comment>The caption for the "Text colour activated" button.</comment>
   </data>
   <data name="foregroundColourDeactivatedButton" xml:space="preserve">
-    <value>Color de texto activado</value>
+    <value>Colore testo attivato</value>
     <comment>The caption for the "Text colour activated" button.</comment>
   </data>
   <data name="generalIconBalloonText" xml:space="preserve">
-    <value>Puedes mostrar el indicador de Bloq mayús nuevamente haciendo doble clic en este icono.</value>
+    <value>Potrai vedere ancora l'indicatore del blocco maiuscole facendo doppio click su questa icona</value>
     <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
   </data>
   <data name="hideOnStartup" xml:space="preserve">
-    <value>Esconder al inicio</value>
+    <value>Nascondi all'avvio</value>
     <comment>Used for the hide on startup checkbox</comment>
   </data>
   <data name="hideWindow" xml:space="preserve">
-    <value>&amp;Esconder ventana</value>
+    <value>Na&amp;scondi finestra</value>
     <comment>The caption for the button that hides the window. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="keyChanged" xml:space="preserve">
-    <value>{0} cambiado</value>
+    <value>{0} modificato</value>
     <comment>Used for the check boxes in the "Show notification when..." group box. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="keyIsOff" xml:space="preserve">
-    <value>{0} desactivado</value>
+    <value>{0} è spento</value>
     <comment>The text to display in the notification when a key is off. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="keyIsOn" xml:space="preserve">
-    <value>{0} activado</value>
+    <value>{0} è acceso</value>
     <comment>The text to display in the notification when a key is on. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="notificationSettings" xml:space="preserve">
-    <value>&amp;Ajuste de notificaciones</value>
+    <value>Impostazioni no&amp;tifiche </value>
     <comment>The caption for the button that opens the notification settings. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="notificationSettingsTitle" xml:space="preserve">
-    <value>Ajuste de notificaciones</value>
+    <value>Impostazioni notifiche</value>
     <comment>The caption of the notification settings window</comment>
   </data>
   <data name="numLock" xml:space="preserve">
-    <value>Bloq Núm</value>
+    <value>Tastierino numerico</value>
     <comment>The name of the num lock key</comment>
   </data>
   <data name="opacity" xml:space="preserve">
-    <value>Opacidad</value>
+    <value>Opacita</value>
     <comment>The title for the "Opacity" group box</comment>
   </data>
   <data name="overlayPositionGroup" xml:space="preserve">
-    <value>Posición sobre la pantalla</value>
+    <value>Posizione</value>
     <comment>The title for the "Overlay position" group box</comment>
   </data>
   <data name="permanentIndicator" xml:space="preserve">
@@ -242,43 +242,43 @@
     <comment>Text to display instead of the time if indicator overlay display is set to permanently.</comment>
   </data>
   <data name="saveAndCloseButton" xml:space="preserve">
-    <value>&amp;Guardar &amp;&amp; cerrar</value>
+    <value>Sal&amp;va e chiudi</value>
     <comment>The caption for the "Save &amp; Close" button. The character after the "&amp;" is the hotkey that is used with the ALT key. Use two "&amp;" to display a "&amp;" character</comment>
   </data>
   <data name="scrollLock" xml:space="preserve">
-    <value>Bloq Despl</value>
+    <value>Blocco scorrimento</value>
     <comment>The name of the scroll lock key</comment>
   </data>
   <data name="showIconsFor" xml:space="preserve">
-    <value>Mostrar iconos para...</value>
+    <value>Mostra icone per...</value>
     <comment>The title for the "Show icons for..." group box</comment>
   </data>
   <data name="showNoIcons" xml:space="preserve">
-    <value>No mostrar iconos</value>
+    <value>Non mostrare icone</value>
     <comment>The label for the check box that enables or disables all icons</comment>
   </data>
   <data name="showNoNotification" xml:space="preserve">
-    <value>No mostrar notificación</value>
+    <value>Non mostrare notifiche</value>
     <comment>The label for the check box that enables or disables all notifications</comment>
   </data>
   <data name="showNotificationWhen" xml:space="preserve">
-    <value>Mostrar notificación cuando...</value>
+    <value>Mostra notifiche quando...</value>
     <comment>The title for the "Show notification when..." group box</comment>
   </data>
   <data name="startOnLogon" xml:space="preserve">
-    <value>Activar al iniciar sesión</value>
+    <value>Avvia all'accesso (esegui automaticamente all'avvio)</value>
     <comment>The label for the check box that enables or disabled the auto start.</comment>
   </data>
   <data name="updateAvailable" xml:space="preserve">
-    <value>¡Actualización de CapsLock Indicator disponible!</value>
+    <value>Aggiornamento disponibile per CapsLock Indicator!</value>
     <comment>The title for the update window.</comment>
   </data>
   <data name="updateInfoFormat" xml:space="preserve">
-    <value>Versión {0}, lanzada {1}</value>
+    <value>Versione {0}, rilasciata il {1}</value>
     <comment>Displayed in the "Update Available" dialog. {0} is the version, {1} is the release date and time.</comment>
   </data>
   <data name="updateNow" xml:space="preserve">
-    <value>&amp;Actualizar ahora</value>
+    <value>&amp;Aggiorna adesso</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
 
