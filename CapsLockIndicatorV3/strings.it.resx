@@ -190,8 +190,8 @@
     <comment>The caption for the "Text colour activated" button.</comment>
   </data>
   <data name="foregroundColourDeactivatedButton" xml:space="preserve">
-    <value>Colore testo attivato</value>
-    <comment>The caption for the "Text colour activated" button.</comment>
+    <value>Colore testo disattivato</value>
+    <comment>The caption for the "Text colour deactivated" button.</comment>
   </data>
   <data name="generalIconBalloonText" xml:space="preserve">
     <value>Potrai vedere ancora l'indicatore del blocco maiuscole facendo doppio click su questa icona</value>
@@ -281,5 +281,4 @@
     <value>&amp;Aggiorna adesso</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
-
 </root>

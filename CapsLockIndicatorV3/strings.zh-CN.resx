@@ -190,8 +190,8 @@
     <comment>The caption for the "Text colour activated" button.</comment>
   </data>
   <data name="foregroundColourDeactivatedButton" xml:space="preserve">
-    <value>文字颜色-激活</value>
-    <comment>The caption for the "Text colour activated" button.</comment>
+    <value>文字颜色 - 不活跃</value>
+    <comment>The caption for the "Text colour deactivated" button.</comment>
   </data>
   <data name="generalIconBalloonText" xml:space="preserve">
     <value>双击图标显示软件主界面</value>
@@ -281,5 +281,4 @@
     <value>立即升级</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
-
 </root>

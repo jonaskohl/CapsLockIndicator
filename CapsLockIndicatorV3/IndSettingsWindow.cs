@@ -190,7 +190,7 @@ namespace CapsLockIndicatorV3
 
         private void opacityLabel_Click(object sender, EventArgs e)
         {
-            NumberInputDialog numberInputDialog = new NumberInputDialog(opacitySlider.Value, opacitySlider.Minimum, opacitySlider.Maximum - 1);
+            NumberInputDialog numberInputDialog = new NumberInputDialog(opacitySlider.Value, opacitySlider.Minimum, opacitySlider.Maximum);
             if (numberInputDialog.ShowDialog() == DialogResult.OK)
             {
                 opacitySlider.Value = numberInputDialog.Value;

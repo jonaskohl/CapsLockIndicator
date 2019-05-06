@@ -36,7 +36,7 @@ namespace CapsLockIndicatorV3
             int res;
             if (int.TryParse(inputTextBox.Text, out res))
             {
-                if (res >= 50 && res <= 2000)
+                if (res >= min && res <= max)
                 {
                     Value = res;
                     DialogResult = DialogResult.OK;

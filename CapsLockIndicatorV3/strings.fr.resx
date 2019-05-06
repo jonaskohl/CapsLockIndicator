@@ -191,7 +191,7 @@
   </data>
   <data name="foregroundColourDeactivatedButton" xml:space="preserve">
     <value>Couleur de texte désactivée</value>
-    <comment>The caption for the "Text colour activated" button.</comment>
+    <comment>The caption for the "Text colour deactivated" button.</comment>
   </data>
   <data name="generalIconBalloonText" xml:space="preserve">
     <value>Vous pouvez afficher CapsLock Indicator à nouveau en double cliquant sur cette icône.</value>
@@ -281,5 +281,4 @@
     <value>&amp;Mettre à jour maintenant</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
-
 </root>
