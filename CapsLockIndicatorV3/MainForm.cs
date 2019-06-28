@@ -187,6 +187,9 @@ namespace CapsLockIndicatorV3
             enableNumIcon.Text = strings.numLock;
             enableCapsIcon.Text = strings.capsLock;
             enableScrollIcon.Text = strings.scrollLock;
+			numLockIcon.Text = strings.numLockIcon;
+			capsLockIcon.Text = strings.capsLockIcon;
+			scrollLockIcon.Text = strings.scrollLockIcon;
             enableNumInd.Text = string.Format(strings.keyChanged, strings.numLock);
             enableCapsInd.Text = string.Format(strings.keyChanged, strings.capsLock);
             enableScrollInd.Text = string.Format(strings.keyChanged, strings.scrollLock);

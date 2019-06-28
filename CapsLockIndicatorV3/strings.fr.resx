@@ -281,4 +281,16 @@
     <value>&amp;Mettre à jour maintenant</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
+  <data name="numLockIcon" xml:space="preserve">
+    <value>Verr. num.</value>
+    <comment>The tooltip label for the num lock icon</comment>
+  </data>
+  <data name="scrollLockIcon" xml:space="preserve">
+    <value>Arrêt défil.</value>
+    <comment>The tooltip label for the scroll lock icon</comment>
+  </data>
+  <data name="capsLockIcon" xml:space="preserve">
+    <value>Majuscules</value>
+    <comment>The tooltip label for the caps lock icon</comment>
+  </data>
 </root>
