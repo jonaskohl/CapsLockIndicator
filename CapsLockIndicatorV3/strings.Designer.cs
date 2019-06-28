@@ -428,5 +428,32 @@ namespace CapsLockIndicatorV3 {
                 return ResourceManager.GetString("updateNow", resourceCulture);
             }
         }
+		
+		/// <summary>
+        ///   Icon tooltip for Caps Lock
+        /// </summary>
+        internal static string capsLockIcon {
+            get {
+                return ResourceManager.GetString("capsLockIcon", resourceCulture);
+            }
+        }
+		
+		/// <summary>
+        ///   Icon tooltip for Num Lock
+        /// </summary>
+        internal static string numLockIcon {
+            get {
+                return ResourceManager.GetString("numLockIcon", resourceCulture);
+            }
+        }
+		
+		/// <summary>
+        ///   Icon tooltip for Scroll Lock
+        /// </summary>
+        internal static string scrollLockIcon {
+            get {
+                return ResourceManager.GetString("scrollLockIcon", resourceCulture);
+            }
+        }
     }
 }
