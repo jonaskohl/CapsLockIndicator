@@ -198,6 +198,7 @@ namespace CapsLockIndicatorV3
             checkForUpdatesButton.Text = strings.checkForUpdates;
             startonlogonCheckBox.Text = strings.startOnLogon;
             generalIcon.BalloonTipText = strings.generalIconBalloonText;
+            hideToolStripMenuItem.Text = strings.contextMenuHide;
             showToolStripMenuItem.Text = strings.contextMenuShow;
             exitToolStripMenuItem.Text = strings.contextMenuExit;
             hideOnStartupCheckBox.Text = strings.hideOnStartup;
@@ -394,14 +395,23 @@ namespace CapsLockIndicatorV3
             //generalIcon.ShowBalloonTip(100);
             Hide();
             isHidden = true;
+            hideToolStripMenuItem.Visible = false; //DropDownItems.Remove(hideToolStripMenuItem);
+            showToolStripMenuItem.Visible = true;
         }
 
-        void GeneralIconMouseDoubleClick(object sender, MouseEventArgs e)
+        private void ShowForm()
         {
             Show();
             Focus();
             generalIcon.Visible = false;
             isHidden = false;
+            hideToolStripMenuItem.Visible = true;
+            showToolStripMenuItem.Visible = false;
+        }
+
+        void GeneralIconMouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ShowForm();
         }
 
         private void enableNumIcon_CheckedChanged(object sender, EventArgs e)
@@ -491,12 +501,14 @@ namespace CapsLockIndicatorV3
             Process.Start("https://jonaskohl.de/");
         }
 
+        private void hideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HideForm();
+        }
+
         private void showToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Show();
-            Focus();
-            generalIcon.Visible = false;
-            isHidden = false;
+            ShowForm();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
