@@ -1,6 +1,6 @@
-> | |
-> | --- |
-> |  ⚠ **HEADS UP**: CapsLock Indicator 4 is on the way. Completely rewritten with many new features and a new UI using WPF! However, it may still take some time until that version releases. |
+| |
+| --- |
+|  ⚠ **HEADS UP**: CapsLock Indicator 4 is on the way. Completely rewritten with many new features and a new UI using WPF! However, it may still take some time until that version releases. |
 
 ----
 
