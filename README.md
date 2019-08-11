@@ -1,3 +1,9 @@
+> | |
+> | --- |
+> |  ⚠ **HEADS UP**: CapsLock Indicator 4 is on the way. Completely rewritten with many new features and a new UI using WPF! However, it may still take some time until that version releases. |
+
+----
+
 ![CapsLock Indicator](https://cli.jonaskohl.de/capslock-indicator-logo.png)
 
 [![Visit project page](https://static.jonaskohl.de/q50c4wp6/cli-project-page_vlecvcbtz80tqvtt.svg)](https://cli.jonaskohl.de/)
