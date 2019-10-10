@@ -50,7 +50,7 @@ namespace CapsLockIndicatorV3
             this.statusLabel.AutoSize = true;
             this.statusLabel.Location = new System.Drawing.Point(12, 9);
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(127, 15);
+            this.statusLabel.Size = new System.Drawing.Size(192, 25);
             this.statusLabel.TabIndex = 1;
             this.statusLabel.Text = "Downloading update...";
             // 
@@ -70,7 +70,7 @@ namespace CapsLockIndicatorV3
             this.infoLabel.AutoSize = true;
             this.infoLabel.Location = new System.Drawing.Point(12, 60);
             this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(0, 15);
+            this.infoLabel.Size = new System.Drawing.Size(0, 25);
             this.infoLabel.TabIndex = 3;
             // 
             // closeButton
@@ -93,18 +93,18 @@ namespace CapsLockIndicatorV3
             this.restartButton.Enabled = false;
             this.restartButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.restartButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.restartButton.Location = new System.Drawing.Point(306, 56);
+            this.restartButton.Location = new System.Drawing.Point(280, 56);
             this.restartButton.Name = "restartButton";
-            this.restartButton.Size = new System.Drawing.Size(75, 23);
+            this.restartButton.Size = new System.Drawing.Size(101, 23);
             this.restartButton.TabIndex = 5;
-            this.restartButton.Text = "&Restart";
+            this.restartButton.Text = "&Restart CLI";
             this.restartButton.UseVisualStyleBackColor = true;
             this.restartButton.Visible = false;
             this.restartButton.Click += new System.EventHandler(this.restartButton_Click);
             // 
             // DownloadDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(393, 91);
