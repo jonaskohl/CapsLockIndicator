@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="backgroundColourActivatedButton" xml:space="preserve">
+    <value>Cor de fundo ativada</value>
+    <comment>The caption for the "Background colour activated" button.</comment>
+  </data>
+  <data name="backgroundColourDeactivatedButton" xml:space="preserve">
+    <value>Cor de fundo desativada</value>
+    <comment>The caption for the "Background colour deactivated" button.</comment>
+  </data>
+  <data name="borderColourActivatedButton" xml:space="preserve">
+    <value>Cor de borda ativada</value>
+    <comment>The caption for the "Border colour activated" button.</comment>
+  </data>
+  <data name="borderColourDeactivatedButton" xml:space="preserve">
+    <value>Cor de borda desativada</value>
+    <comment>The caption for the "Border colour deactivated" button.</comment>
+  </data>
+  <data name="capsLock" xml:space="preserve">
+    <value>Caps lock</value>
+    <comment>The name of the caps lock key</comment>
+  </data>
+  <data name="checkForUpdates" xml:space="preserve">
+    <value>Procurar por &amp;atualizações</value>
+    <comment>The caption for the button that manually checks for updates. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="checkingForUpdates" xml:space="preserve">
+    <value>Procurando por atualizações...</value>
+    <comment>The caption for the "Check for updates" button when it's searching for updates.</comment>
+  </data>
+  <data name="coloursGroup" xml:space="preserve">
+    <value>Cores</value>
+    <comment>The title for the "Colours" group box</comment>
+  </data>
+  <data name="contextMenuExit" xml:space="preserve">
+    <value>&amp;Sair</value>
+    <comment>Used in the context menu of the CLI tray icon.</comment>
+  </data>
+  <data name="contextMenuShow" xml:space="preserve">
+    <value>&amp;Mostrar</value>
+    <comment>Used in the context menu of the CLI tray icon.</comment>
+  </data>
+  <data name="dismissButton" xml:space="preserve">
+    <value>&amp;Descartar</value>
+    <comment>The caption for the "Dismiss" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="displayTime" xml:space="preserve">
+    <value>Tempo de exibição</value>
+    <comment>The title for the "Display time" group box</comment>
+  </data>
+  <data name="downloadManuallyButton" xml:space="preserve">
+    <value>Baixar &amp;manualmente</value>
+    <comment>The caption for the "Download manually" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="downloadMoreTranslations" xml:space="preserve">
+    <value>Baixar mais traduções...</value>
+    <comment>The last dropdown item in the locale dropdown.</comment>
+  </data>
+  <data name="exitApplication" xml:space="preserve">
+    <value>&amp;Sair da aplicação</value>
+    <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="exitMessage" xml:space="preserve">
+    <value>Sair da aplicação implica que os ícones e notificações não serão mais mostrados. Sair mesmo assim?</value>
+    <comment>The message to display on application exit</comment>
+  </data>
+  <data name="fontGroup" xml:space="preserve">
+    <value>Fonte</value>
+    <comment>The title for the "Font" group box</comment>
+  </data>
+  <data name="foregroundColourActivatedButton" xml:space="preserve">
+    <value>Cor de texto ativada</value>
+    <comment>The caption for the "Text colour activated" button.</comment>
+  </data>
+  <data name="foregroundColourDeactivatedButton" xml:space="preserve">
+    <value>Cor de texto desativada</value>
+    <comment>The caption for the "Text colour deactivated" button.</comment>
+  </data>
+  <data name="generalIconBalloonText" xml:space="preserve">
+    <value>Você pode mostrar o Indicador de CapsLock novamente ao clicar duas vezes sobre este ícone.</value>
+    <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
+  </data>
+  <data name="hideOnStartup" xml:space="preserve">
+    <value>Esconder ao inicializar</value>
+    <comment>Used for the hide on startup checkbox</comment>
+  </data>
+  <data name="hideWindow" xml:space="preserve">
+    <value>&amp;Esconder janela</value>
+    <comment>The caption for the button that hides the window. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="keyChanged" xml:space="preserve">
+    <value>{0} alterado</value>
+    <comment>Used for the check boxes in the "Show notification when..." group box. "{0}" will be replaced with the key name</comment>
+  </data>
+  <data name="keyIsOff" xml:space="preserve">
+    <value>{0} desativado</value>
+    <comment>The text to display in the notification when a key is off. "{0}" will be replaced with the key name</comment>
+  </data>
+  <data name="keyIsOn" xml:space="preserve">
+    <value>{0} ativado</value>
+    <comment>The text to display in the notification when a key is on. "{0}" will be replaced with the key name</comment>
+  </data>
+  <data name="notificationSettings" xml:space="preserve">
+    <value>Configurações de &amp;notificação</value>
+    <comment>The caption for the button that opens the notification settings. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="notificationSettingsTitle" xml:space="preserve">
+    <value>Configurações de Notificação</value>
+    <comment>The caption of the notification settings window</comment>
+  </data>
+  <data name="numLock" xml:space="preserve">
+    <value>Num lock</value>
+    <comment>The name of the num lock key</comment>
+  </data>
+  <data name="opacity" xml:space="preserve">
+    <value>Opacidade</value>
+    <comment>The title for the "Opacity" group box</comment>
+  </data>
+  <data name="overlayPositionGroup" xml:space="preserve">
+    <value>Posição de sobreposição</value>
+    <comment>The title for the "Overlay position" group box</comment>
+  </data>
+  <data name="permanentIndicator" xml:space="preserve">
+    <value>Permanentemente</value>
+    <comment>Text to display instead of the time if indicator overlay display is set to permanently.</comment>
+  </data>
+  <data name="saveAndCloseButton" xml:space="preserve">
+    <value>&amp;Salvar &amp;&amp; fechar</value>
+    <comment>The caption for the "Save &amp; Close" button. The character after the "&amp;" is the hotkey that is used with the ALT key. Use two "&amp;" to display a "&amp;" character</comment>
+  </data>
+  <data name="scrollLock" xml:space="preserve">
+    <value>Scroll lock</value>
+    <comment>The name of the scroll lock key</comment>
+  </data>
+  <data name="showIconsFor" xml:space="preserve">
+    <value>Mostrar ícones para...</value>
+    <comment>The title for the "Show icons for..." group box</comment>
+  </data>
+  <data name="showNoIcons" xml:space="preserve">
+    <value>Não mostrar ícones</value>
+    <comment>The label for the check box that enables or disables all icons</comment>
+  </data>
+  <data name="showNoNotification" xml:space="preserve">
+    <value>Não mostrar notificação</value>
+    <comment>The label for the check box that enables or disables all notifications</comment>
+  </data>
+  <data name="showNotificationWhen" xml:space="preserve">
+    <value>Mostrar notificação quando...</value>
+    <comment>The title for the "Show notification when..." group box</comment>
+  </data>
+  <data name="startOnLogon" xml:space="preserve">
+    <value>Inicializar automaticamente</value>
+    <comment>The label for the check box that enables or disabled the auto start.</comment>
+  </data>
+  <data name="updateAvailable" xml:space="preserve">
+    <value>Atualização disponível para o Indicador de CapsLock!</value>
+    <comment>The title for the update window.</comment>
+  </data>
+  <data name="updateInfoFormat" xml:space="preserve">
+    <value>Versão {0}, lançada {1}</value>
+    <comment>Displayed in the "Update Available" dialog. {0} is the version, {1} is the release date and time.</comment>
+  </data>
+  <data name="updateNow" xml:space="preserve">
+    <value>&amp;Atualizar agora</value>
+    <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+
+</root>
