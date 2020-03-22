@@ -153,6 +153,10 @@
     <value>&amp;Exit</value>
     <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
+  <data name="contextMenuHide" xml:space="preserve">
+    <value>&amp;Hide</value>
+    <comment>Used in the context menu of the CLI tray icon.</comment>
+  </data>
   <data name="contextMenuShow" xml:space="preserve">
     <value>&amp;Show</value>
     <comment>Used in the context menu of the CLI tray icon.</comment>
