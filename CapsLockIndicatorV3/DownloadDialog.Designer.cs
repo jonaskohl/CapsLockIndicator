@@ -104,10 +104,11 @@ namespace CapsLockIndicatorV3
             // 
             // DownloadDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(393, 91);
+            this.ControlBox = false;
             this.Controls.Add(this.restartButton);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.infoLabel);
@@ -115,14 +116,14 @@ namespace CapsLockIndicatorV3
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.downloadProgress);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DownloadDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CLI Update";
             this.Load += new System.EventHandler(this.DownloadDialog_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -44,7 +44,7 @@ namespace CapsLockIndicatorV3
                 }
                 else
                 {
-                    MessageBox.Show(String.Format("Please enter a number with the range [{0}; {1}]!", min, max));
+                    MessageBox.Show(string.Format("Please enter a number with the range [{0}; {1}]!", min, max));
                 }
             }
             else

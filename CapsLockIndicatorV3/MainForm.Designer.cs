@@ -77,8 +77,6 @@ namespace CapsLockIndicatorV3
             this.showNoIcons = new System.Windows.Forms.CheckBox();
             this.showNoNotification = new System.Windows.Forms.CheckBox();
             this.aboutPanel = new System.Windows.Forms.Panel();
-            this.appNameLabel = new CapsLockIndicatorV3.LnkLabel();
-            this.logo = new CapsLockIndicatorV3.LnkLabel();
             this.aboutPanelTopBorder = new System.Windows.Forms.PictureBox();
             this.aboutText = new System.Windows.Forms.Label();
             this.hideWindow = new System.Windows.Forms.Button();
@@ -92,6 +90,8 @@ namespace CapsLockIndicatorV3
             this.mainToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.checkForUpdatedCheckBox = new System.Windows.Forms.CheckBox();
             this.localeComboBox = new CapsLockIndicatorV3.LnComboBox();
+            this.appNameLabel = new CapsLockIndicatorV3.LnkLabel();
+            this.logo = new CapsLockIndicatorV3.LnkLabel();
             this.generalIconContextMenuStrip.SuspendLayout();
             this.iconsGroup.SuspendLayout();
             this.indicatorGroup.SuspendLayout();
@@ -298,31 +298,6 @@ namespace CapsLockIndicatorV3
             this.aboutPanel.Size = new System.Drawing.Size(306, 66);
             this.aboutPanel.TabIndex = 4;
             // 
-            // appNameLabel
-            // 
-            this.appNameLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(77)))), ((int)(((byte)(180)))));
-            this.appNameLabel.AutoSize = true;
-            this.appNameLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.appNameLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.appNameLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(77)))), ((int)(((byte)(180)))));
-            this.appNameLabel.Location = new System.Drawing.Point(63, 10);
-            this.appNameLabel.Name = "appNameLabel";
-            this.appNameLabel.Size = new System.Drawing.Size(111, 15);
-            this.appNameLabel.TabIndex = 5;
-            this.appNameLabel.TabStop = true;
-            this.appNameLabel.Text = "CapsLock Indicator";
-            this.mainToolTip.SetToolTip(this.appNameLabel, "Visit CapsLock Indicator website");
-            this.appNameLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.appNameLabel_LinkClicked);
-            // 
-            // logo
-            // 
-            this.logo.Image = ((System.Drawing.Image)(resources.GetObject("logo.Image")));
-            this.logo.Location = new System.Drawing.Point(9, 10);
-            this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(48, 48);
-            this.logo.TabIndex = 4;
-            this.logo.Click += new System.EventHandler(this.lnkLabel1_Click);
-            // 
             // aboutPanelTopBorder
             // 
             this.aboutPanelTopBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(77)))), ((int)(((byte)(180)))));
@@ -335,9 +310,12 @@ namespace CapsLockIndicatorV3
             // 
             // aboutText
             // 
+            this.aboutText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.aboutText.Location = new System.Drawing.Point(62, 25);
             this.aboutText.Name = "aboutText";
-            this.aboutText.Size = new System.Drawing.Size(232, 32);
+            this.aboutText.Size = new System.Drawing.Size(241, 41);
             this.aboutText.TabIndex = 2;
             this.aboutText.Text = "{{aboutText}}";
             // 
@@ -359,7 +337,7 @@ namespace CapsLockIndicatorV3
             this.exitApplication.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.exitApplication.Location = new System.Drawing.Point(159, 199);
             this.exitApplication.Name = "exitApplication";
-            this.exitApplication.Size = new System.Drawing.Size(101, 24);
+            this.exitApplication.Size = new System.Drawing.Size(102, 24);
             this.exitApplication.TabIndex = 6;
             this.exitApplication.Text = "&Exit application";
             this.exitApplication.UseVisualStyleBackColor = true;
@@ -451,10 +429,38 @@ namespace CapsLockIndicatorV3
             this.localeComboBox.SelectedIndexChanged += new System.EventHandler(this.localeComboBox_SelectedIndexChanged);
             this.localeComboBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.localeComboBox_Format);
             // 
+            // appNameLabel
+            // 
+            this.appNameLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(77)))), ((int)(((byte)(180)))));
+            this.appNameLabel.AutoSize = true;
+            this.appNameLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.appNameLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.appNameLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(77)))), ((int)(((byte)(180)))));
+            this.appNameLabel.Location = new System.Drawing.Point(63, 10);
+            this.appNameLabel.Name = "appNameLabel";
+            this.appNameLabel.Size = new System.Drawing.Size(111, 15);
+            this.appNameLabel.TabIndex = 5;
+            this.appNameLabel.TabStop = true;
+            this.appNameLabel.Text = "CapsLock Indicator";
+            this.mainToolTip.SetToolTip(this.appNameLabel, "Visit CapsLock Indicator website");
+            this.appNameLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.appNameLabel_LinkClicked);
+            // 
+            // logo
+            // 
+            this.logo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.logo.Image = ((System.Drawing.Image)(resources.GetObject("logo.Image")));
+            this.logo.Location = new System.Drawing.Point(9, 10);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(48, 48);
+            this.logo.TabIndex = 4;
+            this.logo.Click += new System.EventHandler(this.lnkLabel1_Click);
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(306, 363);
             this.Controls.Add(this.localeComboBox);

@@ -68,6 +68,9 @@ namespace CapsLockIndicatorV3
             // Initialize component
             InitializeComponent();
 
+            Opacity = 0;
+            ShowInTaskbar = false;
+
             // Load "resources.resx" into a ResourceManager to access its resources
             resources = new ResourceManager("CapsLockIndicatorV3.resources", Assembly.GetExecutingAssembly());
 
@@ -112,6 +115,11 @@ namespace CapsLockIndicatorV3
             {
                 hideOnStartupCheckBox.Checked = true;
                 hideWindowTimer.Start();
+            }
+            else
+            {
+                Opacity = 1;
+                ShowInTaskbar = true;
             }
 
             checkForUpdatedCheckBox.Checked = Properties.Settings.Default.checkForUpdates;
@@ -333,6 +341,8 @@ namespace CapsLockIndicatorV3
                 if (lVersion > cVersion)
                 {
                     UpdateDialog ud = new UpdateDialog();
+                    ud.ShowInTaskbar = isHidden;
+                    ud.SetNewVersion(lVersion);
                     ud.changelogRtf.Rtf = changelog;
                     ud.infoLabel.Text = string.Format(strings.updateInfoFormat, latestVersion, release_date);
                     DialogResult res = ud.ShowDialog();
@@ -358,9 +368,9 @@ namespace CapsLockIndicatorV3
             checkForUpdatesButton.Enabled = true;
         }
 
-        void doVersionCheck()
+        void doVersionCheck(bool isManualCheck)
         {
-            VersionCheck.IsLatestVersion(handleVersion);
+            VersionCheck.IsLatestVersion(handleVersion, isManualCheck);
         }
 
         void MainFormLoad(object sender, EventArgs e)
@@ -369,10 +379,10 @@ namespace CapsLockIndicatorV3
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
             string version = fvi.FileVersion;
             string copyright = fvi.LegalCopyright;
-            aboutText.Text = String.Format(resources.GetString("aboutTextFormat"), version, copyright);
+            aboutText.Text = string.Format(resources.GetString("aboutTextFormat"), version, copyright);
 
             if (Properties.Settings.Default.checkForUpdates)
-                doVersionCheck();
+                doVersionCheck(false);
         }
 
         void ExitApplicationClick(object sender, EventArgs e)
@@ -394,6 +404,7 @@ namespace CapsLockIndicatorV3
             //generalIcon.ShowBalloonTip(100);
             Hide();
             isHidden = true;
+            Opacity = 1;
         }
 
         void GeneralIconMouseDoubleClick(object sender, MouseEventArgs e)
@@ -402,6 +413,7 @@ namespace CapsLockIndicatorV3
             Focus();
             generalIcon.Visible = false;
             isHidden = false;
+            ShowInTaskbar = true;
         }
 
         private void enableNumIcon_CheckedChanged(object sender, EventArgs e)
@@ -450,7 +462,7 @@ namespace CapsLockIndicatorV3
         {
             checkForUpdatesButton.Enabled = false;
             checkForUpdatesButton.Text = strings.checkingForUpdates;
-            doVersionCheck();
+            doVersionCheck(true);
         }
 
         private void startonlogonCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -497,6 +509,7 @@ namespace CapsLockIndicatorV3
             Focus();
             generalIcon.Visible = false;
             isHidden = false;
+            ShowInTaskbar = true;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

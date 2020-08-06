@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -143,6 +144,10 @@ namespace CapsLockIndicatorV3
 
                 #endregion
 
+                if (Environment.CurrentDirectory.ToLower() == Environment.ExpandEnvironmentVariables(@"%systemroot%\system32").ToLower() ||
+                    Environment.CurrentDirectory.ToLower() == Environment.ExpandEnvironmentVariables(@"%systemroot%\system32\").ToLower())
+                    Environment.CurrentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
                 Application.Run(new MainForm());
 
                 // Release the mutex
@@ -154,5 +159,12 @@ namespace CapsLockIndicatorV3
                 MessageBox.Show("An instance is already open!");
             }
 		}
+
+        public static void ReleaseMutex()
+        {
+            mutex.ReleaseMutex();
+            mutex.Close();
+            mutex.Dispose();
+        }
     }
 }

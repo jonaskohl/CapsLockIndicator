@@ -74,7 +74,8 @@ namespace CapsLockIndicatorV3
 
         void UpdatePosition()
         {
-            Rectangle workingArea = Screen.GetWorkingArea(new Point(0, 0));
+            // Rectangle workingArea = Screen.GetWorkingArea(new Point(0, 0));
+            Rectangle workingArea = Screen.GetWorkingArea(Cursor.Position);
 
             switch (pos)
             {
@@ -129,8 +130,8 @@ namespace CapsLockIndicatorV3
         {
 
             IntPtr Handle = this.Handle;
-            UInt32 windowLong = GetWindowLong(Handle, GWL_EXSTYLE);
-            SetWindowLong32(Handle, GWL_EXSTYLE, (uint)(windowLong ^ WS_EX_LAYERED));
+            uint windowLong = GetWindowLong(Handle, GWL_EXSTYLE);
+            SetWindowLong32(Handle, GWL_EXSTYLE, windowLong ^ WS_EX_LAYERED);
             SetLayeredWindowAttributes(Handle, 0, (byte)(opacity * 255), LWA_ALPHA);
 
             var style = GetWindowLong(this.Handle, GWL_EXSTYLE);
@@ -268,6 +269,11 @@ namespace CapsLockIndicatorV3
             opacity_timer_value -= 0.1;
             if (opacity_timer_value <= 1.0)
                 SetOpacity(opacity_timer_value * lastOpacity);
+        }
+
+        private void positionUpdateTimer_Tick(object sender, EventArgs e)
+        {
+            UpdatePosition();
         }
     }
 }

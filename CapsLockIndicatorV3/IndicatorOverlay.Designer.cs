@@ -39,6 +39,7 @@ namespace CapsLockIndicatorV3
             this.windowCloseTimer = new System.Windows.Forms.Timer(this.components);
             this.contentLabel = new System.Windows.Forms.Label();
             this.fadeTimer = new System.Windows.Forms.Timer(this.components);
+            this.positionUpdateTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // windowCloseTimer
@@ -62,10 +63,15 @@ namespace CapsLockIndicatorV3
             this.fadeTimer.Interval = 25;
             this.fadeTimer.Tick += new System.EventHandler(this.fadeTimer_Tick);
             // 
+            // positionUpdateTimer
+            // 
+            this.positionUpdateTimer.Enabled = true;
+            this.positionUpdateTimer.Tick += new System.EventHandler(this.positionUpdateTimer_Tick);
+            // 
             // IndicatorOverlay
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.ClientSize = new System.Drawing.Size(176, 42);
             this.ControlBox = false;
@@ -86,5 +92,6 @@ namespace CapsLockIndicatorV3
 		}
 
         private System.Windows.Forms.Timer fadeTimer;
+        private System.Windows.Forms.Timer positionUpdateTimer;
     }
 }

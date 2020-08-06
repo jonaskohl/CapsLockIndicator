@@ -34,6 +34,7 @@ namespace CapsLockIndicatorV3
             this.changelogRtf = new CapsLockIndicatorV3.ViewOnlyRichTextBox();
             this.downloadManuallyButton = new System.Windows.Forms.Button();
             this.infoLabel = new System.Windows.Forms.Label();
+            this.lnkLabel1 = new CapsLockIndicatorV3.LnkLabel();
             this.borderPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,13 +107,29 @@ namespace CapsLockIndicatorV3
             this.infoLabel.TabIndex = 5;
             this.infoLabel.Text = "null";
             // 
+            // lnkLabel1
+            // 
+            this.lnkLabel1.AutoSize = true;
+            this.lnkLabel1.LinkArea = new System.Windows.Forms.LinkArea(41, 10);
+            this.lnkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(77)))), ((int)(((byte)(180)))));
+            this.lnkLabel1.Location = new System.Drawing.Point(12, 210);
+            this.lnkLabel1.Name = "lnkLabel1";
+            this.lnkLabel1.Size = new System.Drawing.Size(286, 21);
+            this.lnkLabel1.TabIndex = 6;
+            this.lnkLabel1.TabStop = true;
+            this.lnkLabel1.Text = "You cannot update to the latest version. Learn more";
+            this.lnkLabel1.UseCompatibleTextRendering = true;
+            this.lnkLabel1.Visible = false;
+            this.lnkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLabel1_LinkClicked);
+            // 
             // UpdateDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this.dismissButton;
             this.ClientSize = new System.Drawing.Size(449, 243);
+            this.Controls.Add(this.lnkLabel1);
             this.Controls.Add(this.infoLabel);
             this.Controls.Add(this.downloadManuallyButton);
             this.Controls.Add(this.borderPanel);
@@ -140,5 +157,6 @@ namespace CapsLockIndicatorV3
         private System.Windows.Forms.Button downloadManuallyButton;
         public ViewOnlyRichTextBox changelogRtf;
         public System.Windows.Forms.Label infoLabel;
+        private LnkLabel lnkLabel1;
     }
 }

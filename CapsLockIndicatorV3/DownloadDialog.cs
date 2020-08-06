@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace CapsLockIndicatorV3
@@ -15,6 +16,13 @@ namespace CapsLockIndicatorV3
         string newPath;
 
         public string DownloadURL;
+        
+        protected override void WndProc(ref Message message)
+        {
+            if (message.Msg == 0x0084) // WM_NCHITTEST
+                message.Result = (IntPtr)1;
+            else base.WndProc(ref message);
+        }
 
         public DownloadDialog()
         {
@@ -95,6 +103,7 @@ namespace CapsLockIndicatorV3
             MainForm mainForm = (MainForm) Application.OpenForms["mainForm"];
 
             mainForm.askCancel = false;
+            Program.ReleaseMutex();
 
             Process.Start(newPath);
             Application.Exit();

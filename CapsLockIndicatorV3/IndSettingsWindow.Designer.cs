@@ -93,6 +93,8 @@ namespace CapsLockIndicatorV3
             // 
             // displayTimeLabel
             // 
+            this.displayTimeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.displayTimeLabel.Location = new System.Drawing.Point(159, 35);
             this.displayTimeLabel.Name = "displayTimeLabel";
             this.displayTimeLabel.Size = new System.Drawing.Size(76, 15);
@@ -471,6 +473,8 @@ namespace CapsLockIndicatorV3
             // 
             // opacityLabel
             // 
+            this.opacityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.opacityLabel.Location = new System.Drawing.Point(159, 35);
             this.opacityLabel.Name = "opacityLabel";
             this.opacityLabel.Size = new System.Drawing.Size(76, 15);
@@ -496,8 +500,8 @@ namespace CapsLockIndicatorV3
             // IndSettingsWindow
             // 
             this.AcceptButton = this.saveButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(518, 352);
             this.Controls.Add(this.opacityGroup);
