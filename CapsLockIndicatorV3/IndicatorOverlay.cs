@@ -25,12 +25,28 @@ namespace CapsLockIndicatorV3
         static extern int GetWindowLongInt(IntPtr hWnd, int nIndex);
         [DllImport("user32.dll")]
         static extern int SetWindowLong(IntPtr hWnd, int nIndex, uint dwNewLong);
+        [DllImport("user32.dll")]
+        static extern int GetDpiForWindow(IntPtr hWnd);
+
+        static float GetDisplayScaleFactor(IntPtr windowHandle)
+        {
+            try
+            {
+                return GetDpiForWindow(windowHandle) / 96f;
+            }
+            catch
+            {
+                return 1;
+            }
+        }
 
         const int GWL_EXSTYLE = -20;
         const uint WS_EX_LAYERED = 0x80000;
         const uint LWA_ALPHA = 0x2;
         const uint LWA_COLORKEY = 0x1;
         const uint WS_EX_TRANSPARENT = 0x00000020;
+
+        private Size originalSize;
         
         private IndicatorDisplayPosition pos = IndicatorDisplayPosition.BottomRight;
 
@@ -74,8 +90,14 @@ namespace CapsLockIndicatorV3
 
         void UpdatePosition()
         {
-            // Rectangle workingArea = Screen.GetWorkingArea(new Point(0, 0));
             Rectangle workingArea = Screen.GetWorkingArea(Cursor.Position);
+
+            var factor = GetDisplayScaleFactor(Handle);
+
+            Size = new Size(
+                (int)(originalSize.Width * factor),
+                (int)(originalSize.Height * factor)
+            );
 
             switch (pos)
             {
@@ -141,6 +163,9 @@ namespace CapsLockIndicatorV3
         public IndicatorOverlay(string content)
 		{
 			InitializeComponent();
+
+            originalSize = Size;
+
 			contentLabel.Text = content;
 
             ClickThroughWindow();
@@ -150,7 +175,11 @@ namespace CapsLockIndicatorV3
         {
             pos = position;
             InitializeComponent();
-			contentLabel.Text = content;
+
+            contentLabel.Text = content;
+            Application.DoEvents();
+            originalSize = Size;
+
             if (timeoutInMs < 0)
             {
                 windowCloseTimer.Enabled = false;   
@@ -168,8 +197,12 @@ namespace CapsLockIndicatorV3
         {
             pos = position;
             InitializeComponent();
+
             contentLabel.Text = content;
             Font = font;
+            Application.DoEvents();
+            originalSize = Size;
+            
             var op = indOpacity / 100d;
             lastOpacity = op;
             SetOpacity(op);

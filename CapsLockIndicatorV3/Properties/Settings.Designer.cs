@@ -194,7 +194,7 @@ namespace CapsLockIndicatorV3.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3.8.0.0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("3.8.0.1")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
         public string versionNo {
             get {
@@ -319,12 +319,15 @@ namespace CapsLockIndicatorV3.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool test {
+        public bool upgradeRequired {
             get {
-                return ((bool)(this["test"]));
+                return ((bool)(this["upgradeRequired"]));
+            }
+            set {
+                this["upgradeRequired"] = value;
             }
         }
     }

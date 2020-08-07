@@ -54,10 +54,10 @@ namespace CapsLockIndicatorV3
             Assembly assembly = Assembly.GetExecutingAssembly();
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
             string version = fvi.FileVersion;
-            if (Properties.Settings.Default.versionNo != version)
+            if (Properties.Settings.Default.upgradeRequired)
             {
                 Properties.Settings.Default.Upgrade();
-                Properties.Settings.Default.versionNo = version;
+                Properties.Settings.Default.upgradeRequired = false;
                 Properties.Settings.Default.Save();
             }
 

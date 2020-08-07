@@ -42,7 +42,7 @@
       <Value Profile="(Default)">77, 180, 52</Value>
     </Setting>
     <Setting Name="versionNo" Roaming="true" Type="System.String" Scope="User">
-      <Value Profile="(Default)">3.8.0.0</Value>
+      <Value Profile="(Default)">3.8.0.1</Value>
     </Setting>
     <Setting Name="hideOnStartup" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -71,7 +71,7 @@
     <Setting Name="indOpacity" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">100</Value>
     </Setting>
-    <Setting Name="test" Type="System.Boolean" Scope="Application">
+    <Setting Name="upgradeRequired" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
