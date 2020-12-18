@@ -265,6 +265,10 @@
     <value>Show notification when...</value>
     <comment>The title for the "Show notification when..." group box</comment>
   </data>
+  <data name="showOverlayOnlyWhenActive" xml:space="preserve">
+    <value>Always show overlay when active</value>
+    <comment>The label for the check box that indicates whether overlay should only be shown when active</comment>
+  </data>
   <data name="startOnLogon" xml:space="preserve">
     <value>Start on logon</value>
     <comment>The label for the check box that enables or disabled the auto start.</comment>

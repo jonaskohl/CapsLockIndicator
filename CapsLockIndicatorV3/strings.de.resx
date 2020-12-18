@@ -228,6 +228,9 @@
   <data name="showNotificationWhen" xml:space="preserve">
     <value>Zeige Benachr., wenn...</value>
   </data>
+  <data name="showOverlayOnlyWhenActive" xml:space="preserve">
+    <value>Benachrichtigung immer anz., wenn aktiv</value>
+  </data>
   <data name="startOnLogon" xml:space="preserve">
     <value>Autostart</value>
   </data>

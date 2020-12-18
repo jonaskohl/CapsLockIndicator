@@ -30,6 +30,7 @@ namespace CapsLockIndicatorV3
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IndSettingsWindow));
             this.displayTimeGroup = new System.Windows.Forms.GroupBox();
+            this.onlyShowWhenActiveCheckBox = new System.Windows.Forms.CheckBox();
             this.displayTimeLabel = new System.Windows.Forms.Label();
             this.displayTimeSlider = new System.Windows.Forms.TrackBar();
             this.saveButton = new System.Windows.Forms.Button();
@@ -82,14 +83,27 @@ namespace CapsLockIndicatorV3
             // 
             // displayTimeGroup
             // 
+            this.displayTimeGroup.Controls.Add(this.onlyShowWhenActiveCheckBox);
             this.displayTimeGroup.Controls.Add(this.displayTimeLabel);
             this.displayTimeGroup.Controls.Add(this.displayTimeSlider);
             this.displayTimeGroup.Location = new System.Drawing.Point(12, 12);
             this.displayTimeGroup.Name = "displayTimeGroup";
-            this.displayTimeGroup.Size = new System.Drawing.Size(244, 70);
+            this.displayTimeGroup.Size = new System.Drawing.Size(244, 95);
             this.displayTimeGroup.TabIndex = 0;
             this.displayTimeGroup.TabStop = false;
             this.displayTimeGroup.Text = "Display time";
+            // 
+            // onlyShowWhenActiveCheckBox
+            // 
+            this.onlyShowWhenActiveCheckBox.AutoSize = true;
+            this.onlyShowWhenActiveCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.onlyShowWhenActiveCheckBox.Location = new System.Drawing.Point(6, 70);
+            this.onlyShowWhenActiveCheckBox.Name = "onlyShowWhenActiveCheckBox";
+            this.onlyShowWhenActiveCheckBox.Size = new System.Drawing.Size(195, 20);
+            this.onlyShowWhenActiveCheckBox.TabIndex = 2;
+            this.onlyShowWhenActiveCheckBox.Text = "Only show overlay when active";
+            this.onlyShowWhenActiveCheckBox.UseVisualStyleBackColor = true;
+            this.onlyShowWhenActiveCheckBox.CheckedChanged += new System.EventHandler(this.onlyShowWhenActiveCheckBox_CheckedChanged);
             // 
             // displayTimeLabel
             // 
@@ -97,7 +111,7 @@ namespace CapsLockIndicatorV3
             | System.Windows.Forms.AnchorStyles.Right)));
             this.displayTimeLabel.Location = new System.Drawing.Point(159, 35);
             this.displayTimeLabel.Name = "displayTimeLabel";
-            this.displayTimeLabel.Size = new System.Drawing.Size(76, 15);
+            this.displayTimeLabel.Size = new System.Drawing.Size(76, 40);
             this.displayTimeLabel.TabIndex = 1;
             this.displayTimeLabel.Text = "500 ms";
             this.displayTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -122,7 +136,7 @@ namespace CapsLockIndicatorV3
             this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveButton.AutoSize = true;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.saveButton.Location = new System.Drawing.Point(374, 316);
+            this.saveButton.Location = new System.Drawing.Point(374, 344);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(132, 24);
             this.saveButton.TabIndex = 10;
@@ -280,7 +294,7 @@ namespace CapsLockIndicatorV3
             // fontGroupBox
             // 
             this.fontGroupBox.Controls.Add(this.fontButton);
-            this.fontGroupBox.Location = new System.Drawing.Point(12, 88);
+            this.fontGroupBox.Location = new System.Drawing.Point(12, 113);
             this.fontGroupBox.Name = "fontGroupBox";
             this.fontGroupBox.Size = new System.Drawing.Size(244, 70);
             this.fontGroupBox.TabIndex = 2;
@@ -311,7 +325,7 @@ namespace CapsLockIndicatorV3
             // positionGroup
             // 
             this.positionGroup.Controls.Add(this.positionButtonLayout);
-            this.positionGroup.Location = new System.Drawing.Point(12, 164);
+            this.positionGroup.Location = new System.Drawing.Point(12, 189);
             this.positionGroup.Name = "positionGroup";
             this.positionGroup.Size = new System.Drawing.Size(244, 100);
             this.positionGroup.TabIndex = 11;
@@ -464,7 +478,7 @@ namespace CapsLockIndicatorV3
             // 
             this.opacityGroup.Controls.Add(this.opacityLabel);
             this.opacityGroup.Controls.Add(this.opacitySlider);
-            this.opacityGroup.Location = new System.Drawing.Point(12, 270);
+            this.opacityGroup.Location = new System.Drawing.Point(12, 298);
             this.opacityGroup.Name = "opacityGroup";
             this.opacityGroup.Size = new System.Drawing.Size(244, 70);
             this.opacityGroup.TabIndex = 2;
@@ -503,7 +517,7 @@ namespace CapsLockIndicatorV3
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(518, 352);
+            this.ClientSize = new System.Drawing.Size(518, 380);
             this.Controls.Add(this.opacityGroup);
             this.Controls.Add(this.positionGroup);
             this.Controls.Add(this.fontGroupBox);
@@ -577,5 +591,6 @@ namespace CapsLockIndicatorV3
         private System.Windows.Forms.GroupBox opacityGroup;
         private System.Windows.Forms.Label opacityLabel;
         private System.Windows.Forms.TrackBar opacitySlider;
+        private System.Windows.Forms.CheckBox onlyShowWhenActiveCheckBox;
     }
 }

@@ -193,7 +193,7 @@ namespace CapsLockIndicatorV3
             ClickThroughWindow();
         }
 
-        public IndicatorOverlay(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, Font font, IndicatorDisplayPosition position, int indOpacity)
+        public IndicatorOverlay(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, Font font, IndicatorDisplayPosition position, int indOpacity, bool alwaysShow)
         {
             pos = position;
             InitializeComponent();
@@ -206,7 +206,7 @@ namespace CapsLockIndicatorV3
             var op = indOpacity / 100d;
             lastOpacity = op;
             SetOpacity(op);
-            if (timeoutInMs < 0)
+            if (timeoutInMs < 0 || alwaysShow)
             {
                 windowCloseTimer.Enabled = false;
                 fadeTimer.Enabled = false;
@@ -263,7 +263,7 @@ namespace CapsLockIndicatorV3
             UpdatePosition();
         }
 
-        public void UpdateIndicator(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, Font font, IndicatorDisplayPosition position, int indOpacity)
+        public void UpdateIndicator(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, Font font, IndicatorDisplayPosition position, int indOpacity, bool alwaysShow)
         {
             pos = position;
             var op = indOpacity / 100d;
@@ -272,7 +272,7 @@ namespace CapsLockIndicatorV3
             contentLabel.Text = content;
             Font = font;
             opacity_timer_value = 2.0;
-            if (timeoutInMs < 0)
+            if (timeoutInMs < 0 || alwaysShow)
             {
                 windowCloseTimer.Enabled = false;
                 fadeTimer.Enabled = false;

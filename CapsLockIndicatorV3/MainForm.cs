@@ -54,16 +54,6 @@ namespace CapsLockIndicatorV3
             Assembly assembly = Assembly.GetExecutingAssembly();
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
             string version = fvi.FileVersion;
-            if (Properties.Settings.Default.upgradeRequired)
-            {
-                Properties.Settings.Default.Upgrade();
-                Properties.Settings.Default.upgradeRequired = false;
-                Properties.Settings.Default.Save();
-            }
-
-
-            Properties.Settings.Default.beta_enableDarkMode = Properties.Settings.Default.beta_enableDarkMode;
-            Properties.Settings.Default.Save();
 
             // Initialize component
             InitializeComponent();
@@ -83,35 +73,54 @@ namespace CapsLockIndicatorV3
             scrollState = KeyHelper.isScrolllockActive;
 
             // Load settings
-            enableNumIcon.Checked = Properties.Settings.Default.numIco;
-            enableCapsIcon.Checked = Properties.Settings.Default.capsIco;
-            enableScrollIcon.Checked = Properties.Settings.Default.scrollIco;
+            enableNumIcon.Checked = SettingsManager.Get<bool>("numIco");
+            enableCapsIcon.Checked = SettingsManager.Get<bool>("capsIco");
+            enableScrollIcon.Checked = SettingsManager.Get<bool>("scrollIco");
 
-            enableNumInd.Checked = Properties.Settings.Default.numInd;
-            enableCapsInd.Checked = Properties.Settings.Default.capsInd;
-            enableScrollInd.Checked = Properties.Settings.Default.scrollInd;
+            enableNumInd.Checked = SettingsManager.Get<bool>("numInd");
+            enableCapsInd.Checked = SettingsManager.Get<bool>("capsInd");
+            enableScrollInd.Checked = SettingsManager.Get<bool>("scrollInd");
 
-            showNoIcons.Checked = Properties.Settings.Default.noIco;
-            showNoNotification.Checked = Properties.Settings.Default.noInd;
+            showNoIcons.Checked = SettingsManager.Get<bool>("noIco");
+            showNoNotification.Checked = SettingsManager.Get<bool>("noInd");
 
             iconsGroup.Enabled = !showNoIcons.Checked;
             indicatorGroup.Enabled = !showNoNotification.Checked;
 
-            if (Properties.Settings.Default.beta_enableDarkMode)
+            if (SettingsManager.Get<bool>("beta_enableDarkMode"))
             {
-                const int value = 0x00000042;
-                BackColor = Color.FromArgb(0x000000FF, value, value, value);
+                HandleCreated += MainForm_HandleCreated;
+
+                iconsGroup.ForeColor =
+                indicatorGroup.ForeColor =
+                enableNumInd.ForeColor =
+                enableCapsInd.ForeColor =
+                enableScrollInd.ForeColor =
+                enableNumIcon.ForeColor =
+                enableCapsIcon.ForeColor =
+                enableScrollIcon.ForeColor =
+                Color.White;
+
+                BackColor = Color.FromArgb(255, 32, 32, 32);
                 ForeColor = Color.White;
 
-                iconsGroup.ForeColor = Color.White;
-                indicatorGroup.ForeColor = Color.White;
+                ControlScheduleSetDarkMode(checkForUpdatesButton);
+                ControlScheduleSetDarkMode(indSettings);
+                ControlScheduleSetDarkMode(exitApplication);
+                ControlScheduleSetDarkMode(hideWindow);
+                ControlScheduleSetDarkMode(enableNumInd);
+                ControlScheduleSetDarkMode(enableCapsInd);
+                ControlScheduleSetDarkMode(enableScrollInd);
+                ControlScheduleSetDarkMode(enableNumIcon);
+                ControlScheduleSetDarkMode(enableCapsIcon);
+                ControlScheduleSetDarkMode(enableScrollIcon);
             }
 
             // Check if application is in startup
             startonlogonCheckBox.Checked = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "CapsLock Indicator", null) != null;
 
             // Hides the window on startup if enabled
-            if (Properties.Settings.Default.hideOnStartup)
+            if (SettingsManager.Get<bool>("hideOnStartup"))
             {
                 hideOnStartupCheckBox.Checked = true;
                 hideWindowTimer.Start();
@@ -122,11 +131,24 @@ namespace CapsLockIndicatorV3
                 ShowInTaskbar = true;
             }
 
-            checkForUpdatedCheckBox.Checked = Properties.Settings.Default.checkForUpdates;
+            checkForUpdatedCheckBox.Checked = SettingsManager.Get<bool>("checkForUpdates");
 
             AddCultures();
 
             ApplyLocales();
+        }
+
+        private void MainForm_HandleCreated(object sender, EventArgs e)
+        {
+            Native.UseImmersiveDarkModeColors(Handle, true);
+        }
+
+        private void ControlScheduleSetDarkMode(Control control)
+        {
+            control.HandleCreated += (sender, e) =>
+            {
+                Native.ControlSetDarkMode(control, true);
+            };
         }
 
         private void ReloadIcons()
@@ -165,10 +187,10 @@ namespace CapsLockIndicatorV3
                 }
             }
 
-            if (Properties.Settings.Default.selectedUICulture < 0)
+            if (SettingsManager.Get<int>("selectedUICulture") < 0)
                 localeComboBox.SelectedIndex = selectIndex;
-            else if (Properties.Settings.Default.selectedUICulture < localeComboBox.Items.Count)
-                localeComboBox.SelectedIndex = Properties.Settings.Default.selectedUICulture;
+            else if (SettingsManager.Get<int>("selectedUICulture") < localeComboBox.Items.Count)
+                localeComboBox.SelectedIndex = SettingsManager.Get<int>("selectedUICulture");
             else
                 localeComboBox.SelectedIndex = 0;
 
@@ -230,7 +252,7 @@ namespace CapsLockIndicatorV3
             else
                 scrollLockIcon.Icon = null;
 
-            generalIcon.Visible = 
+            generalIcon.Visible =
                 !(enableNumIcon.Checked && !showNoIcons.Checked) &&
                 !(enableCapsIcon.Checked && !showNoIcons.Checked) &&
                 !(enableScrollIcon.Checked && !showNoIcons.Checked)
@@ -255,19 +277,21 @@ namespace CapsLockIndicatorV3
 
         void ShowOverlay(string message, bool isActive)
         {
-            int timeOut = Properties.Settings.Default.indDisplayTime;
-            if (Application.OpenForms.OfType<IndicatorOverlay>().Any())
+            int timeOut = SettingsManager.Get<int>("indDisplayTime");
+            var alwaysShow = SettingsManager.Get<bool>("alwaysShowWhenActive") && isActive;
+            if (Application.OpenForms.OfType<IndicatorOverlay>().Any() && Application.OpenForms.OfType<IndicatorOverlay>().Where(f => !f.IsDisposed).Any())
             {
-                IndicatorOverlay indicatorOverlay = Application.OpenForms.OfType<IndicatorOverlay>().First();
+                IndicatorOverlay indicatorOverlay = Application.OpenForms.OfType<IndicatorOverlay>().Where(f => !f.IsDisposed).First();
                 indicatorOverlay.UpdateIndicator(
                       message
                     , timeOut
-                    , isActive ? Properties.Settings.Default.indBgColourActive : Properties.Settings.Default.indBgColourInactive
-                    , isActive ? Properties.Settings.Default.indFgColourActive : Properties.Settings.Default.indFgColourInactive
-                    , isActive ? Properties.Settings.Default.indBdColourActive : Properties.Settings.Default.indBdColourInactive
-                    , Properties.Settings.Default.indFont
-                    , Properties.Settings.Default.overlayPosition
-                    , Properties.Settings.Default.indOpacity
+                    , isActive ? SettingsManager.Get<Color>("indBgColourActive") : SettingsManager.Get<Color>("indBgColourInactive")
+                    , isActive ? SettingsManager.Get<Color>("indFgColourActive") : SettingsManager.Get<Color>("indFgColourInactive")
+                    , isActive ? SettingsManager.Get<Color>("indBdColourActive") : SettingsManager.Get<Color>("indBdColourInactive")
+                    , SettingsManager.GetOrDefault<Font>("indFont")
+                    , SettingsManager.Get<IndicatorDisplayPosition>("overlayPosition")
+                    , SettingsManager.Get<int>("indOpacity")
+                    , alwaysShow
                 );
             }
             else
@@ -275,12 +299,13 @@ namespace CapsLockIndicatorV3
                 IndicatorOverlay indicatorOverlay = new IndicatorOverlay(
                       message
                     , timeOut
-                    , isActive ? Properties.Settings.Default.indBgColourActive : Properties.Settings.Default.indBgColourInactive
-                    , isActive ? Properties.Settings.Default.indFgColourActive : Properties.Settings.Default.indFgColourInactive
-                    , isActive ? Properties.Settings.Default.indBdColourActive : Properties.Settings.Default.indBdColourInactive
-                    , Properties.Settings.Default.indFont
-                    , Properties.Settings.Default.overlayPosition
-                    , Properties.Settings.Default.indOpacity
+                    , isActive ? SettingsManager.Get<Color>("indBgColourActive") : SettingsManager.Get<Color>("indBgColourInactive")
+                    , isActive ? SettingsManager.Get<Color>("indFgColourActive") : SettingsManager.Get<Color>("indFgColourInactive")
+                    , isActive ? SettingsManager.Get<Color>("indBdColourActive") : SettingsManager.Get<Color>("indBdColourInactive")
+                    , SettingsManager.GetOrDefault<Font>("indFont")
+                    , SettingsManager.Get<IndicatorDisplayPosition>("overlayPosition")
+                    , SettingsManager.Get<int>("indOpacity")
+                    , alwaysShow
                 );
                 indicatorOverlay.Show();
             }
@@ -288,14 +313,14 @@ namespace CapsLockIndicatorV3
         void ShowNoIconsCheckedChanged(object sender, EventArgs e)
         {
             iconsGroup.Enabled = !showNoIcons.Checked;
-            Properties.Settings.Default.noIco = showNoIcons.Checked;
-            Properties.Settings.Default.Save();
+            SettingsManager.Set("noIco", showNoIcons.Checked);
+            SettingsManager.Save();
         }
         void ShowNoNotificationCheckedChanged(object sender, EventArgs e)
         {
             indicatorGroup.Enabled = !showNoNotification.Checked;
-            Properties.Settings.Default.noInd = showNoNotification.Checked;
-            Properties.Settings.Default.Save();
+            SettingsManager.Set("noInd", showNoNotification.Checked);
+            SettingsManager.Save();
         }
 
         void handleVersion(string xmlData)
@@ -381,7 +406,7 @@ namespace CapsLockIndicatorV3
             string copyright = fvi.LegalCopyright;
             aboutText.Text = string.Format(resources.GetString("aboutTextFormat"), version, copyright);
 
-            if (Properties.Settings.Default.checkForUpdates)
+            if (SettingsManager.Get<bool>("checkForUpdates"))
                 doVersionCheck(false);
         }
 
@@ -418,38 +443,38 @@ namespace CapsLockIndicatorV3
 
         private void enableNumIcon_CheckedChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.numIco = enableNumIcon.Checked;
-            Properties.Settings.Default.Save();
+            SettingsManager.Set("numIco", enableNumIcon.Checked);
+            SettingsManager.Save();
         }
 
         private void enableCapsIcon_CheckedChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.capsIco = enableCapsIcon.Checked;
-            Properties.Settings.Default.Save();
+            SettingsManager.Set("capsIco", enableCapsIcon.Checked);
+            SettingsManager.Save();
         }
 
         private void enableScrollIcon_CheckedChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.scrollIco = enableScrollIcon.Checked;
-            Properties.Settings.Default.Save();
+            SettingsManager.Set("scrollIco", enableScrollIcon.Checked);
+            SettingsManager.Save();
         }
 
         private void enableNumInd_CheckedChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.numInd = enableNumInd.Checked;
-            Properties.Settings.Default.Save();
+            SettingsManager.Set("numInd", enableNumInd.Checked);
+            SettingsManager.Save();
         }
 
         private void enableCapsInd_CheckedChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.capsInd = enableCapsInd.Checked;
-            Properties.Settings.Default.Save();
+            SettingsManager.Set("capsInd", enableCapsInd.Checked);
+            SettingsManager.Save();
         }
 
         private void enableScrollInd_CheckedChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.scrollInd = enableScrollInd.Checked;
-            Properties.Settings.Default.Save();
+            SettingsManager.Set("scrollInd", enableScrollInd.Checked);
+            SettingsManager.Save();
         }
 
         private void indSettings_Click(object sender, EventArgs e)
@@ -477,8 +502,8 @@ namespace CapsLockIndicatorV3
 
         private void hideOnStartupCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.hideOnStartup = hideOnStartupCheckBox.Checked;
-            Properties.Settings.Default.Save();
+            SettingsManager.Set("hideOnStartup", hideOnStartupCheckBox.Checked);
+            SettingsManager.Save();
         }
 
 
@@ -525,8 +550,8 @@ namespace CapsLockIndicatorV3
 
         private void checkForUpdatedCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.checkForUpdates = checkForUpdatedCheckBox.Checked;
-            Properties.Settings.Default.Save();
+            SettingsManager.Set("checkForUpdates", checkForUpdatedCheckBox.Checked);
+            SettingsManager.Save();
         }
 
         private void localeComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -549,8 +574,8 @@ namespace CapsLockIndicatorV3
                 previousLocaleIndex = localeComboBox.SelectedIndex;
             }
 
-            Properties.Settings.Default.selectedUICulture = localeComboBox.SelectedIndex;
-            Properties.Settings.Default.Save();
+            SettingsManager.Set("selectedUICulture", localeComboBox.SelectedIndex);
+            SettingsManager.Save();
 
             ApplyLocales();
         }

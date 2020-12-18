@@ -37,14 +37,14 @@ namespace CapsLockIndicatorV3
             switch (type)
             {
                 case DisplayType.Icon:
-                    Properties.Settings.Default.numIco    = (keys & (int)KeyType.NumLock)    != 0;
-                    Properties.Settings.Default.capsIco   = (keys & (int)KeyType.CapsLock)   != 0;
-                    Properties.Settings.Default.scrollIco = (keys & (int)KeyType.ScrollLock) != 0;
+                    SettingsManager.Set("numIco"    , (keys & (int)KeyType.NumLock)    != 0);
+                    SettingsManager.Set("capsIco"   , (keys & (int)KeyType.CapsLock)   != 0);
+                    SettingsManager.Set("scrollIco" , (keys & (int)KeyType.ScrollLock) != 0);
                     break;
                 case DisplayType.Notification:
-                    Properties.Settings.Default.numInd    = (keys & (int)KeyType.NumLock)    != 0;
-                    Properties.Settings.Default.capsInd   = (keys & (int)KeyType.CapsLock)   != 0;
-                    Properties.Settings.Default.scrollInd = (keys & (int)KeyType.ScrollLock) != 0;
+                    SettingsManager.Set("numInd"    , (keys & (int)KeyType.NumLock)    != 0);
+                    SettingsManager.Set("capsInd"   , (keys & (int)KeyType.CapsLock)   != 0);
+                    SettingsManager.Set("scrollInd" , (keys & (int)KeyType.ScrollLock) != 0);
                     break;
                 default:
                     break;
@@ -52,7 +52,7 @@ namespace CapsLockIndicatorV3
         }
         static void SetHideStartup(bool v)
         {
-            Properties.Settings.Default.hideOnStartup = v;
+            SettingsManager.Set("hideOnStartup", v);
         }
         static void SetStartup(bool v)
         {
@@ -65,7 +65,7 @@ namespace CapsLockIndicatorV3
         }
         static void SetVerCheck(bool v)
         {
-            Properties.Settings.Default.checkForUpdates = v;
+            SettingsManager.Set("checkForUpdates", v);
         }
         static void DisplayHelp(OptionSet p)
         {
@@ -95,7 +95,7 @@ namespace CapsLockIndicatorV3
         static void SetDisplayLocation(string v)
         {
             if (Enum.TryParse(v, out IndicatorDisplayPosition position))
-                Properties.Settings.Default.overlayPosition = position;
+                SettingsManager.Set("overlayPosition", position);
         }
 
         // Create a mutex to check if an instance is already running
@@ -103,6 +103,9 @@ namespace CapsLockIndicatorV3
         [STAThread]
 		private static void Main(string[] args)
 		{
+            //__FIXME__.SettingsKey = Environment.ExpandEnvironmentVariables(@"%appdata%\Jonas Kohl\CapsLock Indicator\settings\any\user.config");
+            SettingsManager.Load();
+
             if (mutex.WaitOne(TimeSpan.Zero, true)) // No instance is open
             {
                 Application.EnableVisualStyles();
@@ -140,7 +143,7 @@ namespace CapsLockIndicatorV3
                     return;
                 }
 
-                Properties.Settings.Default.Save();
+                SettingsManager.Save();
 
                 #endregion
 
@@ -152,6 +155,8 @@ namespace CapsLockIndicatorV3
 
                 // Release the mutex
                 mutex.ReleaseMutex();
+
+                SettingsManager.Save();
             }
             else // An instance is already open
             {

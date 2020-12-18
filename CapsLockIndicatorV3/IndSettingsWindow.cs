@@ -13,24 +13,26 @@ namespace CapsLockIndicatorV3
             MaximumSize = new Size(int.MaxValue, Screen.FromControl(this).WorkingArea.Height);
             AutoScroll = true;
 
-            displayTimeSlider.Value = Properties.Settings.Default.indDisplayTime > 0 ? Properties.Settings.Default.indDisplayTime : 2001;
+            displayTimeSlider.Value = SettingsManager.Get<int>("indDisplayTime") > 0 ? SettingsManager.Get<int>("indDisplayTime") : 2001;
             displayTimeLabel.Text = displayTimeSlider.Value < 2001 ? string.Format("{0} ms", displayTimeSlider.Value) : strings.permanentIndicator;
 
-            opacitySlider.Value = Properties.Settings.Default.indOpacity;
+            opacitySlider.Value = SettingsManager.Get<int>("indOpacity");
             opacityLabel.Text = string.Format("{0} %", opacitySlider.Value);
 
-            backgroundColourActivatedPreview.BackColor = Properties.Settings.Default.indBgColourActive;
-            backgroundColourDeactivatedPreview.BackColor = Properties.Settings.Default.indBgColourInactive;
+            backgroundColourActivatedPreview.BackColor = SettingsManager.Get<Color>("indBgColourActive");
+            backgroundColourDeactivatedPreview.BackColor = SettingsManager.Get<Color>("indBgColourInactive");
 
-            foregroundColourActivatedPreview.BackColor = Properties.Settings.Default.indFgColourActive;
-            foregroundColourDeactivatedPreview.BackColor = Properties.Settings.Default.indFgColourInactive;
+            foregroundColourActivatedPreview.BackColor = SettingsManager.Get<Color>("indFgColourActive");
+            foregroundColourDeactivatedPreview.BackColor = SettingsManager.Get<Color>("indFgColourInactive");
 
-            borderColourActivatedPreview.BackColor = Properties.Settings.Default.indBdColourActive;
-            borderColourDeactivatedPreview.BackColor = Properties.Settings.Default.indBdColourInactive;
+            borderColourActivatedPreview.BackColor = SettingsManager.Get<Color>("indBdColourActive");
+            borderColourDeactivatedPreview.BackColor = SettingsManager.Get<Color>("indBdColourInactive");
 
-            fontButton.Font = Properties.Settings.Default.indFont;
+            fontButton.Font = SettingsManager.GetOrDefault<Font>("indFont");
 
-            switch (Properties.Settings.Default.overlayPosition)
+            onlyShowWhenActiveCheckBox.Checked = SettingsManager.Get<bool>("alwaysShowWhenActive");
+
+            switch (SettingsManager.Get<IndicatorDisplayPosition>("overlayPosition"))
             {
                 case IndicatorDisplayPosition.TopLeft:
                     positionTopLeft.Checked = true;
@@ -77,18 +79,19 @@ namespace CapsLockIndicatorV3
             foregroundColourActivatedButton.Text = strings.foregroundColourActivatedButton;
             foregroundColourDeactivatedButton.Text = strings.foregroundColourDeactivatedButton;
             positionGroup.Text = strings.overlayPositionGroup;
+            onlyShowWhenActiveCheckBox.Text = strings.showOverlayOnlyWhenActive;
         }
 
         private void displayTimeSlider_Scroll(object sender, EventArgs e)
         {
-            Properties.Settings.Default.indDisplayTime = displayTimeSlider.Value < 2001 ? displayTimeSlider.Value : -1;
+            SettingsManager.Set("indDisplayTime", displayTimeSlider.Value < 2001 ? displayTimeSlider.Value : -1);
             displayTimeLabel.Text = displayTimeSlider.Value < 2001 ? string.Format("{0} ms", displayTimeSlider.Value) : strings.permanentIndicator;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
-            Properties.Settings.Default.Save();
+            SettingsManager.Save();
             Close();
         }
 
@@ -100,77 +103,77 @@ namespace CapsLockIndicatorV3
             if (numberInputDialog.ShowDialog() == DialogResult.OK)
             {
                 displayTimeSlider.Value = numberInputDialog.Value;
-                Properties.Settings.Default.indDisplayTime = numberInputDialog.Value;
+                SettingsManager.Set("indDisplayTime", numberInputDialog.Value);
                 displayTimeLabel.Text = string.Format("{0} ms", displayTimeSlider.Value);
             }
         }
 
         private void backgroundColourActivatedButton_Click(object sender, EventArgs e)
         {
-            mainColourPicker.Color = Properties.Settings.Default.indBgColourActive;
+            mainColourPicker.Color = SettingsManager.Get<Color>("indBgColourActive");
             if (mainColourPicker.ShowDialog() == DialogResult.OK)
             {
-                Properties.Settings.Default.indBgColourActive = mainColourPicker.Color;
+                SettingsManager.Set("indBgColourActive", mainColourPicker.Color);
             }
             backgroundColourActivatedPreview.BackColor = mainColourPicker.Color;
         }
 
         private void backgroundColourDeactivatedButton_Click(object sender, EventArgs e)
         {
-            mainColourPicker.Color = Properties.Settings.Default.indBgColourInactive;
+            mainColourPicker.Color = SettingsManager.Get<Color>("indBgColourInactive");
             if (mainColourPicker.ShowDialog() == DialogResult.OK)
             {
-                Properties.Settings.Default.indBgColourInactive = mainColourPicker.Color;
+                SettingsManager.Set("indBgColourInactive", mainColourPicker.Color);
             }
             backgroundColourDeactivatedPreview.BackColor = mainColourPicker.Color;
         }
 
         private void foregroundColourActivatedButton_Click(object sender, EventArgs e)
         {
-            mainColourPicker.Color = Properties.Settings.Default.indFgColourActive;
+            mainColourPicker.Color = SettingsManager.Get<Color>("indFgColourActive");
             if (mainColourPicker.ShowDialog() == DialogResult.OK)
             {
-                Properties.Settings.Default.indFgColourActive = mainColourPicker.Color;
+                SettingsManager.Set("indFgColourActive", mainColourPicker.Color);
             }
             foregroundColourActivatedPreview.BackColor = mainColourPicker.Color;
         }
 
         private void foregroundColourDeactivatedButton_Click(object sender, EventArgs e)
         {
-            mainColourPicker.Color = Properties.Settings.Default.indFgColourInactive;
+            mainColourPicker.Color = SettingsManager.Get<Color>("indFgColourInactive");
             if (mainColourPicker.ShowDialog() == DialogResult.OK)
             {
-                Properties.Settings.Default.indFgColourInactive = mainColourPicker.Color;
+                SettingsManager.Set("indFgColourInactive", mainColourPicker.Color);
             }
             foregroundColourDeactivatedPreview.BackColor = mainColourPicker.Color;
         }
 
         private void borderColourActivatedButton_Click(object sender, EventArgs e)
         {
-            mainColourPicker.Color = Properties.Settings.Default.indBdColourActive;
+            mainColourPicker.Color = SettingsManager.Get<Color>("indBdColourActive");
             if (mainColourPicker.ShowDialog() == DialogResult.OK)
             {
-                Properties.Settings.Default.indBdColourActive = mainColourPicker.Color;
+                SettingsManager.Set("indBdColourActive", mainColourPicker.Color);
             }
             borderColourActivatedPreview.BackColor = mainColourPicker.Color;
         }
 
         private void borderColourDeactivatedButton_Click(object sender, EventArgs e)
         {
-            mainColourPicker.Color = Properties.Settings.Default.indBdColourInactive;
+            mainColourPicker.Color = SettingsManager.Get<Color>("indBdColourInactive");
             if (mainColourPicker.ShowDialog() == DialogResult.OK)
             {
-                Properties.Settings.Default.indBdColourInactive = mainColourPicker.Color;
+                SettingsManager.Set("indBdColourInactive", mainColourPicker.Color);
             }
             borderColourDeactivatedPreview.BackColor = mainColourPicker.Color;
         }
 
         private void fontButton_Click(object sender, EventArgs e)
         {
-            indFontChooser.Font = Properties.Settings.Default.indFont;
+            indFontChooser.Font = SettingsManager.GetOrDefault<Font>("indFont");
             if (indFontChooser.ShowDialog() == DialogResult.OK)
             {
-                Properties.Settings.Default.indFont = indFontChooser.Font;
+                SettingsManager.Set("indFont", indFontChooser.Font);
                 fontButton.Font = indFontChooser.Font;
             }
         }
@@ -185,7 +188,7 @@ namespace CapsLockIndicatorV3
             RadioButton _sender = sender as RadioButton;
             string posName = _sender.Name.Substring(8);
             Enum.TryParse(posName, out IndicatorDisplayPosition position);
-            Properties.Settings.Default.overlayPosition = position;
+            SettingsManager.Set("overlayPosition", position);
         }
 
         private void opacityLabel_Click(object sender, EventArgs e)
@@ -194,15 +197,20 @@ namespace CapsLockIndicatorV3
             if (numberInputDialog.ShowDialog() == DialogResult.OK)
             {
                 opacitySlider.Value = numberInputDialog.Value;
-                Properties.Settings.Default.indOpacity = numberInputDialog.Value;
+                SettingsManager.Set("indOpacity", numberInputDialog.Value);
                 opacityLabel.Text = string.Format("{0} %", opacitySlider.Value);
             }
         }
 
         private void opacitySlider_Scroll(object sender, EventArgs e)
         {
-            Properties.Settings.Default.indOpacity = opacitySlider.Value;
+            SettingsManager.Set("indOpacity", opacitySlider.Value);
             opacityLabel.Text = string.Format("{0} %", opacitySlider.Value);
+        }
+
+        private void onlyShowWhenActiveCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            SettingsManager.Set("alwaysShowWhenActive", onlyShowWhenActiveCheckBox.Checked);
         }
     }
 }
