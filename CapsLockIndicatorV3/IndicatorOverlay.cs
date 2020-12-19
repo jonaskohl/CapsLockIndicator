@@ -224,7 +224,9 @@ namespace CapsLockIndicatorV3
 
         private void SetOpacity(double op)
         {
-            byte opb = (byte)(op * 0xFF);
+            if (IsDisposed)
+                return;
+            byte opb = (byte)Math.Min(255, op * 0xFF);
             SetLayeredWindowAttributes(Handle, 0, opb, LWA_ALPHA);
         }
 
@@ -268,7 +270,6 @@ namespace CapsLockIndicatorV3
             pos = position;
             var op = indOpacity / 100d;
             lastOpacity = op;
-            SetOpacity(op);
             contentLabel.Text = content;
             Font = font;
             opacity_timer_value = 2.0;
@@ -285,6 +286,7 @@ namespace CapsLockIndicatorV3
                 fadeTimer.Stop();
                 fadeTimer.Start();
             }
+            SetOpacity(op);
             BackColor = bgColour;
             ForeColor = fgColour;
             BorderColour = bdColour;
