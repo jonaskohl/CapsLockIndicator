@@ -602,5 +602,10 @@ namespace CapsLockIndicatorV3
             else
                 e.Value = string.Format("{0} ({1})", itm.displayText, itm.localeString);
         }
+
+        private void aboutText_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
