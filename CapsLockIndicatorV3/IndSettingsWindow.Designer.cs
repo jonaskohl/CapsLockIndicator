@@ -109,9 +109,9 @@ namespace CapsLockIndicatorV3
             // 
             this.displayTimeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.displayTimeLabel.Location = new System.Drawing.Point(159, 35);
+            this.displayTimeLabel.Location = new System.Drawing.Point(158, 22);
             this.displayTimeLabel.Name = "displayTimeLabel";
-            this.displayTimeLabel.Size = new System.Drawing.Size(76, 40);
+            this.displayTimeLabel.Size = new System.Drawing.Size(57, 40);
             this.displayTimeLabel.TabIndex = 1;
             this.displayTimeLabel.Text = "500 ms";
             this.displayTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -136,9 +136,9 @@ namespace CapsLockIndicatorV3
             this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveButton.AutoSize = true;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.saveButton.Location = new System.Drawing.Point(374, 344);
+            this.saveButton.Location = new System.Drawing.Point(364, 287);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(132, 24);
+            this.saveButton.Size = new System.Drawing.Size(145, 24);
             this.saveButton.TabIndex = 10;
             this.saveButton.Text = "&Save && close";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -160,7 +160,7 @@ namespace CapsLockIndicatorV3
             this.coloursGroup.Controls.Add(this.backgroundColourActivatedButton);
             this.coloursGroup.Location = new System.Drawing.Point(262, 12);
             this.coloursGroup.Name = "coloursGroup";
-            this.coloursGroup.Size = new System.Drawing.Size(244, 230);
+            this.coloursGroup.Size = new System.Drawing.Size(297, 230);
             this.coloursGroup.TabIndex = 3;
             this.coloursGroup.TabStop = false;
             this.coloursGroup.Text = "Colours";
@@ -180,7 +180,7 @@ namespace CapsLockIndicatorV3
             this.borderColourDeactivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.borderColourDeactivatedButton.Location = new System.Drawing.Point(53, 177);
             this.borderColourDeactivatedButton.Name = "borderColourDeactivatedButton";
-            this.borderColourDeactivatedButton.Size = new System.Drawing.Size(182, 25);
+            this.borderColourDeactivatedButton.Size = new System.Drawing.Size(238, 25);
             this.borderColourDeactivatedButton.TabIndex = 8;
             this.borderColourDeactivatedButton.Text = "Border colour decativated";
             this.borderColourDeactivatedButton.UseVisualStyleBackColor = true;
@@ -201,7 +201,7 @@ namespace CapsLockIndicatorV3
             this.foregroundColourDeactivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.foregroundColourDeactivatedButton.Location = new System.Drawing.Point(53, 115);
             this.foregroundColourDeactivatedButton.Name = "foregroundColourDeactivatedButton";
-            this.foregroundColourDeactivatedButton.Size = new System.Drawing.Size(182, 25);
+            this.foregroundColourDeactivatedButton.Size = new System.Drawing.Size(238, 25);
             this.foregroundColourDeactivatedButton.TabIndex = 6;
             this.foregroundColourDeactivatedButton.Text = "Text colour activated";
             this.foregroundColourDeactivatedButton.UseVisualStyleBackColor = true;
@@ -222,7 +222,7 @@ namespace CapsLockIndicatorV3
             this.backgroundColourDeactivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.backgroundColourDeactivatedButton.Location = new System.Drawing.Point(53, 53);
             this.backgroundColourDeactivatedButton.Name = "backgroundColourDeactivatedButton";
-            this.backgroundColourDeactivatedButton.Size = new System.Drawing.Size(182, 25);
+            this.backgroundColourDeactivatedButton.Size = new System.Drawing.Size(238, 25);
             this.backgroundColourDeactivatedButton.TabIndex = 4;
             this.backgroundColourDeactivatedButton.Text = "Background colour deactivated";
             this.backgroundColourDeactivatedButton.UseVisualStyleBackColor = true;
@@ -243,7 +243,7 @@ namespace CapsLockIndicatorV3
             this.borderColourActivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.borderColourActivatedButton.Location = new System.Drawing.Point(53, 146);
             this.borderColourActivatedButton.Name = "borderColourActivatedButton";
-            this.borderColourActivatedButton.Size = new System.Drawing.Size(182, 25);
+            this.borderColourActivatedButton.Size = new System.Drawing.Size(238, 25);
             this.borderColourActivatedButton.TabIndex = 7;
             this.borderColourActivatedButton.Text = "Border colour activated";
             this.borderColourActivatedButton.UseVisualStyleBackColor = true;
@@ -264,7 +264,7 @@ namespace CapsLockIndicatorV3
             this.foregroundColourActivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.foregroundColourActivatedButton.Location = new System.Drawing.Point(53, 84);
             this.foregroundColourActivatedButton.Name = "foregroundColourActivatedButton";
-            this.foregroundColourActivatedButton.Size = new System.Drawing.Size(182, 25);
+            this.foregroundColourActivatedButton.Size = new System.Drawing.Size(238, 25);
             this.foregroundColourActivatedButton.TabIndex = 5;
             this.foregroundColourActivatedButton.Text = "Text colour activated";
             this.foregroundColourActivatedButton.UseVisualStyleBackColor = true;
@@ -285,7 +285,7 @@ namespace CapsLockIndicatorV3
             this.backgroundColourActivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.backgroundColourActivatedButton.Location = new System.Drawing.Point(53, 22);
             this.backgroundColourActivatedButton.Name = "backgroundColourActivatedButton";
-            this.backgroundColourActivatedButton.Size = new System.Drawing.Size(182, 25);
+            this.backgroundColourActivatedButton.Size = new System.Drawing.Size(238, 25);
             this.backgroundColourActivatedButton.TabIndex = 3;
             this.backgroundColourActivatedButton.Text = "Background colour activated";
             this.backgroundColourActivatedButton.UseVisualStyleBackColor = true;
@@ -489,9 +489,9 @@ namespace CapsLockIndicatorV3
             // 
             this.opacityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.opacityLabel.Location = new System.Drawing.Point(159, 35);
+            this.opacityLabel.Location = new System.Drawing.Point(163, 34);
             this.opacityLabel.Name = "opacityLabel";
-            this.opacityLabel.Size = new System.Drawing.Size(76, 15);
+            this.opacityLabel.Size = new System.Drawing.Size(52, 15);
             this.opacityLabel.TabIndex = 1;
             this.opacityLabel.Text = "100%";
             this.opacityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -517,7 +517,7 @@ namespace CapsLockIndicatorV3
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(518, 380);
+            this.ClientSize = new System.Drawing.Size(571, 380);
             this.Controls.Add(this.opacityGroup);
             this.Controls.Add(this.positionGroup);
             this.Controls.Add(this.fontGroupBox);
