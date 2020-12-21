@@ -148,9 +148,12 @@ namespace CapsLockIndicatorV3
 			e.Graphics.DrawRectangle(new Pen(BorderColour, 4), e.ClipRectangle);
         }
 
-        private void ClickThroughWindow(double opacity = 1d)
+        private int ClickThroughWindow(double opacity = 1d)
         {
-
+            if (this.IsDisposed)
+            {
+                return -1;
+            }
             IntPtr Handle = this.Handle;
             uint windowLong = GetWindowLong(Handle, GWL_EXSTYLE);
             SetWindowLong32(Handle, GWL_EXSTYLE, windowLong ^ WS_EX_LAYERED);
@@ -158,6 +161,7 @@ namespace CapsLockIndicatorV3
 
             var style = GetWindowLong(this.Handle, GWL_EXSTYLE);
             SetWindowLong(this.Handle, GWL_EXSTYLE, style | WS_EX_LAYERED | WS_EX_TRANSPARENT);
+            return 0;
         }
 
         public IndicatorOverlay(string content)
@@ -195,6 +199,7 @@ namespace CapsLockIndicatorV3
 
         public IndicatorOverlay(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, Font font, IndicatorDisplayPosition position, int indOpacity, bool alwaysShow)
         {
+            int ret = 0;
             pos = position;
             InitializeComponent();
 
@@ -202,10 +207,10 @@ namespace CapsLockIndicatorV3
             Font = font;
             Application.DoEvents();
             originalSize = Size;
-            
+
             var op = indOpacity / 100d;
             lastOpacity = op;
-            SetOpacity(op);
+            ret |= SetOpacity(op);
             if (timeoutInMs < 0 || alwaysShow)
             {
                 windowCloseTimer.Enabled = false;
@@ -219,15 +224,18 @@ namespace CapsLockIndicatorV3
             BackColor = bgColour;
             ForeColor = fgColour;
             BorderColour = bdColour;
-            ClickThroughWindow(op);
+            ret |= ClickThroughWindow(op);
+            if (ret != -1)
+                this.Show();
         }
 
-        private void SetOpacity(double op)
+        private int SetOpacity(double op)
         {
-            if (IsDisposed)
-                return;
+            if (this.IsDisposed)
+                return -1;
             byte opb = (byte)Math.Min(255, op * 0xFF);
             SetLayeredWindowAttributes(Handle, 0, opb, LWA_ALPHA);
+            return 0;
         }
 
         public void UpdateIndicator(string content, IndicatorDisplayPosition position)
@@ -270,6 +278,7 @@ namespace CapsLockIndicatorV3
             pos = position;
             var op = indOpacity / 100d;
             lastOpacity = op;
+            SetOpacity(op);
             contentLabel.Text = content;
             Font = font;
             opacity_timer_value = 2.0;
@@ -286,7 +295,6 @@ namespace CapsLockIndicatorV3
                 fadeTimer.Stop();
                 fadeTimer.Start();
             }
-            SetOpacity(op);
             BackColor = bgColour;
             ForeColor = fgColour;
             BorderColour = bdColour;

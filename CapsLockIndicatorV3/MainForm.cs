@@ -279,36 +279,35 @@ namespace CapsLockIndicatorV3
         {
             int timeOut = SettingsManager.Get<int>("indDisplayTime");
             var alwaysShow = SettingsManager.Get<bool>("alwaysShowWhenActive") && isActive;
-            if (Application.OpenForms.OfType<IndicatorOverlay>().Any() && Application.OpenForms.OfType<IndicatorOverlay>().Where(f => !f.IsDisposed).Any())
-            {
-                IndicatorOverlay indicatorOverlay = Application.OpenForms.OfType<IndicatorOverlay>().Where(f => !f.IsDisposed).First();
-                indicatorOverlay.UpdateIndicator(
-                      message
-                    , timeOut
-                    , isActive ? SettingsManager.Get<Color>("indBgColourActive") : SettingsManager.Get<Color>("indBgColourInactive")
-                    , isActive ? SettingsManager.Get<Color>("indFgColourActive") : SettingsManager.Get<Color>("indFgColourInactive")
-                    , isActive ? SettingsManager.Get<Color>("indBdColourActive") : SettingsManager.Get<Color>("indBdColourInactive")
-                    , SettingsManager.GetOrDefault<Font>("indFont")
-                    , SettingsManager.Get<IndicatorDisplayPosition>("overlayPosition")
-                    , SettingsManager.Get<int>("indOpacity")
-                    , alwaysShow
-                );
-            }
-            else
-            {
-                IndicatorOverlay indicatorOverlay = new IndicatorOverlay(
-                      message
-                    , timeOut
-                    , isActive ? SettingsManager.Get<Color>("indBgColourActive") : SettingsManager.Get<Color>("indBgColourInactive")
-                    , isActive ? SettingsManager.Get<Color>("indFgColourActive") : SettingsManager.Get<Color>("indFgColourInactive")
-                    , isActive ? SettingsManager.Get<Color>("indBdColourActive") : SettingsManager.Get<Color>("indBdColourInactive")
-                    , SettingsManager.GetOrDefault<Font>("indFont")
-                    , SettingsManager.Get<IndicatorDisplayPosition>("overlayPosition")
-                    , SettingsManager.Get<int>("indOpacity")
-                    , alwaysShow
-                );
-                indicatorOverlay.Show();
-            }
+                if (Application.OpenForms.OfType<IndicatorOverlay>().Any() && Application.OpenForms.OfType<IndicatorOverlay>().Where(f => !f.IsDisposed).Any())
+                {
+                    IndicatorOverlay indicatorOverlay = Application.OpenForms.OfType<IndicatorOverlay>().Where(f => !f.IsDisposed).First();
+                    indicatorOverlay.UpdateIndicator(
+                          message
+                        , timeOut
+                        , isActive ? SettingsManager.Get<Color>("indBgColourActive") : SettingsManager.Get<Color>("indBgColourInactive")
+                        , isActive ? SettingsManager.Get<Color>("indFgColourActive") : SettingsManager.Get<Color>("indFgColourInactive")
+                        , isActive ? SettingsManager.Get<Color>("indBdColourActive") : SettingsManager.Get<Color>("indBdColourInactive")
+                        , SettingsManager.GetOrDefault<Font>("indFont")
+                        , SettingsManager.Get<IndicatorDisplayPosition>("overlayPosition")
+                        , SettingsManager.Get<int>("indOpacity")
+                        , alwaysShow
+                    );
+                }
+                else
+                {
+                    IndicatorOverlay indicatorOverlay = new IndicatorOverlay(
+                              message
+                            , timeOut
+                            , isActive ? SettingsManager.Get<Color>("indBgColourActive") : SettingsManager.Get<Color>("indBgColourInactive")
+                            , isActive ? SettingsManager.Get<Color>("indFgColourActive") : SettingsManager.Get<Color>("indFgColourInactive")
+                            , isActive ? SettingsManager.Get<Color>("indBdColourActive") : SettingsManager.Get<Color>("indBdColourInactive")
+                            , SettingsManager.GetOrDefault<Font>("indFont")
+                            , SettingsManager.Get<IndicatorDisplayPosition>("overlayPosition")
+                            , SettingsManager.Get<int>("indOpacity")
+                            , alwaysShow
+                        );
+                }
         }
         void ShowNoIconsCheckedChanged(object sender, EventArgs e)
         {
