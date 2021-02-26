@@ -130,34 +130,42 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to b:numIco=true
-        ///b:capsIco=true
-        ///b:scrollIco=true
-        ///b:numInd=true
-        ///b:capsInd=true
-        ///b:scrollInd=true
-        ///b:noIco=false
-        ///b:noInd=false
-        ///b:beta_enableDarkMode=false
-        ///b:hideOnStartup=false
-        ///b:checkForUpdates=true
-        ///b:upgradeRequired=true
-        ///c:indBgColourActive=66,66,66
-        ///c:indFgColourActive=255,255,255
-        ///c:indBgColourActive=77,180,52
-        ///c:indBgColourInactive=66,66,66
-        ///c:indFgColourInactive=255,255,255
-        ///c:indBgColourInactive=180,52,77
-        ///i:indDisplayTime=500
-        ///i:selectedUICulture=-1
-        ///i:indOpacity=100
-        ///s:versionNo=3.9.0.0
-        ///s:indFont=Segoe UI; 12pt
-        ///s: [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to b:numIco=True
+        ///b:capsIco=True
+        ///b:scrollIco=True
+        ///b:numInd=True
+        ///b:capsInd=True
+        ///b:scrollInd=True
+        ///b:noIco=False
+        ///b:noInd=False
+        ///b:beta_enableDarkMode=False
+        ///b:hideOnStartup=False
+        ///b:checkForUpdates=True
+        ///b:upgradeRequired=True
+        ///b:alwaysShowWhenActive=False
+        ///b:firstRun=True
+        ///c:indBgColourActive=255;66;66;66
+        ///c:indFgColourActive=255;255;255;255
+        ///c:indBdColourActive=255;77;180;52
+        ///c:indBgColourInactive=255;66;66;66
+        ///c:indFgColourInactive=255;255;255;255
+        ///c:indBdColourInactive=255;180;52;77
+        ///f:indFont=Segoe UI; 12pt
+        ///i:indDisplayTi [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string defaultSettings {
             get {
                 return ResourceManager.GetString("defaultSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_dark {
+            get {
+                object obj = ResourceManager.GetObject("logo_dark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

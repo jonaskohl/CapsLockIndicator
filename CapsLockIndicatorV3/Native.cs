@@ -33,6 +33,7 @@ namespace CapsLockIndicatorV3
         const int DWMWA_USE_IMMERSIVE_DARK_MODE = 20;
         const int PREFFERED_APP_MODE__ALLOW_DARK = 1;
         const int PREFFERED_APP_MODE__DEFAULT = 0;
+        const int PREFFERED_APP_MODE__FORCE_DARK = 2;
 
         public enum DeviceCap
         {
@@ -48,6 +49,11 @@ namespace CapsLockIndicatorV3
             public WindowCompositionAttribute Attribute;
             public IntPtr Data;
             public int SizeOfData;
+        }
+
+        public static void SetDarkMode(IntPtr handle, bool v)
+        {
+            SetWindowTheme(handle, v ? "DarkMode_Explorer" : "Explorer", null);
         }
 
         public static void ControlSetDarkMode(Control control, bool v)
@@ -83,7 +89,7 @@ namespace CapsLockIndicatorV3
 
         public static void SetPrefferDarkMode(bool dark)
         {
-            SetPreferredAppMode(dark ? PREFFERED_APP_MODE__ALLOW_DARK : PREFFERED_APP_MODE__DEFAULT);
+            SetPreferredAppMode(dark ? PREFFERED_APP_MODE__FORCE_DARK : PREFFERED_APP_MODE__DEFAULT);
         }
 
         public static bool UseImmersiveDarkMode(IntPtr handle, bool enabled)

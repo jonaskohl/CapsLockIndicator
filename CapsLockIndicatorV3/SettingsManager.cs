@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,6 +12,7 @@ namespace CapsLockIndicatorV3
     public static class SettingsManager
     {
         public static string SettingsFilePath => Environment.ExpandEnvironmentVariables(@"%appdata%\Jonas Kohl\CapsLock Indicator\settings\any\usercfg");
+        public static string SettingsFileLocal => Environment.ExpandEnvironmentVariables(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "usercfg"));
 
         private static Dictionary<string, (Type, object)> Settings;
 
@@ -39,10 +41,15 @@ namespace CapsLockIndicatorV3
 
         private static void LoadUser()
         {
+            var path = SettingsFileLocal;
+
+            if (!File.Exists(path))
+                path = SettingsFilePath;
+
             if (!File.Exists(SettingsFilePath))
                 return;
 
-            var lines = File.ReadAllLines(SettingsFilePath);
+            var lines = File.ReadAllLines(path);
             if (Settings == null)
                 Settings = new Dictionary<string, (Type, object)>();
 
@@ -97,9 +104,14 @@ namespace CapsLockIndicatorV3
             foreach (var s in Settings)
                 sb.AppendFormat("{0}:{1}={2}\n", GetSettingsTypeIndicator(s.Value.Item1), s.Key, ConvertToString(s.Value.Item2));
 
-            if (!Directory.Exists(Path.GetDirectoryName(SettingsFilePath)))
-                Directory.CreateDirectory(Path.GetDirectoryName(SettingsFilePath));
-            File.WriteAllText(SettingsFilePath, sb.ToString());
+            var path = SettingsFileLocal;
+
+            if (!File.Exists(path))
+                path = SettingsFilePath;
+
+            if (!Directory.Exists(Path.GetDirectoryName(path)))
+                Directory.CreateDirectory(Path.GetDirectoryName(path));
+            File.WriteAllText(path, sb.ToString());
         }
 
         private static object Cast(string value, Type type)
@@ -170,6 +182,16 @@ namespace CapsLockIndicatorV3
         public static void Set(string key, object value)
         {
             Settings[key] = (value.GetType(), value);
+        }
+
+        public static string GetActualPath()
+        {
+            var path = SettingsFileLocal;
+
+            if (!File.Exists(path))
+                path = SettingsFilePath;
+
+            return path;
         }
     }
 }

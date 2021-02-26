@@ -2,7 +2,9 @@ using Microsoft.Win32;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Windows.Forms;
@@ -27,10 +29,41 @@ namespace CapsLockIndicatorV3
         public DownloadDialog()
         {
             InitializeComponent();
+
+            if (SettingsManager.Get<bool>("beta_enableDarkMode"))
+            {
+                HandleCreated += DownloadDialog_HandleCreated;
+
+                statusLabel.ForeColor =
+                infoLabel.ForeColor =
+                Color.White;
+
+                BackColor = Color.FromArgb(255, 32, 32, 32);
+                ForeColor = Color.White;
+
+                ControlScheduleSetDarkMode(downloadProgress);
+                ControlScheduleSetDarkMode(restartButton);
+                ControlScheduleSetDarkMode(closeButton);
+                ControlScheduleSetDarkMode(cancelButton);
+            }
+        }
+
+        private void DownloadDialog_HandleCreated(object sender, EventArgs e)
+        {
+            Native.UseImmersiveDarkModeColors(Handle, true);
+        }
+
+        private void ControlScheduleSetDarkMode(Control control)
+        {
+            control.HandleCreated += (sender, e) =>
+            {
+                Native.ControlSetDarkMode(control, true);
+            };
         }
 
         public void Download(string url)
         {
+#if !DEBUG
             Uri uri = new Uri(url);
             string filename = Path.GetFileName(uri.LocalPath);
             string currentPath = Path.GetDirectoryName(Application.ExecutablePath);
@@ -45,6 +78,7 @@ namespace CapsLockIndicatorV3
             Client.DownloadFileAsync(new Uri(url), path);
 
             newPath = path;
+#endif
         }
         
         private void DownloadProgressCallback(object sender, DownloadProgressChangedEventArgs e)
@@ -100,10 +134,12 @@ namespace CapsLockIndicatorV3
                 rk.SetValue("CapsLock Indicator", newPath);
             }
 
-            MainForm mainForm = (MainForm) Application.OpenForms["mainForm"];
+            MainForm mainForm = Application.OpenForms.OfType<MainForm>().First();
 
             mainForm.askCancel = false;
             Program.ReleaseMutex();
+
+            Thread.Sleep(100);
 
             Process.Start(newPath);
             Application.Exit();

@@ -49,13 +49,13 @@ namespace CapsLockIndicatorV3
             // 
             // contentLabel
             // 
-            this.contentLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contentLabel.Location = new System.Drawing.Point(2, 2);
+            this.contentLabel.Location = new System.Drawing.Point(0, 0);
             this.contentLabel.Name = "contentLabel";
-            this.contentLabel.Size = new System.Drawing.Size(172, 38);
+            this.contentLabel.Size = new System.Drawing.Size(0, 0);
             this.contentLabel.TabIndex = 0;
             this.contentLabel.Text = "{{{contentLabel}}";
             this.contentLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.contentLabel.Visible = false;
             // 
             // fadeTimer
             // 
@@ -84,7 +84,6 @@ namespace CapsLockIndicatorV3
             this.Name = "IndicatorOverlay";
             this.Padding = new System.Windows.Forms.Padding(2);
             this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "IndicatorOverlay";
             this.ResumeLayout(false);

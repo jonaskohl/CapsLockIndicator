@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace CapsLockIndicatorV3
 {
-	/// <summary>
-	/// A form that indicates if a keystate has changed.
-	/// </summary>
-	public partial class IndicatorOverlay : Form
-	{
+    /// <summary>
+    /// A form that indicates if a keystate has changed.
+    /// </summary>
+    public partial class IndicatorOverlay : Form
+    {
         [DllImport("user32.dll", SetLastError = true)]
         static extern uint GetWindowLong(IntPtr hWnd, int nIndex);
         [DllImport("user32.dll", EntryPoint = "SetWindowLong")]
@@ -45,12 +45,14 @@ namespace CapsLockIndicatorV3
         const uint LWA_ALPHA = 0x2;
         const uint LWA_COLORKEY = 0x1;
         const uint WS_EX_TRANSPARENT = 0x00000020;
+        const int WM_NCHITTEST = 0x84;
+        const int HTTRANSPARENT = -1;
 
         private Size originalSize;
-        
+
         private IndicatorDisplayPosition pos = IndicatorDisplayPosition.BottomRight;
 
-		const int WINDOW_MARGIN = 16;
+        const int WINDOW_MARGIN = 16;
         private double lastOpacity = 1;
         double opacity_timer_value = 2.0;
 
@@ -60,28 +62,45 @@ namespace CapsLockIndicatorV3
             0x4D,
             0xB4
         );
+        int BorderSize = 4;
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            fadeTimer.Stop();
+            windowCloseTimer.Stop();
+            positionUpdateTimer.Stop();
+            base.OnFormClosing(e);
+        }
 
         protected override bool ShowWithoutActivation
-		{
-			get { return true; }
-		}
+        {
+            get { return true; }
+        }
 
         protected override CreateParams CreateParams
-		{
-			get
-			{
-				CreateParams cp = base.CreateParams;
-				cp.ExStyle |= 0x00000008 | 0x80;
-				return cp;
-			}
-		}
-		
-		protected override void OnShown(EventArgs e)
-		{
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x00000008 | 0x80;
+                return cp;
+            }
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == WM_NCHITTEST)
+                m.Result = (IntPtr)HTTRANSPARENT;
+            else
+                base.WndProc(ref m);
+        }
+
+        protected override void OnShown(EventArgs e)
+        {
             UpdatePosition();
 
             base.OnShown(e);
-		}
+        }
 
         protected override void OnLoad(EventArgs e)
         {
@@ -141,32 +160,43 @@ namespace CapsLockIndicatorV3
                     break;
             }
         }
-		
-		protected override void OnPaint(PaintEventArgs e)
-		{
-			base.OnPaint(e);
-			e.Graphics.DrawRectangle(new Pen(BorderColour, 4), e.ClipRectangle);
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            if (BorderSize > 0)
+                e.Graphics.DrawRectangle(new Pen(BorderColour, BorderSize), e.ClipRectangle);
+
+            using (var sf = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center })
+            using (var b = new SolidBrush(contentLabel.ForeColor))
+                e.Graphics.DrawString(contentLabel.Text, contentLabel.Font, b, ClientRectangle, sf);
         }
 
         private void ClickThroughWindow(double opacity = 1d)
         {
+            //Opacity = opacity;
+            try
+            {
+                IntPtr Handle = this.Handle;
+                uint windowLong = GetWindowLong(Handle, GWL_EXSTYLE);
+                SetWindowLong32(Handle, GWL_EXSTYLE, windowLong ^ WS_EX_LAYERED);
+                SetLayeredWindowAttributes(Handle, 0, (byte)(opacity * 255), LWA_ALPHA);
 
-            IntPtr Handle = this.Handle;
-            uint windowLong = GetWindowLong(Handle, GWL_EXSTYLE);
-            SetWindowLong32(Handle, GWL_EXSTYLE, windowLong ^ WS_EX_LAYERED);
-            SetLayeredWindowAttributes(Handle, 0, (byte)(opacity * 255), LWA_ALPHA);
-
-            var style = GetWindowLong(this.Handle, GWL_EXSTYLE);
-            SetWindowLong(this.Handle, GWL_EXSTYLE, style | WS_EX_LAYERED | WS_EX_TRANSPARENT);
+                var style = GetWindowLong(this.Handle, GWL_EXSTYLE);
+                SetWindowLong(this.Handle, GWL_EXSTYLE, style | WS_EX_LAYERED | WS_EX_TRANSPARENT);
+            }
+            catch (ObjectDisposedException)
+            { }
         }
 
         public IndicatorOverlay(string content)
-		{
-			InitializeComponent();
+        {
+            InitializeComponent();
 
             originalSize = Size;
 
-			contentLabel.Text = content;
+            contentLabel.Text = content;
 
             ClickThroughWindow();
         }
@@ -180,9 +210,9 @@ namespace CapsLockIndicatorV3
             Application.DoEvents();
             originalSize = Size;
 
-            if (timeoutInMs < 0)
+            if (timeoutInMs < 1)
             {
-                windowCloseTimer.Enabled = false;   
+                windowCloseTimer.Enabled = false;
                 fadeTimer.Enabled = false;
             }
             else
@@ -193,7 +223,7 @@ namespace CapsLockIndicatorV3
             ClickThroughWindow();
         }
 
-        public IndicatorOverlay(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, Font font, IndicatorDisplayPosition position, int indOpacity, bool alwaysShow)
+        public IndicatorOverlay(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, int bdSize, Font font, IndicatorDisplayPosition position, int indOpacity, bool alwaysShow)
         {
             pos = position;
             InitializeComponent();
@@ -202,7 +232,7 @@ namespace CapsLockIndicatorV3
             Font = font;
             Application.DoEvents();
             originalSize = Size;
-            
+
             var op = indOpacity / 100d;
             lastOpacity = op;
             SetOpacity(op);
@@ -219,6 +249,7 @@ namespace CapsLockIndicatorV3
             BackColor = bgColour;
             ForeColor = fgColour;
             BorderColour = bdColour;
+            BorderSize = bdSize;
             ClickThroughWindow(op);
         }
 
@@ -226,8 +257,15 @@ namespace CapsLockIndicatorV3
         {
             if (IsDisposed)
                 return;
-            byte opb = (byte)Math.Min(255, op * 0xFF);
-            SetLayeredWindowAttributes(Handle, 0, opb, LWA_ALPHA);
+
+            try
+            {
+                //Opacity = op;
+                byte opb = (byte)Math.Min(255, op * 0xFF);
+                SetLayeredWindowAttributes(Handle, 0, opb, LWA_ALPHA);
+            }
+            catch (ObjectDisposedException)
+            { }
         }
 
         public void UpdateIndicator(string content, IndicatorDisplayPosition position)
@@ -265,7 +303,7 @@ namespace CapsLockIndicatorV3
             UpdatePosition();
         }
 
-        public void UpdateIndicator(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, Font font, IndicatorDisplayPosition position, int indOpacity, bool alwaysShow)
+        public void UpdateIndicator(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, int bdSize, Font font, IndicatorDisplayPosition position, int indOpacity, bool alwaysShow)
         {
             pos = position;
             var op = indOpacity / 100d;
@@ -290,14 +328,15 @@ namespace CapsLockIndicatorV3
             BackColor = bgColour;
             ForeColor = fgColour;
             BorderColour = bdColour;
+            BorderSize = bdSize;
             Invalidate();
             UpdatePosition();
         }
 
         void WindowCloseTimerTick(object sender, EventArgs e)
-		{
-			Close();
-		}
+        {
+            Close();
+        }
 
         private void fadeTimer_Tick(object sender, EventArgs e)
         {

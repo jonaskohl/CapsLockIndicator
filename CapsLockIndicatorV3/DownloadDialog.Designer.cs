@@ -116,7 +116,6 @@ namespace CapsLockIndicatorV3
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.downloadProgress);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DownloadDialog";

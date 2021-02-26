@@ -87,6 +87,12 @@ namespace CapsLockIndicatorV3
             iconsGroup.Enabled = !showNoIcons.Checked;
             indicatorGroup.Enabled = !showNoNotification.Checked;
 
+            generalIcon.ContextMenu =
+                numLockIcon.ContextMenu =
+                capsLockIcon.ContextMenu =
+                scrollLockIcon.ContextMenu =
+                contextMenu1;
+
             if (SettingsManager.Get<bool>("beta_enableDarkMode"))
             {
                 HandleCreated += MainForm_HandleCreated;
@@ -99,10 +105,31 @@ namespace CapsLockIndicatorV3
                 enableNumIcon.ForeColor =
                 enableCapsIcon.ForeColor =
                 enableScrollIcon.ForeColor =
+                showNoIcons.ForeColor =
+                showNoNotification.ForeColor =
+                startonlogonCheckBox.ForeColor =
+                hideOnStartupCheckBox.ForeColor =
                 Color.White;
+
+                enableNumInd.FlatStyle =
+                enableCapsInd.FlatStyle =
+                enableScrollInd.FlatStyle =
+                enableNumIcon.FlatStyle =
+                enableCapsIcon.FlatStyle =
+                enableScrollIcon.FlatStyle =
+                showNoIcons.FlatStyle =
+                showNoNotification.FlatStyle =
+                startonlogonCheckBox.FlatStyle =
+                hideOnStartupCheckBox.FlatStyle =
+                FlatStyle.Standard;
 
                 BackColor = Color.FromArgb(255, 32, 32, 32);
                 ForeColor = Color.White;
+                aboutPanelTopBorder.BackColor = Color.FromArgb(255, 196, 204, 238);
+                appNameLabel.LinkColor = 
+                appNameLabel.ActiveLinkColor =
+                Color.FromArgb(255, 196, 204, 238);
+                logo.Image = (Bitmap)resources.GetObject("logo_dark");
 
                 ControlScheduleSetDarkMode(checkForUpdatesButton);
                 ControlScheduleSetDarkMode(indSettings);
@@ -114,6 +141,7 @@ namespace CapsLockIndicatorV3
                 ControlScheduleSetDarkMode(enableNumIcon);
                 ControlScheduleSetDarkMode(enableCapsIcon);
                 ControlScheduleSetDarkMode(enableScrollIcon);
+                ControlScheduleSetDarkMode(localeComboBox);
             }
 
             // Check if application is in startup
@@ -153,14 +181,16 @@ namespace CapsLockIndicatorV3
 
         private void ReloadIcons()
         {
-            CapsOff = File.Exists("caps0.ico") ? Icon.ExtractAssociatedIcon("caps0.ico") : (Icon)resources.GetObject("CLIv3_Caps_Off");
-            CapsOn = File.Exists("caps1.ico") ? Icon.ExtractAssociatedIcon("caps1.ico") : (Icon)resources.GetObject("CLIv3_Caps_On");
+            var dir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-            NumOff = File.Exists("num0.ico") ? Icon.ExtractAssociatedIcon("num0.ico") : (Icon)resources.GetObject("CLIv3_Num_Off");
-            NumOn = File.Exists("num1.ico") ? Icon.ExtractAssociatedIcon("num1.ico") : (Icon)resources.GetObject("CLIv3_Num_On");
+            CapsOff = File.Exists(Path.Combine(dir, "caps0.ico")) ? Icon.ExtractAssociatedIcon(Path.Combine(dir, "caps0.ico")) : (Icon)resources.GetObject("CLIv3_Caps_Off");
+            CapsOn = File.Exists(Path.Combine(dir, "caps1.ico")) ? Icon.ExtractAssociatedIcon(Path.Combine(dir, "caps1.ico")) : (Icon)resources.GetObject("CLIv3_Caps_On");
 
-            ScrollOff = File.Exists("scroll0.ico") ? Icon.ExtractAssociatedIcon("scroll0.ico") : (Icon)resources.GetObject("CLIv3_Scroll_Off");
-            ScrollOn = File.Exists("scroll1.ico") ? Icon.ExtractAssociatedIcon("scroll1.ico") : (Icon)resources.GetObject("CLIv3_Scroll_On");
+            NumOff = File.Exists(Path.Combine(dir, "num0.ico")) ? Icon.ExtractAssociatedIcon(Path.Combine(dir, "num0.ico")) : (Icon)resources.GetObject("CLIv3_Num_Off");
+            NumOn = File.Exists(Path.Combine(dir, "num1.ico")) ? Icon.ExtractAssociatedIcon(Path.Combine(dir, "num1.ico")) : (Icon)resources.GetObject("CLIv3_Num_On");
+
+            ScrollOff = File.Exists(Path.Combine(dir, "scroll0.ico")) ? Icon.ExtractAssociatedIcon(Path.Combine(dir, "scroll0.ico")) : (Icon)resources.GetObject("CLIv3_Scroll_Off");
+            ScrollOn = File.Exists(Path.Combine(dir, "scroll1.ico")) ? Icon.ExtractAssociatedIcon(Path.Combine(dir, "scroll1.ico")) : (Icon)resources.GetObject("CLIv3_Scroll_On");
         }
 
         private void AddCultures()
@@ -229,7 +259,9 @@ namespace CapsLockIndicatorV3
             startonlogonCheckBox.Text = strings.startOnLogon;
             generalIcon.BalloonTipText = strings.generalIconBalloonText;
             showToolStripMenuItem.Text = strings.contextMenuShow;
+            showMenuItem.Text = strings.contextMenuShow;
             exitToolStripMenuItem.Text = strings.contextMenuExit;
+            exitMenuItem.Text = strings.contextMenuExit;
             hideOnStartupCheckBox.Text = strings.hideOnStartup;
         }
 
@@ -260,14 +292,26 @@ namespace CapsLockIndicatorV3
 
             // Handle the overlay
             if (numState != KeyHelper.isNumlockActive && enableNumInd.Checked && !showNoNotification.Checked)
-                ShowOverlay(string.Format(KeyHelper.isNumlockActive ? strings.keyIsOn : strings.keyIsOff, strings.numLock), KeyHelper.isNumlockActive);
+                ShowOverlay(
+                    KeyHelper.isNumlockActive ?
+                        (SettingsManager.Get<string>("customMessageNumOn").Trim().Length > 0 ? SettingsManager.Get<string>("customMessageNumOn") : string.Format(strings.keyIsOn, strings.numLock)) :
+                        (SettingsManager.Get<string>("customMessageNumOff").Trim().Length > 0 ? SettingsManager.Get<string>("customMessageNumOff") : string.Format(strings.keyIsOff, strings.numLock)),
+                    KeyHelper.isNumlockActive);
             //ShowOverlay("Numlock is " + (KeyHelper.isNumlockActive ? "on" : "off"), KeyHelper.isNumlockActive);
 
             if (capsState != KeyHelper.isCapslockActive && enableCapsInd.Checked && !showNoNotification.Checked)
-                ShowOverlay(string.Format(KeyHelper.isCapslockActive ? strings.keyIsOn : strings.keyIsOff, strings.capsLock), KeyHelper.isCapslockActive);
+                ShowOverlay(
+                    KeyHelper.isCapslockActive ?
+                        (SettingsManager.Get<string>("customMessageCapsOn").Trim().Length > 0 ? SettingsManager.Get<string>("customMessageCapsOn") : string.Format(strings.keyIsOn, strings.capsLock)) :
+                        (SettingsManager.Get<string>("customMessageCapsOff").Trim().Length > 0 ? SettingsManager.Get<string>("customMessageCapsOff") : string.Format(strings.keyIsOff, strings.capsLock)),
+                    KeyHelper.isCapslockActive);
 
             if (scrollState != KeyHelper.isScrolllockActive && enableScrollInd.Checked && !showNoNotification.Checked)
-                ShowOverlay(string.Format(KeyHelper.isScrolllockActive ? strings.keyIsOn : strings.keyIsOff, strings.scrollLock), KeyHelper.isScrolllockActive);
+                ShowOverlay(
+                    KeyHelper.isScrolllockActive ?
+                        (SettingsManager.Get<string>("customMessageScrollOn").Trim().Length > 0 ? SettingsManager.Get<string>("customMessageScrollOn") : string.Format(strings.keyIsOn, strings.scrollLock)) :
+                        (SettingsManager.Get<string>("customMessageScrollOff").Trim().Length > 0 ? SettingsManager.Get<string>("customMessageScrollOff") : string.Format(strings.keyIsOff, strings.scrollLock)),
+                    KeyHelper.isScrolllockActive);
 
             // Reset the values
             numState = KeyHelper.isNumlockActive;
@@ -288,6 +332,7 @@ namespace CapsLockIndicatorV3
                     , isActive ? SettingsManager.Get<Color>("indBgColourActive") : SettingsManager.Get<Color>("indBgColourInactive")
                     , isActive ? SettingsManager.Get<Color>("indFgColourActive") : SettingsManager.Get<Color>("indFgColourInactive")
                     , isActive ? SettingsManager.Get<Color>("indBdColourActive") : SettingsManager.Get<Color>("indBdColourInactive")
+                    , SettingsManager.Get<int>("bdSize")
                     , SettingsManager.GetOrDefault<Font>("indFont")
                     , SettingsManager.Get<IndicatorDisplayPosition>("overlayPosition")
                     , SettingsManager.Get<int>("indOpacity")
@@ -302,6 +347,7 @@ namespace CapsLockIndicatorV3
                     , isActive ? SettingsManager.Get<Color>("indBgColourActive") : SettingsManager.Get<Color>("indBgColourInactive")
                     , isActive ? SettingsManager.Get<Color>("indFgColourActive") : SettingsManager.Get<Color>("indFgColourInactive")
                     , isActive ? SettingsManager.Get<Color>("indBdColourActive") : SettingsManager.Get<Color>("indBdColourInactive")
+                    , SettingsManager.Get<int>("bdSize")
                     , SettingsManager.GetOrDefault<Font>("indFont")
                     , SettingsManager.Get<IndicatorDisplayPosition>("overlayPosition")
                     , SettingsManager.Get<int>("indOpacity")
@@ -363,7 +409,9 @@ namespace CapsLockIndicatorV3
                 Version cVersion = new Version(currentVersion);
                 Version lVersion = new Version(latestVersion);
 
+#if !DEBUG
                 if (lVersion > cVersion)
+#endif
                 {
                     UpdateDialog ud = new UpdateDialog();
                     ud.ShowInTaskbar = isHidden;
@@ -601,6 +649,21 @@ namespace CapsLockIndicatorV3
                 e.Value = "--LINE--";
             else
                 e.Value = string.Format("{0} ({1})", itm.displayText, itm.localeString);
+        }
+
+        private void showMenuItem_Click(object sender, EventArgs e)
+        {
+            Show();
+            Focus();
+            generalIcon.Visible = false;
+            isHidden = false;
+            ShowInTaskbar = true;
+        }
+
+        private void exitMenuItem_Click(object sender, EventArgs e)
+        {
+            shouldClose = true;
+            Close();
         }
     }
 }

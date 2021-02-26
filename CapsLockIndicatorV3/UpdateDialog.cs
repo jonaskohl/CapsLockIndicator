@@ -23,6 +23,37 @@ namespace CapsLockIndicatorV3
             updateNowButton.Text = strings.updateNow;
             dismissButton.Text = strings.dismissButton;
             downloadManuallyButton.Text = strings.downloadManuallyButton;
+
+            if (SettingsManager.Get<bool>("beta_enableDarkMode"))
+            {
+                HandleCreated += UpdateDialog_HandleCreated;
+
+                lnkLabel1.ForeColor =
+                lnkLabel1.LinkColor =
+                Color.White;
+
+                BackColor = Color.FromArgb(255, 32, 32, 32);
+                ForeColor = Color.White;
+                infoLabel.ForeColor = Color.FromArgb(255, 196, 204, 238);
+                changelogRtf.BackColor = Color.FromArgb(255, 56, 56, 56);
+
+                ControlScheduleSetDarkMode(dismissButton);
+                ControlScheduleSetDarkMode(updateNowButton);
+                ControlScheduleSetDarkMode(downloadManuallyButton);
+            }
+        }
+
+        private void UpdateDialog_HandleCreated(object sender, EventArgs e)
+        {
+            Native.UseImmersiveDarkModeColors(Handle, true);
+        }
+
+        private void ControlScheduleSetDarkMode(Control control)
+        {
+            control.HandleCreated += (sender, e) =>
+            {
+                Native.ControlSetDarkMode(control, true);
+            };
         }
 
         public void SetNewVersion(Version v)

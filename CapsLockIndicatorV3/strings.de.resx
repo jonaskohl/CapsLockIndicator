@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="advancedSettings" xml:space="preserve">
+    <value>Erw. Einstellungen</value>
+  </data>
   <data name="backgroundColourActivatedButton" xml:space="preserve">
     <value>Hintergrund aktiv</value>
   </data>
@@ -128,6 +131,9 @@
   </data>
   <data name="borderColourDeactivatedButton" xml:space="preserve">
     <value>Rand inaktiv</value>
+  </data>
+  <data name="borderThicknessGroup" xml:space="preserve">
+    <value>Randstärke</value>
   </data>
   <data name="capsLock" xml:space="preserve">
     <value>Feststelltaste</value>
@@ -164,6 +170,27 @@
   </data>
   <data name="exitMessage" xml:space="preserve">
     <value>Die Anwendung zu verlassen heißt, dass die Icons und Benachrichtigungen nicht länger angezeigt weden. Trotzdem verlassen?</value>
+  </data>
+  <data name="firstRunAllowUpdateCheck" xml:space="preserve">
+    <value>Zulassen, dass CapsLock Indicator online nach Aktualisierungen sucht</value>
+  </data>
+  <data name="firstRunContribute" xml:space="preserve">
+    <value>Mitarbeiten</value>
+  </data>
+  <data name="firstRunExit" xml:space="preserve">
+    <value>Verlass&amp;en</value>
+  </data>
+  <data name="firstRunHeading" xml:space="preserve">
+    <value>Willkommen bei CapsLock Indicator!</value>
+  </data>
+  <data name="firstRunMessage" xml:space="preserve">
+    <value>Vielen Dank, dass Sie sich für CapsLock Indicator entschieden haben. Diese Anwendung is quelloffen und kostenlos! Für immer! Sind Sie daran interessiert, selbst an CapsLock Indicator zu arbeiten? Klicken Sie den untenstehenden Link für mehr Information. Außerdem bitten wir Sie, sich einen Moment zu nehmen, um die untenstehenden Einstellungen zu überprüfen.</value>
+  </data>
+  <data name="firstRunPrivacyInfoLinkLabel" xml:space="preserve">
+    <value>Welche Informationen werden übermittelt?</value>
+  </data>
+  <data name="firstRunStart" xml:space="preserve">
+    <value>&amp;Loslegen</value>
   </data>
   <data name="fontGroup" xml:space="preserve">
     <value>Schrift</value>
@@ -229,7 +256,7 @@
     <value>Zeige Benachr., wenn...</value>
   </data>
   <data name="showOverlayOnlyWhenActive" xml:space="preserve">
-    <value>Benachrichtigung immer anz., wenn aktiv</value>
+    <value>Benachr. immer anz., wenn aktiv</value>
   </data>
   <data name="startOnLogon" xml:space="preserve">
     <value>Autostart</value>

@@ -61,6 +61,15 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Advanced Settings.
+        /// </summary>
+        internal static string advancedSettings {
+            get {
+                return ResourceManager.GetString("advancedSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Background colour activated.
         /// </summary>
         internal static string backgroundColourActivatedButton {
@@ -93,6 +102,15 @@ namespace CapsLockIndicatorV3 {
         internal static string borderColourDeactivatedButton {
             get {
                 return ResourceManager.GetString("borderColourDeactivatedButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Border thickness.
+        /// </summary>
+        internal static string borderThicknessGroup {
+            get {
+                return ResourceManager.GetString("borderThicknessGroup", resourceCulture);
             }
         }
         
@@ -201,6 +219,69 @@ namespace CapsLockIndicatorV3 {
         internal static string exitMessage {
             get {
                 return ResourceManager.GetString("exitMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow CapsLock Indicator to periodically check for updates online (can be changed later).
+        /// </summary>
+        internal static string firstRunAllowUpdateCheck {
+            get {
+                return ResourceManager.GetString("firstRunAllowUpdateCheck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contribute.
+        /// </summary>
+        internal static string firstRunContribute {
+            get {
+                return ResourceManager.GetString("firstRunContribute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Exit.
+        /// </summary>
+        internal static string firstRunExit {
+            get {
+                return ResourceManager.GetString("firstRunExit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome to CapsLock Indicator.
+        /// </summary>
+        internal static string firstRunHeading {
+            get {
+                return ResourceManager.GetString("firstRunHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thank you for choosing CapsLock Indicator! This program is open-source and free, always has been, always will be! Are you interested in contributing to CapsLock Indicator yourself? Visit the link below for more information! Also, please take a moment to review the settings below!.
+        /// </summary>
+        internal static string firstRunMessage {
+            get {
+                return ResourceManager.GetString("firstRunMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What information will be sent?.
+        /// </summary>
+        internal static string firstRunPrivacyInfoLinkLabel {
+            get {
+                return ResourceManager.GetString("firstRunPrivacyInfoLinkLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Let&apos;s go!.
+        /// </summary>
+        internal static string firstRunStart {
+            get {
+                return ResourceManager.GetString("firstRunStart", resourceCulture);
             }
         }
         

@@ -82,6 +82,12 @@
     </Compile>
     <Compile Include="DropDownLocale.cs" />
     <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="FirstRunDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstRunDialog.Designer.cs">
+      <DependentUpon>FirstRunDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="HelpWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,12 @@
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MColorPicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MFontPicker.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Native.cs" />
     <Compile Include="NumberInputDialog.cs">
@@ -157,6 +169,9 @@
     <EmbeddedResource Include="DownloadDialog.resx">
       <DependentUpon>DownloadDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FirstRunDialog.resx">
+      <DependentUpon>FirstRunDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HelpWindow.resx">
       <DependentUpon>HelpWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +208,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CLIv3_Icon.ico" />
+    <None Include="Resources\logo_dark.Image.png" />
     <None Include="Resources\defaultSettings.txt" />
     <None Include="Resources\CLIv3_Scroll_On.ico" />
     <None Include="Resources\CLIv3_Scroll_Off.ico" />

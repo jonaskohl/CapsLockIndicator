@@ -7,6 +7,7 @@ using Microsoft.Win32;
 using Mono.Options;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
@@ -15,8 +16,8 @@ using System.Windows.Forms;
 
 namespace CapsLockIndicatorV3
 {
-	internal sealed class Program
-	{
+    internal sealed class Program
+    {
         [Flags]
         enum KeyType
         {
@@ -37,14 +38,14 @@ namespace CapsLockIndicatorV3
             switch (type)
             {
                 case DisplayType.Icon:
-                    SettingsManager.Set("numIco"    , (keys & (int)KeyType.NumLock)    != 0);
-                    SettingsManager.Set("capsIco"   , (keys & (int)KeyType.CapsLock)   != 0);
-                    SettingsManager.Set("scrollIco" , (keys & (int)KeyType.ScrollLock) != 0);
+                    SettingsManager.Set("numIco", (keys & (int)KeyType.NumLock) != 0);
+                    SettingsManager.Set("capsIco", (keys & (int)KeyType.CapsLock) != 0);
+                    SettingsManager.Set("scrollIco", (keys & (int)KeyType.ScrollLock) != 0);
                     break;
                 case DisplayType.Notification:
-                    SettingsManager.Set("numInd"    , (keys & (int)KeyType.NumLock)    != 0);
-                    SettingsManager.Set("capsInd"   , (keys & (int)KeyType.CapsLock)   != 0);
-                    SettingsManager.Set("scrollInd" , (keys & (int)KeyType.ScrollLock) != 0);
+                    SettingsManager.Set("numInd", (keys & (int)KeyType.NumLock) != 0);
+                    SettingsManager.Set("capsInd", (keys & (int)KeyType.CapsLock) != 0);
+                    SettingsManager.Set("scrollInd", (keys & (int)KeyType.ScrollLock) != 0);
                     break;
                 default:
                     break;
@@ -70,14 +71,14 @@ namespace CapsLockIndicatorV3
         static void DisplayHelp(OptionSet p)
         {
             StringWriter sw = new StringWriter();
-            
+
             sw.WriteLine("CapsLock Indicator");
             sw.WriteLine();
             sw.WriteLine("Options:");
             p.WriteOptionDescriptions(sw);
             sw.WriteLine();
             sw.WriteLine("For more information, visit: http://cli.jonaskohl.de/!/commandline");
-            
+
             string result = sw.ToString();
 
             sw.Close();
@@ -101,8 +102,8 @@ namespace CapsLockIndicatorV3
         // Create a mutex to check if an instance is already running
         static Mutex mutex = new Mutex(true, "{6f54c357-0542-4d7d-9225-338bc3cd7834}");
         [STAThread]
-		private static void Main(string[] args)
-		{
+        private static void Main(string[] args)
+        {
             //__FIXME__.SettingsKey = Environment.ExpandEnvironmentVariables(@"%appdata%\Jonas Kohl\CapsLock Indicator\settings\any\user.config");
             SettingsManager.Load();
 
@@ -145,13 +146,30 @@ namespace CapsLockIndicatorV3
 
                 SettingsManager.Save();
 
+                if (SettingsManager.Get<bool>("beta_enableDarkMode"))
+                    Native.SetPrefferDarkMode(true);
+
+                var runApp = true;
+
                 #endregion
 
-                if (Environment.CurrentDirectory.ToLower() == Environment.ExpandEnvironmentVariables(@"%systemroot%\system32").ToLower() ||
-                    Environment.CurrentDirectory.ToLower() == Environment.ExpandEnvironmentVariables(@"%systemroot%\system32\").ToLower())
-                    Environment.CurrentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+#if DEBUG
+                if (SettingsManager.Get<bool>("firstRun"))
+#else
+                if (SettingsManager.Get<bool>("firstRun") && new Version(SettingsManager.Get<string>("versionNo")) >= Assembly.GetExecutingAssembly().GetName().Version)
+#endif
+                {
+                    using (var d = new FirstRunDialog())
+                    {
+                        if (d.ShowDialog() == DialogResult.OK)
+                            SettingsManager.Set("firstRun", false);
+                        else
+                            runApp = false;
+                    }
+                }
 
-                Application.Run(new MainForm());
+                if (runApp)
+                    Application.Run(new MainForm());
 
                 // Release the mutex
                 mutex.ReleaseMutex();
@@ -163,7 +181,7 @@ namespace CapsLockIndicatorV3
                 Application.EnableVisualStyles();
                 MessageBox.Show("An instance is already open!");
             }
-		}
+        }
 
         public static void ReleaseMutex()
         {

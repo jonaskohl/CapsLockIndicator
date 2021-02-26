@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -10,6 +11,57 @@ namespace CapsLockIndicatorV3
         {
             InitializeComponent();
 
+            if (SettingsManager.Get<bool>("beta_enableDarkMode"))
+            {
+                HandleCreated += IndSettingsWindow_HandleCreated;
+
+                displayTimeGroup.ForeColor =
+                displayTimeLabel.ForeColor =
+                fontGroupBox.ForeColor =
+                fontButton.ForeColor =
+                positionGroup.ForeColor =
+                opacityGroup.ForeColor =
+                opacityLabel.ForeColor =
+                coloursGroup.ForeColor =
+                backgroundColourActivatedButton.ForeColor =
+                backgroundColourDeactivatedButton.ForeColor =
+                foregroundColourActivatedButton.ForeColor =
+                foregroundColourDeactivatedButton.ForeColor =
+                borderColourActivatedButton.ForeColor =
+                borderColourDeactivatedButton.ForeColor =
+                borderGroup.ForeColor =
+                bdSizeLabel.ForeColor =
+                lnkLabel1.LinkColor =
+                onlyShowWhenActiveCheckBox.ForeColor =
+                Color.White;
+
+                onlyShowWhenActiveCheckBox.FlatStyle = FlatStyle.Standard;
+
+                BackColor = Color.FromArgb(255, 32, 32, 32);
+                ForeColor = Color.White;
+
+                ControlScheduleSetDarkMode(fontButton);
+                ControlScheduleSetDarkMode(backgroundColourActivatedButton);
+                ControlScheduleSetDarkMode(backgroundColourDeactivatedButton);
+                ControlScheduleSetDarkMode(foregroundColourActivatedButton);
+                ControlScheduleSetDarkMode(foregroundColourDeactivatedButton);
+                ControlScheduleSetDarkMode(borderColourActivatedButton);
+                ControlScheduleSetDarkMode(borderColourDeactivatedButton);
+                ControlScheduleSetDarkMode(positionTopLeft);
+                ControlScheduleSetDarkMode(positionTopCenter);
+                ControlScheduleSetDarkMode(positionTopRight);
+                ControlScheduleSetDarkMode(positionMiddleLeft);
+                ControlScheduleSetDarkMode(positionMiddleCenter);
+                ControlScheduleSetDarkMode(positionMiddleRight);
+                ControlScheduleSetDarkMode(positionBottomLeft);
+                ControlScheduleSetDarkMode(positionBottomCenter);
+                ControlScheduleSetDarkMode(positionBottomRight);
+                ControlScheduleSetDarkMode(displayTimeSlider);
+                ControlScheduleSetDarkMode(opacitySlider);
+                ControlScheduleSetDarkMode(bdSizeSlider);
+                ControlScheduleSetDarkMode(saveButton);
+            }
+
             MaximumSize = new Size(int.MaxValue, Screen.FromControl(this).WorkingArea.Height);
             AutoScroll = true;
 
@@ -18,6 +70,9 @@ namespace CapsLockIndicatorV3
 
             opacitySlider.Value = SettingsManager.Get<int>("indOpacity");
             opacityLabel.Text = string.Format("{0} %", opacitySlider.Value);
+
+            bdSizeSlider.Value = SettingsManager.Get<int>("bdSize");
+            bdSizeLabel.Text = string.Format("{0}", bdSizeSlider.Value);
 
             backgroundColourActivatedPreview.BackColor = SettingsManager.Get<Color>("indBgColourActive");
             backgroundColourDeactivatedPreview.BackColor = SettingsManager.Get<Color>("indBgColourInactive");
@@ -80,6 +135,24 @@ namespace CapsLockIndicatorV3
             foregroundColourDeactivatedButton.Text = strings.foregroundColourDeactivatedButton;
             positionGroup.Text = strings.overlayPositionGroup;
             onlyShowWhenActiveCheckBox.Text = strings.showOverlayOnlyWhenActive;
+            lnkLabel1.Text = strings.advancedSettings;
+            borderGroup.Text = strings.borderThicknessGroup;
+        }
+
+        private void IndSettingsWindow_HandleCreated(object sender, EventArgs e)
+        {
+            Native.UseImmersiveDarkMode(Handle, true);
+            Native.UseImmersiveDarkModeColors(Handle, true);
+
+            Native.UseImmersiveDarkModeColors(mainColourPicker.PInstance, true);
+        }
+
+        private void ControlScheduleSetDarkMode(Control control)
+        {
+            control.HandleCreated += (sender, e) =>
+            {
+                Native.ControlSetDarkMode(control, true);
+            };
         }
 
         private void displayTimeSlider_Scroll(object sender, EventArgs e)
@@ -211,6 +284,34 @@ namespace CapsLockIndicatorV3
         private void onlyShowWhenActiveCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             SettingsManager.Set("alwaysShowWhenActive", onlyShowWhenActiveCheckBox.Checked);
+        }
+
+        private void bdSizeLabel_Click(object sender, EventArgs e)
+        {
+            NumberInputDialog numberInputDialog = new NumberInputDialog(bdSizeSlider.Value, bdSizeSlider.Minimum, bdSizeSlider.Maximum);
+            if (numberInputDialog.ShowDialog() == DialogResult.OK)
+            {
+                bdSizeSlider.Value = numberInputDialog.Value;
+                SettingsManager.Set("bdSize", numberInputDialog.Value);
+                bdSizeLabel.Text = string.Format("{0}", bdSizeSlider.Value);
+            }
+        }
+
+        private void bdSizeSlider_Scroll(object sender, EventArgs e)
+        {
+            SettingsManager.Set("bdSize", bdSizeSlider.Value);
+            bdSizeLabel.Text = string.Format("{0}", bdSizeSlider.Value);
+        }
+
+        private void lnkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (!SettingsManager.Get<bool>("advSettingsWarnShown"))
+            {
+                if (MessageBox.Show("Before you edit the settings, please exit CapsLock Indicator completely. This message will only be shown once. Do you wish to proceed?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) != DialogResult.Yes)
+                    return;
+                SettingsManager.Set("advSettingsWarnShown", true);
+            }
+            Process.Start("explorer", "/select,\"" + SettingsManager.GetActualPath() + "\"");
         }
     }
 }

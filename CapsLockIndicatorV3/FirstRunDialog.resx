@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,32 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="aboutTextFormat" xml:space="preserve">
-    <value>Version {0} | Copyright {1}</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="CLIv3_Caps_Off" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\CLIv3_Caps_Off.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CLIv3_Caps_On" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\CLIv3_Caps_On.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CLIv3_Num_Off" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\CLIv3_Num_Off.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CLIv3_Num_On" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\CLIv3_Num_On.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CLIv3_Scroll_Off" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\CLIv3_Scroll_Off.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CLIv3_Scroll_On" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\CLIv3_Scroll_On.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="defaultSettings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\defaultSettings.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="logo_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\logo_dark.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="messageLabel.Text" xml:space="preserve">
+    <value>Thank you for choosing CapsLock Indicator! This program is open-source and free, always has been, always will be! Are you interested in contributing to CapsLock Indicator yourself? Visit the link below for more information! Also, please take a moment to review the settings below!</value>
   </data>
 </root>
