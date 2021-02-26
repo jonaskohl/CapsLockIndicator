@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -35,7 +35,8 @@ namespace CapsLockIndicatorV3
                 var (type, key) = typeAndKey.Split(new char[] { ':' }, 2, StringSplitOptions.None);
                 var t = GetSettingsType(type);
 
-                Settings[key] = (t, Cast(value, t));
+                if (key != null)
+                    Settings[key] = (t, Cast(value, t));
             }
         }
 
@@ -60,7 +61,8 @@ namespace CapsLockIndicatorV3
                 var (type, key) = typeAndKey.Split(new char[] { ':' }, 2, StringSplitOptions.None);
                 var t = GetSettingsType(type);
 
-                Settings[key] = (t, Cast(value, t));
+                if (key != null)
+                    Settings[key] = (t, Cast(value, t));
             }
         }
 
@@ -181,7 +183,8 @@ namespace CapsLockIndicatorV3
 
         public static void Set(string key, object value)
         {
-            Settings[key] = (value.GetType(), value);
+            if (key != null)
+                Settings[key] = (value.GetType(), value);
         }
 
         public static string GetActualPath()
