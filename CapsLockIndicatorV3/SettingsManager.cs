@@ -6,13 +6,14 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CapsLockIndicatorV3
 {
     public static class SettingsManager
     {
-        public static string SettingsFilePath => Environment.ExpandEnvironmentVariables(@"%appdata%\Jonas Kohl\CapsLock Indicator\settings\any\usercfg");
-        public static string SettingsFileLocal => Environment.ExpandEnvironmentVariables(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "usercfg"));
+        public static string SettingsFileNormal => Environment.ExpandEnvironmentVariables(@"%appdata%\Jonas Kohl\CapsLock Indicator\settings\any\usercfg");
+        public static string SettingsFilePortable => Environment.ExpandEnvironmentVariables(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "usercfg"));
 
         private static Dictionary<string, (Type, object)> Settings;
 
@@ -35,18 +36,16 @@ namespace CapsLockIndicatorV3
                 var (type, key) = typeAndKey.Split(new char[] { ':' }, 2, StringSplitOptions.None);
                 var t = GetSettingsType(type);
 
-                Settings[key] = (t, Cast(value, t));
+                if (key != null)
+                    Settings[key] = (t, Cast(value, t));
             }
         }
 
         private static void LoadUser()
         {
-            var path = SettingsFileLocal;
+            var path = GetActualPath();
 
             if (!File.Exists(path))
-                path = SettingsFilePath;
-
-            if (!File.Exists(SettingsFilePath))
                 return;
 
             var lines = File.ReadAllLines(path);
@@ -60,7 +59,8 @@ namespace CapsLockIndicatorV3
                 var (type, key) = typeAndKey.Split(new char[] { ':' }, 2, StringSplitOptions.None);
                 var t = GetSettingsType(type);
 
-                Settings[key] = (t, Cast(value, t));
+                if (key != null)
+                    Settings[key] = (t, Cast(value, t));
             }
         }
 
@@ -76,6 +76,11 @@ namespace CapsLockIndicatorV3
             if (typeof(T).IsEnum)
                 return (T)Enum.Parse(typeof(T), d.Item2.ToString());
             return (T)d.Item2;
+        }
+
+        public static bool Has(string key)
+        {
+            return Settings.ContainsKey(key);
         }
 
         public static T GetOrDefault<T>(string key)
@@ -104,13 +109,11 @@ namespace CapsLockIndicatorV3
             foreach (var s in Settings)
                 sb.AppendFormat("{0}:{1}={2}\n", GetSettingsTypeIndicator(s.Value.Item1), s.Key, ConvertToString(s.Value.Item2));
 
-            var path = SettingsFileLocal;
-
-            if (!File.Exists(path))
-                path = SettingsFilePath;
+            var path = GetActualPath();
 
             if (!Directory.Exists(Path.GetDirectoryName(path)))
                 Directory.CreateDirectory(Path.GetDirectoryName(path));
+
             File.WriteAllText(path, sb.ToString());
         }
 
@@ -181,17 +184,23 @@ namespace CapsLockIndicatorV3
 
         public static void Set(string key, object value)
         {
-            Settings[key] = (value.GetType(), value);
+            if (key != null)
+                Settings[key] = (value.GetType(), value);
         }
 
         public static string GetActualPath()
         {
-            var path = SettingsFileLocal;
+            var path = SettingsFileNormal;
 
-            if (!File.Exists(path))
-                path = SettingsFilePath;
+            if (File.Exists(SettingsFilePortable))
+                path = SettingsFilePortable;
 
             return path;
+        }
+
+        public static void Unset(string key)
+        {
+            Settings.Remove(key);
         }
     }
 }
