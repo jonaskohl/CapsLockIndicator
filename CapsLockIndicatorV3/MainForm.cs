@@ -341,19 +341,20 @@ namespace CapsLockIndicatorV3
             }
             else
             {
-                IndicatorOverlay indicatorOverlay = new IndicatorOverlay(
-                      message
-                    , timeOut
-                    , isActive ? SettingsManager.Get<Color>("indBgColourActive") : SettingsManager.Get<Color>("indBgColourInactive")
-                    , isActive ? SettingsManager.Get<Color>("indFgColourActive") : SettingsManager.Get<Color>("indFgColourInactive")
-                    , isActive ? SettingsManager.Get<Color>("indBdColourActive") : SettingsManager.Get<Color>("indBdColourInactive")
-                    , SettingsManager.Get<int>("bdSize")
-                    , SettingsManager.GetOrDefault<Font>("indFont")
-                    , SettingsManager.Get<IndicatorDisplayPosition>("overlayPosition")
-                    , SettingsManager.Get<int>("indOpacity")
-                    , alwaysShow
-                );
-                indicatorOverlay.Show();
+                    IndicatorOverlay indicatorOverlay = new IndicatorOverlay(
+                          message
+                        , timeOut
+                        , isActive ? SettingsManager.Get<Color>("indBgColourActive") : SettingsManager.Get<Color>("indBgColourInactive")
+                        , isActive ? SettingsManager.Get<Color>("indFgColourActive") : SettingsManager.Get<Color>("indFgColourInactive")
+                        , isActive ? SettingsManager.Get<Color>("indBdColourActive") : SettingsManager.Get<Color>("indBdColourInactive")
+                        , SettingsManager.Get<int>("bdSize")
+                        , SettingsManager.GetOrDefault<Font>("indFont")
+                        , SettingsManager.Get<IndicatorDisplayPosition>("overlayPosition")
+                        , SettingsManager.Get<int>("indOpacity")
+                        , alwaysShow
+                    );
+                    if (!indicatorOverlay.IsDisposed)
+                        indicatorOverlay.Show();
             }
         }
         void ShowNoIconsCheckedChanged(object sender, EventArgs e)

@@ -175,6 +175,8 @@ namespace CapsLockIndicatorV3
 
         private void ClickThroughWindow(double opacity = 1d)
         {
+            if (IsDisposed)
+                return;
             //Opacity = opacity;
             try
             {
