@@ -117,6 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  
+<!--
+<data name="advancedSettings" xml:space="preserve">
+    <value>Advanced Settings</value>
+    <comment>Label of the hyperlink that opens the settings file</comment>
+  </data>
+-->
   <data name="backgroundColourActivatedButton" xml:space="preserve">
     <value>Fundo de cor ativado</value>
     <comment>The caption for the "Background colour activated" button.</comment>
@@ -133,6 +140,13 @@
     <value>Contorno de cor desativado</value>
     <comment>The caption for the "Border colour deactivated" button.</comment>
   </data>
+  
+<!--
+<data name="borderThicknessGroup" xml:space="preserve">
+    <value>Border thickness</value>
+    <comment>Label of the border thickness groupbox</comment>
+  </data>
+-->
   <data name="capsLock" xml:space="preserve">
     <value>Caps lock</value>
     <comment>The name of the caps lock key</comment>
@@ -181,6 +195,55 @@
     <value>Sair da aplicação significa que os ícones e as notificações vão deixar de aparecer. Sair na mesma?</value>
     <comment>The message to display on application exit</comment>
   </data>
+  
+<!--
+<data name="firstRunAllowUpdateCheck" xml:space="preserve">
+    <value>Allow CapsLock Indicator to periodically check for updates online (can be changed later)</value>
+    <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
+  </data>
+-->
+  
+<!--
+<data name="firstRunContribute" xml:space="preserve">
+    <value>Contribute</value>
+    <comment>Label of the hyperlink that takes you to CLI's GitHub page</comment>
+  </data>
+-->
+  
+<!--
+<data name="firstRunExit" xml:space="preserve">
+    <value>&amp;Exit</value>
+    <comment>Button that exists the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+-->
+  
+<!--
+<data name="firstRunHeading" xml:space="preserve">
+    <value>Welcome to CapsLock Indicator</value>
+    <comment>The heading of the first-run dialog</comment>
+  </data>
+-->
+  
+<!--
+<data name="firstRunMessage" xml:space="preserve">
+    <value>Thank you for choosing CapsLock Indicator! This program is open-source and free, always has been, always will be! Are you interested in contributing to CapsLock Indicator yourself? Visit the link below for more information! Also, please take a moment to review the settings below!</value>
+    <comment>The message of the first-run dialog</comment>
+  </data>
+-->
+  
+<!--
+<data name="firstRunPrivacyInfoLinkLabel" xml:space="preserve">
+    <value>What information will be sent?</value>
+    <comment>The label of the hyperlink that shows which information will be sent on each update check</comment>
+  </data>
+-->
+  
+<!--
+<data name="firstRunStart" xml:space="preserve">
+    <value>&amp;Let's go!</value>
+    <comment>Button that starts the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+-->
   <data name="fontGroup" xml:space="preserve">
     <value>Fonte</value>
     <comment>The title for the "Font" group box</comment>
@@ -265,6 +328,13 @@
     <value>Mostar notificações quando...</value>
     <comment>The title for the "Show notification when..." group box</comment>
   </data>
+  
+<!--
+<data name="showOverlayOnlyWhenActive" xml:space="preserve">
+    <value>Always show overlay when active</value>
+    <comment>The label for the check box that indicates whether overlay should only be shown when active</comment>
+  </data>
+-->
   <data name="startOnLogon" xml:space="preserve">
     <value>Iniciar aplicação no arranque do Windows</value>
     <comment>The label for the check box that enables or disabled the auto start.</comment>
@@ -281,4 +351,5 @@
     <value>&amp;Atualizar agora</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
+
 </root>

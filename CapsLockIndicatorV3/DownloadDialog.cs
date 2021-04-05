@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace CapsLockIndicatorV3
 {
-    public partial class DownloadDialog : Form
+    public partial class DownloadDialog : DarkModeForm
     {
         WebClient Client;
         Stopwatch sw = new Stopwatch();
         string newPath;
 
         public string DownloadURL;
-        
+
         protected override void WndProc(ref Message message)
         {
             if (message.Msg == 0x0084) // WM_NCHITTEST
@@ -30,35 +30,30 @@ namespace CapsLockIndicatorV3
         {
             InitializeComponent();
 
-            if (SettingsManager.Get<bool>("beta_enableDarkMode"))
+            HandleCreated += (sender, e) =>
             {
-                HandleCreated += DownloadDialog_HandleCreated;
-
-                statusLabel.ForeColor =
-                infoLabel.ForeColor =
-                Color.White;
-
-                BackColor = Color.FromArgb(255, 32, 32, 32);
-                ForeColor = Color.White;
-
-                ControlScheduleSetDarkMode(downloadProgress);
-                ControlScheduleSetDarkMode(restartButton);
-                ControlScheduleSetDarkMode(closeButton);
-                ControlScheduleSetDarkMode(cancelButton);
-            }
-        }
-
-        private void DownloadDialog_HandleCreated(object sender, EventArgs e)
-        {
-            Native.UseImmersiveDarkModeColors(Handle, true);
-        }
-
-        private void ControlScheduleSetDarkMode(Control control)
-        {
-            control.HandleCreated += (sender, e) =>
-            {
-                Native.ControlSetDarkMode(control, true);
+                DarkModeChanged += DownloadDialog_DarkModeChanged;
+                DarkModeProvider.RegisterForm(this);
             };
+        }
+
+        private void DownloadDialog_DarkModeChanged(object sender, EventArgs e)
+        {
+            var dark = DarkModeProvider.IsDark;
+
+            Native.UseImmersiveDarkModeColors(Handle, dark);
+
+            statusLabel.ForeColor =
+            infoLabel.ForeColor =
+            ForeColor =
+            dark ? Color.White : SystemColors.WindowText;
+
+            BackColor = dark ? Color.FromArgb(255, 32, 32, 32) : SystemColors.Window;
+
+            ControlScheduleSetDarkMode(downloadProgress, dark);
+            ControlScheduleSetDarkMode(restartButton, dark);
+            ControlScheduleSetDarkMode(closeButton, dark);
+            ControlScheduleSetDarkMode(cancelButton, dark);
         }
 
         public void Download(string url)
@@ -80,7 +75,7 @@ namespace CapsLockIndicatorV3
             newPath = path;
 #endif
         }
-        
+
         private void DownloadProgressCallback(object sender, DownloadProgressChangedEventArgs e)
         {
             downloadProgress.Value = e.ProgressPercentage;
@@ -116,7 +111,7 @@ namespace CapsLockIndicatorV3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Client.CancelAsync();
+            Client?.CancelAsync();
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -20,10 +20,11 @@ using System.Xml.Linq;
 using System.Globalization;
 using System.Threading;
 using System.IO;
+using System.ComponentModel;
 
 namespace CapsLockIndicatorV3
 {
-    public partial class MainForm : Form
+    public partial class MainForm : DarkModeForm
     {
         public bool isHidden = false;
 
@@ -93,56 +94,11 @@ namespace CapsLockIndicatorV3
                 scrollLockIcon.ContextMenu =
                 contextMenu1;
 
-            if (SettingsManager.Get<bool>("beta_enableDarkMode"))
+            HandleCreated += (sender, e) =>
             {
-                HandleCreated += MainForm_HandleCreated;
-
-                iconsGroup.ForeColor =
-                indicatorGroup.ForeColor =
-                enableNumInd.ForeColor =
-                enableCapsInd.ForeColor =
-                enableScrollInd.ForeColor =
-                enableNumIcon.ForeColor =
-                enableCapsIcon.ForeColor =
-                enableScrollIcon.ForeColor =
-                showNoIcons.ForeColor =
-                showNoNotification.ForeColor =
-                startonlogonCheckBox.ForeColor =
-                hideOnStartupCheckBox.ForeColor =
-                Color.White;
-
-                enableNumInd.FlatStyle =
-                enableCapsInd.FlatStyle =
-                enableScrollInd.FlatStyle =
-                enableNumIcon.FlatStyle =
-                enableCapsIcon.FlatStyle =
-                enableScrollIcon.FlatStyle =
-                showNoIcons.FlatStyle =
-                showNoNotification.FlatStyle =
-                startonlogonCheckBox.FlatStyle =
-                hideOnStartupCheckBox.FlatStyle =
-                FlatStyle.Standard;
-
-                BackColor = Color.FromArgb(255, 32, 32, 32);
-                ForeColor = Color.White;
-                aboutPanelTopBorder.BackColor = Color.FromArgb(255, 196, 204, 238);
-                appNameLabel.LinkColor = 
-                appNameLabel.ActiveLinkColor =
-                Color.FromArgb(255, 196, 204, 238);
-                logo.Image = (Bitmap)resources.GetObject("logo_dark");
-
-                ControlScheduleSetDarkMode(checkForUpdatesButton);
-                ControlScheduleSetDarkMode(indSettings);
-                ControlScheduleSetDarkMode(exitApplication);
-                ControlScheduleSetDarkMode(hideWindow);
-                ControlScheduleSetDarkMode(enableNumInd);
-                ControlScheduleSetDarkMode(enableCapsInd);
-                ControlScheduleSetDarkMode(enableScrollInd);
-                ControlScheduleSetDarkMode(enableNumIcon);
-                ControlScheduleSetDarkMode(enableCapsIcon);
-                ControlScheduleSetDarkMode(enableScrollIcon);
-                ControlScheduleSetDarkMode(localeComboBox);
-            }
+                DarkModeChanged += MainForm_DarkModeChanged;
+                DarkModeProvider.RegisterForm(this);
+            };
 
             // Check if application is in startup
             startonlogonCheckBox.Checked = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "CapsLock Indicator", null) != null;
@@ -164,22 +120,82 @@ namespace CapsLockIndicatorV3
             AddCultures();
 
             ApplyLocales();
+
+            SystemEvents.PowerModeChanged += SystemEvents_PowerModeChanged;
         }
 
-        private void MainForm_HandleCreated(object sender, EventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
         {
-            Native.UseImmersiveDarkModeColors(Handle, true);
+            base.OnClosing(e);
+
+            SystemEvents.PowerModeChanged -= SystemEvents_PowerModeChanged;
         }
 
-        private void ControlScheduleSetDarkMode(Control control)
+        private void SystemEvents_PowerModeChanged(object sender, PowerModeChangedEventArgs e)
         {
-            control.HandleCreated += (sender, e) =>
+            if (e.Mode == PowerModes.Resume)
             {
-                Native.ControlSetDarkMode(control, true);
-            };
+                if (SettingsManager.Get<bool>("searchForUpdatesAfterResume"))
+                    doVersionCheck(false);
+            }
         }
 
-        private void ReloadIcons()
+        private void MainForm_DarkModeChanged(object sender, EventArgs e)
+        {
+            var dark = DarkModeProvider.IsDark;
+
+            Native.UseImmersiveDarkModeColors(Handle, dark);
+            generalIcon.Icon = (Icon)resources.GetObject("generalIcon");
+            Icon = (Icon)resources.GetObject("CLIv3_Icon" + (dark ? "_Dark" : ""));
+
+            iconsGroup.ForeColor =
+            indicatorGroup.ForeColor =
+            enableNumInd.ForeColor =
+            enableCapsInd.ForeColor =
+            enableScrollInd.ForeColor =
+            enableNumIcon.ForeColor =
+            enableCapsIcon.ForeColor =
+            enableScrollIcon.ForeColor =
+            showNoIcons.ForeColor =
+            showNoNotification.ForeColor =
+            startonlogonCheckBox.ForeColor =
+            hideOnStartupCheckBox.ForeColor =
+            dark ? Color.White : SystemColors.WindowText;
+
+            enableNumInd.FlatStyle =
+            enableCapsInd.FlatStyle =
+            enableScrollInd.FlatStyle =
+            enableNumIcon.FlatStyle =
+            enableCapsIcon.FlatStyle =
+            enableScrollIcon.FlatStyle =
+            showNoIcons.FlatStyle =
+            showNoNotification.FlatStyle =
+            startonlogonCheckBox.FlatStyle =
+            hideOnStartupCheckBox.FlatStyle =
+            dark ? FlatStyle.Standard : FlatStyle.System;
+
+            BackColor = dark ? Color.FromArgb(255, 32, 32, 32) : SystemColors.Window;
+            ForeColor = dark ? Color.White : SystemColors.WindowText;
+            aboutPanelTopBorder.BackColor =
+            appNameLabel.LinkColor =
+            appNameLabel.ActiveLinkColor =
+            dark ? Color.FromArgb(255, 196, 204, 238) : Color.FromArgb(255, 52, 77, 180); ;
+            logo.Image = (Bitmap)resources.GetObject("logo" + (dark ? "_dark" : ""));
+
+            ControlScheduleSetDarkMode(checkForUpdatesButton, dark);
+            ControlScheduleSetDarkMode(indSettings, dark);
+            ControlScheduleSetDarkMode(exitApplication, dark);
+            ControlScheduleSetDarkMode(hideWindow, dark);
+            ControlScheduleSetDarkMode(enableNumInd, dark);
+            ControlScheduleSetDarkMode(enableCapsInd, dark);
+            ControlScheduleSetDarkMode(enableScrollInd, dark);
+            ControlScheduleSetDarkMode(enableNumIcon, dark);
+            ControlScheduleSetDarkMode(enableCapsIcon, dark);
+            ControlScheduleSetDarkMode(enableScrollIcon, dark);
+            ControlScheduleSetDarkMode(localeComboBox, dark);
+        }
+
+        private void ReloadIcons(bool isUserInitiated = false)
         {
             var dir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
@@ -191,6 +207,9 @@ namespace CapsLockIndicatorV3
 
             ScrollOff = File.Exists(Path.Combine(dir, "scroll0.ico")) ? Icon.ExtractAssociatedIcon(Path.Combine(dir, "scroll0.ico")) : (Icon)resources.GetObject("CLIv3_Scroll_Off");
             ScrollOn = File.Exists(Path.Combine(dir, "scroll1.ico")) ? Icon.ExtractAssociatedIcon(Path.Combine(dir, "scroll1.ico")) : (Icon)resources.GetObject("CLIv3_Scroll_On");
+
+            if (isUserInitiated)
+                ShowOverlayInfo(strings.reloadedIconsInfo);
         }
 
         private void AddCultures()
@@ -202,7 +221,9 @@ namespace CapsLockIndicatorV3
 
             localeComboBox.Items.Add(new DropDownLocale("en-GB", "English (United Kingdom)"));
 
-            foreach (CultureInfo c in GetSupportedCulture())
+            var cultures = GetSupportedCulture();
+
+            foreach (CultureInfo c in cultures)
             {
                 if (c.Name.Trim().Length < 1)
                     continue;
@@ -217,10 +238,27 @@ namespace CapsLockIndicatorV3
                 }
             }
 
-            if (SettingsManager.Get<int>("selectedUICulture") < 0)
+            //if (SettingsManager.Get<int>("selectedUICulture") < 0)
+            //    localeComboBox.SelectedIndex = selectIndex;
+            //else if (SettingsManager.Get<int>("selectedUICulture") < localeComboBox.Items.Count)
+            //    localeComboBox.SelectedIndex = SettingsManager.Get<int>("selectedUICulture");
+            //else
+            //    localeComboBox.SelectedIndex = 0;
+
+            if (SettingsManager.Has("selectedUICulture"))
+            {
+                var legacySelectedUICulture = SettingsManager.Get<int>("selectedUICulture");
+                SettingsManager.Unset("selectedUICulture");
+                selectIndex = legacySelectedUICulture;
+            }
+
+            var cultureCodes = cultures.Select(c => c.TwoLetterISOLanguageName);
+            var selLang = SettingsManager.Get<string>("selectedLanguage");
+
+            if (selLang == "")
                 localeComboBox.SelectedIndex = selectIndex;
-            else if (SettingsManager.Get<int>("selectedUICulture") < localeComboBox.Items.Count)
-                localeComboBox.SelectedIndex = SettingsManager.Get<int>("selectedUICulture");
+            else if (cultureCodes.Contains(selLang))
+                localeComboBox.SelectedIndex = cultureCodes.ToList().FindIndex(c => c == selLang);
             else
                 localeComboBox.SelectedIndex = 0;
 
@@ -353,9 +391,48 @@ namespace CapsLockIndicatorV3
                     , SettingsManager.Get<int>("indOpacity")
                     , alwaysShow
                 );
-                indicatorOverlay.Show();
             }
         }
+
+        void ShowOverlayInfo(string message)
+        {
+            int timeOut = SettingsManager.Get<int>("indDisplayTime");
+            if (timeOut < 0)
+                timeOut = 2000;
+            var alwaysShow = false;
+            if (Application.OpenForms.OfType<IndicatorOverlay>().Any() && Application.OpenForms.OfType<IndicatorOverlay>().Where(f => !f.IsDisposed).Any())
+            {
+                IndicatorOverlay indicatorOverlay = Application.OpenForms.OfType<IndicatorOverlay>().Where(f => !f.IsDisposed).First();
+                indicatorOverlay.UpdateIndicator(
+                      message
+                    , timeOut
+                    , SettingsManager.Get<Color>("indBgColourInactive")
+                    , SettingsManager.Get<Color>("indFgColourInactive")
+                    , SettingsManager.Get<Color>("indFgColourInactive")
+                    , SettingsManager.Get<int>("bdSize")
+                    , SettingsManager.GetOrDefault<Font>("indFont")
+                    , SettingsManager.Get<IndicatorDisplayPosition>("overlayPosition")
+                    , SettingsManager.Get<int>("indOpacity")
+                    , alwaysShow
+                );
+            }
+            else
+            {
+                IndicatorOverlay indicatorOverlay = new IndicatorOverlay(
+                      message
+                    , timeOut
+                    , SettingsManager.Get<Color>("indBgColourInactive")
+                    , SettingsManager.Get<Color>("indFgColourInactive")
+                    , SettingsManager.Get<Color>("indFgColourInactive")
+                    , SettingsManager.Get<int>("bdSize")
+                    , SettingsManager.GetOrDefault<Font>("indFont")
+                    , SettingsManager.Get<IndicatorDisplayPosition>("overlayPosition")
+                    , SettingsManager.Get<int>("indOpacity")
+                    , alwaysShow
+                );
+            }
+        }
+
         void ShowNoIconsCheckedChanged(object sender, EventArgs e)
         {
             iconsGroup.Enabled = !showNoIcons.Checked;
@@ -622,7 +699,8 @@ namespace CapsLockIndicatorV3
                 previousLocaleIndex = localeComboBox.SelectedIndex;
             }
 
-            SettingsManager.Set("selectedUICulture", localeComboBox.SelectedIndex);
+            //SettingsManager.Set("selectedUICulture", localeComboBox.SelectedIndex);
+            SettingsManager.Set("selectedLanguage", locale.localeString);
             SettingsManager.Save();
 
             ApplyLocales();
@@ -634,7 +712,7 @@ namespace CapsLockIndicatorV3
             {
                 e.Handled = true;
                 e.SuppressKeyPress = true;
-                ReloadIcons();
+                ReloadIcons(true);
             }
         }
 

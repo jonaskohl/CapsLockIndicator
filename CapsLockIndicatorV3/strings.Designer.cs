@@ -223,11 +223,47 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Allow CapsLock Indicator to periodically check for updates online (can be changed later).
+        ///   Looks up a localized string similar to &amp;Allow CapsLock Indicator to periodically check for updates online (can be changed later).
         /// </summary>
         internal static string firstRunAllowUpdateCheck {
             get {
                 return ResourceManager.GetString("firstRunAllowUpdateCheck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Dark.
+        /// </summary>
+        internal static string firstRunColorSchemeDark {
+            get {
+                return ResourceManager.GetString("firstRunColorSchemeDark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to L&amp;ight.
+        /// </summary>
+        internal static string firstRunColorSchemeLight {
+            get {
+                return ResourceManager.GetString("firstRunColorSchemeLight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Which color scheme do you prefer?.
+        /// </summary>
+        internal static string firstRunColorSchemePreference {
+            get {
+                return ResourceManager.GetString("firstRunColorSchemePreference", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Only available on Windows 10.
+        /// </summary>
+        internal static string firstRunColorSchemeWin10Only {
+            get {
+                return ResourceManager.GetString("firstRunColorSchemeWin10Only", resourceCulture);
             }
         }
         
@@ -417,6 +453,15 @@ namespace CapsLockIndicatorV3 {
         internal static string permanentIndicator {
             get {
                 return ResourceManager.GetString("permanentIndicator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reloaded icons.
+        /// </summary>
+        internal static string reloadedIconsInfo {
+            get {
+                return ResourceManager.GetString("reloadedIconsInfo", resourceCulture);
             }
         }
         

@@ -92,6 +92,26 @@ namespace CapsLockIndicatorV3 {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
+        internal static System.Drawing.Icon CLIv3_Icon {
+            get {
+                object obj = ResourceManager.GetObject("CLIv3_Icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon CLIv3_Icon_Dark {
+            get {
+                object obj = ResourceManager.GetObject("CLIv3_Icon_Dark", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
         internal static System.Drawing.Icon CLIv3_Num_Off {
             get {
                 object obj = ResourceManager.GetObject("CLIv3_Num_Off", resourceCulture);
@@ -138,24 +158,54 @@ namespace CapsLockIndicatorV3 {
         ///b:scrollInd=True
         ///b:noIco=False
         ///b:noInd=False
-        ///b:beta_enableDarkMode=False
+        ///b:darkMode=False
         ///b:hideOnStartup=False
         ///b:checkForUpdates=True
         ///b:upgradeRequired=True
         ///b:alwaysShowWhenActive=False
         ///b:firstRun=True
+        ///b:advSettingsWarnShown=False
         ///c:indBgColourActive=255;66;66;66
         ///c:indFgColourActive=255;255;255;255
         ///c:indBdColourActive=255;77;180;52
         ///c:indBgColourInactive=255;66;66;66
         ///c:indFgColourInactive=255;255;255;255
         ///c:indBdColourInactive=255;180;52;77
-        ///f:indFont=Segoe UI; 12pt
-        ///i:indDisplayTi [rest of string was truncated]&quot;;.
+        ///f:indFont=Segoe UI; 1 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string defaultSettings {
             get {
                 return ResourceManager.GetString("defaultSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon generalIcon {
+            get {
+                object obj = ResourceManager.GetObject("generalIcon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon generalIcon_dark {
+            get {
+                object obj = ResourceManager.GetObject("generalIcon_dark", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo {
+            get {
+                object obj = ResourceManager.GetObject("logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -166,6 +216,26 @@ namespace CapsLockIndicatorV3 {
             get {
                 object obj = ResourceManager.GetObject("logo_dark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon settings {
+            get {
+                object obj = ResourceManager.GetObject("settings", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon settings_dark {
+            get {
+                object obj = ResourceManager.GetObject("settings_dark", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }

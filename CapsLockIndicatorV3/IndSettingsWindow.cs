@@ -1,66 +1,27 @@
 using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.Reflection;
+using System.Resources;
 using System.Windows.Forms;
 
 namespace CapsLockIndicatorV3
 {
-    public partial class IndSettingsWindow : Form
+    public partial class IndSettingsWindow : DarkModeForm
     {
+        ResourceManager resources;
+
         public IndSettingsWindow()
         {
             InitializeComponent();
 
-            if (SettingsManager.Get<bool>("beta_enableDarkMode"))
+            resources = new ResourceManager("CapsLockIndicatorV3.resources", Assembly.GetExecutingAssembly());
+
+            HandleCreated += (sender, e) =>
             {
-                HandleCreated += IndSettingsWindow_HandleCreated;
-
-                displayTimeGroup.ForeColor =
-                displayTimeLabel.ForeColor =
-                fontGroupBox.ForeColor =
-                fontButton.ForeColor =
-                positionGroup.ForeColor =
-                opacityGroup.ForeColor =
-                opacityLabel.ForeColor =
-                coloursGroup.ForeColor =
-                backgroundColourActivatedButton.ForeColor =
-                backgroundColourDeactivatedButton.ForeColor =
-                foregroundColourActivatedButton.ForeColor =
-                foregroundColourDeactivatedButton.ForeColor =
-                borderColourActivatedButton.ForeColor =
-                borderColourDeactivatedButton.ForeColor =
-                borderGroup.ForeColor =
-                bdSizeLabel.ForeColor =
-                lnkLabel1.LinkColor =
-                onlyShowWhenActiveCheckBox.ForeColor =
-                Color.White;
-
-                onlyShowWhenActiveCheckBox.FlatStyle = FlatStyle.Standard;
-
-                BackColor = Color.FromArgb(255, 32, 32, 32);
-                ForeColor = Color.White;
-
-                ControlScheduleSetDarkMode(fontButton);
-                ControlScheduleSetDarkMode(backgroundColourActivatedButton);
-                ControlScheduleSetDarkMode(backgroundColourDeactivatedButton);
-                ControlScheduleSetDarkMode(foregroundColourActivatedButton);
-                ControlScheduleSetDarkMode(foregroundColourDeactivatedButton);
-                ControlScheduleSetDarkMode(borderColourActivatedButton);
-                ControlScheduleSetDarkMode(borderColourDeactivatedButton);
-                ControlScheduleSetDarkMode(positionTopLeft);
-                ControlScheduleSetDarkMode(positionTopCenter);
-                ControlScheduleSetDarkMode(positionTopRight);
-                ControlScheduleSetDarkMode(positionMiddleLeft);
-                ControlScheduleSetDarkMode(positionMiddleCenter);
-                ControlScheduleSetDarkMode(positionMiddleRight);
-                ControlScheduleSetDarkMode(positionBottomLeft);
-                ControlScheduleSetDarkMode(positionBottomCenter);
-                ControlScheduleSetDarkMode(positionBottomRight);
-                ControlScheduleSetDarkMode(displayTimeSlider);
-                ControlScheduleSetDarkMode(opacitySlider);
-                ControlScheduleSetDarkMode(bdSizeSlider);
-                ControlScheduleSetDarkMode(saveButton);
-            }
+                DarkModeChanged += IndSettingsWindow_DarkModeChanged;
+                DarkModeProvider.RegisterForm(this);
+            };
 
             MaximumSize = new Size(int.MaxValue, Screen.FromControl(this).WorkingArea.Height);
             AutoScroll = true;
@@ -139,20 +100,63 @@ namespace CapsLockIndicatorV3
             borderGroup.Text = strings.borderThicknessGroup;
         }
 
-        private void IndSettingsWindow_HandleCreated(object sender, EventArgs e)
+        private void IndSettingsWindow_DarkModeChanged(object sender, EventArgs e)
         {
-            Native.UseImmersiveDarkMode(Handle, true);
-            Native.UseImmersiveDarkModeColors(Handle, true);
+            var dark = DarkModeProvider.IsDark;
 
-            Native.UseImmersiveDarkModeColors(mainColourPicker.PInstance, true);
-        }
+            Native.UseImmersiveDarkMode(Handle, dark);
+            Native.UseImmersiveDarkModeColors(Handle, dark);
+            Native.UseImmersiveDarkModeColors(mainColourPicker.PInstance, dark);
 
-        private void ControlScheduleSetDarkMode(Control control)
-        {
-            control.HandleCreated += (sender, e) =>
-            {
-                Native.ControlSetDarkMode(control, true);
-            };
+            Icon = (Icon)resources.GetObject("settings" + (dark ? "_dark" : ""));
+
+            displayTimeGroup.ForeColor =
+            displayTimeLabel.ForeColor =
+            fontGroupBox.ForeColor =
+            fontButton.ForeColor =
+            positionGroup.ForeColor =
+            opacityGroup.ForeColor =
+            opacityLabel.ForeColor =
+            coloursGroup.ForeColor =
+            backgroundColourActivatedButton.ForeColor =
+            backgroundColourDeactivatedButton.ForeColor =
+            foregroundColourActivatedButton.ForeColor =
+            foregroundColourDeactivatedButton.ForeColor =
+            borderColourActivatedButton.ForeColor =
+            borderColourDeactivatedButton.ForeColor =
+            borderGroup.ForeColor =
+            bdSizeLabel.ForeColor =
+            onlyShowWhenActiveCheckBox.ForeColor =
+            dark ? Color.White : SystemColors.WindowText;
+
+
+            lnkLabel1.LinkColor = dark ? Color.White : SystemColors.HotTrack;
+
+            onlyShowWhenActiveCheckBox.FlatStyle = dark ? FlatStyle.Standard : FlatStyle.System;
+
+            BackColor = dark ? Color.FromArgb(255, 32, 32, 32) : SystemColors.Window;
+            ForeColor = dark ? Color.White : SystemColors.WindowText;
+
+            ControlScheduleSetDarkMode(fontButton, dark);
+            ControlScheduleSetDarkMode(backgroundColourActivatedButton, dark);
+            ControlScheduleSetDarkMode(backgroundColourDeactivatedButton, dark);
+            ControlScheduleSetDarkMode(foregroundColourActivatedButton, dark);
+            ControlScheduleSetDarkMode(foregroundColourDeactivatedButton, dark);
+            ControlScheduleSetDarkMode(borderColourActivatedButton, dark);
+            ControlScheduleSetDarkMode(borderColourDeactivatedButton, dark);
+            ControlScheduleSetDarkMode(positionTopLeft, dark);
+            ControlScheduleSetDarkMode(positionTopCenter, dark);
+            ControlScheduleSetDarkMode(positionTopRight, dark);
+            ControlScheduleSetDarkMode(positionMiddleLeft, dark);
+            ControlScheduleSetDarkMode(positionMiddleCenter, dark);
+            ControlScheduleSetDarkMode(positionMiddleRight, dark);
+            ControlScheduleSetDarkMode(positionBottomLeft, dark);
+            ControlScheduleSetDarkMode(positionBottomCenter, dark);
+            ControlScheduleSetDarkMode(positionBottomRight, dark);
+            ControlScheduleSetDarkMode(displayTimeSlider, dark);
+            ControlScheduleSetDarkMode(opacitySlider, dark);
+            ControlScheduleSetDarkMode(bdSizeSlider, dark);
+            ControlScheduleSetDarkMode(saveButton, dark);
         }
 
         private void displayTimeSlider_Scroll(object sender, EventArgs e)

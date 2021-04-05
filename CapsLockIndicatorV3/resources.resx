@@ -127,6 +127,12 @@
   <data name="CLIv3_Caps_On" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\CLIv3_Caps_On.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CLIv3_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\MainWindow.Icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CLIv3_Icon_Dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\CLIv3_Icon_Dark.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="CLIv3_Num_Off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\CLIv3_Num_Off.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,7 +148,22 @@
   <data name="defaultSettings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\defaultSettings.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="generalIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\generalIcon.Icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="generalIcon_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\generalIcon_dark.Icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\logo.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logo_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\logo_dark.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\settings.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="settings_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\settings_w.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

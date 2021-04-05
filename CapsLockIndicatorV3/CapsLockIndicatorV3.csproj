@@ -74,6 +74,10 @@
     <Compile Include="ColourButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DarkModeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DarkModeProvider.cs" />
     <Compile Include="DownloadDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,16 +195,21 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="strings.cs.resx" />
     <EmbeddedResource Include="strings.de.resx" />
     <EmbeddedResource Include="strings.es.resx" />
     <EmbeddedResource Include="strings.fr.resx" />
     <EmbeddedResource Include="strings.it.resx" />
+    <EmbeddedResource Include="strings.ko.resx" />
+    <EmbeddedResource Include="strings.nl.resx" />
+    <EmbeddedResource Include="strings.pt-BR.resx" />
     <EmbeddedResource Include="strings.pt-PT.resx" />
     <EmbeddedResource Include="strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="strings.ru.resx" />
+    <EmbeddedResource Include="strings.tr-TR.resx" />
     <EmbeddedResource Include="strings.zh-CN.resx" />
     <EmbeddedResource Include="UpdateDialog.resx">
       <DependentUpon>UpdateDialog.cs</DependentUpon>
@@ -208,6 +217,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CLIv3_Icon.ico" />
+    <None Include="Resources\settings.ico" />
+    <None Include="Resources\logo.Image.png" />
+    <None Include="Resources\MainWindow.Icon.ico" />
+    <None Include="Resources\generalIcon.Icon.ico" />
+    <None Include="Resources\settings_w.ico" />
+    <None Include="Resources\CLIv3_Icon_Dark.ico" />
+    <None Include="Resources\generalIcon_dark.Icon.ico" />
     <None Include="Resources\logo_dark.Image.png" />
     <None Include="Resources\defaultSettings.txt" />
     <None Include="Resources\CLIv3_Scroll_On.ico" />

@@ -117,32 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  
+<!--
+<data name="advancedSettings" xml:space="preserve">
+    <value>Advanced Settings</value>
+    <comment>Label of the hyperlink that opens the settings file</comment>
+  </data>
+-->
   <data name="backgroundColourActivatedButton" xml:space="preserve">
-    <value>背景色-激活</value>
+    <value>打开 - 背景颜色</value>
     <comment>The caption for the "Background colour activated" button.</comment>
   </data>
   <data name="backgroundColourDeactivatedButton" xml:space="preserve">
-    <value>背景色-未激活</value>
+    <value>关闭 - 背景颜色</value>
     <comment>The caption for the "Background colour deactivated" button.</comment>
   </data>
   <data name="borderColourActivatedButton" xml:space="preserve">
-    <value>边框-激活</value>
+    <value>打开 - 边框颜色</value>
     <comment>The caption for the "Border colour activated" button.</comment>
   </data>
   <data name="borderColourDeactivatedButton" xml:space="preserve">
-    <value>边框-未激活</value>
+    <value>关闭 - 边框颜色</value>
     <comment>The caption for the "Border colour deactivated" button.</comment>
   </data>
+  
+<!--
+<data name="borderThicknessGroup" xml:space="preserve">
+    <value>Border thickness</value>
+    <comment>Label of the border thickness groupbox</comment>
+  </data>
+-->
   <data name="capsLock" xml:space="preserve">
     <value>Caps lock</value>
     <comment>The name of the caps lock key</comment>
   </data>
   <data name="checkForUpdates" xml:space="preserve">
-    <value>检查更新</value>
+    <value>检查更新 (&amp;U)</value>
     <comment>The caption for the button that manually checks for updates. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="checkingForUpdates" xml:space="preserve">
-    <value>正在检查更新...</value>
+    <value>正在检查更新…</value>
     <comment>The caption for the "Check for updates" button when it's searching for updates.</comment>
   </data>
   <data name="coloursGroup" xml:space="preserve">
@@ -150,51 +164,100 @@
     <comment>The title for the "Colours" group box</comment>
   </data>
   <data name="contextMenuExit" xml:space="preserve">
-    <value>退出</value>
+    <value>退出 (&amp;E)</value>
     <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
   <data name="contextMenuShow" xml:space="preserve">
-    <value>显示主界面</value>
+    <value>显示主界面 (&amp;S)</value>
     <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
   <data name="dismissButton" xml:space="preserve">
-    <value>消除</value>
+    <value>忽略 (&amp;D)</value>
     <comment>The caption for the "Dismiss" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="displayTime" xml:space="preserve">
-    <value>展示时间</value>
+    <value>展示时长</value>
     <comment>The title for the "Display time" group box</comment>
   </data>
   <data name="downloadManuallyButton" xml:space="preserve">
-    <value>手动下载</value>
+    <value>手动下载 (&amp;M)</value>
     <comment>The caption for the "Download manually" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="downloadMoreTranslations" xml:space="preserve">
-    <value>下载更多语言...</value>
+    <value>下载更多翻译…</value>
     <comment>The last dropdown item in the locale dropdown.</comment>
   </data>
   <data name="exitApplication" xml:space="preserve">
-    <value>退出程序</value>
+    <value>退出程序 (&amp;E)</value>
     <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="exitMessage" xml:space="preserve">
-    <value>退出程序后，托盘指示器图标和切换通知将不再显示，确定要退出么？</value>
+    <value>退出程序后，托盘指示器图标和切换通知将不再显示，确定要退出吗？</value>
     <comment>The message to display on application exit</comment>
   </data>
+  
+<!--
+<data name="firstRunAllowUpdateCheck" xml:space="preserve">
+    <value>Allow CapsLock Indicator to periodically check for updates online (can be changed later)</value>
+    <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
+  </data>
+-->
+  
+<!--
+<data name="firstRunContribute" xml:space="preserve">
+    <value>Contribute</value>
+    <comment>Label of the hyperlink that takes you to CLI's GitHub page</comment>
+  </data>
+-->
+  
+<!--
+<data name="firstRunExit" xml:space="preserve">
+    <value>&amp;Exit</value>
+    <comment>Button that exists the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+-->
+  
+<!--
+<data name="firstRunHeading" xml:space="preserve">
+    <value>Welcome to CapsLock Indicator</value>
+    <comment>The heading of the first-run dialog</comment>
+  </data>
+-->
+  
+<!--
+<data name="firstRunMessage" xml:space="preserve">
+    <value>Thank you for choosing CapsLock Indicator! This program is open-source and free, always has been, always will be! Are you interested in contributing to CapsLock Indicator yourself? Visit the link below for more information! Also, please take a moment to review the settings below!</value>
+    <comment>The message of the first-run dialog</comment>
+  </data>
+-->
+  
+<!--
+<data name="firstRunPrivacyInfoLinkLabel" xml:space="preserve">
+    <value>What information will be sent?</value>
+    <comment>The label of the hyperlink that shows which information will be sent on each update check</comment>
+  </data>
+-->
+  
+<!--
+<data name="firstRunStart" xml:space="preserve">
+    <value>&amp;Let's go!</value>
+    <comment>Button that starts the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+-->
   <data name="fontGroup" xml:space="preserve">
     <value>字体</value>
     <comment>The title for the "Font" group box</comment>
   </data>
   <data name="foregroundColourActivatedButton" xml:space="preserve">
-    <value>文字颜色-激活</value>
+    <value>打开 - 文本颜色</value>
     <comment>The caption for the "Text colour activated" button.</comment>
   </data>
   <data name="foregroundColourDeactivatedButton" xml:space="preserve">
-    <value>文字颜色 - 不活跃</value>
+    <value>关闭 - 文字颜色</value>
     <comment>The caption for the "Text colour deactivated" button.</comment>
   </data>
   <data name="generalIconBalloonText" xml:space="preserve">
-    <value>双击图标显示软件主界面</value>
+    <value>双击此图标即可显示 CapsLock 指示器主界面</value>
     <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
   </data>
   <data name="hideOnStartup" xml:space="preserve">
@@ -202,23 +265,23 @@
     <comment>Used for the hide on startup checkbox</comment>
   </data>
   <data name="hideWindow" xml:space="preserve">
-    <value>隐藏窗口</value>
+    <value>隐藏窗口 (&amp;H)</value>
     <comment>The caption for the button that hides the window. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="keyChanged" xml:space="preserve">
-    <value>切换{0}状态时</value>
+    <value>切换 {0} 时</value>
     <comment>Used for the check boxes in the "Show notification when..." group box. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="keyIsOff" xml:space="preserve">
-    <value>{0}已关闭</value>
+    <value>{0} 已关闭</value>
     <comment>The text to display in the notification when a key is off. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="keyIsOn" xml:space="preserve">
-    <value>{0}已打开</value>
+    <value>{0} 已打开</value>
     <comment>The text to display in the notification when a key is on. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="notificationSettings" xml:space="preserve">
-    <value>通知设置</value>
+    <value>通知设置 (&amp;N)</value>
     <comment>The caption for the button that opens the notification settings. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="notificationSettingsTitle" xml:space="preserve">
@@ -234,7 +297,7 @@
     <comment>The title for the "Opacity" group box</comment>
   </data>
   <data name="overlayPositionGroup" xml:space="preserve">
-    <value>通知出现位置</value>
+    <value>通知位置</value>
     <comment>The title for the "Overlay position" group box</comment>
   </data>
   <data name="permanentIndicator" xml:space="preserve">
@@ -242,7 +305,7 @@
     <comment>Text to display instead of the time if indicator overlay display is set to permanently.</comment>
   </data>
   <data name="saveAndCloseButton" xml:space="preserve">
-    <value>保存并关闭</value>
+    <value>保存并关闭 (&amp;S)</value>
     <comment>The caption for the "Save &amp; Close" button. The character after the "&amp;" is the hotkey that is used with the ALT key. Use two "&amp;" to display a "&amp;" character</comment>
   </data>
   <data name="scrollLock" xml:space="preserve">
@@ -250,11 +313,11 @@
     <comment>The name of the scroll lock key</comment>
   </data>
   <data name="showIconsFor" xml:space="preserve">
-    <value>在系统托盘中展示以下指示器</value>
+    <value>显示托盘图标：</value>
     <comment>The title for the "Show icons for..." group box</comment>
   </data>
   <data name="showNoIcons" xml:space="preserve">
-    <value>不展示托盘指示器</value>
+    <value>不显示托盘图标</value>
     <comment>The label for the check box that enables or disables all icons</comment>
   </data>
   <data name="showNoNotification" xml:space="preserve">
@@ -265,20 +328,28 @@
     <value>显示通知：</value>
     <comment>The title for the "Show notification when..." group box</comment>
   </data>
+  
+<!--
+<data name="showOverlayOnlyWhenActive" xml:space="preserve">
+    <value>Always show overlay when active</value>
+    <comment>The label for the check box that indicates whether overlay should only be shown when active</comment>
+  </data>
+-->
   <data name="startOnLogon" xml:space="preserve">
-    <value>开机启动</value>
+    <value>开机自启动</value>
     <comment>The label for the check box that enables or disabled the auto start.</comment>
   </data>
   <data name="updateAvailable" xml:space="preserve">
-    <value>CapsLock Indicator 有可用升级！</value>
+    <value>CapsLock 指示器有可用更新了！</value>
     <comment>The title for the update window.</comment>
   </data>
   <data name="updateInfoFormat" xml:space="preserve">
-    <value>Version {0}, released {1}</value>
+    <value>版本 {0}，发布于 {1}</value>
     <comment>Displayed in the "Update Available" dialog. {0} is the version, {1} is the release date and time.</comment>
   </data>
   <data name="updateNow" xml:space="preserve">
-    <value>立即升级</value>
+    <value>立即更新 (&amp;U)</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
+
 </root>

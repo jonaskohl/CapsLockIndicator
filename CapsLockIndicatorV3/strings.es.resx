@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="advancedSettings" xml:space="preserve">
+    <value>Ajustes avanzados</value>
+    <comment>Label of the hyperlink that opens the settings file</comment>
+  </data>
   <data name="backgroundColourActivatedButton" xml:space="preserve">
     <value>Color de fondo activado</value>
     <comment>The caption for the "Background colour activated" button.</comment>
@@ -132,6 +136,10 @@
   <data name="borderColourDeactivatedButton" xml:space="preserve">
     <value>Color del borde desactivado</value>
     <comment>The caption for the "Border colour deactivated" button.</comment>
+  </data>
+  <data name="borderThicknessGroup" xml:space="preserve">
+    <value>Grosor del borde</value>
+    <comment>Label of the border thickness groupbox</comment>
   </data>
   <data name="capsLock" xml:space="preserve">
     <value>Bloq. Mayúsculas</value>
@@ -178,8 +186,36 @@
     <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="exitMessage" xml:space="preserve">
-    <value>Saliendo de la aplicación, los iconos y notificaciones no se mostrarán. ¿Salir de todas maneras?.</value>
+    <value>Saliendo de la aplicación, íconos y notificaciones no se mostrarán. ¿Salir de todas formas?</value>
     <comment>The message to display on application exit</comment>
+  </data>
+  <data name="firstRunAllowUpdateCheck" xml:space="preserve">
+    <value>Permitir que CapsLock Indicator verifique periódicamente si hay actualizaciones en línea (se puede cambiar después).</value>
+    <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
+  </data>
+  <data name="firstRunContribute" xml:space="preserve">
+    <value>Contribuir</value>
+    <comment>Label of the hyperlink that takes you to CLI's GitHub page</comment>
+  </data>
+  <data name="firstRunExit" xml:space="preserve">
+    <value>&amp;Salir</value>
+    <comment>Button that exists the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="firstRunHeading" xml:space="preserve">
+    <value>Bienvenido a CapsLock Indicator</value>
+    <comment>The heading of the first-run dialog</comment>
+  </data>
+  <data name="firstRunMessage" xml:space="preserve">
+    <value>¡Gracias por elegir CapsLock Indicator! Este programa es de código abierto y gratuito, ¡siempre lo ha sido y siempre lo será! ¿Tienes interes en contribuir a CapsLock Indicator? Visita el siguiente enlace para obtener más información. ¡También, tómese un momento para revisar la configuración de abajo!</value>
+    <comment>The message of the first-run dialog</comment>
+  </data>
+  <data name="firstRunPrivacyInfoLinkLabel" xml:space="preserve">
+    <value>¿Qué información se enviará?</value>
+    <comment>The label of the hyperlink that shows which information will be sent on each update check</comment>
+  </data>
+  <data name="firstRunStart" xml:space="preserve">
+    <value>¡&amp;Vamos!</value>
+    <comment>Button that starts the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="fontGroup" xml:space="preserve">
     <value>Fuente</value>
@@ -194,15 +230,15 @@
     <comment>The caption for the "Text colour deactivated" button.</comment>
   </data>
   <data name="generalIconBalloonText" xml:space="preserve">
-    <value>Puedes mostrar el indicador de Bloq mayús nuevamente haciendo doble clic en este icono.</value>
+    <value>Puedes mostrar CapsLock Indicator nuevamente dando doble clic en este ícono.</value>
     <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
   </data>
   <data name="hideOnStartup" xml:space="preserve">
-    <value>Esconder al inicio</value>
+    <value>Ocultar al iniciar</value>
     <comment>Used for the hide on startup checkbox</comment>
   </data>
   <data name="hideWindow" xml:space="preserve">
-    <value>&amp;Esconder ventana</value>
+    <value>&amp;Ocultar ventana</value>
     <comment>The caption for the button that hides the window. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="keyChanged" xml:space="preserve">
@@ -218,11 +254,11 @@
     <comment>The text to display in the notification when a key is on. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="notificationSettings" xml:space="preserve">
-    <value>&amp;Ajuste de notificaciones</value>
+    <value>&amp;Ajustes de notificaciones</value>
     <comment>The caption for the button that opens the notification settings. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="notificationSettingsTitle" xml:space="preserve">
-    <value>Ajuste de notificaciones</value>
+    <value>Ajustes de notificaciones</value>
     <comment>The caption of the notification settings window</comment>
   </data>
   <data name="numLock" xml:space="preserve">
@@ -250,23 +286,27 @@
     <comment>The name of the scroll lock key</comment>
   </data>
   <data name="showIconsFor" xml:space="preserve">
-    <value>Mostrar iconos para...</value>
+    <value>Ver íconos de</value>
     <comment>The title for the "Show icons for..." group box</comment>
   </data>
   <data name="showNoIcons" xml:space="preserve">
-    <value>No mostrar iconos</value>
+    <value>Sin íconos</value>
     <comment>The label for the check box that enables or disables all icons</comment>
   </data>
   <data name="showNoNotification" xml:space="preserve">
-    <value>No mostrar notificación</value>
+    <value>Sin notificaciones</value>
     <comment>The label for the check box that enables or disables all notifications</comment>
   </data>
   <data name="showNotificationWhen" xml:space="preserve">
-    <value>Mostrar notificación cuando...</value>
+    <value>Ver notificaciones de</value>
     <comment>The title for the "Show notification when..." group box</comment>
   </data>
+  <data name="showOverlayOnlyWhenActive" xml:space="preserve">
+    <value>Mostrar siempre la superposición cuando se active</value>
+    <comment>The label for the check box that indicates whether overlay should only be shown when active</comment>
+  </data>
   <data name="startOnLogon" xml:space="preserve">
-    <value>Activar al iniciar sesión</value>
+    <value>Activar tras iniciar</value>
     <comment>The label for the check box that enables or disabled the auto start.</comment>
   </data>
   <data name="updateAvailable" xml:space="preserve">
@@ -281,4 +321,5 @@
     <value>&amp;Actualizar ahora</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
+
 </root>

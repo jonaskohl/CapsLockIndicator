@@ -190,8 +190,24 @@
     <comment>The message to display on application exit</comment>
   </data>
   <data name="firstRunAllowUpdateCheck" xml:space="preserve">
-    <value>Allow CapsLock Indicator to periodically check for updates online (can be changed later)</value>
+    <value>&amp;Allow CapsLock Indicator to periodically check for updates online (can be changed later)</value>
     <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
+  </data>
+  <data name="firstRunColorSchemeDark" xml:space="preserve">
+    <value>&amp;Dark</value>
+    <comment>Button for selecting dark color scheme</comment>
+  </data>
+  <data name="firstRunColorSchemeLight" xml:space="preserve">
+    <value>L&amp;ight</value>
+    <comment>Button for selecting light color scheme</comment>
+  </data>
+  <data name="firstRunColorSchemePreference" xml:space="preserve">
+    <value>Which color scheme do you prefer?</value>
+    <comment>Label for selecting color scheme</comment>
+  </data>
+  <data name="firstRunColorSchemeWin10Only" xml:space="preserve">
+    <value>Only available on Windows 10</value>
+    <comment>Added to dark button if not running on Windows 10</comment>
   </data>
   <data name="firstRunContribute" xml:space="preserve">
     <value>Contribute</value>
@@ -276,6 +292,10 @@
   <data name="permanentIndicator" xml:space="preserve">
     <value>Permanently</value>
     <comment>Text to display instead of the time if indicator overlay display is set to permanently.</comment>
+  </data>
+  <data name="reloadedIconsInfo" xml:space="preserve">
+    <value>Reloaded icons</value>
+    <comment>Shown in a notification when hot-reloading icons.</comment>
   </data>
   <data name="saveAndCloseButton" xml:space="preserve">
     <value>&amp;Save &amp;&amp; close</value>

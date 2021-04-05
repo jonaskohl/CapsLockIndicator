@@ -117,238 +117,208 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  
-<!--
-<data name="advancedSettings" xml:space="preserve">
-    <value>Advanced Settings</value>
+  <data name="advancedSettings" xml:space="preserve">
+    <value>고급 설정</value>
     <comment>Label of the hyperlink that opens the settings file</comment>
   </data>
--->
   <data name="backgroundColourActivatedButton" xml:space="preserve">
-    <value>Couleur de fond activée</value>
+    <value>활성화시 배경 색</value>
     <comment>The caption for the "Background colour activated" button.</comment>
   </data>
   <data name="backgroundColourDeactivatedButton" xml:space="preserve">
-    <value>Couleur de fond désactivée</value>
+    <value>비활성화시 배경 색</value>
     <comment>The caption for the "Background colour deactivated" button.</comment>
   </data>
   <data name="borderColourActivatedButton" xml:space="preserve">
-    <value>Couleur de bord activée</value>
+    <value>활성화시 테두리 색</value>
     <comment>The caption for the "Border colour activated" button.</comment>
   </data>
   <data name="borderColourDeactivatedButton" xml:space="preserve">
-    <value>Couleur de bord désactivée</value>
+    <value>비활성화시 테두리 색</value>
     <comment>The caption for the "Border colour deactivated" button.</comment>
   </data>
-  
-<!--
-<data name="borderThicknessGroup" xml:space="preserve">
-    <value>Border thickness</value>
+  <data name="borderThicknessGroup" xml:space="preserve">
+    <value>경계선 두께</value>
     <comment>Label of the border thickness groupbox</comment>
   </data>
--->
   <data name="capsLock" xml:space="preserve">
-    <value>Verrouillage majuscules</value>
+    <value>Caps lock</value>
     <comment>The name of the caps lock key</comment>
   </data>
   <data name="checkForUpdates" xml:space="preserve">
-    <value>Mettre à &amp;jour</value>
+    <value>업데이트 확인(&amp;u)</value>
     <comment>The caption for the button that manually checks for updates. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="checkingForUpdates" xml:space="preserve">
-    <value>Recherche de mises à jour...</value>
+    <value>업데이트 확인중...</value>
     <comment>The caption for the "Check for updates" button when it's searching for updates.</comment>
   </data>
   <data name="coloursGroup" xml:space="preserve">
-    <value>Couleurs</value>
+    <value>색상</value>
     <comment>The title for the "Colours" group box</comment>
   </data>
   <data name="contextMenuExit" xml:space="preserve">
-    <value>&amp;Quitter</value>
+    <value>종료(&amp;E)</value>
     <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
   <data name="contextMenuShow" xml:space="preserve">
-    <value>&amp;Afficher</value>
+    <value>창 보이기(&amp;S)</value>
     <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
   <data name="dismissButton" xml:space="preserve">
-    <value>&amp;Annuler</value>
+    <value>창 숨기기(&amp;D)</value>
     <comment>The caption for the "Dismiss" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="displayTime" xml:space="preserve">
-    <value>Durée d'affichage</value>
+    <value>노출 시간</value>
     <comment>The title for the "Display time" group box</comment>
   </data>
   <data name="downloadManuallyButton" xml:space="preserve">
-    <value>Télécharger &amp;manuellement</value>
+    <value>수동 다운로드(&amp;m)</value>
     <comment>The caption for the "Download manually" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="downloadMoreTranslations" xml:space="preserve">
-    <value>Télécharger plus de traductions....</value>
+    <value>다른 언어 다운로드...</value>
     <comment>The last dropdown item in the locale dropdown.</comment>
   </data>
   <data name="exitApplication" xml:space="preserve">
-    <value>&amp;Quitter l'application</value>
+    <value>프로그램 종료(&amp;E)</value>
     <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="exitMessage" xml:space="preserve">
-    <value>En quittant l'application, les icônes et notifications ne seront plus affichées. Quitter quand même ?</value>
+    <value>프로그램을 종료하면 트레이 아이콘과 알림이 표시되지 않습니다. 그래도 종료 하시겠습니까?</value>
     <comment>The message to display on application exit</comment>
   </data>
-  
-<!--
-<data name="firstRunAllowUpdateCheck" xml:space="preserve">
-    <value>Allow CapsLock Indicator to periodically check for updates online (can be changed later)</value>
+  <data name="firstRunAllowUpdateCheck" xml:space="preserve">
+    <value>주기적인 업데이트 확인을 허용합니다. (설정 변경 가능)</value>
     <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
   </data>
--->
-  
-<!--
-<data name="firstRunContribute" xml:space="preserve">
-    <value>Contribute</value>
+  <data name="firstRunContribute" xml:space="preserve">
+    <value>기여하기</value>
     <comment>Label of the hyperlink that takes you to CLI's GitHub page</comment>
   </data>
--->
-  
-<!--
-<data name="firstRunExit" xml:space="preserve">
-    <value>&amp;Exit</value>
+  <data name="firstRunExit" xml:space="preserve">
+    <value>종료(&amp;E)</value>
     <comment>Button that exists the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
--->
-  
-<!--
-<data name="firstRunHeading" xml:space="preserve">
-    <value>Welcome to CapsLock Indicator</value>
+  <data name="firstRunHeading" xml:space="preserve">
+    <value>CapsLock Indicator 사용을 환영합니다.</value>
     <comment>The heading of the first-run dialog</comment>
   </data>
--->
-  
-<!--
-<data name="firstRunMessage" xml:space="preserve">
-    <value>Thank you for choosing CapsLock Indicator! This program is open-source and free, always has been, always will be! Are you interested in contributing to CapsLock Indicator yourself? Visit the link below for more information! Also, please take a moment to review the settings below!</value>
+  <data name="firstRunMessage" xml:space="preserve">
+    <value>CapsLock Indicator를 사용해 주셔서 고맙습니다! 이 프로그램은 지금까지 그랬듯이 오픈소스이며 무료입니다. 앞으로도 그럴 것입니다. 만약 CapsLock Indicator에 기여하고 싶다면 아래 링크를 눌러 정보를 얻기 바랍니다. 그리고 사용 전에 아래 설정들을 확인하기 바랍니다.</value>
     <comment>The message of the first-run dialog</comment>
   </data>
--->
-  
-<!--
-<data name="firstRunPrivacyInfoLinkLabel" xml:space="preserve">
-    <value>What information will be sent?</value>
+  <data name="firstRunPrivacyInfoLinkLabel" xml:space="preserve">
+    <value>어떤 정보가 보내지나요?</value>
     <comment>The label of the hyperlink that shows which information will be sent on each update check</comment>
   </data>
--->
-  
-<!--
-<data name="firstRunStart" xml:space="preserve">
-    <value>&amp;Let's go!</value>
+  <data name="firstRunStart" xml:space="preserve">
+    <value>시작(&amp;L)</value>
     <comment>Button that starts the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
--->
   <data name="fontGroup" xml:space="preserve">
-    <value>Police</value>
+    <value>글꼴</value>
     <comment>The title for the "Font" group box</comment>
   </data>
   <data name="foregroundColourActivatedButton" xml:space="preserve">
-    <value>Couleur de texte activée</value>
+    <value>활성화시 글자색</value>
     <comment>The caption for the "Text colour activated" button.</comment>
   </data>
   <data name="foregroundColourDeactivatedButton" xml:space="preserve">
-    <value>Couleur de texte désactivée</value>
+    <value>비활성화시  글자색</value>
     <comment>The caption for the "Text colour deactivated" button.</comment>
   </data>
   <data name="generalIconBalloonText" xml:space="preserve">
-    <value>Vous pouvez afficher CapsLock Indicator à nouveau en double cliquant sur cette icône.</value>
+    <value>이 아이콘을 더블클릭하면 CapsLock Indicator를 볼 수 있습니다.</value>
     <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
   </data>
   <data name="hideOnStartup" xml:space="preserve">
-    <value>Cacher au démarrage</value>
+    <value>시작시 창 숨기기</value>
     <comment>Used for the hide on startup checkbox</comment>
   </data>
   <data name="hideWindow" xml:space="preserve">
-    <value>&amp;Cacher la fenêtre</value>
+    <value>창 숨기기(&amp;H)</value>
     <comment>The caption for the button that hides the window. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="keyChanged" xml:space="preserve">
-    <value>{0} mis à jour</value>
+    <value>{0} 변경됨</value>
     <comment>Used for the check boxes in the "Show notification when..." group box. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="keyIsOff" xml:space="preserve">
-    <value>{0} inactif</value>
+    <value>{0} 꺼짐</value>
     <comment>The text to display in the notification when a key is off. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="keyIsOn" xml:space="preserve">
-    <value>{0} actif</value>
+    <value>{0} 켜짐</value>
     <comment>The text to display in the notification when a key is on. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="notificationSettings" xml:space="preserve">
-    <value>&amp;Paramètres de notifications</value>
+    <value>알림 설정(&amp;N)</value>
     <comment>The caption for the button that opens the notification settings. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="notificationSettingsTitle" xml:space="preserve">
-    <value>Paramètres de notifications</value>
+    <value>알림 설정</value>
     <comment>The caption of the notification settings window</comment>
   </data>
   <data name="numLock" xml:space="preserve">
-    <value>Verrouillage Numérique</value>
+    <value>Num lock</value>
     <comment>The name of the num lock key</comment>
   </data>
   <data name="opacity" xml:space="preserve">
-    <value>Transparence</value>
+    <value>투명도</value>
     <comment>The title for the "Opacity" group box</comment>
   </data>
   <data name="overlayPositionGroup" xml:space="preserve">
-    <value>Position de la notification</value>
+    <value>알림 표시 위치</value>
     <comment>The title for the "Overlay position" group box</comment>
   </data>
   <data name="permanentIndicator" xml:space="preserve">
-    <value>En permanence</value>
+    <value>계속 유지</value>
     <comment>Text to display instead of the time if indicator overlay display is set to permanently.</comment>
   </data>
   <data name="saveAndCloseButton" xml:space="preserve">
-    <value>&amp;Sauvegarder &amp;&amp; et quitter</value>
+    <value>저장 후 종료(&amp;S)</value>
     <comment>The caption for the "Save &amp; Close" button. The character after the "&amp;" is the hotkey that is used with the ALT key. Use two "&amp;" to display a "&amp;" character</comment>
   </data>
   <data name="scrollLock" xml:space="preserve">
-    <value>Arrêt défil.</value>
+    <value>Scroll lock</value>
     <comment>The name of the scroll lock key</comment>
   </data>
   <data name="showIconsFor" xml:space="preserve">
-    <value>Afficher les icônes pour...</value>
+    <value>아이콘 설정</value>
     <comment>The title for the "Show icons for..." group box</comment>
   </data>
   <data name="showNoIcons" xml:space="preserve">
-    <value>Ne pas afficher d'icônes</value>
+    <value>모든 아이콘 숨기기</value>
     <comment>The label for the check box that enables or disables all icons</comment>
   </data>
   <data name="showNoNotification" xml:space="preserve">
-    <value>Ne pas afficher de notifications</value>
+    <value>모든 알림 숨기기</value>
     <comment>The label for the check box that enables or disables all notifications</comment>
   </data>
   <data name="showNotificationWhen" xml:space="preserve">
-    <value>Afficher les notifications quand...</value>
+    <value>알림 설정</value>
     <comment>The title for the "Show notification when..." group box</comment>
   </data>
-  
-<!--
-<data name="showOverlayOnlyWhenActive" xml:space="preserve">
-    <value>Always show overlay when active</value>
+  <data name="showOverlayOnlyWhenActive" xml:space="preserve">
+    <value>활성시 항상 오버레이 보이기</value>
     <comment>The label for the check box that indicates whether overlay should only be shown when active</comment>
   </data>
--->
   <data name="startOnLogon" xml:space="preserve">
-    <value>Démarrer à l'ouverture de session</value>
+    <value>시작시 자동 시작</value>
     <comment>The label for the check box that enables or disabled the auto start.</comment>
   </data>
   <data name="updateAvailable" xml:space="preserve">
-    <value>Une mise à jour de CapsLock Indicator est disponible !</value>
+    <value>CapsLock Indicator 업데이트가 있습니다.</value>
     <comment>The title for the update window.</comment>
   </data>
   <data name="updateInfoFormat" xml:space="preserve">
-    <value>Version  {0}, publiée le {1}</value>
+    <value>버전 {0} , 배포일  {1}</value>
     <comment>Displayed in the "Update Available" dialog. {0} is the version, {1} is the release date and time.</comment>
   </data>
   <data name="updateNow" xml:space="preserve">
-    <value>&amp;Mettre à jour maintenant</value>
+    <value>지금 업데이트(&amp;U)</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
 

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace CapsLockIndicatorV3
 {
-    public partial class NumberInputDialog : Form
+    public partial class NumberInputDialog : DarkModeForm
     {
         protected override void WndProc(ref Message message)
         {
@@ -29,6 +29,30 @@ namespace CapsLockIndicatorV3
             min = minValue;
             max = maxValue;
             inputTextBox.Text = defaultValue.ToString();
+
+            HandleCreated += (sender, e) =>
+            {
+                DarkModeChanged += NumberInputDialog_DarkModeChanged;
+                DarkModeProvider.RegisterForm(this);
+            };
+        }
+
+        private void NumberInputDialog_DarkModeChanged(object sender, EventArgs e)
+        {
+            var dark = DarkModeProvider.IsDark;
+
+            Native.UseImmersiveDarkModeColors(Handle, dark);
+
+            ForeColor =
+            inputTextBox.ForeColor = dark ? Color.White : SystemColors.WindowText;
+
+            inputTextBox.BackColor = dark ? Color.FromArgb(255, 56, 56, 56) : SystemColors.Window;
+            inputTextBox.BorderStyle = dark ? BorderStyle.FixedSingle : BorderStyle.Fixed3D;
+
+            BackColor = dark ? Color.FromArgb(255, 32, 32, 32) : SystemColors.Window;
+
+            ControlScheduleSetDarkMode(inputTextBox, dark);
+            ControlScheduleSetDarkMode(okButton, dark);
         }
 
         private void button1_Click(object sender, EventArgs e)

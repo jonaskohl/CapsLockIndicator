@@ -27,7 +27,7 @@ namespace CapsLockIndicatorV3
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             try
             {
-                string data = await client.DownloadStringTaskAsync(CheckURL + (SettingsManager.Get<bool>("beta_enableDarkMode") ? "&dark=true" : ""));
+                string data = await client.DownloadStringTaskAsync(CheckURL + (DarkModeProvider.IsDark ? "&dark=true" : ""));
                 callback(data);
             }
             catch (Exception e)

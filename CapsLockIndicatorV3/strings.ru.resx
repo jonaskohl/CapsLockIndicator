@@ -117,21 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="advancedSettings" xml:space="preserve">
+    <value>Расш. настройки</value>
+    <comment>Label of the hyperlink that opens the settings file</comment>
+  </data>
   <data name="backgroundColourActivatedButton" xml:space="preserve">
-    <value>Цвет фона активированного</value>
+    <value>Фон при включении</value>
     <comment>The caption for the "Background colour activated" button.</comment>
   </data>
   <data name="backgroundColourDeactivatedButton" xml:space="preserve">
-    <value>Цвет фона деактивированного</value>
+    <value>Фон при отключении</value>
     <comment>The caption for the "Background colour deactivated" button.</comment>
   </data>
   <data name="borderColourActivatedButton" xml:space="preserve">
-    <value>Цвет границы активированного</value>
+    <value>Рамка при включении</value>
     <comment>The caption for the "Border colour activated" button.</comment>
   </data>
   <data name="borderColourDeactivatedButton" xml:space="preserve">
-    <value>Цвет границы деактивированного</value>
+    <value>Рамка при отключении</value>
     <comment>The caption for the "Border colour deactivated" button.</comment>
+  </data>
+  <data name="borderThicknessGroup" xml:space="preserve">
+    <value>Толщина границы</value>
+    <comment>Label of the border thickness groupbox</comment>
   </data>
   <data name="capsLock" xml:space="preserve">
     <value>Caps lock</value>
@@ -158,11 +166,11 @@
     <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
   <data name="dismissButton" xml:space="preserve">
-    <value>&amp;Отклонить</value>
+    <value>&amp;Отмена</value>
     <comment>The caption for the "Dismiss" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="displayTime" xml:space="preserve">
-    <value>Отображать время</value>
+    <value>Время отображения</value>
     <comment>The title for the "Display time" group box</comment>
   </data>
   <data name="downloadManuallyButton" xml:space="preserve">
@@ -170,35 +178,63 @@
     <comment>The caption for the "Download manually" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="downloadMoreTranslations" xml:space="preserve">
-    <value>Загрузить другие языки...</value>
+    <value>Загрузить больше переводов…</value>
     <comment>The last dropdown item in the locale dropdown.</comment>
   </data>
   <data name="exitApplication" xml:space="preserve">
-    <value>&amp;Выход</value>
+    <value>&amp;Выйти из CLI</value>
     <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="exitMessage" xml:space="preserve">
-    <value>Выход из приложения означает, что значки и уведомления больше не отображаются. Выйти все-равно?</value>
+    <value>После выхода значки и уведомления не будут отображаться. Вы уверены?</value>
     <comment>The message to display on application exit</comment>
+  </data>
+  <data name="firstRunAllowUpdateCheck" xml:space="preserve">
+    <value>Разрешить CapsLock Indicator периодически проверять наличие обновлений в Интернете (параметр можно изменить потом)</value>
+    <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
+  </data>
+  <data name="firstRunContribute" xml:space="preserve">
+    <value>Помочь проекту</value>
+    <comment>Label of the hyperlink that takes you to CLI's GitHub page</comment>
+  </data>
+  <data name="firstRunExit" xml:space="preserve">
+    <value>&amp;Выйти</value>
+    <comment>Button that exists the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="firstRunHeading" xml:space="preserve">
+    <value>Приветствуем в CapsLock Indicator</value>
+    <comment>The heading of the first-run dialog</comment>
+  </data>
+  <data name="firstRunMessage" xml:space="preserve">
+    <value>Спасибо, что выбрали CapsLock Indicator! Эта программа с открытым исходным кодом всегда была, есть и останется бесплатной! Хотите внести свой вклад в CapsLock Indicator? Перейдите по ссылке ниже для подробностей! Кроме того, уделите минутку времени, чтобы ознакомиться с нижеприведенными настройками!</value>
+    <comment>The message of the first-run dialog</comment>
+  </data>
+  <data name="firstRunPrivacyInfoLinkLabel" xml:space="preserve">
+    <value>Какие данные будет отправляться?</value>
+    <comment>The label of the hyperlink that shows which information will be sent on each update check</comment>
+  </data>
+  <data name="firstRunStart" xml:space="preserve">
+    <value>&amp;Погнали!</value>
+    <comment>Button that starts the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="fontGroup" xml:space="preserve">
     <value>Шрифт</value>
     <comment>The title for the "Font" group box</comment>
   </data>
   <data name="foregroundColourActivatedButton" xml:space="preserve">
-    <value>Цвет текста активированного</value>
+    <value>Текст при включении</value>
     <comment>The caption for the "Text colour activated" button.</comment>
   </data>
   <data name="foregroundColourDeactivatedButton" xml:space="preserve">
-    <value>Цвет текста деактивированного</value>
+    <value>Текст при отключении</value>
     <comment>The caption for the "Text colour deactivated" button.</comment>
   </data>
   <data name="generalIconBalloonText" xml:space="preserve">
-    <value>Вы можете снова показать индикатор CapsLock, дважды щелкнув по этому значку.</value>
+    <value>По двойному нажатию на этот значок можно снова вернуться к CapsLock Indicator.</value>
     <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
   </data>
   <data name="hideOnStartup" xml:space="preserve">
-    <value>Скрыть при запуске</value>
+    <value>Скрыть окно при запуске</value>
     <comment>Used for the hide on startup checkbox</comment>
   </data>
   <data name="hideWindow" xml:space="preserve">
@@ -206,7 +242,7 @@
     <comment>The caption for the button that hides the window. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="keyChanged" xml:space="preserve">
-    <value>{0} изменено</value>
+    <value>переключении {0}</value>
     <comment>Used for the check boxes in the "Show notification when..." group box. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="keyIsOff" xml:space="preserve">
@@ -226,7 +262,7 @@
     <comment>The caption of the notification settings window</comment>
   </data>
   <data name="numLock" xml:space="preserve">
-    <value>Num Lock</value>
+    <value>Num lock</value>
     <comment>The name of the num lock key</comment>
   </data>
   <data name="opacity" xml:space="preserve">
@@ -234,7 +270,7 @@
     <comment>The title for the "Opacity" group box</comment>
   </data>
   <data name="overlayPositionGroup" xml:space="preserve">
-    <value>Позиция</value>
+    <value>Расположение на экране</value>
     <comment>The title for the "Overlay position" group box</comment>
   </data>
   <data name="permanentIndicator" xml:space="preserve">
@@ -250,35 +286,40 @@
     <comment>The name of the scroll lock key</comment>
   </data>
   <data name="showIconsFor" xml:space="preserve">
-    <value>Показать иконки для...</value>
+    <value>Показать значки</value>
     <comment>The title for the "Show icons for..." group box</comment>
   </data>
   <data name="showNoIcons" xml:space="preserve">
-    <value>Не показывать иконки</value>
+    <value>Без значков в трее</value>
     <comment>The label for the check box that enables or disables all icons</comment>
   </data>
   <data name="showNoNotification" xml:space="preserve">
-    <value>Не показывать уведомления</value>
+    <value>Без уведомлений</value>
     <comment>The label for the check box that enables or disables all notifications</comment>
   </data>
   <data name="showNotificationWhen" xml:space="preserve">
-    <value>Показывать уведомления когда...</value>
+    <value>Уведомлять при</value>
     <comment>The title for the "Show notification when..." group box</comment>
   </data>
+  <data name="showOverlayOnlyWhenActive" xml:space="preserve">
+    <value>Оставлять на экране, пока работает</value>
+    <comment>The label for the check box that indicates whether overlay should only be shown when active</comment>
+  </data>
   <data name="startOnLogon" xml:space="preserve">
-    <value>Запускать при загрузке</value>
+    <value>Автозагрузка</value>
     <comment>The label for the check box that enables or disabled the auto start.</comment>
   </data>
   <data name="updateAvailable" xml:space="preserve">
-    <value>Доступно обновление CapsLock Indicator</value>
+    <value>Доступна новая версия CapsLock Indicator!</value>
     <comment>The title for the update window.</comment>
   </data>
   <data name="updateInfoFormat" xml:space="preserve">
-    <value>Версия {0}, релиз {1}</value>
+    <value>Версия {0}, вышла {1}</value>
     <comment>Displayed in the "Update Available" dialog. {0} is the version, {1} is the release date and time.</comment>
   </data>
   <data name="updateNow" xml:space="preserve">
-    <value>&amp;Обновить сейчас</value>
+    <value>&amp;Обновиться</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
+
 </root>

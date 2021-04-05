@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace CapsLockIndicatorV3
 {
-    public partial class UpdateDialog : Form
+    public partial class UpdateDialog : DarkModeForm
     {
         private Version newVersion;
 
@@ -24,36 +24,32 @@ namespace CapsLockIndicatorV3
             dismissButton.Text = strings.dismissButton;
             downloadManuallyButton.Text = strings.downloadManuallyButton;
 
-            if (SettingsManager.Get<bool>("beta_enableDarkMode"))
+            HandleCreated += (sender, e) =>
             {
-                HandleCreated += UpdateDialog_HandleCreated;
-
-                lnkLabel1.ForeColor =
-                lnkLabel1.LinkColor =
-                Color.White;
-
-                BackColor = Color.FromArgb(255, 32, 32, 32);
-                ForeColor = Color.White;
-                infoLabel.ForeColor = Color.FromArgb(255, 196, 204, 238);
-                changelogRtf.BackColor = Color.FromArgb(255, 56, 56, 56);
-
-                ControlScheduleSetDarkMode(dismissButton);
-                ControlScheduleSetDarkMode(updateNowButton);
-                ControlScheduleSetDarkMode(downloadManuallyButton);
-            }
-        }
-
-        private void UpdateDialog_HandleCreated(object sender, EventArgs e)
-        {
-            Native.UseImmersiveDarkModeColors(Handle, true);
-        }
-
-        private void ControlScheduleSetDarkMode(Control control)
-        {
-            control.HandleCreated += (sender, e) =>
-            {
-                Native.ControlSetDarkMode(control, true);
+                DarkModeChanged += UpdateDialog_DarkModeChanged;
+                DarkModeProvider.RegisterForm(this);
             };
+        }
+
+        private void UpdateDialog_DarkModeChanged(object sender, EventArgs e)
+        {
+            var dark = DarkModeProvider.IsDark;
+
+            Native.UseImmersiveDarkModeColors(Handle, dark);
+
+            lnkLabel1.ForeColor =
+            lnkLabel1.LinkColor =
+            dark ? Color.White : SystemColors.HotTrack;
+
+            BackColor = dark ? Color.FromArgb(255, 32, 32, 32) : SystemColors.Window;
+            ForeColor = dark ? Color.White : SystemColors.WindowText;
+            infoLabel.ForeColor = dark ? Color.FromArgb(255, 196, 204, 238) : Color.FromArgb(255, 52, 77, 180);
+            changelogRtf.BackColor = dark ? Color.FromArgb(255, 56, 56, 56) : SystemColors.Window;
+
+            ControlScheduleSetDarkMode(changelogRtf, dark);
+            ControlScheduleSetDarkMode(dismissButton, dark);
+            ControlScheduleSetDarkMode(updateNowButton, dark);
+            ControlScheduleSetDarkMode(downloadManuallyButton, dark);
         }
 
         public void SetNewVersion(Version v)
