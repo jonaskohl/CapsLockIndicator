@@ -153,11 +153,11 @@ namespace CapsLockIndicatorV3
 
                 #endregion
 
-#if DEBUG
+//#if DEBUG
                 if (SettingsManager.Get<bool>("firstRun"))
-#else
-                if (SettingsManager.Get<bool>("firstRun") && new Version(SettingsManager.Get<string>("versionNo")) >= Assembly.GetExecutingAssembly().GetName().Version)
-#endif
+//#else
+                //if (SettingsManager.Get<bool>("firstRun") && new Version(SettingsManager.Get<string>("versionNo")) >= Assembly.GetExecutingAssembly().GetName().Version)
+//#endif
                 {
                     using (var d = new FirstRunDialog())
                     {
