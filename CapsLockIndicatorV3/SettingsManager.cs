@@ -66,12 +66,16 @@ namespace CapsLockIndicatorV3
 
         public static object Get(string key)
         {
+            if (!Has(key))
+                return null;
             var d = Settings[key];
             return Convert.ChangeType(d.Item2, d.Item1);
         }
 
         public static T Get<T>(string key)
         {
+            if (!Has(key))
+                return default(T);
             var d = Settings[key];
             if (typeof(T).IsEnum)
                 return (T)Enum.Parse(typeof(T), d.Item2.ToString());

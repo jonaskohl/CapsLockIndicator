@@ -146,7 +146,7 @@ namespace CapsLockIndicatorV3
 
                 SettingsManager.Save();
 
-                if (SettingsManager.Get<bool>("beta_enableDarkMode"))
+                if (DarkModeProvider.IsDark)
                     Native.SetPrefferDarkMode(true);
 
                 var runApp = true;
