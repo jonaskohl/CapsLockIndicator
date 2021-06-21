@@ -230,10 +230,10 @@ namespace CapsLockIndicatorV3
                 else
                 {
                     localeComboBox.Items.Add(new DropDownLocale(c.Name, c.NativeName));
-
-                    if (c.TwoLetterISOLanguageName == Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName)
+                    
+                    if (c.Name.Length > 2 ? c.Name == Thread.CurrentThread.CurrentUICulture.Name : c.TwoLetterISOLanguageName == Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName)
                         selectIndex = index;
-
+                    // if (c.TwoLetterISOLanguageName == Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName)
                     index++;
                 }
             }
@@ -252,7 +252,7 @@ namespace CapsLockIndicatorV3
                 selectIndex = legacySelectedUICulture;
             }
 
-            var cultureCodes = cultures.Select(c => c.TwoLetterISOLanguageName);
+            var cultureCodes = cultures.Select(c => c.Name.Length > 2 ? c.Name : c.TwoLetterISOLanguageName);
             var selLang = SettingsManager.Get<string>("selectedLanguage");
 
             if (selLang == "")
