@@ -200,7 +200,7 @@ namespace CapsLockIndicatorV3
 
         private void PrepareDarkMode(IntPtr hWnd)
         {
-            if (!SettingsManager.Get<bool>("beta_enableDarkMode"))
+            if (!SettingsManager.Get<bool>("darkMode"))
                 return;
 
             Native.UseImmersiveDarkModeColors(hWnd, true);
@@ -208,7 +208,7 @@ namespace CapsLockIndicatorV3
 
         private void DarkMode()
         {
-            if (!SettingsManager.Get<bool>("beta_enableDarkMode"))
+            if (!SettingsManager.Get<bool>("darkMode"))
                 return;
 
             Native.SetDarkMode(hWndOK, true);

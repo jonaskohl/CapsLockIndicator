@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="advancedSettings" xml:space="preserve">
+    <value>進階設定</value>
+    <comment>Label of the hyperlink that opens the settings file</comment>
+  </data>
+  <data name="backgroundColourActivatedButton" xml:space="preserve">
+    <value>開啟 - 背景顏色</value>
+    <comment>The caption for the "Background colour activated" button.</comment>
+  </data>
+  <data name="backgroundColourDeactivatedButton" xml:space="preserve">
+    <value>關閉 - 背景顏色</value>
+    <comment>The caption for the "Background colour deactivated" button.</comment>
+  </data>
+  <data name="borderColourActivatedButton" xml:space="preserve">
+    <value>開啟 - 邊框顏色</value>
+    <comment>The caption for the "Border colour activated" button.</comment>
+  </data>
+  <data name="borderColourDeactivatedButton" xml:space="preserve">
+    <value>關閉 - 邊框顏色</value>
+    <comment>The caption for the "Border colour deactivated" button.</comment>
+  </data>
+  <data name="borderThicknessGroup" xml:space="preserve">
+    <value>邊框寬度</value>
+    <comment>Label of the border thickness groupbox</comment>
+  </data>
+  <data name="capsLock" xml:space="preserve">
+    <value>Caps Lock</value>
+    <comment>The name of the caps lock key</comment>
+  </data>
+  <data name="checkForUpdates" xml:space="preserve">
+    <value>檢查更新 (&amp;U)</value>
+    <comment>The caption for the button that manually checks for updates. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="checkingForUpdates" xml:space="preserve">
+    <value>正在檢查更新…</value>
+    <comment>The caption for the "Check for updates" button when it's searching for updates.</comment>
+  </data>
+  <data name="coloursGroup" xml:space="preserve">
+    <value>顏色</value>
+    <comment>The title for the "Colours" group box</comment>
+  </data>
+  <data name="contextMenuExit" xml:space="preserve">
+    <value>結束 (&amp;E)</value>
+    <comment>Used in the context menu of the CLI tray icon.</comment>
+  </data>
+  <data name="contextMenuShow" xml:space="preserve">
+    <value>顯示主畫面 (&amp;S)</value>
+    <comment>Used in the context menu of the CLI tray icon.</comment>
+  </data>
+  <data name="dismissButton" xml:space="preserve">
+    <value>忽略 (&amp;D)</value>
+    <comment>The caption for the "Dismiss" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="displayTime" xml:space="preserve">
+    <value>顯示時間</value>
+    <comment>The title for the "Display time" group box</comment>
+  </data>
+  <data name="downloadManuallyButton" xml:space="preserve">
+    <value>手動下載 (&amp;M)</value>
+    <comment>The caption for the "Download manually" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="downloadMoreTranslations" xml:space="preserve">
+    <value>下載更多翻譯…</value>
+    <comment>The last dropdown item in the locale dropdown.</comment>
+  </data>
+  <data name="exitApplication" xml:space="preserve">
+    <value>退出程式 (&amp;E)</value>
+    <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="exitMessage" xml:space="preserve">
+    <value>退出程式後，通知區的 CapsLock Indicator 圖示
+和切換通知都將不再顯示。確定要退出嗎？</value>
+    <comment>The message to display on application exit</comment>
+  </data>
+  <data name="firstRunAllowUpdateCheck" xml:space="preserve">
+    <value>自動檢查更新 (稍後可再更改) (&amp;A)</value>
+    <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
+  </data>
+  <data name="firstRunColorSchemeDark" xml:space="preserve">
+    <value>灰暗 (&amp;D)</value>
+    <comment>Button for selecting dark color scheme</comment>
+  </data>
+  <data name="firstRunColorSchemeLight" xml:space="preserve">
+    <value>明亮 (&amp;I)</value>
+    <comment>Button for selecting light color scheme</comment>
+  </data>
+  <data name="firstRunColorSchemePreference" xml:space="preserve">
+    <value>你喜歡哪種配色主題？</value>
+    <comment>Label for selecting color scheme</comment>
+  </data>
+  <data name="firstRunColorSchemeWin10Only" xml:space="preserve">
+    <value>僅適用於 Windows 10</value>
+    <comment>Added to dark button if not running on Windows 10</comment>
+  </data>
+  <data name="firstRunContribute" xml:space="preserve">
+    <value>貢獻</value>
+    <comment>Label of the hyperlink that takes you to CLI's GitHub page</comment>
+  </data>
+  <data name="firstRunExit" xml:space="preserve">
+    <value>結束 (&amp;E)</value>
+    <comment>Button that exists the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="firstRunHeading" xml:space="preserve">
+    <value>歡迎使用 CapsLock Indicator</value>
+    <comment>The heading of the first-run dialog</comment>
+  </data>
+  <data name="firstRunMessage" xml:space="preserve">
+    <value>感謝您使用 CapsLock Indicator！這個程式將會永遠維持開源和免費！您是否有興趣為 CapsLock Indicator 做出貢獻？前往左下方的 GitHub 連結了解更多資訊！另外，請花點時間查看以下設定！</value>
+    <comment>The message of the first-run dialog</comment>
+  </data>
+  <data name="firstRunPrivacyInfoLinkLabel" xml:space="preserve">
+    <value>會發送什麼資料？</value>
+    <comment>The label of the hyperlink that shows which information will be sent on each update check</comment>
+  </data>
+  <data name="firstRunStart" xml:space="preserve">
+    <value>開始！ (&amp;L)</value>
+    <comment>Button that starts the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="fontGroup" xml:space="preserve">
+    <value>字體</value>
+    <comment>The title for the "Font" group box</comment>
+  </data>
+  <data name="foregroundColourActivatedButton" xml:space="preserve">
+    <value>開啟 - 文字顏色</value>
+    <comment>The caption for the "Text colour activated" button.</comment>
+  </data>
+  <data name="foregroundColourDeactivatedButton" xml:space="preserve">
+    <value>關閉 - 文字顏色</value>
+    <comment>The caption for the "Text colour deactivated" button.</comment>
+  </data>
+  <data name="generalIconBalloonText" xml:space="preserve">
+    <value>按兩下此圖示即可顯示 CapsLock 指示器主畫面</value>
+    <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
+  </data>
+  <data name="hideOnStartup" xml:space="preserve">
+    <value>啟動時自動隱藏</value>
+    <comment>Used for the hide on startup checkbox</comment>
+  </data>
+  <data name="hideWindow" xml:space="preserve">
+    <value>隱藏視窗 (&amp;H)</value>
+    <comment>The caption for the button that hides the window. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="keyChanged" xml:space="preserve">
+    <value>切換 {0} 時</value>
+    <comment>Used for the check boxes in the "Show notification when..." group box. "{0}" will be replaced with the key name</comment>
+  </data>
+  <data name="keyIsOff" xml:space="preserve">
+    <value>{0} 已關閉</value>
+    <comment>The text to display in the notification when a key is off. "{0}" will be replaced with the key name</comment>
+  </data>
+  <data name="keyIsOn" xml:space="preserve">
+    <value>{0} 已開啟</value>
+    <comment>The text to display in the notification when a key is on. "{0}" will be replaced with the key name</comment>
+  </data>
+  <data name="notificationSettings" xml:space="preserve">
+    <value>通知設定 (&amp;N)</value>
+    <comment>The caption for the button that opens the notification settings. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="notificationSettingsTitle" xml:space="preserve">
+    <value>通知設定</value>
+    <comment>The caption of the notification settings window</comment>
+  </data>
+  <data name="numLock" xml:space="preserve">
+    <value>Num Lock</value>
+    <comment>The name of the num lock key</comment>
+  </data>
+  <data name="opacity" xml:space="preserve">
+    <value>透明度</value>
+    <comment>The title for the "Opacity" group box</comment>
+  </data>
+  <data name="overlayPositionGroup" xml:space="preserve">
+    <value>通知位置</value>
+    <comment>The title for the "Overlay position" group box</comment>
+  </data>
+  <data name="permanentIndicator" xml:space="preserve">
+    <value>持續顯示</value>
+    <comment>Text to display instead of the time if indicator overlay display is set to permanently.</comment>
+  </data>
+  <data name="reloadedIconsInfo" xml:space="preserve">
+    <value>縮圖已重新載入</value>
+    <comment>Shown in a notification when hot-reloading icons.</comment>
+  </data>
+  <data name="saveAndCloseButton" xml:space="preserve">
+    <value>儲存並關閉 (&amp;S)</value>
+    <comment>The caption for the "Save &amp; Close" button. The character after the "&amp;" is the hotkey that is used with the ALT key. Use two "&amp;" to display a "&amp;" character</comment>
+  </data>
+  <data name="scrollLock" xml:space="preserve">
+    <value>Scroll Lock</value>
+    <comment>The name of the scroll lock key</comment>
+  </data>
+  <data name="showIconsFor" xml:space="preserve">
+    <value>通知區圖示：</value>
+    <comment>The title for the "Show icons for..." group box</comment>
+  </data>
+  <data name="showNoIcons" xml:space="preserve">
+    <value>關閉通知區圖示</value>
+    <comment>The label for the check box that enables or disables all icons</comment>
+  </data>
+  <data name="showNoNotification" xml:space="preserve">
+    <value>不顯示通知</value>
+    <comment>The label for the check box that enables or disables all notifications</comment>
+  </data>
+  <data name="showNotificationWhen" xml:space="preserve">
+    <value>顯示通知：</value>
+    <comment>The title for the "Show notification when..." group box</comment>
+  </data>
+  <data name="showOverlayOnlyWhenActive" xml:space="preserve">
+    <value>開啟時始終顯示通知提示窗</value>
+    <comment>The label for the check box that indicates whether overlay should only be shown when active</comment>
+  </data>
+  <data name="startOnLogon" xml:space="preserve">
+    <value>開機時自動啟動</value>
+    <comment>The label for the check box that enables or disabled the auto start.</comment>
+  </data>
+  <data name="updateAvailable" xml:space="preserve">
+    <value>CapsLock Indicator 有可用的更新！</value>
+    <comment>The title for the update window.</comment>
+  </data>
+  <data name="updateInfoFormat" xml:space="preserve">
+    <value>版本 {0}，發佈於 {1}</value>
+    <comment>Displayed in the "Update Available" dialog. {0} is the version, {1} is the release date and time.</comment>
+  </data>
+  <data name="updateNow" xml:space="preserve">
+    <value>立即更新 (&amp;U)</value>
+    <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+</root>

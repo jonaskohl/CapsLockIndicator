@@ -211,6 +211,7 @@
     <EmbeddedResource Include="strings.ru.resx" />
     <EmbeddedResource Include="strings.tr-TR.resx" />
     <EmbeddedResource Include="strings.zh-CN.resx" />
+    <EmbeddedResource Include="strings.zh-TW.resx" />
     <EmbeddedResource Include="UpdateDialog.resx">
       <DependentUpon>UpdateDialog.cs</DependentUpon>
     </EmbeddedResource>
