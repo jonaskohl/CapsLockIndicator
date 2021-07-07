@@ -96,8 +96,8 @@ namespace CapsLockIndicatorV3
             foregroundColourDeactivatedButton.Text = strings.foregroundColourDeactivatedButton;
             positionGroup.Text = strings.overlayPositionGroup;
             onlyShowWhenActiveCheckBox.Text = strings.showOverlayOnlyWhenActive;
-            lnkLabel1.Text = strings.advancedSettings;
             borderGroup.Text = strings.borderThicknessGroup;
+            downloadIcons.Text = strings.downloadIcons;
         }
 
         private void IndSettingsWindow_DarkModeChanged(object sender, EventArgs e)
@@ -106,7 +106,9 @@ namespace CapsLockIndicatorV3
 
             Native.UseImmersiveDarkMode(Handle, dark);
             Native.UseImmersiveDarkModeColors(Handle, dark);
+#if EXPERIMENTAL__USE_DARK_COMMON_DIALOGS
             Native.UseImmersiveDarkModeColors(mainColourPicker.PInstance, dark);
+#endif
 
             Icon = (Icon)resources.GetObject("settings" + (dark ? "_dark" : ""));
 
@@ -130,7 +132,8 @@ namespace CapsLockIndicatorV3
             dark ? Color.White : SystemColors.WindowText;
 
 
-            lnkLabel1.LinkColor = dark ? Color.White : SystemColors.HotTrack;
+            downloadIcons.LinkColor =
+            dark ? Color.White : SystemColors.HotTrack;
 
             onlyShowWhenActiveCheckBox.FlatStyle = dark ? FlatStyle.Standard : FlatStyle.System;
 
@@ -316,6 +319,12 @@ namespace CapsLockIndicatorV3
                 SettingsManager.Set("advSettingsWarnShown", true);
             }
             Process.Start("explorer", "/select,\"" + SettingsManager.GetActualPath() + "\"");
+        }
+
+        private void lnkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            using (var f = new IconPackBrowser())
+                f.ShowDialog(this);
         }
     }
 }

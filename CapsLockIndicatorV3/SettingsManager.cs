@@ -23,6 +23,11 @@ namespace CapsLockIndicatorV3
             LoadUser();
         }
 
+        public static KeyValuePair<string, (Type, object)>[] GetAll()
+        {
+            return Settings.ToArray();
+        }
+
         private static void LoadDefaults()
         {
             var lines = resources.defaultSettings.Split('\n');
@@ -68,6 +73,11 @@ namespace CapsLockIndicatorV3
         {
             var d = Settings[key];
             return Convert.ChangeType(d.Item2, d.Item1);
+        }
+
+        public static (Type, object) GetRaw(string key)
+        {
+            return Settings[key];
         }
 
         public static T Get<T>(string key)
@@ -196,6 +206,14 @@ namespace CapsLockIndicatorV3
                 path = SettingsFilePortable;
 
             return path;
+        }
+
+        public static bool UsePortableMode()
+        {
+            if (File.Exists(SettingsFilePortable))
+                return true;
+
+            return false;
         }
 
         public static void Unset(string key)

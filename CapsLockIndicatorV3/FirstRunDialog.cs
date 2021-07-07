@@ -5,6 +5,8 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,15 +15,20 @@ namespace CapsLockIndicatorV3
 {
     public partial class FirstRunDialog : DarkModeForm
     {
+        ResourceManager resources;
+
         public FirstRunDialog()
         {
             InitializeComponent();
 
-            HandleCreated += (object sender, EventArgs e) =>
-            {
-                DarkModeChanged += FirstRunDialog_DarkModeChanged;
-                DarkModeProvider.RegisterForm(this);
-            };
+            resources = new ResourceManager("CapsLockIndicatorV3.resources", Assembly.GetExecutingAssembly());
+
+            HandleCreated += FirstRunDialog_HandleCreated;
+
+            DarkModeProvider.RegisterForm(this);
+            DarkModeChanged += FirstRunDialog_DarkModeChanged;
+
+            FormClosing += FirstRunDialog_FormClosing;
 
             ControlScheduleSetDarkMode(darkButton, true);
 
@@ -43,13 +50,21 @@ namespace CapsLockIndicatorV3
             }
         }
 
-        private void FirstRunDialog_DarkModeChanged(object sender, EventArgs e)
+        private void FirstRunDialog_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+                Program.keepFirstRunDialogOpen = false;
+        }
+
+        private void FirstRunDialog_HandleCreated(object sender, EventArgs e)
         {
             var dark = DarkModeProvider.IsDark;
 
             Native.UseImmersiveDarkModeColors(Handle, dark);
 
             headerLabel.ForeColor = dark ? Color.White : Color.FromArgb(255, 0, 51, 153);
+
+            Icon = (Icon)resources.GetObject("CLIv3_Icon" + (dark ? "_Dark" : ""));
 
             lnkLabel1.LinkColor =
             lnkLabel2.LinkColor =
@@ -59,13 +74,18 @@ namespace CapsLockIndicatorV3
             allowUpdatesCheckBox.ForeColor =
             dark ? Color.White : SystemColors.WindowText;
 
-            allowUpdatesCheckBox.FlatStyle = dark ? FlatStyle.Standard: FlatStyle.System;
+            allowUpdatesCheckBox.FlatStyle = dark ? FlatStyle.Standard : FlatStyle.System;
 
             BackColor = dark ? Color.FromArgb(255, 32, 32, 32) : SystemColors.Window;
             ForeColor = dark ? Color.White : SystemColors.WindowText;
 
             ControlScheduleSetDarkMode(okButton, dark);
             ControlScheduleSetDarkMode(exitButton, dark);
+        }
+
+        private void FirstRunDialog_DarkModeChanged(object sender, EventArgs e)
+        {
+            RecreateHandle();
         }
 
         private void allowUpdatesCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -81,6 +101,7 @@ namespace CapsLockIndicatorV3
 
         private void okButton_Click(object sender, EventArgs e)
         {
+            Program.keepFirstRunDialogOpen = false;
             SettingsManager.Set("checkForUpdates", allowUpdatesCheckBox.Checked);
             SettingsManager.Save();
         }
@@ -98,6 +119,11 @@ namespace CapsLockIndicatorV3
         private void darkButton_Click(object sender, EventArgs e)
         {
             DarkModeProvider.SetDarkModeEnabled(true);
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Program.keepFirstRunDialogOpen = false;
         }
     }
 }

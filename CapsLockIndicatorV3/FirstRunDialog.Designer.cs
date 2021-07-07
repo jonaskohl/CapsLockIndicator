@@ -32,17 +32,17 @@ namespace CapsLockIndicatorV3
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FirstRunDialog));
             this.headerLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lnkLabel2 = new CapsLockIndicatorV3.LnkLabel();
             this.messageLabel = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.allowUpdatesCheckBox = new System.Windows.Forms.CheckBox();
+            this.lnkLabel1 = new CapsLockIndicatorV3.LnkLabel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.exitButton = new System.Windows.Forms.Button();
             this.okButton = new System.Windows.Forms.Button();
             this.themeLabel = new System.Windows.Forms.Label();
             this.lightButton = new System.Windows.Forms.Button();
             this.darkButton = new System.Windows.Forms.Button();
-            this.lnkLabel2 = new CapsLockIndicatorV3.LnkLabel();
-            this.lnkLabel1 = new CapsLockIndicatorV3.LnkLabel();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -84,8 +84,22 @@ namespace CapsLockIndicatorV3
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(339, 292);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(331, 319);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // lnkLabel2
+            // 
+            this.lnkLabel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lnkLabel2.AutoSize = true;
+            this.lnkLabel2.LinkColor = System.Drawing.SystemColors.HotTrack;
+            this.lnkLabel2.Location = new System.Drawing.Point(0, 297);
+            this.lnkLabel2.Margin = new System.Windows.Forms.Padding(0);
+            this.lnkLabel2.Name = "lnkLabel2";
+            this.lnkLabel2.Size = new System.Drawing.Size(64, 15);
+            this.lnkLabel2.TabIndex = 4;
+            this.lnkLabel2.TabStop = true;
+            this.lnkLabel2.Text = "Contribute";
+            this.lnkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLabel2_LinkClicked);
             // 
             // messageLabel
             // 
@@ -95,7 +109,7 @@ namespace CapsLockIndicatorV3
             this.messageLabel.Location = new System.Drawing.Point(0, 30);
             this.messageLabel.Margin = new System.Windows.Forms.Padding(0);
             this.messageLabel.Name = "messageLabel";
-            this.messageLabel.Size = new System.Drawing.Size(339, 75);
+            this.messageLabel.Size = new System.Drawing.Size(331, 75);
             this.messageLabel.TabIndex = 1;
             this.messageLabel.Text = resources.GetString("messageLabel.Text");
             // 
@@ -109,7 +123,7 @@ namespace CapsLockIndicatorV3
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 182);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 6, 0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(339, 81);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(331, 108);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // allowUpdatesCheckBox
@@ -128,13 +142,26 @@ namespace CapsLockIndicatorV3
             this.allowUpdatesCheckBox.UseVisualStyleBackColor = true;
             this.allowUpdatesCheckBox.CheckedChanged += new System.EventHandler(this.allowUpdatesCheckBox_CheckedChanged);
             // 
+            // lnkLabel1
+            // 
+            this.lnkLabel1.AutoSize = true;
+            this.lnkLabel1.LinkColor = System.Drawing.SystemColors.HotTrack;
+            this.lnkLabel1.Location = new System.Drawing.Point(13, 38);
+            this.lnkLabel1.Margin = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.lnkLabel1.Name = "lnkLabel1";
+            this.lnkLabel1.Size = new System.Drawing.Size(168, 15);
+            this.lnkLabel1.TabIndex = 1;
+            this.lnkLabel1.TabStop = true;
+            this.lnkLabel1.Text = "What information will be sent?";
+            this.lnkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLabel1_LinkClicked);
+            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.flowLayoutPanel2.AutoSize = true;
             this.flowLayoutPanel2.Controls.Add(this.exitButton);
             this.flowLayoutPanel2.Controls.Add(this.okButton);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(180, 263);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(172, 290);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(159, 29);
@@ -152,6 +179,7 @@ namespace CapsLockIndicatorV3
             this.exitButton.TabIndex = 3;
             this.exitButton.Text = "&Exit";
             this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // okButton
             // 
@@ -184,7 +212,7 @@ namespace CapsLockIndicatorV3
             this.lightButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lightButton.Location = new System.Drawing.Point(3, 131);
             this.lightButton.Name = "lightButton";
-            this.lightButton.Size = new System.Drawing.Size(163, 42);
+            this.lightButton.Size = new System.Drawing.Size(159, 42);
             this.lightButton.TabIndex = 6;
             this.lightButton.Text = "Light";
             this.lightButton.UseVisualStyleBackColor = true;
@@ -194,40 +222,13 @@ namespace CapsLockIndicatorV3
             // 
             this.darkButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.darkButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.darkButton.Location = new System.Drawing.Point(172, 131);
+            this.darkButton.Location = new System.Drawing.Point(168, 131);
             this.darkButton.Name = "darkButton";
-            this.darkButton.Size = new System.Drawing.Size(164, 42);
+            this.darkButton.Size = new System.Drawing.Size(160, 42);
             this.darkButton.TabIndex = 7;
             this.darkButton.Text = "Dark";
             this.darkButton.UseVisualStyleBackColor = true;
             this.darkButton.Click += new System.EventHandler(this.darkButton_Click);
-            // 
-            // lnkLabel2
-            // 
-            this.lnkLabel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lnkLabel2.AutoSize = true;
-            this.lnkLabel2.LinkColor = System.Drawing.SystemColors.HotTrack;
-            this.lnkLabel2.Location = new System.Drawing.Point(0, 270);
-            this.lnkLabel2.Margin = new System.Windows.Forms.Padding(0);
-            this.lnkLabel2.Name = "lnkLabel2";
-            this.lnkLabel2.Size = new System.Drawing.Size(64, 15);
-            this.lnkLabel2.TabIndex = 4;
-            this.lnkLabel2.TabStop = true;
-            this.lnkLabel2.Text = "Contribute";
-            this.lnkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLabel2_LinkClicked);
-            // 
-            // lnkLabel1
-            // 
-            this.lnkLabel1.AutoSize = true;
-            this.lnkLabel1.LinkColor = System.Drawing.SystemColors.HotTrack;
-            this.lnkLabel1.Location = new System.Drawing.Point(13, 38);
-            this.lnkLabel1.Margin = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.lnkLabel1.Name = "lnkLabel1";
-            this.lnkLabel1.Size = new System.Drawing.Size(168, 15);
-            this.lnkLabel1.TabIndex = 1;
-            this.lnkLabel1.TabStop = true;
-            this.lnkLabel1.Text = "What information will be sent?";
-            this.lnkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLabel1_LinkClicked);
             // 
             // FirstRunDialog
             // 
@@ -236,7 +237,7 @@ namespace CapsLockIndicatorV3
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this.exitButton;
-            this.ClientSize = new System.Drawing.Size(357, 310);
+            this.ClientSize = new System.Drawing.Size(349, 337);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -246,7 +247,6 @@ namespace CapsLockIndicatorV3
             this.MinimizeBox = false;
             this.Name = "FirstRunDialog";
             this.Padding = new System.Windows.Forms.Padding(9);
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CapsLock Indicator";
             this.tableLayoutPanel1.ResumeLayout(false);

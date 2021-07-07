@@ -164,14 +164,14 @@ namespace CapsLockIndicatorV3 {
         ///b:upgradeRequired=True
         ///b:alwaysShowWhenActive=False
         ///b:firstRun=True
-        ///b:advSettingsWarnShown=False
+        ///b:searchForUpdatesAfterResume=True
         ///c:indBgColourActive=255;66;66;66
         ///c:indFgColourActive=255;255;255;255
         ///c:indBdColourActive=255;77;180;52
         ///c:indBgColourInactive=255;66;66;66
         ///c:indFgColourInactive=255;255;255;255
         ///c:indBdColourInactive=255;180;52;77
-        ///f:indFont=Segoe UI; 1 [rest of string was truncated]&quot;;.
+        ///f:indFont=Segoe [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string defaultSettings {
             get {
@@ -236,6 +236,26 @@ namespace CapsLockIndicatorV3 {
             get {
                 object obj = ResourceManager.GetObject("settings_dark", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to numIco							Show icon for num lock
+        ///capsIco							Show icon for caps lock
+        ///scrollIco						Show icon for scroll lock
+        ///numInd							Show notification for num lock
+        ///capsInd							Show notification for caps lock
+        ///scrollInd						Show notification for scroll lock
+        ///noIco							Don&apos;t show icons
+        ///noInd							Don&apos;t show notifications
+        ///darkMode						Enable dark color scheme
+        ///hideOnStartup					Hide CapsLock Indicator on startup
+        ///checkForUpdates					Automatically check for updates
+        ///upgradeRequired					Internal. :b:{Do not change! [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string settingsDescriptions {
+            get {
+                return ResourceManager.GetString("settingsDescriptions", resourceCulture);
             }
         }
     }

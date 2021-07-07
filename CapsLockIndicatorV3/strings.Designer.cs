@@ -70,6 +70,15 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Automatically check for updates.
+        /// </summary>
+        internal static string autoCheckForUpdates {
+            get {
+                return ResourceManager.GetString("autoCheckForUpdates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Background colour activated.
         /// </summary>
         internal static string backgroundColourActivatedButton {
@@ -183,6 +192,15 @@ namespace CapsLockIndicatorV3 {
         internal static string displayTime {
             get {
                 return ResourceManager.GetString("displayTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download icon packs.
+        /// </summary>
+        internal static string downloadIcons {
+            get {
+                return ResourceManager.GetString("downloadIcons", resourceCulture);
             }
         }
         
@@ -372,6 +390,60 @@ namespace CapsLockIndicatorV3 {
         internal static string hideWindow {
             get {
                 return ResourceManager.GetString("hideWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloading metadata....
+        /// </summary>
+        internal static string iconPackDownloadingMetadata {
+            get {
+                return ResourceManager.GetString("iconPackDownloadingMetadata", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloading pack....
+        /// </summary>
+        internal static string iconPackDownloadingPack {
+            get {
+                return ResourceManager.GetString("iconPackDownloadingPack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to install the icon pack “{name}” (Version {version}) by {authorName}?.
+        /// </summary>
+        internal static string iconPackPrompt {
+            get {
+                return ResourceManager.GetString("iconPackPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to reset the icons to the default ones?.
+        /// </summary>
+        internal static string iconPackResetPrompt {
+            get {
+                return ResourceManager.GetString("iconPackResetPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Icons were reset to default!.
+        /// </summary>
+        internal static string iconPackResetSuccess {
+            get {
+                return ResourceManager.GetString("iconPackResetSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully installed icon pack “{name}” (Version {version})!.
+        /// </summary>
+        internal static string iconPackSuccess {
+            get {
+                return ResourceManager.GetString("iconPackSuccess", resourceCulture);
             }
         }
         

@@ -135,28 +135,10 @@
   <metadata name="mainToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>959, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="logo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAHY
-        bQAB2G0B4fxRmwAAAtRJREFUaEPVmj9u1EAUh9NwAKjIDTgA10CCLtwACqhAgooGyhSBq6QMUkQTCRr6
-        QE4AipRNIkWKMO8z8cj2/oxnPG/s7EqftPtm/Ob97Pn3xrv18NG+B9vGU+OjcWD8MFbG9Q18x0YZdajL
-        NcpXEtIYyT3jpfHNqCbCtfjAl2pjFGkc4b7xybg0VFBTwBc+8a3aHEQaB7hjvDUuDBWEB/imDdpSMawh
-        jYIHxndDNVoC2qJNFUsHaezxxDg3VEMloc3HhoopII0tnhvK+Vz8MYhBxVYjjTcsHXybZ4aKcVAA3UY5
-        WgqehOxOawaDwbNEnx+DmNYGdueHwfQ152yTCrF1pth28MAcrC68TbwxQszt4FkFPVfXmtjPr98X1Yfd
-        I+mjB4tdWLHbAljK1QVZfD78GcFJdXp6WYtQPgRsCDsC2Ey53/1YXr37Uq3Or6rV6kqWC3gKd40ggB2h
-        qlicELzx2r6rOgO8MIKAnC3xZAh4YvDw1agFkFioCkXJuPNtthFAdqQKi+EUPOwggBGtCouQ2W367CGA
-        PFUVuuN45xsOEECyrQpdKRA8HCOAEwNV6IZzt2lzhgCOPVShC4XufMN1sgA+LP+qTDGHgKQulCoASneh
-        pEE8RQCUHMRJ0+hUAVBqGk1ayHIEgHN3qheypK1ErgBwfBL1ViJpM+chAJxE1Js5iN5OewmAzO4UttMQ
-        ndB4CoCMJ9FJaKJTyn8CTmTZVIKIjJQSopJ6Em8ScETwJHzIT+qBo4rRs//3u0d1Q94ffOJbtdlj8FgF
-        NvpgCzb+aBE2+nC3geN1jrSVoyVIOl5v2OgXHA234RXTYPAgjT14dEuMCdrMfsnXwOCZc3airbUBq5DG
-        AZi+5njRzTzfmSr/hzSOwCrIUu4pBF/4DCtsLNIYCRtAdoRsa1VQMXAtPuqN2RSkcQIkRTvGnkGOfWyc
-        Gc3fbfiOjTLqUNfh7zb7W38BVQTC4GcXxqkAAAAASUVORK5CYII=
-</value>
-  </data>
   <metadata name="generalIcon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>477, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="generalIcon.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA

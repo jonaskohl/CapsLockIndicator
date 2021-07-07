@@ -117,13 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  
-<!--
-<data name="advancedSettings" xml:space="preserve">
-    <value>Advanced Settings</value>
+  <data name="advancedSettings" xml:space="preserve">
+    <value>高级设置</value>
     <comment>Label of the hyperlink that opens the settings file</comment>
   </data>
--->
   <data name="backgroundColourActivatedButton" xml:space="preserve">
     <value>打开 - 背景颜色</value>
     <comment>The caption for the "Background colour activated" button.</comment>
@@ -140,13 +137,10 @@
     <value>关闭 - 边框颜色</value>
     <comment>The caption for the "Border colour deactivated" button.</comment>
   </data>
-  
-<!--
-<data name="borderThicknessGroup" xml:space="preserve">
-    <value>Border thickness</value>
+  <data name="borderThicknessGroup" xml:space="preserve">
+    <value>边框宽度</value>
     <comment>Label of the border thickness groupbox</comment>
   </data>
--->
   <data name="capsLock" xml:space="preserve">
     <value>Caps lock</value>
     <comment>The name of the caps lock key</comment>
@@ -195,55 +189,34 @@
     <value>退出程序后，托盘指示器图标和切换通知将不再显示，确定要退出吗？</value>
     <comment>The message to display on application exit</comment>
   </data>
-  
-<!--
-<data name="firstRunAllowUpdateCheck" xml:space="preserve">
-    <value>Allow CapsLock Indicator to periodically check for updates online (can be changed later)</value>
+  <data name="firstRunAllowUpdateCheck" xml:space="preserve">
+    <value>允许 CapsLock 指示器定期联网检查更新（稍后可修改）</value>
     <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
   </data>
--->
-  
-<!--
-<data name="firstRunContribute" xml:space="preserve">
-    <value>Contribute</value>
+  <data name="firstRunContribute" xml:space="preserve">
+    <value>贡献</value>
     <comment>Label of the hyperlink that takes you to CLI's GitHub page</comment>
   </data>
--->
-  
-<!--
-<data name="firstRunExit" xml:space="preserve">
-    <value>&amp;Exit</value>
+  <data name="firstRunExit" xml:space="preserve">
+    <value>退出 (&amp;E)</value>
     <comment>Button that exists the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
--->
-  
-<!--
-<data name="firstRunHeading" xml:space="preserve">
-    <value>Welcome to CapsLock Indicator</value>
+  <data name="firstRunHeading" xml:space="preserve">
+    <value>欢迎使用 CapsLock 指示器</value>
     <comment>The heading of the first-run dialog</comment>
   </data>
--->
-  
-<!--
-<data name="firstRunMessage" xml:space="preserve">
-    <value>Thank you for choosing CapsLock Indicator! This program is open-source and free, always has been, always will be! Are you interested in contributing to CapsLock Indicator yourself? Visit the link below for more information! Also, please take a moment to review the settings below!</value>
+  <data name="firstRunMessage" xml:space="preserve">
+    <value>感谢您选择 CapsLock 指示器！这是一个免费的开源程序，一向都是，永远都是！您有兴趣亲自向 CapsLock 指示器做出贡献吗？请访问以下链接以获取更多信息！另外，请花点时间检查下面的设置！</value>
     <comment>The message of the first-run dialog</comment>
   </data>
--->
-  
-<!--
-<data name="firstRunPrivacyInfoLinkLabel" xml:space="preserve">
-    <value>What information will be sent?</value>
+  <data name="firstRunPrivacyInfoLinkLabel" xml:space="preserve">
+    <value>哪些信息会被发送？</value>
     <comment>The label of the hyperlink that shows which information will be sent on each update check</comment>
   </data>
--->
-  
-<!--
-<data name="firstRunStart" xml:space="preserve">
-    <value>&amp;Let's go!</value>
+  <data name="firstRunStart" xml:space="preserve">
+    <value>开始吧！(&amp;L)</value>
     <comment>Button that starts the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
--->
   <data name="fontGroup" xml:space="preserve">
     <value>字体</value>
     <comment>The title for the "Font" group box</comment>

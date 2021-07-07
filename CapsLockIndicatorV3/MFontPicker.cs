@@ -40,7 +40,8 @@ namespace CapsLockIndicatorV3
 {
     public class MFontPicker : System.Windows.Forms.FontDialog
     {
-        #region P/Invoke
+#if EXPERIMENTAL__USE_DARK_COMMON_DIALOGS
+#region P/Invoke
         [DllImport("user32.dll")]
         private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
 
@@ -131,7 +132,7 @@ namespace CapsLockIndicatorV3
             public bool fIncUpdate;
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] rgbReserved;
         }
-        #endregion
+#endregion
 
         private IntPtr handle = IntPtr.Zero;
         private IntPtr hWndOkButon = IntPtr.Zero;
@@ -159,10 +160,8 @@ namespace CapsLockIndicatorV3
         {
             if (msg == WM_INITDIALOG)
             {
-#if EXPERIMENTAL__USE_DARK_COMMON_DIALOGS
                 var prevStyle = GetWindowLong(hWnd, GWL_STYLE);
                 SetWindowLong(hWnd, GWL_STYLE, prevStyle | WS_CLIPCHILDREN);
-#endif
 
                 hWndOkButon = GetDlgItem(hWnd, 0x0001);
                 hWndCancelButon = GetDlgItem(hWnd, 0x0002);
@@ -200,10 +199,8 @@ namespace CapsLockIndicatorV3
             }
             else if (msg == WM_ERASEBKGND)
             {
-#if EXPERIMENTAL__USE_DARK_COMMON_DIALOGS
                 using (var g = Graphics.FromHwnd(handle))
                     g.Clear(Color.FromArgb(255, 32, 32, 32));
-#endif
             }
             else if (msg == WM_PAINT)
             { }
@@ -234,5 +231,6 @@ namespace CapsLockIndicatorV3
             Native.SetDarkMode(hWndSizeComboBox, true);
             Native.SetDarkMode(hWndScriptComboBox, true);
         }
+#endif
     }
 }

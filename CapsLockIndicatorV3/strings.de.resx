@@ -120,6 +120,9 @@
   <data name="advancedSettings" xml:space="preserve">
     <value>Erw. Einstellungen</value>
   </data>
+  <data name="autoCheckForUpdates" xml:space="preserve">
+    <value>Automatisch nach Aktualisierungen suchen</value>
+  </data>
   <data name="backgroundColourActivatedButton" xml:space="preserve">
     <value>Hintergrund aktiv</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="displayTime" xml:space="preserve">
     <value>Anzeigedauer</value>
+  </data>
+  <data name="downloadIcons" xml:space="preserve">
+    <value>Symbolpakete herunterladen</value>
   </data>
   <data name="downloadManuallyButton" xml:space="preserve">
     <value>&amp;Manuell runterladen</value>
@@ -221,6 +227,24 @@
   </data>
   <data name="hideWindow" xml:space="preserve">
     <value>Verstecken</value>
+  </data>
+  <data name="iconPackDownloadingMetadata" xml:space="preserve">
+    <value>Metadaten werden abgerufen...</value>
+  </data>
+  <data name="iconPackDownloadingPack" xml:space="preserve">
+    <value>Paket wird heruntergeladen...</value>
+  </data>
+  <data name="iconPackPrompt" xml:space="preserve">
+    <value>Möchten Sie das Symbolpaket „{name}“ (Version {version}) von {authorName} herunterladen?</value>
+  </data>
+  <data name="iconPackResetPrompt" xml:space="preserve">
+    <value>Möchten Sie die Symbole auf die Standardeinstellung zurücksetzen?</value>
+  </data>
+  <data name="iconPackResetSuccess" xml:space="preserve">
+    <value>Die Symbole wurden auf die Standardeinstellung zurückgesetzt!</value>
+  </data>
+  <data name="iconPackSuccess" xml:space="preserve">
+    <value>Das Symbolpaket „{name}“ (Version {version}) wurde erfolgreich installiert!</value>
   </data>
   <data name="keyChanged" xml:space="preserve">
     <value>{0} sich ändert</value>

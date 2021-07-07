@@ -29,11 +29,92 @@ namespace CapsLockIndicatorV3
         [DllImport("gdi32.dll")]
         static extern int GetDeviceCaps(IntPtr hdc, int nIndex);
 
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public extern static IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
+
+        [DllImport("uxtheme.dll", CharSet = CharSet.Unicode)]
+        internal static extern IntPtr OpenThemeData(IntPtr hwnd, string pszClassList);
+
+        [DllImport("uxtheme.dll", ExactSpelling = true)]
+        internal extern static Int32 CloseThemeData(IntPtr hTheme);
+
+        [DllImport("uxtheme.dll", CharSet = CharSet.Unicode)]
+        private extern static Int32 DrawThemeTextEx(IntPtr hTheme, IntPtr hdc, int iPartId, int iStateId, string pszText, int iCharCount, uint flags, ref RECT rect, ref DTTOPTS poptions);
+
+        [DllImport("uxtheme", ExactSpelling = true)]
+        public extern static Int32 GetThemeColor(IntPtr hTheme, int iPartId, int iStateId, int iPropId, out COLORREF pColor);
+
+        [DllImport("user32.dll")]
+        static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+
+        [DllImport("user32.dll")]
+        static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct COLORREF
+        {
+            public byte R;
+            public byte G;
+            public byte B;
+
+            public Color ToColor()
+            {
+                return Color.FromArgb(255, R, G, B);
+            }
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        private struct RECT
+        {
+            public int left;
+            public int top;
+            public int right;
+            public int bottom;
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        private struct DTTOPTS
+        {
+            public int dwSize;
+            public int dwFlags;
+            public int crText;
+            public int crBorder;
+            public int crShadow;
+            public int iTextShadowType;
+            public int ptShadowOffsetX;
+            public int ptShadowOffsetY;
+            public int iBorderSize;
+            public int iFontPropId;
+            public int iColorPropId;
+            public int iStateId;
+            public bool fApplyOverlay;
+            public int iGlowSize;
+            public IntPtr pfnDrawTextCallback;
+            public IntPtr lParam;
+        }
+
+        // taken from vsstyle.h
+        private const int WP_CAPTION = 1;
+        private const int CS_ACTIVE = 1;
+
         const int DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1 = 19;
         const int DWMWA_USE_IMMERSIVE_DARK_MODE = 20;
         const int PREFFERED_APP_MODE__ALLOW_DARK = 1;
         const int PREFFERED_APP_MODE__DEFAULT = 0;
         const int PREFFERED_APP_MODE__FORCE_DARK = 2;
+        internal const int LVM_GETHEADER = (0x1000 + 31);
+        internal const int TMT_FILLCOLOR = 3802;
+        internal const int TMT_TEXTCOLOR = 3803;
+        internal const int HP_HEADERITEM = 1;
+        internal const int WM_THEMECHANGED = 0x031A;
+        private const int GWL_STYLE = -16;
+        private const int WS_DISABLED = 0x08000000;
+
+        public static void SetNativeEnabled(IntPtr hWnd, bool enabled)
+        {
+            SetWindowLong(hWnd, GWL_STYLE, GetWindowLong(hWnd, GWL_STYLE) &
+                ~WS_DISABLED | (enabled ? 0 : WS_DISABLED));
+        }
 
         public enum DeviceCap
         {

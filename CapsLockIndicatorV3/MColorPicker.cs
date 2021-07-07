@@ -36,6 +36,7 @@ namespace CapsLockIndicatorV3
 {
     public class MColorPicker : System.Windows.Forms.ColorDialog
     {
+#if EXPERIMENTAL__USE_DARK_COMMON_DIALOGS
         #region P/Invoke
         [DllImport("user32.dll")]
         private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
@@ -149,10 +150,9 @@ namespace CapsLockIndicatorV3
         {
             if (msg == WM_INITDIALOG)
             {
-#if EXPERIMENTAL__USE_DARK_COMMON_DIALOGS
                 var prevStyle = GetWindowLong(hWnd, GWL_STYLE);
                 SetWindowLong(hWnd, GWL_STYLE, prevStyle | WS_CLIPCHILDREN);
-#endif
+
 
                 // To find the controlIDs, use Spy++ (Visual Studio: Tools > Spy++)
                 hWndOK = GetDlgItem(hWnd, 0x1);
@@ -187,10 +187,8 @@ namespace CapsLockIndicatorV3
             }
             else if (msg == WM_ERASEBKGND)
             {
-#if EXPERIMENTAL__USE_DARK_COMMON_DIALOGS
                 using (var g = Graphics.FromHwnd(handle))
                     g.Clear(Color.FromArgb(255, 32, 32, 32));
-#endif
             }
             else if (msg == WM_PAINT)
             { }
@@ -216,5 +214,6 @@ namespace CapsLockIndicatorV3
             Native.SetDarkMode(hWndExpand, true);
             Native.SetDarkMode(hWndAdd, true);
         }
+#endif
     }
 }

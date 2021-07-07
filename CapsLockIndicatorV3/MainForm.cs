@@ -85,6 +85,12 @@ namespace CapsLockIndicatorV3
             showNoIcons.Checked = SettingsManager.Get<bool>("noIco");
             showNoNotification.Checked = SettingsManager.Get<bool>("noInd");
 
+            if (SettingsManager.Get<bool>("upgradeRequired"))
+            {
+                SettingsManager.Set("upgradeRequired", false);
+                SettingsManager.Set("versionNo", version);
+            }
+
             iconsGroup.Enabled = !showNoIcons.Checked;
             indicatorGroup.Enabled = !showNoNotification.Checked;
 
@@ -137,6 +143,9 @@ namespace CapsLockIndicatorV3
             {
                 if (SettingsManager.Get<bool>("searchForUpdatesAfterResume"))
                     doVersionCheck(false);
+
+                foreach (var i in Application.OpenForms.OfType<IndicatorOverlay>().Where(f => !f.IsDisposed))
+                    i.Close();
             }
         }
 
@@ -184,6 +193,7 @@ namespace CapsLockIndicatorV3
 
             ControlScheduleSetDarkMode(checkForUpdatesButton, dark);
             ControlScheduleSetDarkMode(indSettings, dark);
+            ControlScheduleSetDarkMode(advSettings, dark);
             ControlScheduleSetDarkMode(exitApplication, dark);
             ControlScheduleSetDarkMode(hideWindow, dark);
             ControlScheduleSetDarkMode(enableNumInd, dark);
@@ -195,7 +205,7 @@ namespace CapsLockIndicatorV3
             ControlScheduleSetDarkMode(localeComboBox, dark);
         }
 
-        private void ReloadIcons(bool isUserInitiated = false)
+        public void ReloadIcons(bool isUserInitiated = false)
         {
             var dir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
@@ -301,6 +311,8 @@ namespace CapsLockIndicatorV3
             exitToolStripMenuItem.Text = strings.contextMenuExit;
             exitMenuItem.Text = strings.contextMenuExit;
             hideOnStartupCheckBox.Text = strings.hideOnStartup;
+            advSettings.Text = strings.advancedSettings;
+            mainToolTip.SetToolTip(checkForUpdatedCheckBox, strings.autoCheckForUpdates);
         }
 
         // This timer ticks approx. 60 times a second (overkill?)
@@ -742,6 +754,12 @@ namespace CapsLockIndicatorV3
         {
             shouldClose = true;
             Close();
+        }
+
+        private void advSettings_Click(object sender, EventArgs e)
+        {
+            using (var f = new AdvancedSettings())
+                f.ShowDialog(this);
         }
     }
 }

@@ -68,7 +68,7 @@ namespace CapsLockIndicatorV3
             this.borderGroup = new System.Windows.Forms.GroupBox();
             this.bdSizeLabel = new System.Windows.Forms.Label();
             this.bdSizeSlider = new System.Windows.Forms.TrackBar();
-            this.lnkLabel1 = new CapsLockIndicatorV3.LnkLabel();
+            this.downloadIcons = new CapsLockIndicatorV3.LnkLabel();
             this.displayTimeGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.displayTimeSlider)).BeginInit();
             this.coloursGroup.SuspendLayout();
@@ -94,7 +94,7 @@ namespace CapsLockIndicatorV3
             this.displayTimeGroup.Controls.Add(this.displayTimeSlider);
             this.displayTimeGroup.Location = new System.Drawing.Point(12, 12);
             this.displayTimeGroup.Name = "displayTimeGroup";
-            this.displayTimeGroup.Size = new System.Drawing.Size(244, 95);
+            this.displayTimeGroup.Size = new System.Drawing.Size(276, 95);
             this.displayTimeGroup.TabIndex = 0;
             this.displayTimeGroup.TabStop = false;
             this.displayTimeGroup.Text = "Display time";
@@ -115,7 +115,7 @@ namespace CapsLockIndicatorV3
             // 
             this.displayTimeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.displayTimeLabel.Location = new System.Drawing.Point(162, 22);
+            this.displayTimeLabel.Location = new System.Drawing.Point(194, 22);
             this.displayTimeLabel.Name = "displayTimeLabel";
             this.displayTimeLabel.Size = new System.Drawing.Size(76, 45);
             this.displayTimeLabel.TabIndex = 1;
@@ -142,7 +142,7 @@ namespace CapsLockIndicatorV3
             this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveButton.AutoSize = true;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.saveButton.Location = new System.Drawing.Point(374, 344);
+            this.saveButton.Location = new System.Drawing.Point(435, 344);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(132, 24);
             this.saveButton.TabIndex = 10;
@@ -164,9 +164,9 @@ namespace CapsLockIndicatorV3
             this.coloursGroup.Controls.Add(this.foregroundColourActivatedButton);
             this.coloursGroup.Controls.Add(this.backgroundColourActivatedPreview);
             this.coloursGroup.Controls.Add(this.backgroundColourActivatedButton);
-            this.coloursGroup.Location = new System.Drawing.Point(262, 12);
+            this.coloursGroup.Location = new System.Drawing.Point(297, 12);
             this.coloursGroup.Name = "coloursGroup";
-            this.coloursGroup.Size = new System.Drawing.Size(244, 230);
+            this.coloursGroup.Size = new System.Drawing.Size(270, 230);
             this.coloursGroup.TabIndex = 3;
             this.coloursGroup.TabStop = false;
             this.coloursGroup.Text = "Colours";
@@ -183,10 +183,12 @@ namespace CapsLockIndicatorV3
             // 
             // borderColourDeactivatedButton
             // 
+            this.borderColourDeactivatedButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.borderColourDeactivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.borderColourDeactivatedButton.Location = new System.Drawing.Point(53, 177);
             this.borderColourDeactivatedButton.Name = "borderColourDeactivatedButton";
-            this.borderColourDeactivatedButton.Size = new System.Drawing.Size(182, 25);
+            this.borderColourDeactivatedButton.Size = new System.Drawing.Size(208, 25);
             this.borderColourDeactivatedButton.TabIndex = 8;
             this.borderColourDeactivatedButton.Text = "Border colour decativated";
             this.borderColourDeactivatedButton.UseVisualStyleBackColor = true;
@@ -204,10 +206,12 @@ namespace CapsLockIndicatorV3
             // 
             // foregroundColourDeactivatedButton
             // 
+            this.foregroundColourDeactivatedButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.foregroundColourDeactivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.foregroundColourDeactivatedButton.Location = new System.Drawing.Point(53, 115);
             this.foregroundColourDeactivatedButton.Name = "foregroundColourDeactivatedButton";
-            this.foregroundColourDeactivatedButton.Size = new System.Drawing.Size(182, 25);
+            this.foregroundColourDeactivatedButton.Size = new System.Drawing.Size(208, 25);
             this.foregroundColourDeactivatedButton.TabIndex = 6;
             this.foregroundColourDeactivatedButton.Text = "Text colour activated";
             this.foregroundColourDeactivatedButton.UseVisualStyleBackColor = true;
@@ -225,10 +229,12 @@ namespace CapsLockIndicatorV3
             // 
             // backgroundColourDeactivatedButton
             // 
+            this.backgroundColourDeactivatedButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.backgroundColourDeactivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.backgroundColourDeactivatedButton.Location = new System.Drawing.Point(53, 53);
             this.backgroundColourDeactivatedButton.Name = "backgroundColourDeactivatedButton";
-            this.backgroundColourDeactivatedButton.Size = new System.Drawing.Size(182, 25);
+            this.backgroundColourDeactivatedButton.Size = new System.Drawing.Size(208, 25);
             this.backgroundColourDeactivatedButton.TabIndex = 4;
             this.backgroundColourDeactivatedButton.Text = "Background colour deactivated";
             this.backgroundColourDeactivatedButton.UseVisualStyleBackColor = true;
@@ -246,10 +252,12 @@ namespace CapsLockIndicatorV3
             // 
             // borderColourActivatedButton
             // 
+            this.borderColourActivatedButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.borderColourActivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.borderColourActivatedButton.Location = new System.Drawing.Point(53, 146);
             this.borderColourActivatedButton.Name = "borderColourActivatedButton";
-            this.borderColourActivatedButton.Size = new System.Drawing.Size(182, 25);
+            this.borderColourActivatedButton.Size = new System.Drawing.Size(208, 25);
             this.borderColourActivatedButton.TabIndex = 7;
             this.borderColourActivatedButton.Text = "Border colour activated";
             this.borderColourActivatedButton.UseVisualStyleBackColor = true;
@@ -267,10 +275,12 @@ namespace CapsLockIndicatorV3
             // 
             // foregroundColourActivatedButton
             // 
+            this.foregroundColourActivatedButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.foregroundColourActivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.foregroundColourActivatedButton.Location = new System.Drawing.Point(53, 84);
             this.foregroundColourActivatedButton.Name = "foregroundColourActivatedButton";
-            this.foregroundColourActivatedButton.Size = new System.Drawing.Size(182, 25);
+            this.foregroundColourActivatedButton.Size = new System.Drawing.Size(208, 25);
             this.foregroundColourActivatedButton.TabIndex = 5;
             this.foregroundColourActivatedButton.Text = "Text colour activated";
             this.foregroundColourActivatedButton.UseVisualStyleBackColor = true;
@@ -288,10 +298,12 @@ namespace CapsLockIndicatorV3
             // 
             // backgroundColourActivatedButton
             // 
+            this.backgroundColourActivatedButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.backgroundColourActivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.backgroundColourActivatedButton.Location = new System.Drawing.Point(53, 22);
             this.backgroundColourActivatedButton.Name = "backgroundColourActivatedButton";
-            this.backgroundColourActivatedButton.Size = new System.Drawing.Size(182, 25);
+            this.backgroundColourActivatedButton.Size = new System.Drawing.Size(208, 25);
             this.backgroundColourActivatedButton.TabIndex = 3;
             this.backgroundColourActivatedButton.Text = "Background colour activated";
             this.backgroundColourActivatedButton.UseVisualStyleBackColor = true;
@@ -302,7 +314,7 @@ namespace CapsLockIndicatorV3
             this.fontGroupBox.Controls.Add(this.fontButton);
             this.fontGroupBox.Location = new System.Drawing.Point(12, 113);
             this.fontGroupBox.Name = "fontGroupBox";
-            this.fontGroupBox.Size = new System.Drawing.Size(244, 70);
+            this.fontGroupBox.Size = new System.Drawing.Size(276, 70);
             this.fontGroupBox.TabIndex = 2;
             this.fontGroupBox.TabStop = false;
             this.fontGroupBox.Text = "Font";
@@ -333,7 +345,7 @@ namespace CapsLockIndicatorV3
             this.positionGroup.Controls.Add(this.positionButtonLayout);
             this.positionGroup.Location = new System.Drawing.Point(12, 189);
             this.positionGroup.Name = "positionGroup";
-            this.positionGroup.Size = new System.Drawing.Size(244, 100);
+            this.positionGroup.Size = new System.Drawing.Size(276, 100);
             this.positionGroup.TabIndex = 11;
             this.positionGroup.TabStop = false;
             this.positionGroup.Text = "Overlay position";
@@ -360,7 +372,7 @@ namespace CapsLockIndicatorV3
             this.positionButtonLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.positionButtonLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.positionButtonLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.positionButtonLayout.Size = new System.Drawing.Size(238, 78);
+            this.positionButtonLayout.Size = new System.Drawing.Size(270, 78);
             this.positionButtonLayout.TabIndex = 0;
             // 
             // positionBottomRight
@@ -368,10 +380,10 @@ namespace CapsLockIndicatorV3
             this.positionBottomRight.Appearance = System.Windows.Forms.Appearance.Button;
             this.positionBottomRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.positionBottomRight.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.positionBottomRight.Location = new System.Drawing.Point(158, 52);
+            this.positionBottomRight.Location = new System.Drawing.Point(180, 52);
             this.positionBottomRight.Margin = new System.Windows.Forms.Padding(0);
             this.positionBottomRight.Name = "positionBottomRight";
-            this.positionBottomRight.Size = new System.Drawing.Size(80, 26);
+            this.positionBottomRight.Size = new System.Drawing.Size(90, 26);
             this.positionBottomRight.TabIndex = 8;
             this.positionBottomRight.UseVisualStyleBackColor = true;
             this.positionBottomRight.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
@@ -381,10 +393,10 @@ namespace CapsLockIndicatorV3
             this.positionBottomCenter.Appearance = System.Windows.Forms.Appearance.Button;
             this.positionBottomCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.positionBottomCenter.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.positionBottomCenter.Location = new System.Drawing.Point(79, 52);
+            this.positionBottomCenter.Location = new System.Drawing.Point(90, 52);
             this.positionBottomCenter.Margin = new System.Windows.Forms.Padding(0);
             this.positionBottomCenter.Name = "positionBottomCenter";
-            this.positionBottomCenter.Size = new System.Drawing.Size(79, 26);
+            this.positionBottomCenter.Size = new System.Drawing.Size(90, 26);
             this.positionBottomCenter.TabIndex = 7;
             this.positionBottomCenter.UseVisualStyleBackColor = true;
             this.positionBottomCenter.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
@@ -397,7 +409,7 @@ namespace CapsLockIndicatorV3
             this.positionBottomLeft.Location = new System.Drawing.Point(0, 52);
             this.positionBottomLeft.Margin = new System.Windows.Forms.Padding(0);
             this.positionBottomLeft.Name = "positionBottomLeft";
-            this.positionBottomLeft.Size = new System.Drawing.Size(79, 26);
+            this.positionBottomLeft.Size = new System.Drawing.Size(90, 26);
             this.positionBottomLeft.TabIndex = 6;
             this.positionBottomLeft.UseVisualStyleBackColor = true;
             this.positionBottomLeft.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
@@ -407,10 +419,10 @@ namespace CapsLockIndicatorV3
             this.positionMiddleRight.Appearance = System.Windows.Forms.Appearance.Button;
             this.positionMiddleRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.positionMiddleRight.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.positionMiddleRight.Location = new System.Drawing.Point(158, 26);
+            this.positionMiddleRight.Location = new System.Drawing.Point(180, 26);
             this.positionMiddleRight.Margin = new System.Windows.Forms.Padding(0);
             this.positionMiddleRight.Name = "positionMiddleRight";
-            this.positionMiddleRight.Size = new System.Drawing.Size(80, 26);
+            this.positionMiddleRight.Size = new System.Drawing.Size(90, 26);
             this.positionMiddleRight.TabIndex = 5;
             this.positionMiddleRight.UseVisualStyleBackColor = true;
             this.positionMiddleRight.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
@@ -420,10 +432,10 @@ namespace CapsLockIndicatorV3
             this.positionMiddleCenter.Appearance = System.Windows.Forms.Appearance.Button;
             this.positionMiddleCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.positionMiddleCenter.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.positionMiddleCenter.Location = new System.Drawing.Point(79, 26);
+            this.positionMiddleCenter.Location = new System.Drawing.Point(90, 26);
             this.positionMiddleCenter.Margin = new System.Windows.Forms.Padding(0);
             this.positionMiddleCenter.Name = "positionMiddleCenter";
-            this.positionMiddleCenter.Size = new System.Drawing.Size(79, 26);
+            this.positionMiddleCenter.Size = new System.Drawing.Size(90, 26);
             this.positionMiddleCenter.TabIndex = 4;
             this.positionMiddleCenter.UseVisualStyleBackColor = true;
             this.positionMiddleCenter.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
@@ -436,7 +448,7 @@ namespace CapsLockIndicatorV3
             this.positionMiddleLeft.Location = new System.Drawing.Point(0, 26);
             this.positionMiddleLeft.Margin = new System.Windows.Forms.Padding(0);
             this.positionMiddleLeft.Name = "positionMiddleLeft";
-            this.positionMiddleLeft.Size = new System.Drawing.Size(79, 26);
+            this.positionMiddleLeft.Size = new System.Drawing.Size(90, 26);
             this.positionMiddleLeft.TabIndex = 3;
             this.positionMiddleLeft.UseVisualStyleBackColor = true;
             this.positionMiddleLeft.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
@@ -446,10 +458,10 @@ namespace CapsLockIndicatorV3
             this.positionTopRight.Appearance = System.Windows.Forms.Appearance.Button;
             this.positionTopRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.positionTopRight.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.positionTopRight.Location = new System.Drawing.Point(158, 0);
+            this.positionTopRight.Location = new System.Drawing.Point(180, 0);
             this.positionTopRight.Margin = new System.Windows.Forms.Padding(0);
             this.positionTopRight.Name = "positionTopRight";
-            this.positionTopRight.Size = new System.Drawing.Size(80, 26);
+            this.positionTopRight.Size = new System.Drawing.Size(90, 26);
             this.positionTopRight.TabIndex = 2;
             this.positionTopRight.UseVisualStyleBackColor = true;
             this.positionTopRight.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
@@ -459,10 +471,10 @@ namespace CapsLockIndicatorV3
             this.positionTopCenter.Appearance = System.Windows.Forms.Appearance.Button;
             this.positionTopCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.positionTopCenter.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.positionTopCenter.Location = new System.Drawing.Point(79, 0);
+            this.positionTopCenter.Location = new System.Drawing.Point(90, 0);
             this.positionTopCenter.Margin = new System.Windows.Forms.Padding(0);
             this.positionTopCenter.Name = "positionTopCenter";
-            this.positionTopCenter.Size = new System.Drawing.Size(79, 26);
+            this.positionTopCenter.Size = new System.Drawing.Size(90, 26);
             this.positionTopCenter.TabIndex = 1;
             this.positionTopCenter.UseVisualStyleBackColor = true;
             this.positionTopCenter.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
@@ -475,7 +487,7 @@ namespace CapsLockIndicatorV3
             this.positionTopLeft.Location = new System.Drawing.Point(0, 0);
             this.positionTopLeft.Margin = new System.Windows.Forms.Padding(0);
             this.positionTopLeft.Name = "positionTopLeft";
-            this.positionTopLeft.Size = new System.Drawing.Size(79, 26);
+            this.positionTopLeft.Size = new System.Drawing.Size(90, 26);
             this.positionTopLeft.TabIndex = 0;
             this.positionTopLeft.UseVisualStyleBackColor = true;
             this.positionTopLeft.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
@@ -486,7 +498,7 @@ namespace CapsLockIndicatorV3
             this.opacityGroup.Controls.Add(this.opacitySlider);
             this.opacityGroup.Location = new System.Drawing.Point(12, 298);
             this.opacityGroup.Name = "opacityGroup";
-            this.opacityGroup.Size = new System.Drawing.Size(244, 70);
+            this.opacityGroup.Size = new System.Drawing.Size(276, 70);
             this.opacityGroup.TabIndex = 2;
             this.opacityGroup.TabStop = false;
             this.opacityGroup.Text = "Opacity";
@@ -495,7 +507,7 @@ namespace CapsLockIndicatorV3
             // 
             this.opacityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.opacityLabel.Location = new System.Drawing.Point(159, 35);
+            this.opacityLabel.Location = new System.Drawing.Point(191, 35);
             this.opacityLabel.Name = "opacityLabel";
             this.opacityLabel.Size = new System.Drawing.Size(76, 15);
             this.opacityLabel.TabIndex = 1;
@@ -521,9 +533,9 @@ namespace CapsLockIndicatorV3
             // 
             this.borderGroup.Controls.Add(this.bdSizeLabel);
             this.borderGroup.Controls.Add(this.bdSizeSlider);
-            this.borderGroup.Location = new System.Drawing.Point(262, 248);
+            this.borderGroup.Location = new System.Drawing.Point(297, 248);
             this.borderGroup.Name = "borderGroup";
-            this.borderGroup.Size = new System.Drawing.Size(244, 70);
+            this.borderGroup.Size = new System.Drawing.Size(270, 70);
             this.borderGroup.TabIndex = 3;
             this.borderGroup.TabStop = false;
             this.borderGroup.Text = "Border thickness";
@@ -532,7 +544,7 @@ namespace CapsLockIndicatorV3
             // 
             this.bdSizeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.bdSizeLabel.Location = new System.Drawing.Point(159, 35);
+            this.bdSizeLabel.Location = new System.Drawing.Point(185, 35);
             this.bdSizeLabel.Name = "bdSizeLabel";
             this.bdSizeLabel.Size = new System.Drawing.Size(76, 15);
             this.bdSizeLabel.TabIndex = 1;
@@ -553,17 +565,18 @@ namespace CapsLockIndicatorV3
             this.bdSizeSlider.Value = 32;
             this.bdSizeSlider.Scroll += new System.EventHandler(this.bdSizeSlider_Scroll);
             // 
-            // lnkLabel1
+            // downloadIcons
             // 
-            this.lnkLabel1.AutoSize = true;
-            this.lnkLabel1.LinkColor = System.Drawing.SystemColors.HotTrack;
-            this.lnkLabel1.Location = new System.Drawing.Point(264, 349);
-            this.lnkLabel1.Name = "lnkLabel1";
-            this.lnkLabel1.Size = new System.Drawing.Size(104, 15);
-            this.lnkLabel1.TabIndex = 12;
-            this.lnkLabel1.TabStop = true;
-            this.lnkLabel1.Text = "Advanced settings";
-            this.lnkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLabel1_LinkClicked);
+            this.downloadIcons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.downloadIcons.LinkColor = System.Drawing.SystemColors.HotTrack;
+            this.downloadIcons.Location = new System.Drawing.Point(294, 321);
+            this.downloadIcons.Name = "downloadIcons";
+            this.downloadIcons.Size = new System.Drawing.Size(135, 44);
+            this.downloadIcons.TabIndex = 12;
+            this.downloadIcons.TabStop = true;
+            this.downloadIcons.Text = "downloadIcons";
+            this.downloadIcons.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.downloadIcons.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLabel2_LinkClicked);
             // 
             // IndSettingsWindow
             // 
@@ -571,8 +584,8 @@ namespace CapsLockIndicatorV3
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(518, 380);
-            this.Controls.Add(this.lnkLabel1);
+            this.ClientSize = new System.Drawing.Size(579, 380);
+            this.Controls.Add(this.downloadIcons);
             this.Controls.Add(this.borderGroup);
             this.Controls.Add(this.opacityGroup);
             this.Controls.Add(this.positionGroup);
@@ -654,6 +667,6 @@ namespace CapsLockIndicatorV3
         private System.Windows.Forms.GroupBox borderGroup;
         private System.Windows.Forms.Label bdSizeLabel;
         private System.Windows.Forms.TrackBar bdSizeSlider;
-        private LnkLabel lnkLabel1;
+        private LnkLabel downloadIcons;
     }
 }

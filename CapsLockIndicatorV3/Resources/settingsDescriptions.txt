@@ -1,0 +1,34 @@
+numIco							Show icon for num lock
+capsIco							Show icon for caps lock
+scrollIco						Show icon for scroll lock
+numInd							Show notification for num lock
+capsInd							Show notification for caps lock
+scrollInd						Show notification for scroll lock
+noIco							Don't show icons
+noInd							Don't show notifications
+darkMode						Enable dark color scheme
+hideOnStartup					Hide CapsLock Indicator on startup
+checkForUpdates					Automatically check for updates
+upgradeRequired					Internal. :b:{Do not change!}
+alwaysShowWhenActive			Don't hide overlay as long as key is active
+firstRun						If true, shows the :i:{First run} dialog on next start
+searchForUpdatesAfterResume		Whether CapsLock Indicator should search for updates after a system resume (i.e. after hibernation)
+indBgColourActive				Background color of overlay when key is active
+indFgColourActive				Text color of overlay when key is active
+indBdColourActive				Border color of overlay when key is active
+indBgColourInactive				Background color of overlay when key is inactive
+indFgColourInactive				Text color of overlay when key is inactive
+indBdColourInactive				Border color of overlay when key is inactive
+indFont							Overlay font
+indDisplayTime					Overlay display time
+indOpacity						Overlay opacity
+bdSize							Overlay border width
+versionNo						Internal. :b:{Do not change!}
+overlayPosition					Position of the overlay
+customMessageCapsOn				Custom message to display when caps lock was activated
+customMessageCapsOff			Custom message to display when caps lock was deactivated
+customMessageNumOn				Custom message to display when num lock was activated
+customMessageNumOff				Custom message to display when num lock was deactivated
+customMessageScrollOn			Custom message to display when scroll lock was activated
+customMessageScrollOff			Custom message to display when scroll lock was deactivated
+selectedLanguage				Selected language

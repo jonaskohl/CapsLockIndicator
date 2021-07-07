@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -18,6 +19,24 @@ namespace CapsLockIndicatorV3
 {
     internal sealed class Program
     {
+        // Fix hand cursor
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern IntPtr LoadCursor(IntPtr hInstance, int lpCursorName);
+        private const int IDC_HAND = 32649;
+        private static Cursor SystemHandCursor;
+
+        private static void ApplyHandCursorFix()
+        {
+            try
+            {
+                SystemHandCursor = new Cursor(LoadCursor(IntPtr.Zero, IDC_HAND));
+
+                typeof(Cursors).GetField("hand", BindingFlags.Static | BindingFlags.NonPublic)
+                               .SetValue(null, SystemHandCursor);
+            }
+            catch { }
+        }
+
         [Flags]
         enum KeyType
         {
@@ -32,6 +51,10 @@ namespace CapsLockIndicatorV3
             Icon,
             Notification
         }
+
+        public static bool keepFirstRunDialogOpen = true;
+
+        public static MainForm MainForm { get; private set; }
 
         static void SetDisplay(DisplayType type, int keys)
         {
@@ -151,25 +174,38 @@ namespace CapsLockIndicatorV3
 
                 var runApp = true;
 
+                ApplyHandCursorFix();
+
                 #endregion
 
-//#if DEBUG
+                //#if DEBUG
                 if (SettingsManager.Get<bool>("firstRun"))
 //#else
                 //if (SettingsManager.Get<bool>("firstRun") && new Version(SettingsManager.Get<string>("versionNo")) >= Assembly.GetExecutingAssembly().GetName().Version)
 //#endif
                 {
-                    using (var d = new FirstRunDialog())
+                    do
                     {
-                        if (d.ShowDialog() == DialogResult.OK)
-                            SettingsManager.Set("firstRun", false);
-                        else
-                            runApp = false;
-                    }
+                        using (var d = new FirstRunDialog())
+                        {
+                            var res = d.ShowDialog();
+                            if (res == DialogResult.OK)
+                            {
+                                SettingsManager.Set("firstRun", false);
+                                runApp = true;
+                            }
+                            else
+                                runApp = false;
+                        }
+                    } while (keepFirstRunDialogOpen);
                 }
 
                 if (runApp)
-                    Application.Run(new MainForm());
+                {
+                    MainForm = new MainForm();
+
+                    Application.Run(MainForm);
+                }
 
                 // Release the mutex
                 mutex.ReleaseMutex();

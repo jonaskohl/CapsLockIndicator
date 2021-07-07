@@ -13,9 +13,11 @@ namespace CapsLockIndicatorV3
 {
     public partial class DownloadDialog : DarkModeForm
     {
-        WebClient Client;
         Stopwatch sw = new Stopwatch();
+#if !DEBUG
+        WebClient Client;
         string newPath;
+#endif
 
         public string DownloadURL;
 
@@ -111,7 +113,9 @@ namespace CapsLockIndicatorV3
 
         private void button1_Click(object sender, EventArgs e)
         {
+#if !DEBUG
             Client?.CancelAsync();
+#endif
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -121,6 +125,7 @@ namespace CapsLockIndicatorV3
 
         private void restartButton_Click(object sender, EventArgs e)
         {
+#if !DEBUG
             bool runAtStarup = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "CapsLock Indicator", null) != null;
 
             if (runAtStarup)
@@ -138,6 +143,7 @@ namespace CapsLockIndicatorV3
 
             Process.Start(newPath);
             Application.Exit();
+#endif
         }
     }
 }
