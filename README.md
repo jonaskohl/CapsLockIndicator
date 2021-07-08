@@ -24,7 +24,7 @@
 <p align="center"><br /></p>
 
 <p align="center">
-  <img src="https://static.jonaskohl.de/q50c4wp6/cli_screenshot_sxc0l179voz8jqbq.png" alt="Screenshot">
+  <img src="https://static.jonaskohl.de/q50c4wp6/cli_screenshot_sxc0l179voz8jqbq.png?2" alt="Screenshot">
 </p>
 
 <p align="center"><br /></p>
