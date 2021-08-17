@@ -61,7 +61,6 @@ namespace CapsLockIndicatorV3
             this.checkForUpdatesButton = new System.Windows.Forms.Button();
             this.startonlogonCheckBox = new CapsLockIndicatorV3.BetterCheckBox();
             this.hideOnStartupCheckBox = new CapsLockIndicatorV3.BetterCheckBox();
-            this.hideWindowTimer = new System.Windows.Forms.Timer(this.components);
             this.mainToolTip = new CapsLockIndicatorV3.BetterToolTip(this.components);
             this.checkForUpdatedCheckBox = new CapsLockIndicatorV3.BetterCheckBox();
             this.dismissButton = new System.Windows.Forms.Button();
@@ -226,7 +225,7 @@ namespace CapsLockIndicatorV3
             this.iconsGroup.Location = new System.Drawing.Point(12, 12);
             this.iconsGroup.Margin = new System.Windows.Forms.Padding(12, 12, 3, 3);
             this.iconsGroup.Name = "iconsGroup";
-            this.iconsGroup.Size = new System.Drawing.Size(292, 79);
+            this.iconsGroup.Size = new System.Drawing.Size(292, 103);
             this.iconsGroup.TabIndex = 0;
             this.iconsGroup.TabStop = false;
             this.iconsGroup.Text = "showIconsFor";
@@ -282,7 +281,7 @@ namespace CapsLockIndicatorV3
             this.indicatorGroup.Location = new System.Drawing.Point(310, 12);
             this.indicatorGroup.Margin = new System.Windows.Forms.Padding(3, 12, 12, 3);
             this.indicatorGroup.Name = "indicatorGroup";
-            this.indicatorGroup.Size = new System.Drawing.Size(292, 79);
+            this.indicatorGroup.Size = new System.Drawing.Size(292, 103);
             this.indicatorGroup.TabIndex = 1;
             this.indicatorGroup.TabStop = false;
             this.indicatorGroup.Text = "showNotificationWhen";
@@ -361,7 +360,7 @@ namespace CapsLockIndicatorV3
             this.aboutPanel.Controls.Add(this.aboutPanelTopBorder);
             this.aboutPanel.Controls.Add(this.aboutText);
             this.aboutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.aboutPanel.Location = new System.Drawing.Point(0, 188);
+            this.aboutPanel.Location = new System.Drawing.Point(0, 236);
             this.aboutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.aboutPanel.Name = "aboutPanel";
             this.aboutPanel.Size = new System.Drawing.Size(614, 65);
@@ -469,17 +468,13 @@ namespace CapsLockIndicatorV3
             // 
             this.hideOnStartupCheckBox.AutoSize = true;
             this.hideOnStartupCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.hideOnStartupCheckBox.Location = new System.Drawing.Point(148, 3);
+            this.hideOnStartupCheckBox.Location = new System.Drawing.Point(3, 81);
             this.hideOnStartupCheckBox.Name = "hideOnStartupCheckBox";
             this.hideOnStartupCheckBox.Size = new System.Drawing.Size(109, 20);
             this.hideOnStartupCheckBox.TabIndex = 11;
             this.hideOnStartupCheckBox.Text = "hideOnStartup";
             this.hideOnStartupCheckBox.UseVisualStyleBackColor = true;
             this.hideOnStartupCheckBox.CheckedChanged += new System.EventHandler(this.hideOnStartupCheckBox_CheckedChanged);
-            // 
-            // hideWindowTimer
-            // 
-            this.hideWindowTimer.Tick += new System.EventHandler(this.hideWindowTimer_Tick);
             // 
             // checkForUpdatedCheckBox
             // 
@@ -564,7 +559,7 @@ namespace CapsLockIndicatorV3
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(614, 253);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(614, 301);
             this.tableLayoutPanel1.TabIndex = 14;
             // 
             // flowLayoutPanel1
@@ -575,10 +570,10 @@ namespace CapsLockIndicatorV3
             this.flowLayoutPanel1.Controls.Add(this.hideOnStartupCheckBox);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 97);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 121);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(12, 3, 3, 9);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(292, 82);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(292, 106);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -593,7 +588,7 @@ namespace CapsLockIndicatorV3
             this.tableLayoutPanel2.Controls.Add(this.checkForUpdatesButton, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.checkForUpdatedCheckBox, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(310, 97);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(310, 121);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 3, 12, 9);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
@@ -602,7 +597,7 @@ namespace CapsLockIndicatorV3
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(292, 82);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(292, 106);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // hideWindow
@@ -678,7 +673,7 @@ namespace CapsLockIndicatorV3
             this.displayTimeGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.displayTimeGroup.Location = new System.Drawing.Point(3, 3);
             this.displayTimeGroup.Name = "displayTimeGroup";
-            this.displayTimeGroup.Size = new System.Drawing.Size(298, 55);
+            this.displayTimeGroup.Size = new System.Drawing.Size(298, 67);
             this.displayTimeGroup.TabIndex = 0;
             this.displayTimeGroup.TabStop = false;
             this.displayTimeGroup.Text = "displayTime";
@@ -727,7 +722,7 @@ namespace CapsLockIndicatorV3
             this.coloursGroup.Location = new System.Drawing.Point(307, 3);
             this.coloursGroup.Name = "coloursGroup";
             this.tableLayoutPanel4.SetRowSpan(this.coloursGroup, 3);
-            this.coloursGroup.Size = new System.Drawing.Size(298, 177);
+            this.coloursGroup.Size = new System.Drawing.Size(298, 213);
             this.coloursGroup.TabIndex = 3;
             this.coloursGroup.TabStop = false;
             this.coloursGroup.Text = "colours";
@@ -759,7 +754,7 @@ namespace CapsLockIndicatorV3
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(292, 155);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(292, 191);
             this.tableLayoutPanel5.TabIndex = 12;
             // 
             // backgroundColourActivatedButton
@@ -768,7 +763,7 @@ namespace CapsLockIndicatorV3
             this.backgroundColourActivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.backgroundColourActivatedButton.Location = new System.Drawing.Point(67, 3);
             this.backgroundColourActivatedButton.Name = "backgroundColourActivatedButton";
-            this.backgroundColourActivatedButton.Size = new System.Drawing.Size(222, 19);
+            this.backgroundColourActivatedButton.Size = new System.Drawing.Size(222, 25);
             this.backgroundColourActivatedButton.TabIndex = 3;
             this.backgroundColourActivatedButton.Text = "backgroundColourActivated";
             this.backgroundColourActivatedButton.UseVisualStyleBackColor = true;
@@ -779,9 +774,9 @@ namespace CapsLockIndicatorV3
             this.borderColourDeactivatedPreview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(52)))), ((int)(((byte)(77)))));
             this.borderColourDeactivatedPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.borderColourDeactivatedPreview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.borderColourDeactivatedPreview.Location = new System.Drawing.Point(3, 128);
+            this.borderColourDeactivatedPreview.Location = new System.Drawing.Point(3, 158);
             this.borderColourDeactivatedPreview.Name = "borderColourDeactivatedPreview";
-            this.borderColourDeactivatedPreview.Size = new System.Drawing.Size(58, 24);
+            this.borderColourDeactivatedPreview.Size = new System.Drawing.Size(58, 30);
             this.borderColourDeactivatedPreview.TabIndex = 11;
             this.borderColourDeactivatedPreview.TabStop = false;
             // 
@@ -789,9 +784,9 @@ namespace CapsLockIndicatorV3
             // 
             this.backgroundColourDeactivatedButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.backgroundColourDeactivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.backgroundColourDeactivatedButton.Location = new System.Drawing.Point(67, 28);
+            this.backgroundColourDeactivatedButton.Location = new System.Drawing.Point(67, 34);
             this.backgroundColourDeactivatedButton.Name = "backgroundColourDeactivatedButton";
-            this.backgroundColourDeactivatedButton.Size = new System.Drawing.Size(222, 19);
+            this.backgroundColourDeactivatedButton.Size = new System.Drawing.Size(222, 25);
             this.backgroundColourDeactivatedButton.TabIndex = 4;
             this.backgroundColourDeactivatedButton.Text = "backgroundColourDeactivated";
             this.backgroundColourDeactivatedButton.UseVisualStyleBackColor = true;
@@ -802,9 +797,9 @@ namespace CapsLockIndicatorV3
             this.borderColourActivatedPreview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(180)))), ((int)(((byte)(52)))));
             this.borderColourActivatedPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.borderColourActivatedPreview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.borderColourActivatedPreview.Location = new System.Drawing.Point(3, 103);
+            this.borderColourActivatedPreview.Location = new System.Drawing.Point(3, 127);
             this.borderColourActivatedPreview.Name = "borderColourActivatedPreview";
-            this.borderColourActivatedPreview.Size = new System.Drawing.Size(58, 19);
+            this.borderColourActivatedPreview.Size = new System.Drawing.Size(58, 25);
             this.borderColourActivatedPreview.TabIndex = 5;
             this.borderColourActivatedPreview.TabStop = false;
             // 
@@ -813,9 +808,9 @@ namespace CapsLockIndicatorV3
             this.foregroundColourDeactivatedPreview.BackColor = System.Drawing.Color.White;
             this.foregroundColourDeactivatedPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.foregroundColourDeactivatedPreview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.foregroundColourDeactivatedPreview.Location = new System.Drawing.Point(3, 78);
+            this.foregroundColourDeactivatedPreview.Location = new System.Drawing.Point(3, 96);
             this.foregroundColourDeactivatedPreview.Name = "foregroundColourDeactivatedPreview";
-            this.foregroundColourDeactivatedPreview.Size = new System.Drawing.Size(58, 19);
+            this.foregroundColourDeactivatedPreview.Size = new System.Drawing.Size(58, 25);
             this.foregroundColourDeactivatedPreview.TabIndex = 9;
             this.foregroundColourDeactivatedPreview.TabStop = false;
             // 
@@ -823,9 +818,9 @@ namespace CapsLockIndicatorV3
             // 
             this.borderColourDeactivatedButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.borderColourDeactivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.borderColourDeactivatedButton.Location = new System.Drawing.Point(67, 128);
+            this.borderColourDeactivatedButton.Location = new System.Drawing.Point(67, 158);
             this.borderColourDeactivatedButton.Name = "borderColourDeactivatedButton";
-            this.borderColourDeactivatedButton.Size = new System.Drawing.Size(222, 24);
+            this.borderColourDeactivatedButton.Size = new System.Drawing.Size(222, 30);
             this.borderColourDeactivatedButton.TabIndex = 8;
             this.borderColourDeactivatedButton.Text = "borderColourDecativated";
             this.borderColourDeactivatedButton.UseVisualStyleBackColor = true;
@@ -836,9 +831,9 @@ namespace CapsLockIndicatorV3
             this.backgroundColourDeactivatedPreview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.backgroundColourDeactivatedPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.backgroundColourDeactivatedPreview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.backgroundColourDeactivatedPreview.Location = new System.Drawing.Point(3, 28);
+            this.backgroundColourDeactivatedPreview.Location = new System.Drawing.Point(3, 34);
             this.backgroundColourDeactivatedPreview.Name = "backgroundColourDeactivatedPreview";
-            this.backgroundColourDeactivatedPreview.Size = new System.Drawing.Size(58, 19);
+            this.backgroundColourDeactivatedPreview.Size = new System.Drawing.Size(58, 25);
             this.backgroundColourDeactivatedPreview.TabIndex = 7;
             this.backgroundColourDeactivatedPreview.TabStop = false;
             // 
@@ -847,9 +842,9 @@ namespace CapsLockIndicatorV3
             this.foregroundColourActivatedPreview.BackColor = System.Drawing.Color.White;
             this.foregroundColourActivatedPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.foregroundColourActivatedPreview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.foregroundColourActivatedPreview.Location = new System.Drawing.Point(3, 53);
+            this.foregroundColourActivatedPreview.Location = new System.Drawing.Point(3, 65);
             this.foregroundColourActivatedPreview.Name = "foregroundColourActivatedPreview";
-            this.foregroundColourActivatedPreview.Size = new System.Drawing.Size(58, 19);
+            this.foregroundColourActivatedPreview.Size = new System.Drawing.Size(58, 25);
             this.foregroundColourActivatedPreview.TabIndex = 3;
             this.foregroundColourActivatedPreview.TabStop = false;
             // 
@@ -857,9 +852,9 @@ namespace CapsLockIndicatorV3
             // 
             this.foregroundColourActivatedButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.foregroundColourActivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.foregroundColourActivatedButton.Location = new System.Drawing.Point(67, 53);
+            this.foregroundColourActivatedButton.Location = new System.Drawing.Point(67, 65);
             this.foregroundColourActivatedButton.Name = "foregroundColourActivatedButton";
-            this.foregroundColourActivatedButton.Size = new System.Drawing.Size(222, 19);
+            this.foregroundColourActivatedButton.Size = new System.Drawing.Size(222, 25);
             this.foregroundColourActivatedButton.TabIndex = 5;
             this.foregroundColourActivatedButton.Text = "textColourActivated";
             this.foregroundColourActivatedButton.UseVisualStyleBackColor = true;
@@ -869,9 +864,9 @@ namespace CapsLockIndicatorV3
             // 
             this.foregroundColourDeactivatedButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.foregroundColourDeactivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.foregroundColourDeactivatedButton.Location = new System.Drawing.Point(67, 78);
+            this.foregroundColourDeactivatedButton.Location = new System.Drawing.Point(67, 96);
             this.foregroundColourDeactivatedButton.Name = "foregroundColourDeactivatedButton";
-            this.foregroundColourDeactivatedButton.Size = new System.Drawing.Size(222, 19);
+            this.foregroundColourDeactivatedButton.Size = new System.Drawing.Size(222, 25);
             this.foregroundColourDeactivatedButton.TabIndex = 6;
             this.foregroundColourDeactivatedButton.Text = "textColourActivated";
             this.foregroundColourDeactivatedButton.UseVisualStyleBackColor = true;
@@ -881,9 +876,9 @@ namespace CapsLockIndicatorV3
             // 
             this.borderColourActivatedButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.borderColourActivatedButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.borderColourActivatedButton.Location = new System.Drawing.Point(67, 103);
+            this.borderColourActivatedButton.Location = new System.Drawing.Point(67, 127);
             this.borderColourActivatedButton.Name = "borderColourActivatedButton";
-            this.borderColourActivatedButton.Size = new System.Drawing.Size(222, 19);
+            this.borderColourActivatedButton.Size = new System.Drawing.Size(222, 25);
             this.borderColourActivatedButton.TabIndex = 7;
             this.borderColourActivatedButton.Text = "borderColourActivated";
             this.borderColourActivatedButton.UseVisualStyleBackColor = true;
@@ -896,7 +891,7 @@ namespace CapsLockIndicatorV3
             this.backgroundColourActivatedPreview.Dock = System.Windows.Forms.DockStyle.Fill;
             this.backgroundColourActivatedPreview.Location = new System.Drawing.Point(3, 3);
             this.backgroundColourActivatedPreview.Name = "backgroundColourActivatedPreview";
-            this.backgroundColourActivatedPreview.Size = new System.Drawing.Size(58, 19);
+            this.backgroundColourActivatedPreview.Size = new System.Drawing.Size(58, 25);
             this.backgroundColourActivatedPreview.TabIndex = 1;
             this.backgroundColourActivatedPreview.TabStop = false;
             // 
@@ -904,9 +899,9 @@ namespace CapsLockIndicatorV3
             // 
             this.fontGroupBox.Controls.Add(this.fontButton);
             this.fontGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fontGroupBox.Location = new System.Drawing.Point(3, 64);
+            this.fontGroupBox.Location = new System.Drawing.Point(3, 76);
             this.fontGroupBox.Name = "fontGroupBox";
-            this.fontGroupBox.Size = new System.Drawing.Size(298, 55);
+            this.fontGroupBox.Size = new System.Drawing.Size(298, 67);
             this.fontGroupBox.TabIndex = 2;
             this.fontGroupBox.TabStop = false;
             this.fontGroupBox.Text = "font";
@@ -918,7 +913,7 @@ namespace CapsLockIndicatorV3
             this.fontButton.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.fontButton.Location = new System.Drawing.Point(3, 19);
             this.fontButton.Name = "fontButton";
-            this.fontButton.Size = new System.Drawing.Size(292, 33);
+            this.fontButton.Size = new System.Drawing.Size(292, 45);
             this.fontButton.TabIndex = 2;
             this.fontButton.Text = "preview";
             this.fontButton.UseVisualStyleBackColor = true;
@@ -937,9 +932,9 @@ namespace CapsLockIndicatorV3
             // 
             this.positionGroup.Controls.Add(this.positionButtonLayout);
             this.positionGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.positionGroup.Location = new System.Drawing.Point(3, 125);
+            this.positionGroup.Location = new System.Drawing.Point(3, 149);
             this.positionGroup.Name = "positionGroup";
-            this.positionGroup.Size = new System.Drawing.Size(298, 55);
+            this.positionGroup.Size = new System.Drawing.Size(298, 67);
             this.positionGroup.TabIndex = 11;
             this.positionGroup.TabStop = false;
             this.positionGroup.Text = "overlayPosition";
@@ -966,7 +961,7 @@ namespace CapsLockIndicatorV3
             this.positionButtonLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.positionButtonLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.positionButtonLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.positionButtonLayout.Size = new System.Drawing.Size(292, 33);
+            this.positionButtonLayout.Size = new System.Drawing.Size(292, 45);
             this.positionButtonLayout.TabIndex = 0;
             // 
             // positionBottomRight
@@ -974,10 +969,10 @@ namespace CapsLockIndicatorV3
             this.positionBottomRight.Appearance = System.Windows.Forms.Appearance.Button;
             this.positionBottomRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.positionBottomRight.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.positionBottomRight.Location = new System.Drawing.Point(194, 22);
+            this.positionBottomRight.Location = new System.Drawing.Point(194, 30);
             this.positionBottomRight.Margin = new System.Windows.Forms.Padding(0);
             this.positionBottomRight.Name = "positionBottomRight";
-            this.positionBottomRight.Size = new System.Drawing.Size(98, 11);
+            this.positionBottomRight.Size = new System.Drawing.Size(98, 15);
             this.positionBottomRight.TabIndex = 8;
             this.positionBottomRight.UseVisualStyleBackColor = true;
             this.positionBottomRight.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
@@ -987,10 +982,10 @@ namespace CapsLockIndicatorV3
             this.positionBottomCenter.Appearance = System.Windows.Forms.Appearance.Button;
             this.positionBottomCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.positionBottomCenter.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.positionBottomCenter.Location = new System.Drawing.Point(97, 22);
+            this.positionBottomCenter.Location = new System.Drawing.Point(97, 30);
             this.positionBottomCenter.Margin = new System.Windows.Forms.Padding(0);
             this.positionBottomCenter.Name = "positionBottomCenter";
-            this.positionBottomCenter.Size = new System.Drawing.Size(97, 11);
+            this.positionBottomCenter.Size = new System.Drawing.Size(97, 15);
             this.positionBottomCenter.TabIndex = 7;
             this.positionBottomCenter.UseVisualStyleBackColor = true;
             this.positionBottomCenter.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
@@ -1000,10 +995,10 @@ namespace CapsLockIndicatorV3
             this.positionBottomLeft.Appearance = System.Windows.Forms.Appearance.Button;
             this.positionBottomLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.positionBottomLeft.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.positionBottomLeft.Location = new System.Drawing.Point(0, 22);
+            this.positionBottomLeft.Location = new System.Drawing.Point(0, 30);
             this.positionBottomLeft.Margin = new System.Windows.Forms.Padding(0);
             this.positionBottomLeft.Name = "positionBottomLeft";
-            this.positionBottomLeft.Size = new System.Drawing.Size(97, 11);
+            this.positionBottomLeft.Size = new System.Drawing.Size(97, 15);
             this.positionBottomLeft.TabIndex = 6;
             this.positionBottomLeft.UseVisualStyleBackColor = true;
             this.positionBottomLeft.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
@@ -1013,10 +1008,10 @@ namespace CapsLockIndicatorV3
             this.positionMiddleRight.Appearance = System.Windows.Forms.Appearance.Button;
             this.positionMiddleRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.positionMiddleRight.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.positionMiddleRight.Location = new System.Drawing.Point(194, 11);
+            this.positionMiddleRight.Location = new System.Drawing.Point(194, 15);
             this.positionMiddleRight.Margin = new System.Windows.Forms.Padding(0);
             this.positionMiddleRight.Name = "positionMiddleRight";
-            this.positionMiddleRight.Size = new System.Drawing.Size(98, 11);
+            this.positionMiddleRight.Size = new System.Drawing.Size(98, 15);
             this.positionMiddleRight.TabIndex = 5;
             this.positionMiddleRight.UseVisualStyleBackColor = true;
             this.positionMiddleRight.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
@@ -1026,10 +1021,10 @@ namespace CapsLockIndicatorV3
             this.positionMiddleCenter.Appearance = System.Windows.Forms.Appearance.Button;
             this.positionMiddleCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.positionMiddleCenter.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.positionMiddleCenter.Location = new System.Drawing.Point(97, 11);
+            this.positionMiddleCenter.Location = new System.Drawing.Point(97, 15);
             this.positionMiddleCenter.Margin = new System.Windows.Forms.Padding(0);
             this.positionMiddleCenter.Name = "positionMiddleCenter";
-            this.positionMiddleCenter.Size = new System.Drawing.Size(97, 11);
+            this.positionMiddleCenter.Size = new System.Drawing.Size(97, 15);
             this.positionMiddleCenter.TabIndex = 4;
             this.positionMiddleCenter.UseVisualStyleBackColor = true;
             this.positionMiddleCenter.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
@@ -1039,10 +1034,10 @@ namespace CapsLockIndicatorV3
             this.positionMiddleLeft.Appearance = System.Windows.Forms.Appearance.Button;
             this.positionMiddleLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.positionMiddleLeft.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.positionMiddleLeft.Location = new System.Drawing.Point(0, 11);
+            this.positionMiddleLeft.Location = new System.Drawing.Point(0, 15);
             this.positionMiddleLeft.Margin = new System.Windows.Forms.Padding(0);
             this.positionMiddleLeft.Name = "positionMiddleLeft";
-            this.positionMiddleLeft.Size = new System.Drawing.Size(97, 11);
+            this.positionMiddleLeft.Size = new System.Drawing.Size(97, 15);
             this.positionMiddleLeft.TabIndex = 3;
             this.positionMiddleLeft.UseVisualStyleBackColor = true;
             this.positionMiddleLeft.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
@@ -1055,7 +1050,7 @@ namespace CapsLockIndicatorV3
             this.positionTopRight.Location = new System.Drawing.Point(194, 0);
             this.positionTopRight.Margin = new System.Windows.Forms.Padding(0);
             this.positionTopRight.Name = "positionTopRight";
-            this.positionTopRight.Size = new System.Drawing.Size(98, 11);
+            this.positionTopRight.Size = new System.Drawing.Size(98, 15);
             this.positionTopRight.TabIndex = 2;
             this.positionTopRight.UseVisualStyleBackColor = true;
             this.positionTopRight.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
@@ -1068,7 +1063,7 @@ namespace CapsLockIndicatorV3
             this.positionTopCenter.Location = new System.Drawing.Point(97, 0);
             this.positionTopCenter.Margin = new System.Windows.Forms.Padding(0);
             this.positionTopCenter.Name = "positionTopCenter";
-            this.positionTopCenter.Size = new System.Drawing.Size(97, 11);
+            this.positionTopCenter.Size = new System.Drawing.Size(97, 15);
             this.positionTopCenter.TabIndex = 1;
             this.positionTopCenter.UseVisualStyleBackColor = true;
             this.positionTopCenter.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
@@ -1081,7 +1076,7 @@ namespace CapsLockIndicatorV3
             this.positionTopLeft.Location = new System.Drawing.Point(0, 0);
             this.positionTopLeft.Margin = new System.Windows.Forms.Padding(0);
             this.positionTopLeft.Name = "positionTopLeft";
-            this.positionTopLeft.Size = new System.Drawing.Size(97, 11);
+            this.positionTopLeft.Size = new System.Drawing.Size(97, 15);
             this.positionTopLeft.TabIndex = 0;
             this.positionTopLeft.UseVisualStyleBackColor = true;
             this.positionTopLeft.CheckedChanged += new System.EventHandler(this.positionButton_CheckedChanged);
@@ -1091,9 +1086,9 @@ namespace CapsLockIndicatorV3
             this.opacityGroup.Controls.Add(this.opacityLabel);
             this.opacityGroup.Controls.Add(this.opacitySlider);
             this.opacityGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opacityGroup.Location = new System.Drawing.Point(3, 186);
+            this.opacityGroup.Location = new System.Drawing.Point(3, 222);
             this.opacityGroup.Name = "opacityGroup";
-            this.opacityGroup.Size = new System.Drawing.Size(298, 58);
+            this.opacityGroup.Size = new System.Drawing.Size(298, 70);
             this.opacityGroup.TabIndex = 2;
             this.opacityGroup.TabStop = false;
             this.opacityGroup.Text = "opacity";
@@ -1101,7 +1096,7 @@ namespace CapsLockIndicatorV3
             // opacityLabel
             // 
             this.opacityLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.opacityLabel.Location = new System.Drawing.Point(216, 19);
+            this.opacityLabel.Location = new System.Drawing.Point(216, 25);
             this.opacityLabel.Name = "opacityLabel";
             this.opacityLabel.Size = new System.Drawing.Size(76, 31);
             this.opacityLabel.TabIndex = 1;
@@ -1113,7 +1108,7 @@ namespace CapsLockIndicatorV3
             // 
             this.opacitySlider.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.opacitySlider.LargeChange = 10;
-            this.opacitySlider.Location = new System.Drawing.Point(6, 14);
+            this.opacitySlider.Location = new System.Drawing.Point(6, 20);
             this.opacitySlider.Maximum = 100;
             this.opacitySlider.Minimum = 1;
             this.opacitySlider.Name = "opacitySlider";
@@ -1129,9 +1124,9 @@ namespace CapsLockIndicatorV3
             this.borderGroup.Controls.Add(this.bdSizeLabel);
             this.borderGroup.Controls.Add(this.bdSizeSlider);
             this.borderGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.borderGroup.Location = new System.Drawing.Point(307, 186);
+            this.borderGroup.Location = new System.Drawing.Point(307, 222);
             this.borderGroup.Name = "borderGroup";
-            this.borderGroup.Size = new System.Drawing.Size(298, 58);
+            this.borderGroup.Size = new System.Drawing.Size(298, 70);
             this.borderGroup.TabIndex = 3;
             this.borderGroup.TabStop = false;
             this.borderGroup.Text = "borderThickness";
@@ -1139,7 +1134,7 @@ namespace CapsLockIndicatorV3
             // bdSizeLabel
             // 
             this.bdSizeLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.bdSizeLabel.Location = new System.Drawing.Point(213, 13);
+            this.bdSizeLabel.Location = new System.Drawing.Point(213, 19);
             this.bdSizeLabel.Name = "bdSizeLabel";
             this.bdSizeLabel.Size = new System.Drawing.Size(76, 43);
             this.bdSizeLabel.TabIndex = 1;
@@ -1151,7 +1146,7 @@ namespace CapsLockIndicatorV3
             // 
             this.bdSizeSlider.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.bdSizeSlider.LargeChange = 10;
-            this.bdSizeSlider.Location = new System.Drawing.Point(6, 14);
+            this.bdSizeSlider.Location = new System.Drawing.Point(6, 20);
             this.bdSizeSlider.Maximum = 32;
             this.bdSizeSlider.Name = "bdSizeSlider";
             this.bdSizeSlider.Size = new System.Drawing.Size(201, 45);
@@ -1193,7 +1188,7 @@ namespace CapsLockIndicatorV3
             this.tabPage3.Controls.Add(this.tableLayoutPanel1);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(614, 253);
+            this.tabPage3.Size = new System.Drawing.Size(614, 301);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Tag = "340";
             this.tabPage3.Text = "general";
@@ -1204,7 +1199,7 @@ namespace CapsLockIndicatorV3
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(614, 253);
+            this.tabPage1.Size = new System.Drawing.Size(614, 301);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Tag = "474";
             this.tabPage1.Text = "notification";
@@ -1229,7 +1224,7 @@ namespace CapsLockIndicatorV3
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00063F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00063F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99813F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(608, 247);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(608, 295);
             this.tableLayoutPanel4.TabIndex = 12;
             // 
             // tabPage2
@@ -1392,7 +1387,6 @@ namespace CapsLockIndicatorV3
         private System.Windows.Forms.Button checkForUpdatesButton;
         private BetterCheckBox startonlogonCheckBox;
         private BetterCheckBox hideOnStartupCheckBox;
-        private System.Windows.Forms.Timer hideWindowTimer;
         private System.Windows.Forms.ContextMenuStrip generalIconContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;

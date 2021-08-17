@@ -68,8 +68,7 @@ namespace CapsLockIndicatorV3
             // Initialize component
             InitializeComponent();
 
-            Opacity = 0;
-            ShowInTaskbar = false;
+            Visible = false;
 
             // Load "resources.resx" into a ResourceManager to access its resources
             resources = new ResourceManager("CapsLockIndicatorV3.resources", Assembly.GetExecutingAssembly());
@@ -120,19 +119,7 @@ namespace CapsLockIndicatorV3
 
             // Check if application is in startup
             startonlogonCheckBox.Checked = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "CapsLock Indicator", null) != null;
-
-            // Hides the window on startup if enabled
-            if (SettingsManager.Get<bool>("hideOnStartup"))
-            {
-                hideOnStartupCheckBox.Checked = true;
-                hideWindowTimer.Start();
-            }
-            else
-            {
-                Opacity = 1;
-                ShowInTaskbar = true;
-            }
-
+            hideOnStartupCheckBox.Checked = SettingsManager.Get<bool>("hideOnStartup");
             checkForUpdatedCheckBox.Checked = SettingsManager.Get<bool>("checkForUpdates");
 
             AddCultures();
@@ -240,9 +227,25 @@ namespace CapsLockIndicatorV3
 
             if (oldVersionVer < Versions.SettingsToTabs)
                 tutorialTimer.Start();
+            tutorialTimer.Start();
 
             tabControl1.SelectedIndexChanged += TabControl1_SelectedIndexChanged;
+
+            if (!SettingsManager.Get<bool>("hideOnStartup"))
+                Visible = true;
         }
+
+        //bool allowShow = false;
+        //protected override void OnVisibleChanged(EventArgs e)
+        //{
+        //    base.OnVisibleChanged(e);
+
+        //    if (!allowShow && SettingsManager.Get<bool>("hideOnStartup"))
+        //    {
+        //        Visible = false;
+        //        allowShow = true;
+        //    }
+        //}
 
         private void TabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -259,11 +262,12 @@ namespace CapsLockIndicatorV3
             tutorialToolTip.Active = true;
             // Hack to fix incorrect step/tip placement on first invokation
             // See: https://stackoverflow.com/a/8716963
-            tutorialToolTip.Show(string.Empty, tabControl1, pt, 1);
-            tutorialToolTip.Show(
-                strings.settingsChangedToolTip,
-                tabControl1,
-                pt, 6000);
+            //tutorialToolTip.Show(string.Empty, tabControl1, pt, 1);
+            //tutorialToolTip.Show(
+            //    strings.settingsChangedToolTip,
+            //    tabControl1,
+            //    pt, 6000);
+            MessageBox.Show(Location.ToString() + "\r\n" + Opacity.ToString());
         }
 
         private Point GetRectCenter(Rectangle rectangle)
@@ -918,7 +922,7 @@ namespace CapsLockIndicatorV3
             //generalIcon.ShowBalloonTip(100);
             Hide();
             isHidden = true;
-            Opacity = 1;
+            //Opacity = 1;
         }
 
         void GeneralIconMouseDoubleClick(object sender, MouseEventArgs e)
@@ -989,21 +993,16 @@ namespace CapsLockIndicatorV3
             SettingsManager.Save();
         }
 
-
-        // This timer is required for some reason
-        private void hideWindowTimer_Tick(object sender, EventArgs e)
-        {
-            hideWindowTimer.Stop();
-            hideWindow.PerformClick();
-        }
-
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing && !shouldClose)
             {
                 e.Cancel = true;
                 HideForm();
+                return;
             }
+
+            Application.Exit();
         }
 
         private void lnkLabel1_Click(object sender, EventArgs e)
@@ -1282,12 +1281,14 @@ namespace CapsLockIndicatorV3
         private void DarkModeCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             var f = DarkModeChangingForm.Show(this, darkModeCheckBox.Checked);
-            Opacity = 0;
+            //Opacity = 0;
+            Hide();
             Enabled = false;
             Application.DoEvents();
             DarkModeProvider.SetDarkModeEnabled(darkModeCheckBox.Checked);
             Enabled = true;
-            Opacity = 1;
+            //Opacity = 1;
+            Show();
             f.Close();
         }
 

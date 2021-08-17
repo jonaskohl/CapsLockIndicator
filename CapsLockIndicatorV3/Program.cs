@@ -143,7 +143,7 @@ namespace CapsLockIndicatorV3
                 {
                     MainForm = new MainForm();
 
-                    Application.Run(MainForm);
+                    Application.Run();
                 }
 
                 // Release the mutex
