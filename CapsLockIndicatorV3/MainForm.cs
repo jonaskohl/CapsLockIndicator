@@ -227,7 +227,6 @@ namespace CapsLockIndicatorV3
 
             if (oldVersionVer < Versions.SettingsToTabs)
                 tutorialTimer.Start();
-            tutorialTimer.Start();
 
             tabControl1.SelectedIndexChanged += TabControl1_SelectedIndexChanged;
 
@@ -262,12 +261,11 @@ namespace CapsLockIndicatorV3
             tutorialToolTip.Active = true;
             // Hack to fix incorrect step/tip placement on first invokation
             // See: https://stackoverflow.com/a/8716963
-            //tutorialToolTip.Show(string.Empty, tabControl1, pt, 1);
-            //tutorialToolTip.Show(
-            //    strings.settingsChangedToolTip,
-            //    tabControl1,
-            //    pt, 6000);
-            MessageBox.Show(Location.ToString() + "\r\n" + Opacity.ToString());
+            tutorialToolTip.Show(string.Empty, tabControl1, pt, 1);
+            tutorialToolTip.Show(
+                strings.settingsChangedToolTip,
+                tabControl1,
+                pt, 6000);
         }
 
         private Point GetRectCenter(Rectangle rectangle)
