@@ -43,7 +43,7 @@ namespace CapsLockIndicatorV3
             lightButton.Text = strings.firstRunColorSchemeLight;
             darkButton.Text = strings.firstRunColorSchemeDark;
 
-            if (Environment.OSVersion.Version.Major < 10)
+            if (!DarkModeProvider.SystemSupportsDarkMode)
             {
                 darkButton.Enabled = false;
                 darkButton.Text += "\r\n" + strings.firstRunColorSchemeWin10Only;

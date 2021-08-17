@@ -121,6 +121,13 @@
     <value>Geavanceerde instellingen</value>
     <comment>Label of the hyperlink that opens the settings file</comment>
   </data>
+  
+<!--
+<data name="autoCheckForUpdates" xml:space="preserve">
+    <value>Automatically check for updates</value>
+    <comment>Tooltip for the checkbox next to the update button</comment>
+  </data>
+-->
   <data name="backgroundColourActivatedButton" xml:space="preserve">
     <value>Achtergrondkleur geactiveerd</value>
     <comment>The caption for the "Background colour activated" button.</comment>
@@ -173,6 +180,13 @@
     <value>Toon tijd</value>
     <comment>The title for the "Display time" group box</comment>
   </data>
+  
+<!--
+<data name="downloadIcons" xml:space="preserve">
+    <value>Download icon packs</value>
+    <comment>Hyperlink for accessing the icon pack browser</comment>
+  </data>
+-->
   <data name="downloadManuallyButton" xml:space="preserve">
     <value>Download &amp;handmatig</value>
     <comment>The caption for the "Download manually" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -193,6 +207,34 @@
     <value>Sta CapsLock Indicator toe om periodiek op updates te controleren (kan later aangepast worden)</value>
     <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
   </data>
+  
+<!--
+<data name="firstRunColorSchemeDark" xml:space="preserve">
+    <value>&amp;Dark</value>
+    <comment>Button for selecting dark color scheme</comment>
+  </data>
+-->
+  
+<!--
+<data name="firstRunColorSchemeLight" xml:space="preserve">
+    <value>L&amp;ight</value>
+    <comment>Button for selecting light color scheme</comment>
+  </data>
+-->
+  
+<!--
+<data name="firstRunColorSchemePreference" xml:space="preserve">
+    <value>Which color scheme do you prefer?</value>
+    <comment>Label for selecting color scheme</comment>
+  </data>
+-->
+  
+<!--
+<data name="firstRunColorSchemeWin10Only" xml:space="preserve">
+    <value>Only available on Windows 10</value>
+    <comment>Added to dark button if not running on Windows 10</comment>
+  </data>
+-->
   <data name="firstRunContribute" xml:space="preserve">
     <value>Bijdragen</value>
     <comment>Label of the hyperlink that takes you to CLI's GitHub page</comment>
@@ -241,6 +283,48 @@
     <value>&amp;Verberg scherm</value>
     <comment>The caption for the button that hides the window. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
+  
+<!--
+<data name="iconPackDownloadingMetadata" xml:space="preserve">
+    <value>Downloading metadata...</value>
+    <comment>Shown when downloading metadata for icon pack</comment>
+  </data>
+-->
+  
+<!--
+<data name="iconPackDownloadingPack" xml:space="preserve">
+    <value>Downloading pack...</value>
+    <comment>Shown when downloading an icon pack</comment>
+  </data>
+-->
+  
+<!--
+<data name="iconPackPrompt" xml:space="preserve">
+    <value>Do you want to install the icon pack “{name}” (Version {version}) by {authorName}?</value>
+    <comment>Prompt shown when installing an icon pack</comment>
+  </data>
+-->
+  
+<!--
+<data name="iconPackResetPrompt" xml:space="preserve">
+    <value>Do you want to reset the icons to the default ones?</value>
+    <comment>Shown when asked to reset the icons</comment>
+  </data>
+-->
+  
+<!--
+<data name="iconPackResetSuccess" xml:space="preserve">
+    <value>Icons were reset to default!</value>
+    <comment>Shown after icons were reset</comment>
+  </data>
+-->
+  
+<!--
+<data name="iconPackSuccess" xml:space="preserve">
+    <value>Successfully installed icon pack “{name}” (Version {version})!</value>
+    <comment>Shown after an icon pack was installed successfully</comment>
+  </data>
+-->
   <data name="keyChanged" xml:space="preserve">
     <value>{0} gewijzigd</value>
     <comment>Used for the check boxes in the "Show notification when..." group box. "{0}" will be replaced with the key name</comment>
@@ -277,6 +361,13 @@
     <value>Permanent</value>
     <comment>Text to display instead of the time if indicator overlay display is set to permanently.</comment>
   </data>
+  
+<!--
+<data name="reloadedIconsInfo" xml:space="preserve">
+    <value>Reloaded icons</value>
+    <comment>Shown in a notification when hot-reloading icons.</comment>
+  </data>
+-->
   <data name="saveAndCloseButton" xml:space="preserve">
     <value>&amp;Bewaar &amp;&amp; sluit</value>
     <comment>The caption for the "Save &amp; Close" button. The character after the "&amp;" is the hotkey that is used with the ALT key. Use two "&amp;" to display a "&amp;" character</comment>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,6 +51,48 @@ namespace CapsLockIndicatorV3
         [DllImport("user32.dll")]
         static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
 
+        [DllImport("user32")]
+        public static extern IntPtr GetDC(IntPtr hWnd);
+
+        [DllImport("User32.dll", CharSet = CharSet.Auto)]
+        public static extern IntPtr GetWindowDC(IntPtr handle);
+
+        [DllImport("User32.dll", CharSet = CharSet.Auto)]
+        public static extern IntPtr ReleaseDC(IntPtr handle, IntPtr hDC);
+
+        [DllImport("Gdi32.dll", CharSet = CharSet.Auto)]
+        public static extern IntPtr CreateCompatibleDC(IntPtr hdc);
+
+        [DllImport("User32.dll", CharSet = CharSet.Auto)]
+        public static extern int GetClassName(IntPtr hwnd, char[] className, int maxCount);
+
+        [DllImport("User32.dll", CharSet = CharSet.Auto)]
+        public static extern IntPtr GetWindow(IntPtr hwnd, int uCmd);
+
+        [DllImport("User32.dll", CharSet = CharSet.Auto)]
+        public static extern bool IsWindowVisible(IntPtr hwnd);
+
+        [DllImport("user32", CharSet = CharSet.Auto)]
+        public static extern int GetClientRect(IntPtr hwnd, ref RECT lpRect);
+
+        [DllImport("user32", CharSet = CharSet.Auto)]
+        public static extern int GetClientRect(IntPtr hwnd, [In, Out] ref Rectangle rect);
+
+        [DllImport("user32", CharSet = CharSet.Auto)]
+        public static extern bool MoveWindow(IntPtr hwnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
+
+        [DllImport("user32", CharSet = CharSet.Auto)]
+        public static extern bool UpdateWindow(IntPtr hwnd);
+
+        [DllImport("user32", CharSet = CharSet.Auto)]
+        public static extern bool InvalidateRect(IntPtr hwnd, ref Rectangle rect, bool bErase);
+
+        [DllImport("user32", CharSet = CharSet.Auto)]
+        public static extern bool ValidateRect(IntPtr hwnd, ref Rectangle rect);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        internal static extern bool GetWindowRect(IntPtr hWnd, [In, Out] ref Rectangle rect);
+
         [StructLayout(LayoutKind.Sequential)]
         public struct COLORREF
         {
@@ -64,12 +107,12 @@ namespace CapsLockIndicatorV3
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        private struct RECT
+        public struct RECT
         {
-            public int left;
-            public int top;
-            public int right;
-            public int bottom;
+            public int Left;
+            public int Top;
+            public int Right;
+            public int Bottom;
         }
 
         [StructLayout(LayoutKind.Sequential)]
@@ -93,6 +136,53 @@ namespace CapsLockIndicatorV3
             public IntPtr lParam;
         }
 
+        [StructLayout(LayoutKind.Sequential)]
+        public struct WINDOWPOS
+        {
+            public IntPtr hwnd;
+            public IntPtr hwndAfter;
+            public int x;
+            public int y;
+            public int cx;
+            public int cy;
+            public uint flags;
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct NCCALCSIZE_PARAMS
+        {
+            public RECT rgc;
+            public WINDOWPOS wndpos;
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct DRAWITEMSTRUCT
+        {
+            public int CtlType;
+            public int CtlID;
+            public int itemID;
+            public int itemAction;
+            public int itemState;
+            public IntPtr hwndItem;
+            public IntPtr hDC;
+            public RECT rcItem;
+            public IntPtr itemData;
+        }
+
+        [Flags]
+        public enum ButtonFlags : int
+        {
+            MouseOver = 0x0001,
+            MouseDown = 0x0002,
+            MousePressed = 0x0004,
+            InButtonUp = 0x0008,
+            CurrentlyAnimating = 0x0010,
+            AutoEllipsis = 0x0020,
+            IsDefault = 0x0040,
+            UseMnemonic = 0x0080,
+            ShowToolTip = 0x0100
+        }
+
         // taken from vsstyle.h
         private const int WP_CAPTION = 1;
         private const int CS_ACTIVE = 1;
@@ -109,6 +199,29 @@ namespace CapsLockIndicatorV3
         internal const int WM_THEMECHANGED = 0x031A;
         private const int GWL_STYLE = -16;
         private const int WS_DISABLED = 0x08000000;
+        public const int GW_HWNDFIRST = 0;
+        public const int GW_HWNDLAST = 1;
+        public const int GW_HWNDNEXT = 2;
+        public const int GW_HWNDPREV = 3;
+        public const int GW_OWNER = 4;
+        public const int GW_CHILD = 5;
+        public const int WM_NCCALCSIZE = 0x83;
+        public const int WM_WINDOWPOSCHANGING = 0x46;
+        public const int WM_PAINT = 0xF;
+        public const int WM_NC_PAINT = 0x85;
+        public const int WM_CREATE = 0x1;
+        public const int WM_NCCREATE = 0x81;
+        public const int WM_NCPAINT = 0x85;
+        public const int WM_PRINT = 0x317;
+        public const int WM_DESTROY = 0x2;
+        public const int WM_SHOWWINDOW = 0x18;
+        public const int WM_SHARED_MENU = 0x1E2;
+        public const int WM_USER = 0x0400;
+        public const int WM_REFLECT = WM_USER + 0x1C00;
+        public const int WM_DRAWITEM = 0x002B;
+        public const int HC_ACTION = 0;
+        public const int WH_CALLWNDPROC = 4;
+        public const int GWL_WNDPROC = -4;
 
         public static void SetNativeEnabled(IntPtr hWnd, bool enabled)
         {
@@ -210,6 +323,84 @@ namespace CapsLockIndicatorV3
             }
 
             return ScreenScalingFactor;
+        }
+
+        public static bool GetButtonFlag(ButtonBase button, ButtonFlags flag)
+        {
+            var dynMethod = typeof(ButtonBase).GetMethod("GetFlag", BindingFlags.NonPublic | BindingFlags.Instance);
+            return (bool)dynMethod.Invoke(button, new object[] { (int)flag });
+        }
+    }
+    
+    internal class SubClass : System.Windows.Forms.NativeWindow
+    {
+        public delegate int SubClassWndProcEventHandler(ref System.Windows.Forms.Message m);
+        public event SubClassWndProcEventHandler SubClassedWndProc;
+        private bool IsSubClassed = false;
+
+        public SubClass(IntPtr Handle, bool _SubClass)
+        {
+            base.AssignHandle(Handle);
+            this.IsSubClassed = _SubClass;
+        }
+
+        public bool SubClassed
+        {
+            get { return this.IsSubClassed; }
+            set { this.IsSubClassed = value; }
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            if (this.IsSubClassed)
+            {
+                if (OnSubClassedWndProc(ref m) != 0)
+                    return;
+            }
+            base.WndProc(ref m);
+        }
+
+        public void CallDefaultWndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+        }
+
+        #region HiWord Message Cracker
+        public int HiWord(int Number)
+        {
+            return ((Number >> 16) & 0xffff);
+        }
+        #endregion
+
+        #region LoWord Message Cracker
+        public int LoWord(int Number)
+        {
+            return (Number & 0xffff);
+        }
+        #endregion
+
+        #region MakeLong Message Cracker
+        public int MakeLong(int LoWord, int HiWord)
+        {
+            return (HiWord << 16) | (LoWord & 0xffff);
+        }
+        #endregion
+
+        #region MakeLParam Message Cracker
+        public IntPtr MakeLParam(int LoWord, int HiWord)
+        {
+            return (IntPtr)((HiWord << 16) | (LoWord & 0xffff));
+        }
+        #endregion
+
+        private int OnSubClassedWndProc(ref Message m)
+        {
+            if (SubClassedWndProc != null)
+            {
+                return this.SubClassedWndProc(ref m);
+            }
+
+            return 0;
         }
     }
 }

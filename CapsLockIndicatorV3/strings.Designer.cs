@@ -61,6 +61,15 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adjusting color scheme... Please wait....
+        /// </summary>
+        internal static string adjustingColorScheme {
+            get {
+                return ResourceManager.GetString("adjustingColorScheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Advanced Settings.
         /// </summary>
         internal static string advancedSettings {
@@ -178,6 +187,24 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &amp;Dark mode.
+        /// </summary>
+        internal static string darkModeOption {
+            get {
+                return ResourceManager.GetString("darkModeOption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dismiss.
+        /// </summary>
+        internal static string dismiss {
+            get {
+                return ResourceManager.GetString("dismiss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;Dismiss.
         /// </summary>
         internal static string dismissButton {
@@ -277,7 +304,7 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Only available on Windows 10.
+        ///   Looks up a localized string similar to Only available on Windows 10 or later.
         /// </summary>
         internal static string firstRunColorSchemeWin10Only {
             get {
@@ -556,6 +583,24 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search for &amp;updates on resume.
+        /// </summary>
+        internal static string searchForUpdatesOnResumeOption {
+            get {
+                return ResourceManager.GetString("searchForUpdatesOnResumeOption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The settings have moved! You will now find them in these tabs up here!.
+        /// </summary>
+        internal static string settingsChangedToolTip {
+            get {
+                return ResourceManager.GetString("settingsChangedToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show icons for....
         /// </summary>
         internal static string showIconsFor {
@@ -606,6 +651,51 @@ namespace CapsLockIndicatorV3 {
         internal static string startOnLogon {
             get {
                 return ResourceManager.GetString("startOnLogon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advanced Options.
+        /// </summary>
+        internal static string tabAdvancedOptions {
+            get {
+                return ResourceManager.GetString("tabAdvancedOptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to General.
+        /// </summary>
+        internal static string tabGeneral {
+            get {
+                return ResourceManager.GetString("tabGeneral", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notification.
+        /// </summary>
+        internal static string tabNotification {
+            get {
+                return ResourceManager.GetString("tabNotification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This version of CapsLock Indicator (Version {version}) is not supported. Please update to the latest version!.
+        /// </summary>
+        internal static string unsupportedCLI {
+            get {
+                return ResourceManager.GetString("unsupportedCLI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are using {os} which is no longer supported by Microsoft. CapsLock Indicator will drop support for this OS in the future! Please upgrade to a modern version of Windows!.
+        /// </summary>
+        internal static string unsupportedWin {
+            get {
+                return ResourceManager.GetString("unsupportedWin", resourceCulture);
             }
         }
         

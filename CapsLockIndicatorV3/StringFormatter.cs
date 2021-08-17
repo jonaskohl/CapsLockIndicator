@@ -28,5 +28,9 @@ namespace CapsLockIndicatorV3
             return Parameters.Aggregate(String, (current, parameter) => current.Replace("{" + parameter.Key + "}", parameter.Value.ToString()));
         }
 
+        public static implicit operator string(StringFormatter formatter)
+        {
+            return formatter.ToString();
+        }
     }
 }

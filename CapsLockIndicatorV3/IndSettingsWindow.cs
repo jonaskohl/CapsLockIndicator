@@ -48,6 +48,8 @@ namespace CapsLockIndicatorV3
 
             onlyShowWhenActiveCheckBox.Checked = SettingsManager.Get<bool>("alwaysShowWhenActive");
 
+            darkModeCheckBox.Enabled = DarkModeProvider.SystemSupportsDarkMode;
+
             switch (SettingsManager.Get<IndicatorDisplayPosition>("overlayPosition"))
             {
                 case IndicatorDisplayPosition.TopLeft:
@@ -98,6 +100,13 @@ namespace CapsLockIndicatorV3
             onlyShowWhenActiveCheckBox.Text = strings.showOverlayOnlyWhenActive;
             borderGroup.Text = strings.borderThicknessGroup;
             downloadIcons.Text = strings.downloadIcons;
+            advSettingsButton.Text = strings.advancedSettings;
+
+            darkModeCheckBox.Checked = DarkModeProvider.IsDark;
+            searchOnResumeCheckBox.Checked = SettingsManager.Get<bool>("searchForUpdatesAfterResume");
+
+            darkModeCheckBox.CheckedChanged += DarkModeCheckBox_CheckedChanged;
+            searchOnResumeCheckBox.CheckedChanged += SearchOnResumeCheckBox_CheckedChanged;
         }
 
         private void IndSettingsWindow_DarkModeChanged(object sender, EventArgs e)
@@ -135,11 +144,34 @@ namespace CapsLockIndicatorV3
             downloadIcons.LinkColor =
             dark ? Color.White : SystemColors.HotTrack;
 
-            onlyShowWhenActiveCheckBox.FlatStyle = dark ? FlatStyle.Standard : FlatStyle.System;
+            onlyShowWhenActiveCheckBox.FlatStyle =
+                darkModeCheckBox.FlatStyle =
+                searchOnResumeCheckBox.FlatStyle =
+                dark ? FlatStyle.Standard : FlatStyle.System;
+
+
+            onlyShowWhenActiveCheckBox.DarkMode =
+                darkModeCheckBox.DarkMode =
+                searchOnResumeCheckBox.DarkMode =
+                dark;
 
             BackColor = dark ? Color.FromArgb(255, 32, 32, 32) : SystemColors.Window;
             ForeColor = dark ? Color.White : SystemColors.WindowText;
 
+            foreach (TabPage p in tabControl1.TabPages)
+            {
+                p.BackColor = dark ? Color.FromArgb(255, 25, 25, 25) : SystemColors.Window;
+                p.ForeColor = dark ? Color.White : SystemColors.WindowText;
+            }
+
+            //tabControl1.DrawMode = dark ? TabDrawMode.OwnerDrawFixed : TabDrawMode.Normal;
+            //tabControl1.DarkMode = dark;
+
+            tabControl1.MyBackColor = BackColor;
+            tabControl1.DarkMode = dark;
+
+            //ControlScheduleSetDarkMode(tabControl1, dark);
+            ControlScheduleSetDarkMode(advSettingsButton, dark);
             ControlScheduleSetDarkMode(fontButton, dark);
             ControlScheduleSetDarkMode(backgroundColourActivatedButton, dark);
             ControlScheduleSetDarkMode(backgroundColourDeactivatedButton, dark);
@@ -324,6 +356,22 @@ namespace CapsLockIndicatorV3
         private void lnkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             using (var f = new IconPackBrowser())
+                f.ShowDialog(this);
+        }
+
+        private void DarkModeCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            DarkModeProvider.SetDarkModeEnabled(darkModeCheckBox.Checked);
+        }
+
+        private void SearchOnResumeCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            SettingsManager.Set("searchForUpdatesAfterResume", searchOnResumeCheckBox.Checked);
+        }
+
+        private void advSettingsButton_Click(object sender, EventArgs e)
+        {
+            using (var f = new AdvancedSettings())
                 f.ShowDialog(this);
         }
     }

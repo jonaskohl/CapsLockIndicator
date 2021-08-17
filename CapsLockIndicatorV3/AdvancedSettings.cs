@@ -19,6 +19,8 @@ namespace CapsLockIndicatorV3
         {
             InitializeComponent();
 
+            listView1.ContextMenu = contextMenu1;
+
             HandleCreated += (sender, e) =>
             {
                 DarkModeChanged += AdvancedSettings_DarkModeChanged;
@@ -46,6 +48,8 @@ namespace CapsLockIndicatorV3
                 var parts = Regex.Split(ln, "\t+");    // vv just in case vv
                 propertyDescriptions[parts[0]] = parts[1].Replace("\r", "");
             }
+
+            pictureBox1.Image = IconExtractor.GetIcon("imageres.dll", 79, 48)?.ToBitmap();
         }
 
         private void ListView1_ItemActivate(object sender, EventArgs e)
@@ -140,6 +144,7 @@ namespace CapsLockIndicatorV3
             richTextLabel1.ForeColor = ForeColor;
 
             checkBox1.FlatStyle = dark ? FlatStyle.Standard : FlatStyle.System;
+            checkBox1.DarkMode = dark;
 
             ControlScheduleSetDarkMode(checkBox1, dark);
             ControlScheduleSetDarkMode(button1, dark);
@@ -181,6 +186,18 @@ namespace CapsLockIndicatorV3
             }
 
             richTextLabel1.Rtf = RichTextLabel.ParseFormattedString(propertyDescriptions[key]);
+        }
+
+        private void menuItem1_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count < 1)
+                return;
+            var key = listView1.SelectedItems[0].Text;
+            SettingsManager.Reset(key);
+            var (newType, newValue) = SettingsManager.GetRaw(key);
+
+            listView1.SelectedItems[0].SubItems[1].Text = newType.Name;
+            listView1.SelectedItems[0].SubItems[2].Text = newValue.ToString();
         }
     }
 }

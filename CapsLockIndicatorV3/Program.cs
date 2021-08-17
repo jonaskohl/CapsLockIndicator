@@ -4,7 +4,6 @@
  * Copyright (c) Jonas Kohl <https://jonaskohl.de/>
  */
 using Microsoft.Win32;
-using Mono.Options;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -91,27 +90,6 @@ namespace CapsLockIndicatorV3
         {
             SettingsManager.Set("checkForUpdates", v);
         }
-        static void DisplayHelp(OptionSet p)
-        {
-            StringWriter sw = new StringWriter();
-
-            sw.WriteLine("CapsLock Indicator");
-            sw.WriteLine();
-            sw.WriteLine("Options:");
-            p.WriteOptionDescriptions(sw);
-            sw.WriteLine();
-            sw.WriteLine("For more information, visit: http://cli.jonaskohl.de/!/commandline");
-
-            string result = sw.ToString();
-
-            sw.Close();
-            sw.Dispose();
-
-            //MessageBox.Show(result, "CapsLock Indicator", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            HelpWindow h = new HelpWindow(result);
-            Application.Run(h);
-        }
         static void SetLocale(string l)
         {
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(l);
@@ -127,45 +105,12 @@ namespace CapsLockIndicatorV3
         [STAThread]
         private static void Main(string[] args)
         {
-            //__FIXME__.SettingsKey = Environment.ExpandEnvironmentVariables(@"%appdata%\Jonas Kohl\CapsLock Indicator\settings\any\user.config");
             SettingsManager.Load();
 
             if (mutex.WaitOne(TimeSpan.Zero, true)) // No instance is open
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-
-                #region Parse command line
-
-                bool show_help = false;
-
-                OptionSet oSet = new OptionSet()
-                {
-                    { "h|?|help", "Display help", v => show_help = v != null },
-                    { "i|icons=", "The icons to show (Type: IconMask)", (int v) => SetDisplay(DisplayType.Icon, v) },
-                    { "n|notifs=", "The notifications to show (Type: IconMask)", (int v) => SetDisplay(DisplayType.Notification, v) },
-                    { "a|autostart=", "Enable auto start (Type: Boolean)", (bool v) => SetStartup(v) },
-                    { "s|hidestarup=", "Enable or disable hide on startup setting (Type: Boolean)", (bool v) => SetHideStartup(v) },
-                    { "v|disverchk=", "Disable the automatic version checking (Type: Boolean)", (bool v) => SetVerCheck(v) },
-                    { "l|locale=", "Override the UI locale (Type: String)", (string v) => SetLocale(v) },
-                    { "p|position=", "Set the indicator display position (Type: IndicatorDisplayPosition)", (string v) => SetDisplayLocation(v) }
-                };
-
-                List<string> extra;
-                try
-                {
-                    extra = oSet.Parse(args);
-                }
-                catch (OptionException)
-                {
-                    //MessageBox.Show("Failed to parse command line:\n" + e.ToString(), "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                if (show_help)
-                {
-                    DisplayHelp(oSet);
-                    return;
-                }
 
                 SettingsManager.Save();
 
@@ -175,14 +120,8 @@ namespace CapsLockIndicatorV3
                 var runApp = true;
 
                 ApplyHandCursorFix();
-
-                #endregion
-
-                //#if DEBUG
+                
                 if (SettingsManager.Get<bool>("firstRun"))
-//#else
-                //if (SettingsManager.Get<bool>("firstRun") && new Version(SettingsManager.Get<string>("versionNo")) >= Assembly.GetExecutingAssembly().GetName().Version)
-//#endif
                 {
                     do
                     {

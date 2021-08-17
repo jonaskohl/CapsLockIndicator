@@ -9,7 +9,8 @@ namespace CapsLockIndicatorV3
 {
     public static class DarkModeProvider
     {
-        public static bool IsDark => Environment.OSVersion.Version.Major >= 10 && SettingsManager.Get<bool>("darkMode");
+        public static bool IsDark => SystemSupportsDarkMode && SettingsManager.Get<bool>("darkMode");
+        public static bool SystemSupportsDarkMode => Environment.OSVersion.Version.Major >= 10;
 
         private static List<DarkModeForm> registeredForms = new List<DarkModeForm>();
 

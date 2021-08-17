@@ -15,10 +15,12 @@ namespace CapsLockIndicatorV3
         public static string SettingsFileNormal => Environment.ExpandEnvironmentVariables(@"%appdata%\Jonas Kohl\CapsLock Indicator\settings\any\usercfg");
         public static string SettingsFilePortable => Environment.ExpandEnvironmentVariables(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "usercfg"));
 
+        private static Dictionary<string, (Type, object)> DefaultSettings;
         private static Dictionary<string, (Type, object)> Settings;
 
         public static void Load()
         {
+            LoadDefaults(ref DefaultSettings);
             LoadDefaults();
             LoadUser();
         }
@@ -30,9 +32,14 @@ namespace CapsLockIndicatorV3
 
         private static void LoadDefaults()
         {
+            LoadDefaults(ref Settings);
+        }
+
+        private static void LoadDefaults(ref Dictionary<string, (Type, object)> dict)
+        {
             var lines = resources.defaultSettings.Split('\n');
-            if (Settings == null)
-                Settings = new Dictionary<string, (Type, object)>();
+            if (dict == null)
+                dict = new Dictionary<string, (Type, object)>();
 
             foreach (var ln in lines)
             {
@@ -42,7 +49,7 @@ namespace CapsLockIndicatorV3
                 var t = GetSettingsType(type);
 
                 if (key != null)
-                    Settings[key] = (t, Cast(value, t));
+                    dict[key] = (t, Cast(value, t));
             }
         }
 
@@ -190,6 +197,11 @@ namespace CapsLockIndicatorV3
                 default:
                     return typeof(object);
             }
+        }
+
+        public static void Reset(string key)
+        {
+            Settings[key] = DefaultSettings[key];
         }
 
         public static void Set(string key, object value)

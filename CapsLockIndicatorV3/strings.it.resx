@@ -121,6 +121,10 @@
     <value>Impostazioni avanzate</value>
     <comment>Label of the hyperlink that opens the settings file</comment>
   </data>
+  <data name="autoCheckForUpdates" xml:space="preserve">
+    <value>Controlla automaticamente aggiornamenti</value>
+    <comment>Tooltip for the checkbox next to the update button</comment>
+  </data>
   <data name="backgroundColourActivatedButton" xml:space="preserve">
     <value>Colore sfondo attivato</value>
     <comment>The caption for the "Background colour activated" button.</comment>
@@ -173,6 +177,10 @@
     <value>Tempo visualizzazione</value>
     <comment>The title for the "Display time" group box</comment>
   </data>
+  <data name="downloadIcons" xml:space="preserve">
+    <value>Download pacchetto icone</value>
+    <comment>Hyperlink for accessing the icon pack browser</comment>
+  </data>
   <data name="downloadManuallyButton" xml:space="preserve">
     <value>Scarica &amp;manualmente</value>
     <comment>The caption for the "Download manually" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -193,6 +201,22 @@ Vuoi uscire comunque?</value>
   <data name="firstRunAllowUpdateCheck" xml:space="preserve">
     <value>Consenti a CapsLock Indicator di verificare periodicamente la presenza di aggiornamenti online (può essere modificato in seguito)</value>
     <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
+  </data>
+  <data name="firstRunColorSchemeDark" xml:space="preserve">
+    <value>&amp;Scuro</value>
+    <comment>Button for selecting dark color scheme</comment>
+  </data>
+  <data name="firstRunColorSchemeLight" xml:space="preserve">
+    <value>C&amp;hiaro</value>
+    <comment>Button for selecting light color scheme</comment>
+  </data>
+  <data name="firstRunColorSchemePreference" xml:space="preserve">
+    <value>Quale schema colore preferisci?</value>
+    <comment>Label for selecting color scheme</comment>
+  </data>
+  <data name="firstRunColorSchemeWin10Only" xml:space="preserve">
+    <value>Disponibile solo in Windows 10</value>
+    <comment>Added to dark button if not running on Windows 10</comment>
   </data>
   <data name="firstRunContribute" xml:space="preserve">
     <value>Contribuisci</value>
@@ -246,6 +270,30 @@ Inoltre, prenditi un momento per rivedere le impostazioni di seguito!</value>
     <value>Na&amp;scondi finestra</value>
     <comment>The caption for the button that hides the window. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
+  <data name="iconPackDownloadingMetadata" xml:space="preserve">
+    <value>Download metadati...</value>
+    <comment>Shown when downloading metadata for icon pack</comment>
+  </data>
+  <data name="iconPackDownloadingPack" xml:space="preserve">
+    <value>Download pacchetto...</value>
+    <comment>Shown when downloading an icon pack</comment>
+  </data>
+  <data name="iconPackPrompt" xml:space="preserve">
+    <value>Vuoi installare il paccheto icone “{name}” (versione {version}) di {authorName}?</value>
+    <comment>Prompt shown when installing an icon pack</comment>
+  </data>
+  <data name="iconPackResetPrompt" xml:space="preserve">
+    <value>Vuoi ripristinare le icone a quelle predefinite?</value>
+    <comment>Shown when asked to reset the icons</comment>
+  </data>
+  <data name="iconPackResetSuccess" xml:space="preserve">
+    <value>Sono state ripristinate le icone predefinite</value>
+    <comment>Shown after icons were reset</comment>
+  </data>
+  <data name="iconPackSuccess" xml:space="preserve">
+    <value>Installazione completata pacchetto icone “{name}” (versione {version})!</value>
+    <comment>Shown after an icon pack was installed successfully</comment>
+  </data>
   <data name="keyChanged" xml:space="preserve">
     <value>{0} modificato</value>
     <comment>Used for the check boxes in the "Show notification when..." group box. "{0}" will be replaced with the key name</comment>
@@ -281,6 +329,10 @@ Inoltre, prenditi un momento per rivedere le impostazioni di seguito!</value>
   <data name="permanentIndicator" xml:space="preserve">
     <value>Permanentemente</value>
     <comment>Text to display instead of the time if indicator overlay display is set to permanently.</comment>
+  </data>
+  <data name="reloadedIconsInfo" xml:space="preserve">
+    <value>Icone ricaricate</value>
+    <comment>Shown in a notification when hot-reloading icons.</comment>
   </data>
   <data name="saveAndCloseButton" xml:space="preserve">
     <value>&amp;Salva e chiudi</value>

@@ -258,5 +258,15 @@ namespace CapsLockIndicatorV3 {
                 return ResourceManager.GetString("settingsDescriptions", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TabIcons {
+            get {
+                object obj = ResourceManager.GetObject("TabIcons", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

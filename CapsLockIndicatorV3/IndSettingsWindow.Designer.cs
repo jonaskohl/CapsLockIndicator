@@ -30,7 +30,7 @@ namespace CapsLockIndicatorV3
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IndSettingsWindow));
             this.displayTimeGroup = new System.Windows.Forms.GroupBox();
-            this.onlyShowWhenActiveCheckBox = new System.Windows.Forms.CheckBox();
+            this.onlyShowWhenActiveCheckBox = new CapsLockIndicatorV3.BetterCheckBox();
             this.displayTimeLabel = new System.Windows.Forms.Label();
             this.displayTimeSlider = new System.Windows.Forms.TrackBar();
             this.saveButton = new System.Windows.Forms.Button();
@@ -69,6 +69,14 @@ namespace CapsLockIndicatorV3
             this.bdSizeLabel = new System.Windows.Forms.Label();
             this.bdSizeSlider = new System.Windows.Forms.TrackBar();
             this.downloadIcons = new CapsLockIndicatorV3.LnkLabel();
+            this.tabControl1 = new CapsLockIndicatorV3.BetterTabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel1b = new System.Windows.Forms.FlowLayoutPanel();
+            this.darkModeCheckBox = new CapsLockIndicatorV3.BetterCheckBox();
+            this.searchOnResumeCheckBox = new CapsLockIndicatorV3.BetterCheckBox();
+            this.tableLayoutPanel1b = new System.Windows.Forms.TableLayoutPanel();
+            this.advSettingsButton = new System.Windows.Forms.Button();
             this.displayTimeGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.displayTimeSlider)).BeginInit();
             this.coloursGroup.SuspendLayout();
@@ -85,6 +93,11 @@ namespace CapsLockIndicatorV3
             ((System.ComponentModel.ISupportInitialize)(this.opacitySlider)).BeginInit();
             this.borderGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdSizeSlider)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.flowLayoutPanel1b.SuspendLayout();
+            this.tableLayoutPanel1b.SuspendLayout();
             this.SuspendLayout();
             // 
             // displayTimeGroup
@@ -92,7 +105,7 @@ namespace CapsLockIndicatorV3
             this.displayTimeGroup.Controls.Add(this.onlyShowWhenActiveCheckBox);
             this.displayTimeGroup.Controls.Add(this.displayTimeLabel);
             this.displayTimeGroup.Controls.Add(this.displayTimeSlider);
-            this.displayTimeGroup.Location = new System.Drawing.Point(12, 12);
+            this.displayTimeGroup.Location = new System.Drawing.Point(6, 6);
             this.displayTimeGroup.Name = "displayTimeGroup";
             this.displayTimeGroup.Size = new System.Drawing.Size(276, 95);
             this.displayTimeGroup.TabIndex = 0;
@@ -139,12 +152,12 @@ namespace CapsLockIndicatorV3
             // 
             // saveButton
             // 
-            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.saveButton.AutoSize = true;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.saveButton.Location = new System.Drawing.Point(435, 344);
+            this.saveButton.Location = new System.Drawing.Point(488, 398);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(132, 24);
+            this.saveButton.Size = new System.Drawing.Size(88, 24);
             this.saveButton.TabIndex = 10;
             this.saveButton.Text = "&Save && close";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -164,7 +177,7 @@ namespace CapsLockIndicatorV3
             this.coloursGroup.Controls.Add(this.foregroundColourActivatedButton);
             this.coloursGroup.Controls.Add(this.backgroundColourActivatedPreview);
             this.coloursGroup.Controls.Add(this.backgroundColourActivatedButton);
-            this.coloursGroup.Location = new System.Drawing.Point(297, 12);
+            this.coloursGroup.Location = new System.Drawing.Point(288, 6);
             this.coloursGroup.Name = "coloursGroup";
             this.coloursGroup.Size = new System.Drawing.Size(270, 230);
             this.coloursGroup.TabIndex = 3;
@@ -312,7 +325,7 @@ namespace CapsLockIndicatorV3
             // fontGroupBox
             // 
             this.fontGroupBox.Controls.Add(this.fontButton);
-            this.fontGroupBox.Location = new System.Drawing.Point(12, 113);
+            this.fontGroupBox.Location = new System.Drawing.Point(6, 107);
             this.fontGroupBox.Name = "fontGroupBox";
             this.fontGroupBox.Size = new System.Drawing.Size(276, 70);
             this.fontGroupBox.TabIndex = 2;
@@ -343,7 +356,7 @@ namespace CapsLockIndicatorV3
             // positionGroup
             // 
             this.positionGroup.Controls.Add(this.positionButtonLayout);
-            this.positionGroup.Location = new System.Drawing.Point(12, 189);
+            this.positionGroup.Location = new System.Drawing.Point(6, 180);
             this.positionGroup.Name = "positionGroup";
             this.positionGroup.Size = new System.Drawing.Size(276, 100);
             this.positionGroup.TabIndex = 11;
@@ -496,7 +509,7 @@ namespace CapsLockIndicatorV3
             // 
             this.opacityGroup.Controls.Add(this.opacityLabel);
             this.opacityGroup.Controls.Add(this.opacitySlider);
-            this.opacityGroup.Location = new System.Drawing.Point(12, 298);
+            this.opacityGroup.Location = new System.Drawing.Point(6, 286);
             this.opacityGroup.Name = "opacityGroup";
             this.opacityGroup.Size = new System.Drawing.Size(276, 70);
             this.opacityGroup.TabIndex = 2;
@@ -533,7 +546,7 @@ namespace CapsLockIndicatorV3
             // 
             this.borderGroup.Controls.Add(this.bdSizeLabel);
             this.borderGroup.Controls.Add(this.bdSizeSlider);
-            this.borderGroup.Location = new System.Drawing.Point(297, 248);
+            this.borderGroup.Location = new System.Drawing.Point(288, 242);
             this.borderGroup.Name = "borderGroup";
             this.borderGroup.Size = new System.Drawing.Size(270, 70);
             this.borderGroup.TabIndex = 3;
@@ -567,16 +580,120 @@ namespace CapsLockIndicatorV3
             // 
             // downloadIcons
             // 
-            this.downloadIcons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.downloadIcons.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.downloadIcons.AutoSize = true;
             this.downloadIcons.LinkColor = System.Drawing.SystemColors.HotTrack;
-            this.downloadIcons.Location = new System.Drawing.Point(294, 321);
+            this.downloadIcons.Location = new System.Drawing.Point(394, 402);
             this.downloadIcons.Name = "downloadIcons";
-            this.downloadIcons.Size = new System.Drawing.Size(135, 44);
+            this.downloadIcons.Size = new System.Drawing.Size(88, 15);
             this.downloadIcons.TabIndex = 12;
             this.downloadIcons.TabStop = true;
             this.downloadIcons.Text = "downloadIcons";
             this.downloadIcons.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.downloadIcons.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLabel2_LinkClicked);
+            // 
+            // tabControl1
+            // 
+            this.tableLayoutPanel1b.SetColumnSpan(this.tabControl1, 2);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
+            this.tabControl1.MyBackColor = System.Drawing.SystemColors.Control;
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(573, 388);
+            this.tabControl1.TabIndex = 13;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.coloursGroup);
+            this.tabPage1.Controls.Add(this.positionGroup);
+            this.tabPage1.Controls.Add(this.opacityGroup);
+            this.tabPage1.Controls.Add(this.borderGroup);
+            this.tabPage1.Controls.Add(this.displayTimeGroup);
+            this.tabPage1.Controls.Add(this.fontGroupBox);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(565, 360);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Notification";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.flowLayoutPanel1b);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(565, 360);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Advanced Options";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel1b
+            // 
+            this.flowLayoutPanel1b.Controls.Add(this.darkModeCheckBox);
+            this.flowLayoutPanel1b.Controls.Add(this.searchOnResumeCheckBox);
+            this.flowLayoutPanel1b.Controls.Add(this.advSettingsButton);
+            this.flowLayoutPanel1b.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1b.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1b.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1b.Name = "flowLayoutPanel1b";
+            this.flowLayoutPanel1b.Size = new System.Drawing.Size(559, 354);
+            this.flowLayoutPanel1b.TabIndex = 0;
+            // 
+            // darkModeCheckBox
+            // 
+            this.darkModeCheckBox.AutoSize = true;
+            this.darkModeCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.darkModeCheckBox.Location = new System.Drawing.Point(3, 3);
+            this.darkModeCheckBox.Name = "darkModeCheckBox";
+            this.darkModeCheckBox.Size = new System.Drawing.Size(90, 20);
+            this.darkModeCheckBox.TabIndex = 0;
+            this.darkModeCheckBox.Text = "Dark mode";
+            this.darkModeCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // searchOnResumeCheckBox
+            // 
+            this.searchOnResumeCheckBox.AutoSize = true;
+            this.searchOnResumeCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.searchOnResumeCheckBox.Location = new System.Drawing.Point(3, 29);
+            this.searchOnResumeCheckBox.Name = "searchOnResumeCheckBox";
+            this.searchOnResumeCheckBox.Size = new System.Drawing.Size(189, 20);
+            this.searchOnResumeCheckBox.TabIndex = 1;
+            this.searchOnResumeCheckBox.Text = "Search for updates on resume";
+            this.searchOnResumeCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel1b
+            // 
+            this.tableLayoutPanel1b.ColumnCount = 2;
+            this.tableLayoutPanel1b.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1b.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1b.Controls.Add(this.tabControl1, 0, 0);
+            this.tableLayoutPanel1b.Controls.Add(this.saveButton, 1, 1);
+            this.tableLayoutPanel1b.Controls.Add(this.downloadIcons, 0, 1);
+            this.tableLayoutPanel1b.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1b.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1b.Name = "tableLayoutPanel1b";
+            this.tableLayoutPanel1b.RowCount = 2;
+            this.tableLayoutPanel1b.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1b.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel1b.Size = new System.Drawing.Size(579, 426);
+            this.tableLayoutPanel1b.TabIndex = 14;
+            // 
+            // advSettingsButton
+            // 
+            this.advSettingsButton.AutoSize = true;
+            this.advSettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.advSettingsButton.Location = new System.Drawing.Point(3, 55);
+            this.advSettingsButton.Name = "advSettingsButton";
+            this.advSettingsButton.Size = new System.Drawing.Size(82, 24);
+            this.advSettingsButton.TabIndex = 2;
+            this.advSettingsButton.Text = "advSettings";
+            this.advSettingsButton.UseVisualStyleBackColor = true;
+            this.advSettingsButton.Click += new System.EventHandler(this.advSettingsButton_Click);
             // 
             // IndSettingsWindow
             // 
@@ -584,15 +701,8 @@ namespace CapsLockIndicatorV3
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(579, 380);
-            this.Controls.Add(this.downloadIcons);
-            this.Controls.Add(this.borderGroup);
-            this.Controls.Add(this.opacityGroup);
-            this.Controls.Add(this.positionGroup);
-            this.Controls.Add(this.fontGroupBox);
-            this.Controls.Add(this.coloursGroup);
-            this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.displayTimeGroup);
+            this.ClientSize = new System.Drawing.Size(579, 426);
+            this.Controls.Add(this.tableLayoutPanel1b);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -621,8 +731,14 @@ namespace CapsLockIndicatorV3
             this.borderGroup.ResumeLayout(false);
             this.borderGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdSizeSlider)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.flowLayoutPanel1b.ResumeLayout(false);
+            this.flowLayoutPanel1b.PerformLayout();
+            this.tableLayoutPanel1b.ResumeLayout(false);
+            this.tableLayoutPanel1b.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -663,10 +779,18 @@ namespace CapsLockIndicatorV3
         private System.Windows.Forms.GroupBox opacityGroup;
         private System.Windows.Forms.Label opacityLabel;
         private System.Windows.Forms.TrackBar opacitySlider;
-        private System.Windows.Forms.CheckBox onlyShowWhenActiveCheckBox;
+        private BetterCheckBox onlyShowWhenActiveCheckBox;
         private System.Windows.Forms.GroupBox borderGroup;
         private System.Windows.Forms.Label bdSizeLabel;
         private System.Windows.Forms.TrackBar bdSizeSlider;
         private LnkLabel downloadIcons;
+        private BetterTabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1b;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1b;
+        private BetterCheckBox darkModeCheckBox;
+        private BetterCheckBox searchOnResumeCheckBox;
+        private System.Windows.Forms.Button advSettingsButton;
     }
 }

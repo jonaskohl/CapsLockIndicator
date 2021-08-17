@@ -118,8 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="advancedSettings" xml:space="preserve">
-    <value>Расш. настройки</value>
+    <value>Дополнительные настройки</value>
     <comment>Label of the hyperlink that opens the settings file</comment>
+  </data>
+  <data name="autoCheckForUpdates" xml:space="preserve">
+    <value>Автоматически проверять обновления</value>
+    <comment>Tooltip for the checkbox next to the update button</comment>
   </data>
   <data name="backgroundColourActivatedButton" xml:space="preserve">
     <value>Фон при включении</value>
@@ -142,11 +146,11 @@
     <comment>Label of the border thickness groupbox</comment>
   </data>
   <data name="capsLock" xml:space="preserve">
-    <value>Caps lock</value>
+    <value>Caps Lock</value>
     <comment>The name of the caps lock key</comment>
   </data>
   <data name="checkForUpdates" xml:space="preserve">
-    <value>Проверить &amp;обновления</value>
+    <value>Проверить наличие &amp;обновлений</value>
     <comment>The caption for the button that manually checks for updates. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="checkingForUpdates" xml:space="preserve">
@@ -173,6 +177,10 @@
     <value>Время отображения</value>
     <comment>The title for the "Display time" group box</comment>
   </data>
+  <data name="downloadIcons" xml:space="preserve">
+    <value>Наборы значков</value>
+    <comment>Hyperlink for accessing the icon pack browser</comment>
+  </data>
   <data name="downloadManuallyButton" xml:space="preserve">
     <value>Скачать &amp;вручную</value>
     <comment>The caption for the "Download manually" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -193,6 +201,22 @@
     <value>Разрешить CapsLock Indicator периодически проверять наличие обновлений в Интернете (параметр можно изменить потом)</value>
     <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
   </data>
+  <data name="firstRunColorSchemeDark" xml:space="preserve">
+    <value>&amp;Тёмный</value>
+    <comment>Button for selecting dark color scheme</comment>
+  </data>
+  <data name="firstRunColorSchemeLight" xml:space="preserve">
+    <value>С&amp;ветлый</value>
+    <comment>Button for selecting light color scheme</comment>
+  </data>
+  <data name="firstRunColorSchemePreference" xml:space="preserve">
+    <value>Предпочтительный выбор цвета</value>
+    <comment>Label for selecting color scheme</comment>
+  </data>
+  <data name="firstRunColorSchemeWin10Only" xml:space="preserve">
+    <value>Доступно только в Windows 10</value>
+    <comment>Added to dark button if not running on Windows 10</comment>
+  </data>
   <data name="firstRunContribute" xml:space="preserve">
     <value>Помочь проекту</value>
     <comment>Label of the hyperlink that takes you to CLI's GitHub page</comment>
@@ -210,7 +234,7 @@
     <comment>The message of the first-run dialog</comment>
   </data>
   <data name="firstRunPrivacyInfoLinkLabel" xml:space="preserve">
-    <value>Какие данные будет отправляться?</value>
+    <value>Какие данные будут отправляться?</value>
     <comment>The label of the hyperlink that shows which information will be sent on each update check</comment>
   </data>
   <data name="firstRunStart" xml:space="preserve">
@@ -234,19 +258,43 @@
     <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
   </data>
   <data name="hideOnStartup" xml:space="preserve">
-    <value>Скрыть окно при запуске</value>
+    <value>Запускать в свёрнутом виде</value>
     <comment>Used for the hide on startup checkbox</comment>
   </data>
   <data name="hideWindow" xml:space="preserve">
-    <value>&amp;Скрыть окно</value>
+    <value>С&amp;крыть окно</value>
     <comment>The caption for the button that hides the window. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
+  <data name="iconPackDownloadingMetadata" xml:space="preserve">
+    <value>Загрузка метаданных...</value>
+    <comment>Shown when downloading metadata for icon pack</comment>
+  </data>
+  <data name="iconPackDownloadingPack" xml:space="preserve">
+    <value>Загрузка набора...</value>
+    <comment>Shown when downloading an icon pack</comment>
+  </data>
+  <data name="iconPackPrompt" xml:space="preserve">
+    <value>Хотите установить набор значков “{name}” (версии {version}) от автора {authorName}?</value>
+    <comment>Prompt shown when installing an icon pack</comment>
+  </data>
+  <data name="iconPackResetPrompt" xml:space="preserve">
+    <value>Хотите сбросить значки к исходному виду?</value>
+    <comment>Shown when asked to reset the icons</comment>
+  </data>
+  <data name="iconPackResetSuccess" xml:space="preserve">
+    <value>Значки возвращены к исходному виду!</value>
+    <comment>Shown after icons were reset</comment>
+  </data>
+  <data name="iconPackSuccess" xml:space="preserve">
+    <value>Набор значков “{name}” (версии {version}) успешно установлен!</value>
+    <comment>Shown after an icon pack was installed successfully</comment>
+  </data>
   <data name="keyChanged" xml:space="preserve">
-    <value>переключении {0}</value>
+    <value>{0} переключается</value>
     <comment>Used for the check boxes in the "Show notification when..." group box. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="keyIsOff" xml:space="preserve">
-    <value>{0} выключен</value>
+    <value>{0} отключен</value>
     <comment>The text to display in the notification when a key is off. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="keyIsOn" xml:space="preserve">
@@ -254,15 +302,15 @@
     <comment>The text to display in the notification when a key is on. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="notificationSettings" xml:space="preserve">
-    <value>&amp;Настройка уведомлений</value>
+    <value>&amp;Настройки всплывающих уведомлений</value>
     <comment>The caption for the button that opens the notification settings. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="notificationSettingsTitle" xml:space="preserve">
-    <value>Настройка уведомлений</value>
+    <value>Настройки всплывающих уведомлений</value>
     <comment>The caption of the notification settings window</comment>
   </data>
   <data name="numLock" xml:space="preserve">
-    <value>Num lock</value>
+    <value>Num Lock</value>
     <comment>The name of the num lock key</comment>
   </data>
   <data name="opacity" xml:space="preserve">
@@ -277,28 +325,32 @@
     <value>Постоянно</value>
     <comment>Text to display instead of the time if indicator overlay display is set to permanently.</comment>
   </data>
+  <data name="reloadedIconsInfo" xml:space="preserve">
+    <value>Замена значков</value>
+    <comment>Shown in a notification when hot-reloading icons.</comment>
+  </data>
   <data name="saveAndCloseButton" xml:space="preserve">
-    <value>&amp;Сохранить &amp;и выйти</value>
+    <value>&amp;Сохранить и выйти</value>
     <comment>The caption for the "Save &amp; Close" button. The character after the "&amp;" is the hotkey that is used with the ALT key. Use two "&amp;" to display a "&amp;" character</comment>
   </data>
   <data name="scrollLock" xml:space="preserve">
-    <value>Scroll lock</value>
+    <value>Scroll Lock</value>
     <comment>The name of the scroll lock key</comment>
   </data>
   <data name="showIconsFor" xml:space="preserve">
-    <value>Показать значки</value>
+    <value>Отображать значки для...</value>
     <comment>The title for the "Show icons for..." group box</comment>
   </data>
   <data name="showNoIcons" xml:space="preserve">
-    <value>Без значков в трее</value>
+    <value>Не отображать значки в панели задач</value>
     <comment>The label for the check box that enables or disables all icons</comment>
   </data>
   <data name="showNoNotification" xml:space="preserve">
-    <value>Без уведомлений</value>
+    <value>Не выводить всплывающие уведомления</value>
     <comment>The label for the check box that enables or disables all notifications</comment>
   </data>
   <data name="showNotificationWhen" xml:space="preserve">
-    <value>Уведомлять при</value>
+    <value>Вывести уведомление, когда...</value>
     <comment>The title for the "Show notification when..." group box</comment>
   </data>
   <data name="showOverlayOnlyWhenActive" xml:space="preserve">
@@ -306,7 +358,7 @@
     <comment>The label for the check box that indicates whether overlay should only be shown when active</comment>
   </data>
   <data name="startOnLogon" xml:space="preserve">
-    <value>Автозагрузка</value>
+    <value>Автозагрузка при входе в систему</value>
     <comment>The label for the check box that enables or disabled the auto start.</comment>
   </data>
   <data name="updateAvailable" xml:space="preserve">

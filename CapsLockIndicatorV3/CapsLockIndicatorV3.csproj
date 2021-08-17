@@ -64,9 +64,11 @@
     <Reference Include="System.Data.DataSetExtensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq">
@@ -81,8 +83,23 @@
       <DependentUpon>AdvancedSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="AssertionFailedException.cs" />
+    <Compile Include="BetterCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BetterTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BetterToolTip.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ColourButton.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DarkModeChangingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DarkModeChangingForm.Designer.cs">
+      <DependentUpon>DarkModeChangingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DarkModeForm.cs">
       <SubType>Form</SubType>
@@ -111,6 +128,7 @@
     <Compile Include="HelpWindow.Designer.cs">
       <DependentUpon>HelpWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="IconExtractor.cs" />
     <Compile Include="IconGalleryObjectForScripting.cs" />
     <Compile Include="IconPackBrowser.cs">
       <SubType>Form</SubType>
@@ -124,12 +142,6 @@
     </Compile>
     <Compile Include="IndicatorOverlay.Designer.cs">
       <DependentUpon>IndicatorOverlay.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IndSettingsWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IndSettingsWindow.Designer.cs">
-      <DependentUpon>IndSettingsWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="KeyHelper.cs" />
     <Compile Include="LnComboBox.cs">
@@ -157,7 +169,6 @@
     <Compile Include="NumberInputDialog.Designer.cs">
       <DependentUpon>NumberInputDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Options.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProgressDialog.cs">
       <SubType>Form</SubType>
@@ -167,6 +178,7 @@
     </Compile>
     <Compile Include="ProgressInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryBuilder.cs" />
     <Compile Include="resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -248,6 +260,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>strings.zh-TW.resx</DependentUpon>
     </Compile>
+    <Compile Include="SysIcons.cs" />
     <Compile Include="TextInputDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,6 +274,7 @@
       <DependentUpon>UpdateDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="VersionCheck.cs" />
+    <Compile Include="Versions.cs" />
     <Compile Include="ViewOnlyRichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -274,6 +288,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AdvancedSettings.resx">
       <DependentUpon>AdvancedSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DarkModeChangingForm.resx">
+      <DependentUpon>DarkModeChangingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DownloadDialog.resx">
       <DependentUpon>DownloadDialog.cs</DependentUpon>
@@ -289,9 +306,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IndicatorOverlay.resx">
       <DependentUpon>IndicatorOverlay.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IndSettingsWindow.resx">
-      <DependentUpon>IndSettingsWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -371,6 +385,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CLIv3_Icon.ico" />
+    <None Include="Resources\TabIcons.bmp" />
     <None Include="Resources\settingsDescriptions.txt" />
     <None Include="Resources\settings.ico" />
     <None Include="Resources\logo.Image.png" />

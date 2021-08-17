@@ -117,223 +117,286 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="adjustingColorScheme" xml:space="preserve">
-    <value>Farbschema wird angepasst... Bitte warten...</value>
-  </data>
   <data name="advancedSettings" xml:space="preserve">
-    <value>Erw. Einstellungen</value>
+    <value>進階設定</value>
+    <comment>Label of the hyperlink that opens the settings file</comment>
   </data>
-  <data name="autoCheckForUpdates" xml:space="preserve">
-    <value>Automatisch nach Aktualisierungen suchen</value>
+  
+<!--
+<data name="autoCheckForUpdates" xml:space="preserve">
+    <value>Automatically check for updates</value>
+    <comment>Tooltip for the checkbox next to the update button</comment>
   </data>
+-->
   <data name="backgroundColourActivatedButton" xml:space="preserve">
-    <value>Hintergrund aktiv</value>
+    <value>開啟 - 背景顏色</value>
+    <comment>The caption for the "Background colour activated" button.</comment>
   </data>
   <data name="backgroundColourDeactivatedButton" xml:space="preserve">
-    <value>Hintergrund inaktiv</value>
+    <value>關閉 - 背景顏色</value>
+    <comment>The caption for the "Background colour deactivated" button.</comment>
   </data>
   <data name="borderColourActivatedButton" xml:space="preserve">
-    <value>Rand aktiv</value>
+    <value>開啟 - 邊框顏色</value>
+    <comment>The caption for the "Border colour activated" button.</comment>
   </data>
   <data name="borderColourDeactivatedButton" xml:space="preserve">
-    <value>Rand inaktiv</value>
+    <value>關閉 - 邊框顏色</value>
+    <comment>The caption for the "Border colour deactivated" button.</comment>
   </data>
   <data name="borderThicknessGroup" xml:space="preserve">
-    <value>Randstärke</value>
+    <value>邊框寬度</value>
+    <comment>Label of the border thickness groupbox</comment>
   </data>
   <data name="capsLock" xml:space="preserve">
-    <value>Feststelltaste</value>
+    <value>Caps Lock</value>
+    <comment>The name of the caps lock key</comment>
   </data>
   <data name="checkForUpdates" xml:space="preserve">
-    <value>Nach Updates suchen</value>
+    <value>檢查更新 (&amp;U)</value>
+    <comment>The caption for the button that manually checks for updates. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="checkingForUpdates" xml:space="preserve">
-    <value>Suche nach Updates...</value>
+    <value>正在檢查更新…</value>
+    <comment>The caption for the "Check for updates" button when it's searching for updates.</comment>
   </data>
   <data name="coloursGroup" xml:space="preserve">
-    <value>Farben</value>
+    <value>顏色</value>
+    <comment>The title for the "Colours" group box</comment>
   </data>
   <data name="contextMenuExit" xml:space="preserve">
-    <value>&amp;Verlassen</value>
+    <value>結束 (&amp;E)</value>
+    <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
   <data name="contextMenuShow" xml:space="preserve">
-    <value>&amp;Anzeigen</value>
-  </data>
-  <data name="darkModeOption" xml:space="preserve">
-    <value>&amp;Dunkler Modus</value>
-  </data>
-  <data name="dismiss" xml:space="preserve">
-    <value>Schließen</value>
+    <value>顯示主畫面 (&amp;S)</value>
+    <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
   <data name="dismissButton" xml:space="preserve">
-    <value>&amp;Schließen</value>
+    <value>忽略 (&amp;D)</value>
+    <comment>The caption for the "Dismiss" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="displayTime" xml:space="preserve">
-    <value>Anzeigedauer</value>
+    <value>顯示時間</value>
+    <comment>The title for the "Display time" group box</comment>
   </data>
-  <data name="downloadIcons" xml:space="preserve">
-    <value>Symbolpakete herunterladen</value>
+  
+<!--
+<data name="downloadIcons" xml:space="preserve">
+    <value>Download icon packs</value>
+    <comment>Hyperlink for accessing the icon pack browser</comment>
   </data>
+-->
   <data name="downloadManuallyButton" xml:space="preserve">
-    <value>&amp;Manuell runterladen</value>
+    <value>手動下載 (&amp;M)</value>
+    <comment>The caption for the "Download manually" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="downloadMoreTranslations" xml:space="preserve">
-    <value>Mehr Sprachen herunterladen...</value>
+    <value>下載更多翻譯…</value>
+    <comment>The last dropdown item in the locale dropdown.</comment>
   </data>
   <data name="exitApplication" xml:space="preserve">
-    <value>V&amp;erlassen</value>
+    <value>退出程式 (&amp;E)</value>
+    <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="exitMessage" xml:space="preserve">
-    <value>Die Anwendung zu verlassen heißt, dass die Icons und Benachrichtigungen nicht länger angezeigt weden. Trotzdem verlassen?</value>
+    <value>退出程式後，通知區的 CapsLock Indicator 圖示
+和切換通知都將不再顯示。確定要退出嗎？</value>
+    <comment>The message to display on application exit</comment>
   </data>
   <data name="firstRunAllowUpdateCheck" xml:space="preserve">
-    <value>Zulassen, dass CapsLock Indicator online nach Aktualisierungen sucht</value>
+    <value>自動檢查更新 (稍後可再更改) (&amp;A)</value>
+    <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
   </data>
   <data name="firstRunColorSchemeDark" xml:space="preserve">
-    <value>&amp;Dunkel</value>
+    <value>灰暗 (&amp;D)</value>
+    <comment>Button for selecting dark color scheme</comment>
   </data>
   <data name="firstRunColorSchemeLight" xml:space="preserve">
-    <value>&amp;Hell</value>
+    <value>明亮 (&amp;I)</value>
+    <comment>Button for selecting light color scheme</comment>
   </data>
   <data name="firstRunColorSchemePreference" xml:space="preserve">
-    <value>Welches Farbschema bevorzugen Sie?</value>
+    <value>你喜歡哪種配色主題？</value>
+    <comment>Label for selecting color scheme</comment>
   </data>
   <data name="firstRunColorSchemeWin10Only" xml:space="preserve">
-    <value>Nur auf Windows 10 oder neuer</value>
+    <value>僅適用於 Windows 10</value>
+    <comment>Added to dark button if not running on Windows 10</comment>
   </data>
   <data name="firstRunContribute" xml:space="preserve">
-    <value>Mitarbeiten</value>
+    <value>貢獻</value>
+    <comment>Label of the hyperlink that takes you to CLI's GitHub page</comment>
   </data>
   <data name="firstRunExit" xml:space="preserve">
-    <value>Verlass&amp;en</value>
+    <value>結束 (&amp;E)</value>
+    <comment>Button that exists the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="firstRunHeading" xml:space="preserve">
-    <value>Willkommen bei CapsLock Indicator!</value>
+    <value>歡迎使用 CapsLock Indicator</value>
+    <comment>The heading of the first-run dialog</comment>
   </data>
   <data name="firstRunMessage" xml:space="preserve">
-    <value>Vielen Dank, dass Sie sich für CapsLock Indicator entschieden haben. Diese Anwendung is quelloffen und kostenlos! Für immer! Sind Sie daran interessiert, selbst an CapsLock Indicator zu arbeiten? Klicken Sie den untenstehenden Link für mehr Information. Außerdem bitten wir Sie, sich einen Moment zu nehmen, um die untenstehenden Einstellungen zu überprüfen.</value>
+    <value>感謝您使用 CapsLock Indicator！這個程式將會永遠維持開源和免費！您是否有興趣為 CapsLock Indicator 做出貢獻？前往左下方的 GitHub 連結了解更多資訊！另外，請花點時間查看以下設定！</value>
+    <comment>The message of the first-run dialog</comment>
   </data>
   <data name="firstRunPrivacyInfoLinkLabel" xml:space="preserve">
-    <value>Welche Informationen werden übermittelt?</value>
+    <value>會發送什麼資料？</value>
+    <comment>The label of the hyperlink that shows which information will be sent on each update check</comment>
   </data>
   <data name="firstRunStart" xml:space="preserve">
-    <value>&amp;Loslegen</value>
+    <value>開始！ (&amp;L)</value>
+    <comment>Button that starts the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="fontGroup" xml:space="preserve">
-    <value>Schrift</value>
+    <value>字體</value>
+    <comment>The title for the "Font" group box</comment>
   </data>
   <data name="foregroundColourActivatedButton" xml:space="preserve">
-    <value>Text aktiv</value>
+    <value>開啟 - 文字顏色</value>
+    <comment>The caption for the "Text colour activated" button.</comment>
   </data>
   <data name="foregroundColourDeactivatedButton" xml:space="preserve">
-    <value>Text inaktiv</value>
+    <value>關閉 - 文字顏色</value>
+    <comment>The caption for the "Text colour deactivated" button.</comment>
   </data>
   <data name="generalIconBalloonText" xml:space="preserve">
-    <value>CapsLock Indicator kann wieder angezeigt werden, wenn Sie auf dieses Symbol doppelklicken.</value>
+    <value>按兩下此圖示即可顯示 CapsLock 指示器主畫面</value>
+    <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
   </data>
   <data name="hideOnStartup" xml:space="preserve">
-    <value>Beim Starten verstecken</value>
+    <value>啟動時自動隱藏</value>
+    <comment>Used for the hide on startup checkbox</comment>
   </data>
   <data name="hideWindow" xml:space="preserve">
-    <value>Verstecken</value>
+    <value>隱藏視窗 (&amp;H)</value>
+    <comment>The caption for the button that hides the window. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
-  <data name="iconPackDownloadingMetadata" xml:space="preserve">
-    <value>Metadaten werden abgerufen...</value>
+  
+<!--
+<data name="iconPackDownloadingMetadata" xml:space="preserve">
+    <value>Downloading metadata...</value>
+    <comment>Shown when downloading metadata for icon pack</comment>
   </data>
-  <data name="iconPackDownloadingPack" xml:space="preserve">
-    <value>Paket wird heruntergeladen...</value>
+-->
+  
+<!--
+<data name="iconPackDownloadingPack" xml:space="preserve">
+    <value>Downloading pack...</value>
+    <comment>Shown when downloading an icon pack</comment>
   </data>
-  <data name="iconPackPrompt" xml:space="preserve">
-    <value>Möchten Sie das Symbolpaket „{name}“ (Version {version}) von {authorName} herunterladen?</value>
+-->
+  
+<!--
+<data name="iconPackPrompt" xml:space="preserve">
+    <value>Do you want to install the icon pack “{name}” (Version {version}) by {authorName}?</value>
+    <comment>Prompt shown when installing an icon pack</comment>
   </data>
-  <data name="iconPackResetPrompt" xml:space="preserve">
-    <value>Möchten Sie die Symbole auf die Standardeinstellung zurücksetzen?</value>
+-->
+  
+<!--
+<data name="iconPackResetPrompt" xml:space="preserve">
+    <value>Do you want to reset the icons to the default ones?</value>
+    <comment>Shown when asked to reset the icons</comment>
   </data>
-  <data name="iconPackResetSuccess" xml:space="preserve">
-    <value>Die Symbole wurden auf die Standardeinstellung zurückgesetzt!</value>
+-->
+  
+<!--
+<data name="iconPackResetSuccess" xml:space="preserve">
+    <value>Icons were reset to default!</value>
+    <comment>Shown after icons were reset</comment>
   </data>
-  <data name="iconPackSuccess" xml:space="preserve">
-    <value>Das Symbolpaket „{name}“ (Version {version}) wurde erfolgreich installiert!</value>
+-->
+  
+<!--
+<data name="iconPackSuccess" xml:space="preserve">
+    <value>Successfully installed icon pack “{name}” (Version {version})!</value>
+    <comment>Shown after an icon pack was installed successfully</comment>
   </data>
+-->
   <data name="keyChanged" xml:space="preserve">
-    <value>{0} sich ändert</value>
+    <value>切換 {0} 時</value>
+    <comment>Used for the check boxes in the "Show notification when..." group box. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="keyIsOff" xml:space="preserve">
-    <value>{0} ist aus</value>
+    <value>{0} 已關閉</value>
+    <comment>The text to display in the notification when a key is off. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="keyIsOn" xml:space="preserve">
-    <value>{0} ist an</value>
+    <value>{0} 已開啟</value>
+    <comment>The text to display in the notification when a key is on. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="notificationSettings" xml:space="preserve">
-    <value>Benachr.-Einst.</value>
+    <value>通知設定 (&amp;N)</value>
+    <comment>The caption for the button that opens the notification settings. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="notificationSettingsTitle" xml:space="preserve">
-    <value>Benachrichtiguns-Einstellungen</value>
+    <value>通知設定</value>
+    <comment>The caption of the notification settings window</comment>
   </data>
   <data name="numLock" xml:space="preserve">
-    <value>Num-Lock</value>
+    <value>Num Lock</value>
+    <comment>The name of the num lock key</comment>
   </data>
   <data name="opacity" xml:space="preserve">
-    <value>Deckkraft</value>
+    <value>透明度</value>
+    <comment>The title for the "Opacity" group box</comment>
   </data>
   <data name="overlayPositionGroup" xml:space="preserve">
-    <value>Benachrichtigungsposition</value>
+    <value>通知位置</value>
+    <comment>The title for the "Overlay position" group box</comment>
   </data>
   <data name="permanentIndicator" xml:space="preserve">
-    <value>Dauerhaft</value>
+    <value>持續顯示</value>
+    <comment>Text to display instead of the time if indicator overlay display is set to permanently.</comment>
   </data>
   <data name="reloadedIconsInfo" xml:space="preserve">
-    <value>Symbole neu geladen</value>
+    <value>縮圖已重新載入</value>
+    <comment>Shown in a notification when hot-reloading icons.</comment>
   </data>
   <data name="saveAndCloseButton" xml:space="preserve">
-    <value>&amp;Speichern &amp;&amp; schließen</value>
+    <value>儲存並關閉 (&amp;S)</value>
+    <comment>The caption for the "Save &amp; Close" button. The character after the "&amp;" is the hotkey that is used with the ALT key. Use two "&amp;" to display a "&amp;" character</comment>
   </data>
   <data name="scrollLock" xml:space="preserve">
-    <value>Rollen</value>
-  </data>
-  <data name="searchForUpdatesOnResumeOption" xml:space="preserve">
-    <value>Nach dem Fortsetzen der Sitz&amp;ung nach Aktualisierungen suchen</value>
+    <value>Scroll Lock</value>
+    <comment>The name of the scroll lock key</comment>
   </data>
   <data name="showIconsFor" xml:space="preserve">
-    <value>Icons zeigen für...</value>
+    <value>通知區圖示：</value>
+    <comment>The title for the "Show icons for..." group box</comment>
   </data>
   <data name="showNoIcons" xml:space="preserve">
-    <value>Keine Icons zeigen</value>
+    <value>關閉通知區圖示</value>
+    <comment>The label for the check box that enables or disables all icons</comment>
   </data>
   <data name="showNoNotification" xml:space="preserve">
-    <value>Keine Benachr. anzeigen</value>
+    <value>不顯示通知</value>
+    <comment>The label for the check box that enables or disables all notifications</comment>
   </data>
   <data name="showNotificationWhen" xml:space="preserve">
-    <value>Zeige Benachr., wenn...</value>
+    <value>顯示通知：</value>
+    <comment>The title for the "Show notification when..." group box</comment>
   </data>
   <data name="showOverlayOnlyWhenActive" xml:space="preserve">
-    <value>Benachr. immer anz., wenn aktiv</value>
+    <value>開啟時始終顯示通知提示窗</value>
+    <comment>The label for the check box that indicates whether overlay should only be shown when active</comment>
   </data>
   <data name="startOnLogon" xml:space="preserve">
-    <value>Autostart</value>
-  </data>
-  <data name="tabAdvancedOptions" xml:space="preserve">
-    <value>Erweiterte Optionen</value>
-  </data>
-  <data name="tabGeneral" xml:space="preserve">
-    <value>Allgemein</value>
-  </data>
-  <data name="tabNotification" xml:space="preserve">
-    <value>Benachrichtigung</value>
-  </data>
-  <data name="unsupportedCLI" xml:space="preserve">
-    <value>Diese Version von CapsLock Indicator (Version {version}) wird nicht mehr unterstützt. Bitte aktualisieren Sie auf die neuste Version!</value>
-  </data>
-  <data name="unsupportedWin" xml:space="preserve">
-    <value>Sie verwenden {os}, welches nicht mehr von Microsoft unterstützt wird. CapsLock Indicator wird bald die Unterstützung für dieses Betriebssystem einstellen! Bitte aktualisieren Sie auf eine aktuelle Windows-Version!</value>
+    <value>開機時自動啟動</value>
+    <comment>The label for the check box that enables or disabled the auto start.</comment>
   </data>
   <data name="updateAvailable" xml:space="preserve">
-    <value>CapsLock Indicator Update verfügbar!</value>
+    <value>CapsLock Indicator 有可用的更新！</value>
+    <comment>The title for the update window.</comment>
   </data>
   <data name="updateInfoFormat" xml:space="preserve">
-    <value>Version {0}, erschienen {1}</value>
+    <value>版本 {0}，發佈於 {1}</value>
+    <comment>Displayed in the "Update Available" dialog. {0} is the version, {1} is the release date and time.</comment>
   </data>
   <data name="updateNow" xml:space="preserve">
-    <value>Jetzt update&amp;n</value>
+    <value>立即更新 (&amp;U)</value>
+    <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
+
 </root>
