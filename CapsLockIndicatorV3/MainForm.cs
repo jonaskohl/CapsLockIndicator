@@ -234,21 +234,8 @@ namespace CapsLockIndicatorV3
                 Visible = true;
         }
 
-        //bool allowShow = false;
-        //protected override void OnVisibleChanged(EventArgs e)
-        //{
-        //    base.OnVisibleChanged(e);
-
-        //    if (!allowShow && SettingsManager.Get<bool>("hideOnStartup"))
-        //    {
-        //        Visible = false;
-        //        allowShow = true;
-        //    }
-        //}
-
         private void TabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //MessageBox.Show(tabControl1.SelectedTab.Text);
             var sz = ClientSize;
             sz.Height = int.Parse(tabControl1.SelectedTab.Tag.ToString());
             ClientSize = sz;
@@ -906,7 +893,8 @@ namespace CapsLockIndicatorV3
             if (MessageBox.Show(strings.exitMessage, "CapsLock Indicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 shouldClose = true;
-                Close();
+                //Close();
+                Exit();
             }
         }
         void HideWindowClick(object sender, EventArgs e)
@@ -1000,7 +988,7 @@ namespace CapsLockIndicatorV3
                 return;
             }
 
-            Application.Exit();
+            Exit();
         }
 
         private void lnkLabel1_Click(object sender, EventArgs e)
@@ -1020,7 +1008,8 @@ namespace CapsLockIndicatorV3
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             shouldClose = true;
-            Close();
+            //Close();
+            Exit();
         }
 
         private void appNameLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -1096,7 +1085,17 @@ namespace CapsLockIndicatorV3
         private void exitMenuItem_Click(object sender, EventArgs e)
         {
             shouldClose = true;
-            Close();
+            Exit();
+        }
+
+        private void Exit()
+        {
+            capsLockIcon.Visible =
+            numLockIcon.Visible =
+            scrollLockIcon.Visible =
+            generalIcon.Visible =
+            false;
+            Application.Exit();
         }
 
         private void advSettings_Click(object sender, EventArgs e)
@@ -1115,13 +1114,6 @@ namespace CapsLockIndicatorV3
         {
             SettingsManager.Set("indDisplayTime", displayTimeSlider.Value < 2001 ? displayTimeSlider.Value : -1);
             displayTimeLabel.Text = displayTimeSlider.Value < 2001 ? string.Format("{0} ms", displayTimeSlider.Value) : strings.permanentIndicator;
-        }
-
-        private void button1b_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK;
-            SettingsManager.Save();
-            Close();
         }
 
         private void displayTimeLabel_Click(object sender, EventArgs e)
