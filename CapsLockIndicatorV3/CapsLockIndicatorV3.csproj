@@ -348,6 +348,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.nl.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="strings.pl.resx" />
     <EmbeddedResource Include="strings.pt-BR.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.pt-BR.Designer.cs</LastGenOutput>
@@ -372,6 +373,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.zh-CN.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="strings.zh-Hant-TW.resx" />
     <EmbeddedResource Include="strings.zh-TW.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.zh-TW.Designer.cs</LastGenOutput>

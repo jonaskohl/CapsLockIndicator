@@ -117,6 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  
+<!--
+<data name="adjustingColorScheme" xml:space="preserve">
+    <value>Adjusting color scheme... Please wait...</value>
+    <comment>Shown in a popup when toggling dark mode</comment>
+  </data>
+-->
   <data name="advancedSettings" xml:space="preserve">
     <value>Pokročilá nastavení</value>
     <comment>Label of the hyperlink that opens the settings file</comment>
@@ -169,6 +176,20 @@
     <value>&amp;Zobrazit</value>
     <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
+  
+<!--
+<data name="darkModeOption" xml:space="preserve">
+    <value>&amp;Dark mode</value>
+    <comment>Label of options checkbox for dark mode</comment>
+  </data>
+-->
+  
+<!--
+<data name="dismiss" xml:space="preserve">
+    <value>Dismiss</value>
+    <comment>Used as tooltip (but may be used in other places in the future</comment>
+  </data>
+-->
   <data name="dismissButton" xml:space="preserve">
     <value>&amp;Zavřít</value>
     <comment>The caption for the "Dismiss" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -337,6 +358,20 @@
     <value>Scroll lock</value>
     <comment>The name of the scroll lock key</comment>
   </data>
+  
+<!--
+<data name="searchForUpdatesOnResumeOption" xml:space="preserve">
+    <value>Search for &amp;updates on resume</value>
+    <comment>Label of options checkbox for update search after resume</comment>
+  </data>
+-->
+  
+<!--
+<data name="settingsChangedToolTip" xml:space="preserve">
+    <value>The settings have moved! You will now find them in these tabs up here!</value>
+    <comment>The tutorial tooltip shown when upgrading to 3.13.0.0</comment>
+  </data>
+-->
   <data name="showIconsFor" xml:space="preserve">
     <value>Zobrazit ikony pro…</value>
     <comment>The title for the "Show icons for..." group box</comment>
@@ -361,6 +396,41 @@
     <value>Spustit při přihlášení</value>
     <comment>The label for the check box that enables or disabled the auto start.</comment>
   </data>
+  
+<!--
+<data name="tabAdvancedOptions" xml:space="preserve">
+    <value>Advanced Options</value>
+    <comment>Tab header for advanced options</comment>
+  </data>
+-->
+  
+<!--
+<data name="tabGeneral" xml:space="preserve">
+    <value>General</value>
+    <comment>Tab header for general settings</comment>
+  </data>
+-->
+  
+<!--
+<data name="tabNotification" xml:space="preserve">
+    <value>Notification</value>
+    <comment>Tab header for advanced settings</comment>
+  </data>
+-->
+  
+<!--
+<data name="unsupportedCLI" xml:space="preserve">
+    <value>This version of CapsLock Indicator (Version {version}) is not supported. Please update to the latest version!</value>
+    <comment>Banner text when CLI version is unsupported</comment>
+  </data>
+-->
+  
+<!--
+<data name="unsupportedWin" xml:space="preserve">
+    <value>You are using {os} which is no longer supported by Microsoft. CapsLock Indicator will drop support for this OS in the future! Please upgrade to a modern version of Windows!</value>
+    <comment>Banner text when Windows version is unsupported</comment>
+  </data>
+-->
   <data name="updateAvailable" xml:space="preserve">
     <value>Dostupná aktualizace programu „CapsLock Indicator“</value>
     <comment>The title for the update window.</comment>

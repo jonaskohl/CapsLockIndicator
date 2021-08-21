@@ -294,6 +294,9 @@
   <data name="searchForUpdatesOnResumeOption" xml:space="preserve">
     <value>Nach dem Fortsetzen der Sitz&amp;ung nach Aktualisierungen suchen</value>
   </data>
+  <data name="settingsChangedToolTip" xml:space="preserve">
+    <value>Die Einstellungen sind umgezogen! Sie finden sie jetzt in diesen Registerkarten hier oben!</value>
+  </data>
   <data name="showIconsFor" xml:space="preserve">
     <value>Icons zeigen für...</value>
   </data>
