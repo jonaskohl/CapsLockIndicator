@@ -117,24 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  
-<!--
-<data name="adjustingColorScheme" xml:space="preserve">
-    <value>Adjusting color scheme... Please wait...</value>
+  <data name="adjustingColorScheme" xml:space="preserve">
+    <value>調整顏色主題中... 請稍候...</value>
     <comment>Shown in a popup when toggling dark mode</comment>
   </data>
--->
   <data name="advancedSettings" xml:space="preserve">
     <value>進階設定</value>
     <comment>Label of the hyperlink that opens the settings file</comment>
   </data>
-  
-<!--
-<data name="autoCheckForUpdates" xml:space="preserve">
-    <value>Automatically check for updates</value>
+  <data name="autoCheckForUpdates" xml:space="preserve">
+    <value>自動檢查更新</value>
     <comment>Tooltip for the checkbox next to the update button</comment>
   </data>
--->
   <data name="backgroundColourActivatedButton" xml:space="preserve">
     <value>開啟 - 背景顏色</value>
     <comment>The caption for the "Background colour activated" button.</comment>
@@ -179,35 +173,26 @@
     <value>顯示主畫面 (&amp;S)</value>
     <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
-  
-<!--
-<data name="darkModeOption" xml:space="preserve">
-    <value>&amp;Dark mode</value>
+  <data name="darkModeOption" xml:space="preserve">
+    <value>深色模式 (&amp;D)</value>
     <comment>Label of options checkbox for dark mode</comment>
   </data>
--->
-  
-<!--
-<data name="dismiss" xml:space="preserve">
-    <value>Dismiss</value>
+  <data name="dismiss" xml:space="preserve">
+    <value>忽略</value>
     <comment>Used as tooltip (but may be used in other places in the future</comment>
   </data>
--->
   <data name="dismissButton" xml:space="preserve">
     <value>忽略 (&amp;D)</value>
     <comment>The caption for the "Dismiss" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="displayTime" xml:space="preserve">
-    <value>顯示時間</value>
+    <value>顯示時長</value>
     <comment>The title for the "Display time" group box</comment>
   </data>
-  
-<!--
-<data name="downloadIcons" xml:space="preserve">
-    <value>Download icon packs</value>
+  <data name="downloadIcons" xml:space="preserve">
+    <value>下載縮圖主題包</value>
     <comment>Hyperlink for accessing the icon pack browser</comment>
   </data>
--->
   <data name="downloadManuallyButton" xml:space="preserve">
     <value>手動下載 (&amp;M)</value>
     <comment>The caption for the "Download manually" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -242,7 +227,7 @@
     <comment>Label for selecting color scheme</comment>
   </data>
   <data name="firstRunColorSchemeWin10Only" xml:space="preserve">
-    <value>僅適用於 Windows 10</value>
+    <value>僅適用於 Windows 10 或更新的作業系統</value>
     <comment>Added to dark button if not running on Windows 10</comment>
   </data>
   <data name="firstRunContribute" xml:space="preserve">
@@ -293,48 +278,30 @@
     <value>隱藏視窗 (&amp;H)</value>
     <comment>The caption for the button that hides the window. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
-  
-<!--
-<data name="iconPackDownloadingMetadata" xml:space="preserve">
-    <value>Downloading metadata...</value>
+  <data name="iconPackDownloadingMetadata" xml:space="preserve">
+    <value>正在下載 meta 資料...</value>
     <comment>Shown when downloading metadata for icon pack</comment>
   </data>
--->
-  
-<!--
-<data name="iconPackDownloadingPack" xml:space="preserve">
-    <value>Downloading pack...</value>
+  <data name="iconPackDownloadingPack" xml:space="preserve">
+    <value>正在下載縮圖包...</value>
     <comment>Shown when downloading an icon pack</comment>
   </data>
--->
-  
-<!--
-<data name="iconPackPrompt" xml:space="preserve">
-    <value>Do you want to install the icon pack “{name}” (Version {version}) by {authorName}?</value>
+  <data name="iconPackPrompt" xml:space="preserve">
+    <value>確認要安裝縮圖主題 “{name}” (版本 {version}) 作者： {authorName}？</value>
     <comment>Prompt shown when installing an icon pack</comment>
   </data>
--->
-  
-<!--
-<data name="iconPackResetPrompt" xml:space="preserve">
-    <value>Do you want to reset the icons to the default ones?</value>
+  <data name="iconPackResetPrompt" xml:space="preserve">
+    <value>是否要將縮圖主題恢復為預設主題？</value>
     <comment>Shown when asked to reset the icons</comment>
   </data>
--->
-  
-<!--
-<data name="iconPackResetSuccess" xml:space="preserve">
-    <value>Icons were reset to default!</value>
+  <data name="iconPackResetSuccess" xml:space="preserve">
+    <value>縮圖主題已恢復為預設！</value>
     <comment>Shown after icons were reset</comment>
   </data>
--->
-  
-<!--
-<data name="iconPackSuccess" xml:space="preserve">
-    <value>Successfully installed icon pack “{name}” (Version {version})!</value>
+  <data name="iconPackSuccess" xml:space="preserve">
+    <value>“{name}” (版本 {version}) 安裝成功！</value>
     <comment>Shown after an icon pack was installed successfully</comment>
   </data>
--->
   <data name="keyChanged" xml:space="preserve">
     <value>切換 {0} 時</value>
     <comment>Used for the check boxes in the "Show notification when..." group box. "{0}" will be replaced with the key name</comment>
@@ -383,20 +350,14 @@
     <value>Scroll Lock</value>
     <comment>The name of the scroll lock key</comment>
   </data>
-  
-<!--
-<data name="searchForUpdatesOnResumeOption" xml:space="preserve">
-    <value>Search for &amp;updates on resume</value>
+  <data name="searchForUpdatesOnResumeOption" xml:space="preserve">
+    <value>再次開啟畫面時檢查更新 (&amp;U)</value>
     <comment>Label of options checkbox for update search after resume</comment>
   </data>
--->
-  
-<!--
-<data name="settingsChangedToolTip" xml:space="preserve">
-    <value>The settings have moved! You will now find them in these tabs up here!</value>
+  <data name="settingsChangedToolTip" xml:space="preserve">
+    <value>設定介面已更新！現在可於頂部頁籤找到各個對應設定！</value>
     <comment>The tutorial tooltip shown when upgrading to 3.13.0.0</comment>
   </data>
--->
   <data name="showIconsFor" xml:space="preserve">
     <value>通知區圖示：</value>
     <comment>The title for the "Show icons for..." group box</comment>
@@ -421,41 +382,26 @@
     <value>開機時自動啟動</value>
     <comment>The label for the check box that enables or disabled the auto start.</comment>
   </data>
-  
-<!--
-<data name="tabAdvancedOptions" xml:space="preserve">
-    <value>Advanced Options</value>
+  <data name="tabAdvancedOptions" xml:space="preserve">
+    <value>進階設定</value>
     <comment>Tab header for advanced options</comment>
   </data>
--->
-  
-<!--
-<data name="tabGeneral" xml:space="preserve">
-    <value>General</value>
+  <data name="tabGeneral" xml:space="preserve">
+    <value>一般</value>
     <comment>Tab header for general settings</comment>
   </data>
--->
-  
-<!--
-<data name="tabNotification" xml:space="preserve">
-    <value>Notification</value>
+  <data name="tabNotification" xml:space="preserve">
+    <value>通知</value>
     <comment>Tab header for advanced settings</comment>
   </data>
--->
-  
-<!--
-<data name="unsupportedCLI" xml:space="preserve">
-    <value>This version of CapsLock Indicator (Version {version}) is not supported. Please update to the latest version!</value>
+  <data name="unsupportedCLI" xml:space="preserve">
+    <value>不支援此版本的 CapsLock Indicator (版本 {version})。請更新為最新版本！</value>
     <comment>Banner text when CLI version is unsupported</comment>
   </data>
--->
-  
-<!--
-<data name="unsupportedWin" xml:space="preserve">
-    <value>You are using {os} which is no longer supported by Microsoft. CapsLock Indicator will drop support for this OS in the future! Please upgrade to a modern version of Windows!</value>
+  <data name="unsupportedWin" xml:space="preserve">
+    <value>你正在使用已不再受 Microsoft 支援的作業系統 {os}。CapsLock Indicator 未來的版本將不會再支援此作業系統！請盡早升級為最新版本的 Windows！</value>
     <comment>Banner text when Windows version is unsupported</comment>
   </data>
--->
   <data name="updateAvailable" xml:space="preserve">
     <value>CapsLock Indicator 有可用的更新！</value>
     <comment>The title for the update window.</comment>
@@ -468,5 +414,4 @@
     <value>立即更新 (&amp;U)</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
-
 </root>

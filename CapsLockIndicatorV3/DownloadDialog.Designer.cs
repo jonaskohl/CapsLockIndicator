@@ -63,7 +63,7 @@ namespace CapsLockIndicatorV3
             this.cancelButton.TabIndex = 2;
             this.cancelButton.Text = "&Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.button1_Click);
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // infoLabel
             // 
@@ -85,7 +85,7 @@ namespace CapsLockIndicatorV3
             this.closeButton.Text = "C&lose";
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Visible = false;
-            this.closeButton.Click += new System.EventHandler(this.button2_Click);
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // restartButton
             // 

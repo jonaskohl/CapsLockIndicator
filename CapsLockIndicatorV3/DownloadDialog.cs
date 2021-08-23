@@ -72,6 +72,8 @@ namespace CapsLockIndicatorV3
             Client = new WebClient();
             Client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressCallback);
             Client.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadFileCompleteCallback);
+            //without adding RequestHeader with UserAgent will show 403 forbidden in old version with random situation, though now seems not happend anymore... :/
+            // Client.Headers.Add(HttpRequestHeader.UserAgent, "Mozilla/4.0 (compatible; MSIE 7.0; " + Environment.OSVersion.ToString() + "; " + (Environment.Is64BitOperatingSystem ? "Win64; x64" : "Win32; x86") + ") Trident 7.0 (KHTML, like Gecko) CapsLockIndicator/" + FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetExecutingAssembly().Location).FileVersion);
             Client.DownloadFileAsync(new Uri(url), path);
 
             newPath = path;
@@ -100,9 +102,19 @@ namespace CapsLockIndicatorV3
             }
             else
             {
-                restartButton.Show();
-                restartButton.Enabled = true;
-                statusLabel.Text = "Download completed.";
+                if (e.Error == null)
+                {
+                    restartButton.Show();
+                    restartButton.Enabled = true;
+                    statusLabel.Text = "Download completed.";
+                }
+                else
+                {
+                    MessageBox.Show("An error occured while downloading update:\r\n" + e.Error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    closeButton.Show();
+                    closeButton.Enabled = true;
+                    statusLabel.Text = "Download error, aborted.";
+                }
             }
         }
 
@@ -111,14 +123,14 @@ namespace CapsLockIndicatorV3
             Download(DownloadURL);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void cancelButton_Click(object sender, EventArgs e)
         {
 #if !DEBUG
             Client?.CancelAsync();
 #endif
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void closeButton_Click(object sender, EventArgs e)
         {
             Close();
         }
