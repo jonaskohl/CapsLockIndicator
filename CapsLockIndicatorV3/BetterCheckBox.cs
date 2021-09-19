@@ -63,7 +63,7 @@ namespace CapsLockIndicatorV3
             }
             else
             {
-
+                var scaling = DPIHelper.GetScalingFactorPercent();
                 var border = N_Border;
                 var background = N_Background;
                 var check = N_Check;
@@ -89,14 +89,14 @@ namespace CapsLockIndicatorV3
                     check = H_Check;
                 }
 
-                const int boxSize = 13;
-                const int boxRectInnerMargin = 2;
-                const int checkPenWidth = 2;
-                const int textMargin = 3;
+                int boxSize = (int)(13 * scaling);
+                int boxRectInnerMargin = (int)(2 * scaling);
+                int checkPenWidth = (int)(2 * scaling);
+                int textMargin = (int)(3 * scaling);
 
                 var boxY = Height / 2 - boxSize / 2;
 
-                var boxRect = new Rectangle(0, boxY, 13, 13);
+                var boxRect = new Rectangle(0, boxY, boxSize, boxSize);
                 var boxRectPen = boxRect;
                 var boxRectInner = boxRect;
                 --boxRectPen.Width;

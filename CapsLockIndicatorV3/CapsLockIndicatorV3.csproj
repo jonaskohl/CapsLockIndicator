@@ -114,6 +114,7 @@
     <Compile Include="DownloadDialog.Designer.cs">
       <DependentUpon>DownloadDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="DPIHelper.cs" />
     <Compile Include="DropDownLocale.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="FirstRunDialog.cs">

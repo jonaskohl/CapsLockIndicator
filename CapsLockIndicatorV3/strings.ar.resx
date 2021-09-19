@@ -118,35 +118,35 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="adjustingColorScheme" xml:space="preserve">
-    <value>Renk düzeni değiştiriliyor... Lütfen bekleyin...</value>
+    <value>جاري ضبط نظام الألوان ... الرجاء الانتظار ... </value>
     <comment>Shown in a popup when toggling dark mode</comment>
   </data>
   <data name="advancedSettings" xml:space="preserve">
-    <value>Gelişmiş Seçenekler</value>
+    <value>إعدادات متقدمة </value>
     <comment>Label of the hyperlink that opens the settings file</comment>
   </data>
   <data name="autoCheckForUpdates" xml:space="preserve">
-    <value>Güncellemeleri otomatik denetle</value>
+    <value>البحث التلقائي عن التحديثات</value>
     <comment>Tooltip for the checkbox next to the update button</comment>
   </data>
   <data name="backgroundColourActivatedButton" xml:space="preserve">
-    <value>Etkin arkaplan rengi</value>
+    <value>تنشيط لون الخلفية</value>
     <comment>The caption for the "Background colour activated" button.</comment>
   </data>
   <data name="backgroundColourDeactivatedButton" xml:space="preserve">
-    <value>Devre dışı arkaplan rengi</value>
+    <value>إلغاء تنشيط لون الخلفية</value>
     <comment>The caption for the "Background colour deactivated" button.</comment>
   </data>
   <data name="borderColourActivatedButton" xml:space="preserve">
-    <value>Etkin kenarlık rengi</value>
+    <value>تنشيط لون الحد</value>
     <comment>The caption for the "Border colour activated" button.</comment>
   </data>
   <data name="borderColourDeactivatedButton" xml:space="preserve">
-    <value>Devre dışı kenarlık rengi</value>
+    <value>إلغاء تنشيط لون الحد</value>
     <comment>The caption for the "Border colour deactivated" button.</comment>
   </data>
   <data name="borderThicknessGroup" xml:space="preserve">
-    <value>Kenar kalınlığı</value>
+    <value>سماكة الحد</value>
     <comment>Label of the border thickness groupbox</comment>
   </data>
   <data name="capsLock" xml:space="preserve">
@@ -154,171 +154,171 @@
     <comment>The name of the caps lock key</comment>
   </data>
   <data name="checkForUpdates" xml:space="preserve">
-    <value>Güncellemeleri denetle</value>
+    <value>التحقق من وجود تحديثات</value>
     <comment>The caption for the button that manually checks for updates. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="checkingForUpdates" xml:space="preserve">
-    <value>Güncellemeler denetleniyor...</value>
+    <value>البحث عن تحديثات ...</value>
     <comment>The caption for the "Check for updates" button when it's searching for updates.</comment>
   </data>
   <data name="coloursGroup" xml:space="preserve">
-    <value>Renkler</value>
+    <value>الألوان</value>
     <comment>The title for the "Colours" group box</comment>
   </data>
   <data name="contextMenuExit" xml:space="preserve">
-    <value>&amp;Çıkış</value>
+    <value>خروج</value>
     <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
   <data name="contextMenuShow" xml:space="preserve">
-    <value>&amp;Göster</value>
+    <value>مشاهدة</value>
     <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
   <data name="darkModeOption" xml:space="preserve">
-    <value>&amp;Koyu tema</value>
+    <value>الوضع الليلي</value>
     <comment>Label of options checkbox for dark mode</comment>
   </data>
   <data name="dismiss" xml:space="preserve">
-    <value>Kapat</value>
+    <value>رفض</value>
     <comment>Used as tooltip (but may be used in other places in the future</comment>
   </data>
   <data name="dismissButton" xml:space="preserve">
-    <value>Reddet</value>
+    <value>رفض</value>
     <comment>The caption for the "Dismiss" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="displayTime" xml:space="preserve">
-    <value>Görüntüleme süresi</value>
+    <value>وقت العرض</value>
     <comment>The title for the "Display time" group box</comment>
   </data>
   <data name="downloadIcons" xml:space="preserve">
-    <value>Simge paketi indir</value>
+    <value>تحميل حزمة الأيقونات</value>
     <comment>Hyperlink for accessing the icon pack browser</comment>
   </data>
   <data name="downloadManuallyButton" xml:space="preserve">
-    <value>&amp;Manuel olarak indir</value>
+    <value>التنزيل اليدوي</value>
     <comment>The caption for the "Download manually" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="downloadMoreTranslations" xml:space="preserve">
-    <value>Daha fazla çeviri indir...</value>
+    <value>تنزيل مزيد من الترجمات</value>
     <comment>The last dropdown item in the locale dropdown.</comment>
   </data>
   <data name="exitApplication" xml:space="preserve">
-    <value>&amp;Uygulamadan çık</value>
+    <value>الخروج من البرنامج</value>
     <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="exitMessage" xml:space="preserve">
-    <value>Eğer uygulamadan çıkarsanız simgeler ve bildirimler görüntülenemeyecek. Yine de çıkmak istiyor musunuz?</value>
+    <value>الخروج من التطبيق يعني أن الرموز والإشعارات سيتم إخفائها . هل تريد الخروج على أي حال؟ </value>
     <comment>The message to display on application exit</comment>
   </data>
   <data name="firstRunAllowUpdateCheck" xml:space="preserve">
-    <value>CapsLock Indicator'a güncellemeleri belirli aralıklarla denetlemesi için izin verin (bu izin daha sonra değiştirilebilir)</value>
+    <value>السماح لمؤشر CapsLock بالتحقق بشكل دوري من التحديثات عبر الإنترنت (يمكن تغييره لاحقًا) </value>
     <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
   </data>
   <data name="firstRunColorSchemeDark" xml:space="preserve">
-    <value>&amp;Koyu</value>
+    <value>غامق</value>
     <comment>Button for selecting dark color scheme</comment>
   </data>
   <data name="firstRunColorSchemeLight" xml:space="preserve">
-    <value>&amp;Açık</value>
+    <value>فاتح</value>
     <comment>Button for selecting light color scheme</comment>
   </data>
   <data name="firstRunColorSchemePreference" xml:space="preserve">
-    <value>Hangi renk düzenini tercih edersiniz?</value>
+    <value>ما هو نظام الألوان الذي تفضله؟ </value>
     <comment>Label for selecting color scheme</comment>
   </data>
   <data name="firstRunColorSchemeWin10Only" xml:space="preserve">
-    <value>Sadece Windows 10 ve üstü için</value>
+    <value>فقط متوفر على ويندوز 10 او أعلى</value>
     <comment>Added to dark button if not running on Windows 10</comment>
   </data>
   <data name="firstRunContribute" xml:space="preserve">
-    <value>Katkıda bulun</value>
+    <value>المساهمة</value>
     <comment>Label of the hyperlink that takes you to CLI's GitHub page</comment>
   </data>
   <data name="firstRunExit" xml:space="preserve">
-    <value>&amp;Çıkış</value>
+    <value>الخروج</value>
     <comment>Button that exists the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="firstRunHeading" xml:space="preserve">
-    <value>CapsLock Indicator'a Hoşgeldiniz</value>
+    <value>مرحبا بك في برنامج CapsLock </value>
     <comment>The heading of the first-run dialog</comment>
   </data>
   <data name="firstRunMessage" xml:space="preserve">
-    <value>CapsLock Indicator'ı tercih ettiğiniz için Teşekkürler! Bu program açık-kaynak ve ücretsiz, her zaman öyleydi, her zaman öyle olacak! CapsLock Indicator'a katkıda bulunmak mı istiyorsunuz? Bilgi için linki kullanın! Ayrıca, aşağıdaki ayarlara lütfen göz atın!</value>
+    <value>شكرا لاختياربرنامج CapsLock! هذا البرنامج مفتوح المصدر ومجاني ، كان دائمًا وسيظل دائمًا! هل أنت مهتم بالمساهمة في مؤشر CapsLock بنفسك؟ قم بزيارة الرابط أدناه لمزيد من المعلومات! أيضًا ، يُرجى تخصيص بعض الوقت لمراجعة الإعدادات أدناه! </value>
     <comment>The message of the first-run dialog</comment>
   </data>
   <data name="firstRunPrivacyInfoLinkLabel" xml:space="preserve">
-    <value>Hangi bilgiler gönderilecek?</value>
+    <value>ما هي المعلومات التي سيتم إرسالها؟ </value>
     <comment>The label of the hyperlink that shows which information will be sent on each update check</comment>
   </data>
   <data name="firstRunStart" xml:space="preserve">
-    <value>&amp;Haydi başlayalım!</value>
+    <value>لنذهب!</value>
     <comment>Button that starts the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="fontGroup" xml:space="preserve">
-    <value>Yazı tipi</value>
+    <value>خط</value>
     <comment>The title for the "Font" group box</comment>
   </data>
   <data name="foregroundColourActivatedButton" xml:space="preserve">
-    <value>Etkin metin rengi</value>
+    <value>تنشيط ألوان الخطوط</value>
     <comment>The caption for the "Text colour activated" button.</comment>
   </data>
   <data name="foregroundColourDeactivatedButton" xml:space="preserve">
-    <value>Devre dışı metin rengi</value>
+    <value>إلغاء تنشيط ألوان الخطوط</value>
     <comment>The caption for the "Text colour deactivated" button.</comment>
   </data>
   <data name="generalIconBalloonText" xml:space="preserve">
-    <value>Bu simgeye çift tıklayarak CapsLock Indicator'ı tekrar görüntüleyebilirsiniz.</value>
+    <value>يمكنك إظهار برنامج CapsLock مرة أخرى بالنقر المزدوج على هذه الأيقونة. </value>
     <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
   </data>
   <data name="hideOnStartup" xml:space="preserve">
-    <value>Başlangıçta gizle</value>
+    <value>إخفاء عند بدء التشغيل</value>
     <comment>Used for the hide on startup checkbox</comment>
   </data>
   <data name="hideWindow" xml:space="preserve">
-    <value>&amp;Pencereyi gizle</value>
+    <value>إخفاء النافذة</value>
     <comment>The caption for the button that hides the window. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="iconPackDownloadingMetadata" xml:space="preserve">
-    <value>Üstveriler yükleniyor...</value>
+    <value>التحميل من المصدر</value>
     <comment>Shown when downloading metadata for icon pack</comment>
   </data>
   <data name="iconPackDownloadingPack" xml:space="preserve">
-    <value>Paket indiriliyor...</value>
+    <value>تحميل الحزمة</value>
     <comment>Shown when downloading an icon pack</comment>
   </data>
   <data name="iconPackPrompt" xml:space="preserve">
-    <value>{authorName} tarafından hazırlanan “{name}” adlı simge paketini (Versiyon {version}) yüklemek istiyor musunuz?</value>
+    <value>هل تريد تثبيت حزمة الرموز "{name}" (الإصدار {version}) بواسطة {authorName}؟ </value>
     <comment>Prompt shown when installing an icon pack</comment>
   </data>
   <data name="iconPackResetPrompt" xml:space="preserve">
-    <value>Varsayılan simgelere geri dönmek istiyor musunuz?</value>
+    <value>هل تريد إعادة تعيين الرموز إلى الرموز الافتراضية؟</value>
     <comment>Shown when asked to reset the icons</comment>
   </data>
   <data name="iconPackResetSuccess" xml:space="preserve">
-    <value>Varsayılan simgeler kullanılacak!</value>
+    <value>تم إعادة تعيين الرموز إلى الافتراضي! </value>
     <comment>Shown after icons were reset</comment>
   </data>
   <data name="iconPackSuccess" xml:space="preserve">
-    <value>“{name}” (Version {version}) simge paketi başarıyla yüklendi!</value>
+    <value>تم تثبيت حزمة الرموز "{name}" بنجاح (الإصدار {version})! </value>
     <comment>Shown after an icon pack was installed successfully</comment>
   </data>
   <data name="keyChanged" xml:space="preserve">
-    <value>{0} değiştiğinde</value>
+    <value>تم تغيير {0} </value>
     <comment>Used for the check boxes in the "Show notification when..." group box. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="keyIsOff" xml:space="preserve">
-    <value>{0} kapalı</value>
+    <value>غير مفعّل {0} </value>
     <comment>The text to display in the notification when a key is off. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="keyIsOn" xml:space="preserve">
-    <value>{0} açık</value>
+    <value>مفعل {0}</value>
     <comment>The text to display in the notification when a key is on. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="notificationSettings" xml:space="preserve">
-    <value>Bildirim ayarları</value>
+    <value>إعدادات الإشعارات</value>
     <comment>The caption for the button that opens the notification settings. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="notificationSettingsTitle" xml:space="preserve">
-    <value>Bildirim seçenekleri</value>
+    <value>إعدادات الإشعارات</value>
     <comment>The caption of the notification settings window</comment>
   </data>
   <data name="numLock" xml:space="preserve">
@@ -326,23 +326,23 @@
     <comment>The name of the num lock key</comment>
   </data>
   <data name="opacity" xml:space="preserve">
-    <value>Opaklık</value>
+    <value>التغميق</value>
     <comment>The title for the "Opacity" group box</comment>
   </data>
   <data name="overlayPositionGroup" xml:space="preserve">
-    <value>Kaplama konumu</value>
+    <value>الوضع الشفاف</value>
     <comment>The title for the "Overlay position" group box</comment>
   </data>
   <data name="permanentIndicator" xml:space="preserve">
-    <value>Kalıcı</value>
+    <value>بشكل دائم</value>
     <comment>Text to display instead of the time if indicator overlay display is set to permanently.</comment>
   </data>
   <data name="reloadedIconsInfo" xml:space="preserve">
-    <value>Simgeler yeniden yüklendi</value>
+    <value>إعادة تحميل الرموز</value>
     <comment>Shown in a notification when hot-reloading icons.</comment>
   </data>
   <data name="saveAndCloseButton" xml:space="preserve">
-    <value>Kaydet ve kapat</value>
+    <value>&amp; حفظ &amp;&amp; إغلاق</value>
     <comment>The caption for the "Save &amp; Close" button. The character after the "&amp;" is the hotkey that is used with the ALT key. Use two "&amp;" to display a "&amp;" character</comment>
   </data>
   <data name="scrollLock" xml:space="preserve">
@@ -350,67 +350,67 @@
     <comment>The name of the scroll lock key</comment>
   </data>
   <data name="searchForUpdatesOnResumeOption" xml:space="preserve">
-    <value>Yeniden başladığında &amp;güncellemeleri denetle</value>
+    <value>ابحث عن التحديثات في او استكمالها</value>
     <comment>Label of options checkbox for update search after resume</comment>
   </data>
   <data name="settingsChangedToolTip" xml:space="preserve">
-    <value>Seçeneklerin yeri değişti! Artık onları buradaki sekmelerde bulabilirsiniz!</value>
+    <value>تم نقل الإعدادات! ستجدهم الآن في علامات التبويب هذه هنا!</value>
     <comment>The tutorial tooltip shown when upgrading to 3.13.0.0</comment>
   </data>
   <data name="showIconsFor" xml:space="preserve">
-    <value>Simgeleri şunun için göster...</value>
+    <value>إظهار رموز لـ ... </value>
     <comment>The title for the "Show icons for..." group box</comment>
   </data>
   <data name="showNoIcons" xml:space="preserve">
-    <value>Simgeleri gösterme</value>
+    <value>عدم إظهار الرموز</value>
     <comment>The label for the check box that enables or disables all icons</comment>
   </data>
   <data name="showNoNotification" xml:space="preserve">
-    <value>Bildirimleri gösterme</value>
+    <value>عدم إظهار الاشعارات</value>
     <comment>The label for the check box that enables or disables all notifications</comment>
   </data>
   <data name="showNotificationWhen" xml:space="preserve">
-    <value>Bildirimleri göster...</value>
+    <value>إظهار الإشعار عند ...</value>
     <comment>The title for the "Show notification when..." group box</comment>
   </data>
   <data name="showOverlayOnlyWhenActive" xml:space="preserve">
-    <value>Etkin iken kaplamayı daima göster</value>
+    <value>إظهار التراكب دائمًا عندما يكون نشطًا</value>
     <comment>The label for the check box that indicates whether overlay should only be shown when active</comment>
   </data>
   <data name="startOnLogon" xml:space="preserve">
-    <value>Oturum açılışında başlat</value>
+    <value>ابدأ عند تسجيل الدخول </value>
     <comment>The label for the check box that enables or disabled the auto start.</comment>
   </data>
   <data name="tabAdvancedOptions" xml:space="preserve">
-    <value>Gelişmiş Seçenekler</value>
+    <value>إعدادات متقدمة</value>
     <comment>Tab header for advanced options</comment>
   </data>
   <data name="tabGeneral" xml:space="preserve">
-    <value>Genel</value>
+    <value>عام</value>
     <comment>Tab header for general settings</comment>
   </data>
   <data name="tabNotification" xml:space="preserve">
-    <value>Bildirim</value>
+    <value>الإشعارات</value>
     <comment>Tab header for advanced settings</comment>
   </data>
   <data name="unsupportedCLI" xml:space="preserve">
-    <value>CapsLock Indicator'ın bu sürümü (Versiyon {version}) desteklenmiyor. Lütfen son sürüme güncelleme yapın.</value>
+    <value>هذا الإصدار من برنامج CapsLock (الإصدار {الإصدار}) غير مدعوم. يرجى التحديث إلى أحدث إصدار! </value>
     <comment>Banner text when CLI version is unsupported</comment>
   </data>
   <data name="unsupportedWin" xml:space="preserve">
-    <value>Microsoft tarafından artık desteklenmeyen {os} sürümünü kullanıyorsunuz. CapsLock Indicator gelecekte bu işletim sistemini desteklemeyecek. Lütfen Windows'un daha modern bir sürümüne geçiş yapın.</value>
+    <value>أنت تستخدم {os} والذي لم يعد مدعومًا من قبل Microsoft. سوف يقوم CapsLock Indicator بإسقاط دعم نظام التشغيل هذا في المستقبل! الرجاء الترقية إلى إصدار حديث من Windows! </value>
     <comment>Banner text when Windows version is unsupported</comment>
   </data>
   <data name="updateAvailable" xml:space="preserve">
-    <value>CapsLock Indicator için güncelleme mevcut!</value>
+    <value>يتوفر تحديث مؤشر CapsLock! </value>
     <comment>The title for the update window.</comment>
   </data>
   <data name="updateInfoFormat" xml:space="preserve">
-    <value>Versiyon {0}, {1} tarihinde yayınlandı.</value>
+    <value>الإصدار{0}, تم إصدار{1}</value>
     <comment>Displayed in the "Update Available" dialog. {0} is the version, {1} is the release date and time.</comment>
   </data>
   <data name="updateNow" xml:space="preserve">
-    <value>&amp;Şimdi güncelle</value>
+    <value>التحديث الأن</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
 

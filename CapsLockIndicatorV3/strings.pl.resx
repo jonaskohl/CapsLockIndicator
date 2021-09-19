@@ -214,7 +214,7 @@
     <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
   </data>
   <data name="firstRunColorSchemeDark" xml:space="preserve">
-    <value>&amp;Ciemny</value>
+    <value>&amp;Ciemną</value>
     <comment>Button for selecting dark color scheme</comment>
   </data>
   <data name="firstRunColorSchemeLight" xml:space="preserve">

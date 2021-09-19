@@ -217,7 +217,7 @@ namespace CapsLockIndicatorV3
 
         internal void DrawTab(Graphics g, TabPage tabPage, int nIndex)
         {
-            var tr = this.GetTabRect(nIndex);
+            var tr = GetTabRectDPI(nIndex);
             Rectangle recBounds = tr;
             recBounds.Y -= 2;
             recBounds.Height += 2;
@@ -329,6 +329,21 @@ namespace CapsLockIndicatorV3
             }
         }
 
+        private Rectangle GetTabRectDPI(int nIndex)
+        {
+            var rect = GetTabRect(nIndex);
+            /*
+            var scale = DPIHelper.GetScalingFactorPercent();
+            rect = new Rectangle(
+                (int)(rect.X * scale),
+                (int)(rect.Y * scale),
+                (int)(rect.Width * scale),
+                (int)(rect.Height * scale)
+            );
+            */
+            return rect;
+        }
+
         internal void DrawIcons(Graphics g)
         {
             if (!_darkMode)
@@ -368,7 +383,7 @@ namespace CapsLockIndicatorV3
             {
                 if (this.TabCount > 0)
                 {
-                    Rectangle r3 = this.GetTabRect(0);
+                    Rectangle r3 = GetTabRectDPI(0);
                     if (r3.Left < TabControlArea.Left)
                         g.DrawImage(img, r1);
                     else
@@ -385,7 +400,7 @@ namespace CapsLockIndicatorV3
             {
                 if (this.TabCount > 0)
                 {
-                    Rectangle r3 = this.GetTabRect(this.TabCount - 1);
+                    Rectangle r3 = GetTabRectDPI(this.TabCount - 1);
                     if (r3.Right > (TabControlArea.Width - r0.Width))
                         g.DrawImage(img, r2);
                     else
@@ -439,7 +454,7 @@ namespace CapsLockIndicatorV3
             var index = -1;
             for (var i = 0; i < TabCount; ++i)
             {
-                var rect = GetTabRect(i);
+                var rect = GetTabRectDPI(i);
                 if (rect.Contains(pos))
                 {
                     index = i;

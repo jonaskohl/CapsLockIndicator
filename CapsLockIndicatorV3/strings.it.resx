@@ -117,13 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  
-<!--
-<data name="adjustingColorScheme" xml:space="preserve">
-    <value>Adjusting color scheme... Please wait...</value>
+  <data name="adjustingColorScheme" xml:space="preserve">
+    <value>Regolazione schema colore...</value>
     <comment>Shown in a popup when toggling dark mode</comment>
   </data>
--->
   <data name="advancedSettings" xml:space="preserve">
     <value>Impostazioni avanzate</value>
     <comment>Label of the hyperlink that opens the settings file</comment>
@@ -176,20 +173,14 @@
     <value>Vi&amp;sualizza</value>
     <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
-  
-<!--
-<data name="darkModeOption" xml:space="preserve">
-    <value>&amp;Dark mode</value>
+  <data name="darkModeOption" xml:space="preserve">
+    <value>Modo &amp;scuro</value>
     <comment>Label of options checkbox for dark mode</comment>
   </data>
--->
-  
-<!--
-<data name="dismiss" xml:space="preserve">
-    <value>Dismiss</value>
+  <data name="dismiss" xml:space="preserve">
+    <value>Non accetto</value>
     <comment>Used as tooltip (but may be used in other places in the future</comment>
   </data>
--->
   <data name="dismissButton" xml:space="preserve">
     <value>A&amp;nnulla</value>
     <comment>The caption for the "Dismiss" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -236,7 +227,7 @@ Vuoi uscire comunque?</value>
     <comment>Label for selecting color scheme</comment>
   </data>
   <data name="firstRunColorSchemeWin10Only" xml:space="preserve">
-    <value>Disponibile solo in Windows 10</value>
+    <value>Disponibile solo in Windows 10 o successivi</value>
     <comment>Added to dark button if not running on Windows 10</comment>
   </data>
   <data name="firstRunContribute" xml:space="preserve">
@@ -363,20 +354,16 @@ Inoltre, prenditi un momento per rivedere le impostazioni di seguito!</value>
     <value>Blocco scorrimento</value>
     <comment>The name of the scroll lock key</comment>
   </data>
-  
-<!--
-<data name="searchForUpdatesOnResumeOption" xml:space="preserve">
-    <value>Search for &amp;updates on resume</value>
+  <data name="searchForUpdatesOnResumeOption" xml:space="preserve">
+    <value>Cerca aggiornamenti quando riprendi</value>
     <comment>Label of options checkbox for update search after resume</comment>
   </data>
--->
-  
-<!--
-<data name="settingsChangedToolTip" xml:space="preserve">
-    <value>The settings have moved! You will now find them in these tabs up here!</value>
+  <data name="settingsChangedToolTip" xml:space="preserve">
+    <value>Le impostazioni sono state spostate! 
+Ora le troverai nelle schede qui sopra!
+</value>
     <comment>The tutorial tooltip shown when upgrading to 3.13.0.0</comment>
   </data>
--->
   <data name="showIconsFor" xml:space="preserve">
     <value>Visualizza icone per...</value>
     <comment>The title for the "Show icons for..." group box</comment>
@@ -401,41 +388,29 @@ Inoltre, prenditi un momento per rivedere le impostazioni di seguito!</value>
     <value>Esegui automaticamente all'avvio</value>
     <comment>The label for the check box that enables or disabled the auto start.</comment>
   </data>
-  
-<!--
-<data name="tabAdvancedOptions" xml:space="preserve">
-    <value>Advanced Options</value>
+  <data name="tabAdvancedOptions" xml:space="preserve">
+    <value>Opzioni avanzate</value>
     <comment>Tab header for advanced options</comment>
   </data>
--->
-  
-<!--
-<data name="tabGeneral" xml:space="preserve">
-    <value>General</value>
+  <data name="tabGeneral" xml:space="preserve">
+    <value>Generale</value>
     <comment>Tab header for general settings</comment>
   </data>
--->
-  
-<!--
-<data name="tabNotification" xml:space="preserve">
-    <value>Notification</value>
+  <data name="tabNotification" xml:space="preserve">
+    <value>Notifiche</value>
     <comment>Tab header for advanced settings</comment>
   </data>
--->
-  
-<!--
-<data name="unsupportedCLI" xml:space="preserve">
-    <value>This version of CapsLock Indicator (Version {version}) is not supported. Please update to the latest version!</value>
+  <data name="unsupportedCLI" xml:space="preserve">
+    <value>Questa versione di CapsLock (versione {version}) non è supportata. 
+Aggiorna alla versione più recente!</value>
     <comment>Banner text when CLI version is unsupported</comment>
   </data>
--->
-  
-<!--
-<data name="unsupportedWin" xml:space="preserve">
-    <value>You are using {os} which is no longer supported by Microsoft. CapsLock Indicator will drop support for this OS in the future! Please upgrade to a modern version of Windows!</value>
+  <data name="unsupportedWin" xml:space="preserve">
+    <value>Stai usando {os} che non è più supportato da Microsoft. 
+CapsLock  in futuro abbandonerà il supporto per questo sistema operativo! 
+Aggiorna Windows ad una versione più recente!</value>
     <comment>Banner text when Windows version is unsupported</comment>
   </data>
--->
   <data name="updateAvailable" xml:space="preserve">
     <value>Aggiornamento disponibile per CapsLock Indicator!</value>
     <comment>The title for the update window.</comment>

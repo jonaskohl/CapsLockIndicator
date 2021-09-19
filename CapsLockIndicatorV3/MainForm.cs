@@ -155,10 +155,8 @@ namespace CapsLockIndicatorV3
 
             SystemEvents.PowerModeChanged += SystemEvents_PowerModeChanged;
 
-#if !DEBUG && _DEBUG_FEATURE_EOL
             if (!SettingsManager.Get<bool>("supressEOLMessage"))
                 CheckSupport();
-#endif
 
             displayTimeSlider.Value = SettingsManager.Get<int>("indDisplayTime") > 0 ? SettingsManager.Get<int>("indDisplayTime") : 2001;
             displayTimeLabel.Text = displayTimeSlider.Value < 2001 ? string.Format("{0} ms", displayTimeSlider.Value) : strings.permanentIndicator;
@@ -237,7 +235,7 @@ namespace CapsLockIndicatorV3
         private void TabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             var sz = ClientSize;
-            sz.Height = int.Parse(tabControl1.SelectedTab.Tag.ToString());
+            sz.Height = (int)(int.Parse(tabControl1.SelectedTab.Tag.ToString()) * DPIHelper.GetScalingFactorPercent());
             ClientSize = sz;
         }
 
