@@ -244,7 +244,7 @@ namespace CapsLockIndicatorV3
 
             ControlScheduleSetDarkMode(webBrowser1, dark);
 
-            webBrowser1.Navigate("https://cli.jonaskohl.de/icongallery/embedded.php?dark=" + (dark ? "true" : "false") + "&scale=" + ((int)(DPIHelper.GetScalingFactorPercent() * 100)).ToString());
+            webBrowser1.Navigate("https://cli.jonaskohl.de/icongallery/embedded.php?dark=" + (dark ? "true" : "false") + "&scale=" + ((int)(DPIHelper.GetScalingFactorPercent(Handle) * 100)).ToString());
         }
     }
 }

@@ -44,6 +44,20 @@ namespace CapsLockIndicatorV3
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
         }
 
+        protected override void OnMouseDown(MouseEventArgs mevent)
+        {
+            base.OnMouseDown(mevent);
+            if (_darkMode)
+                Invalidate();
+        }
+
+        protected override void OnMouseUp(MouseEventArgs mevent)
+        {
+            base.OnMouseUp(mevent);
+            if (_darkMode)
+                Invalidate();
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             var bgColor = Parent?.BackColor ?? BackColor;
@@ -63,7 +77,7 @@ namespace CapsLockIndicatorV3
             }
             else
             {
-                var scaling = DPIHelper.GetScalingFactorPercent();
+                var scaling = DPIHelper.GetScalingFactorPercent(Handle);
                 var border = N_Border;
                 var background = N_Background;
                 var check = N_Check;

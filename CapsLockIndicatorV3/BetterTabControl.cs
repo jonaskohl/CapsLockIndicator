@@ -419,6 +419,7 @@ namespace CapsLockIndicatorV3
             base.OnCreateControl();
 
             FindUpDown();
+            ItemSize = new Size(ItemSize.Width, (int)(24 * DPIHelper.GetScalingFactorPercent(Handle)));
         }
 
         private void FlatTabControl_ControlAdded(object sender, ControlEventArgs e)

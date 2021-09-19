@@ -235,7 +235,7 @@ namespace CapsLockIndicatorV3
         private void TabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             var sz = ClientSize;
-            sz.Height = (int)(int.Parse(tabControl1.SelectedTab.Tag.ToString()) * DPIHelper.GetScalingFactorPercent());
+            sz.Height = (int)(int.Parse(tabControl1.SelectedTab.Tag.ToString()) * DPIHelper.GetScalingFactorPercent(Handle));
             ClientSize = sz;
         }
 

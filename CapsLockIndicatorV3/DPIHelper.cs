@@ -20,9 +20,9 @@ namespace CapsLockIndicatorV3
             DESKTOPVERTRES = 117
         }
 
-        internal static decimal GetScalingFactorPercent()
+        internal static decimal GetScalingFactorPercent(IntPtr handle)
         {
-            var g = Graphics.FromHwnd(IntPtr.Zero);
+            var g = Graphics.FromHwnd(handle);
             try
             {
                 var desktop = g.GetHdc();

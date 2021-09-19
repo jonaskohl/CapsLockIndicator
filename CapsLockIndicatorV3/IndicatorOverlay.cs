@@ -25,9 +25,10 @@ namespace CapsLockIndicatorV3
         static extern int GetWindowLongInt(IntPtr hWnd, int nIndex);
         [DllImport("user32.dll")]
         static extern int SetWindowLong(IntPtr hWnd, int nIndex, uint dwNewLong);
-        [DllImport("user32.dll")]
-        static extern int GetDpiForWindow(IntPtr hWnd);
+        //[DllImport("user32.dll")]
+        //static extern int GetDpiForWindow(IntPtr hWnd);
 
+        /*
         static float GetDisplayScaleFactor(IntPtr windowHandle)
         {
             try
@@ -39,6 +40,7 @@ namespace CapsLockIndicatorV3
                 return 1;
             }
         }
+        */
 
         const int GWL_EXSTYLE = -20;
         const uint WS_EX_LAYERED = 0x80000;
@@ -111,7 +113,7 @@ namespace CapsLockIndicatorV3
         {
             Rectangle workingArea = Screen.GetWorkingArea(Cursor.Position);
 
-            var factor = GetDisplayScaleFactor(Handle);
+            //var factor = DPIHelper.GetScalingFactorPercent(Handle);
 
             Size = new Size(
                 Width,
@@ -167,8 +169,10 @@ namespace CapsLockIndicatorV3
         {
             base.OnPaint(e);
 
+            var factor = DPIHelper.GetScalingFactorPercent(Handle);
+
             if (BorderSize > 0)
-                e.Graphics.DrawRectangle(new Pen(BorderColour, BorderSize), e.ClipRectangle);
+                e.Graphics.DrawRectangle(new Pen(BorderColour, (int)(BorderSize * factor)), e.ClipRectangle);
 
             using (var sf = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center })
             using (var b = new SolidBrush(contentLabel.ForeColor))
