@@ -321,6 +321,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="strings.ar.resx" />
     <EmbeddedResource Include="strings.cs.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.cs.Designer.cs</LastGenOutput>
