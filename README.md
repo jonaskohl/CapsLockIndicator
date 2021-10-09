@@ -30,7 +30,7 @@
 <p align="center"><br /></p>
 
 # Edit & compile source code
-You need Microsoft Visual Studio 2019 to edit and compile the source code. CapsLock Indicator has no other dependencies other than the Microsoft .NET SDK 4.5.
+You need Microsoft Visual Studio 2019 and the Microsoft .NET 4.7.1 SDK to edit and compile the source code.
 
 # Contributing
 If you have a feature suggestion or a bug to file **and you are able to implement this in the code**, feel free to [open a pull request](https://github.com/jonaskohl/CapsLockIndicator/pulls). If you only want to report a bug or suggest a feature, [open a new issue](https://github.com/jonaskohl/CapsLockIndicator/issues/new).

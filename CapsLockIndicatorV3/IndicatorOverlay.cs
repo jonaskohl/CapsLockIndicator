@@ -25,28 +25,14 @@ namespace CapsLockIndicatorV3
         static extern int GetWindowLongInt(IntPtr hWnd, int nIndex);
         [DllImport("user32.dll")]
         static extern int SetWindowLong(IntPtr hWnd, int nIndex, uint dwNewLong);
-        //[DllImport("user32.dll")]
-        //static extern int GetDpiForWindow(IntPtr hWnd);
 
-        /*
-        static float GetDisplayScaleFactor(IntPtr windowHandle)
-        {
-            try
-            {
-                return GetDpiForWindow(windowHandle) / 96f;
-            }
-            catch
-            {
-                return 1;
-            }
-        }
-        */
-
-        const int GWL_EXSTYLE = -20;
         const uint WS_EX_LAYERED = 0x80000;
+        const uint WS_EX_TOPMOST = 0x00000008;
+        const uint WS_EX_TOOLWINDOW = 0x00000080;
+        const uint WS_EX_TRANSPARENT = 0x00000020;
         const uint LWA_ALPHA = 0x2;
         const uint LWA_COLORKEY = 0x1;
-        const uint WS_EX_TRANSPARENT = 0x00000020;
+        const int GWL_EXSTYLE = -20;
         const int WM_NCHITTEST = 0x84;
         const int HTTRANSPARENT = -1;
 
@@ -84,7 +70,7 @@ namespace CapsLockIndicatorV3
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x00000008 | 0x80;
+                cp.ExStyle |= (int)(WS_EX_TOPMOST | WS_EX_TOOLWINDOW);
                 return cp;
             }
         }
@@ -113,14 +99,7 @@ namespace CapsLockIndicatorV3
         {
             Rectangle workingArea = Screen.GetWorkingArea(Cursor.Position);
 
-            //var factor = DPIHelper.GetScalingFactorPercent(Handle);
-
-            Size = new Size(
-                Width,
-                Height
-            //(int)(originalSize.Width * factor),
-            //(int)(originalSize.Height * factor)
-            );
+            Size = new Size(Width, Height);
 
             switch (pos)
             {
@@ -185,27 +164,23 @@ namespace CapsLockIndicatorV3
                 return -1;
 
             uint windowLong = GetWindowLong(Handle, GWL_EXSTYLE);
-            SetWindowLong32(Handle, GWL_EXSTYLE, windowLong ^ WS_EX_LAYERED);
+            SetWindowLong32(Handle, GWL_EXSTYLE, windowLong | WS_EX_LAYERED);
             SetLayeredWindowAttributes(Handle, 0, (byte)(opacity * 255), LWA_ALPHA);
 
-            var style = GetWindowLong(Handle, GWL_EXSTYLE);
-            SetWindowLong(Handle, GWL_EXSTYLE, style | WS_EX_LAYERED | WS_EX_TRANSPARENT);
+            SetWindowStyles();
 
             return 0;
+        }
+
+        private void SetWindowStyles()
+        {
+            var style = GetWindowLong(Handle, GWL_EXSTYLE);
+            SetWindowLong(Handle, GWL_EXSTYLE, style | WS_EX_LAYERED | WS_EX_TRANSPARENT | WS_EX_TOPMOST);
         }
 
         public IndicatorOverlay(string content)
         {
             InitializeComponent();
-
-            //if (IsDisposed)
-            //    return;
-
-            //originalSize = Size;
-
-            //contentLabel.Text = content;
-
-            //ClickThroughWindow();
         }
 
         public IndicatorOverlay(string content, int timeoutInMs, IndicatorDisplayPosition position)
@@ -299,6 +274,7 @@ namespace CapsLockIndicatorV3
             fadeTimer.Start();
             Show();
             UpdatePosition();
+            SetWindowStyles();
         }
 
         public void UpdateIndicator(string content, int timeoutInMs, IndicatorDisplayPosition position)
@@ -323,6 +299,7 @@ namespace CapsLockIndicatorV3
             }
             Show();
             UpdatePosition();
+            SetWindowStyles();
         }
 
         public void UpdateIndicator(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, int bdSize, Font font, IndicatorDisplayPosition position, int indOpacity, bool alwaysShow)
@@ -355,6 +332,7 @@ namespace CapsLockIndicatorV3
             Show();
             Invalidate();
             UpdatePosition();
+            SetWindowStyles();
         }
 
         void WindowCloseTimerTick(object sender, EventArgs e)
@@ -376,6 +354,7 @@ namespace CapsLockIndicatorV3
         private void positionUpdateTimer_Tick(object sender, EventArgs e)
         {
             UpdatePosition();
+            SetWindowStyles();
         }
     }
 }
