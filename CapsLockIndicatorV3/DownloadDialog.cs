@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -13,6 +14,8 @@ namespace CapsLockIndicatorV3
 {
     public partial class DownloadDialog : DarkModeForm
     {
+        public const string BAK_NAME = "~CapsLockIndicator.previousVersion.bak";
+
         Stopwatch sw = new Stopwatch();
 #if !DEBUG
         WebClient Client;
@@ -126,23 +129,38 @@ namespace CapsLockIndicatorV3
         private void restartButton_Click(object sender, EventArgs e)
         {
 #if !DEBUG
-            bool runAtStarup = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "CapsLock Indicator", null) != null;
-
-            if (runAtStarup)
+            if (SettingsManager.Get<bool>("dontOverwriteApplicationOnUpdate"))
             {
-                RegistryKey rk = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
-                rk.SetValue("CapsLock Indicator", newPath);
+                bool runAtStarup = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "CapsLock Indicator", null) != null;
+
+                if (runAtStarup)
+                {
+                    RegistryKey rk = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+                    rk.SetValue("CapsLock Indicator", newPath);
+                }
+
+                MainForm mainForm = Application.OpenForms.OfType<MainForm>().First();
+
+                mainForm.askCancel = false;
+                Program.ReleaseMutex();
+
+                Thread.Sleep(100);
+
+                Process.Start(newPath);
+                Application.Exit();
             }
+            else
+            {
+                var currExe = Assembly.GetExecutingAssembly().Location;
+                var currDir = Path.GetDirectoryName(currExe);
+                var bakFile = Path.Combine(currDir, BAK_NAME);
+                if (File.Exists(bakFile))
+                    File.Delete(bakFile);
+                File.Move(currExe, BAK_NAME);
+                File.Move(newPath, currExe);
 
-            MainForm mainForm = Application.OpenForms.OfType<MainForm>().First();
-
-            mainForm.askCancel = false;
-            Program.ReleaseMutex();
-
-            Thread.Sleep(100);
-
-            Process.Start(newPath);
-            Application.Exit();
+                Program.Restart();
+            }
 #endif
         }
     }

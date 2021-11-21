@@ -45,11 +45,11 @@ namespace CapsLockIndicatorV3
         public static async Task DoWork(Form parent, Action<IProgress<ProgressInfo>> work)
         {
             var dialog = new ProgressDialog();
-            Native.SetNativeEnabled(parent.Handle, false);
+            Native.SetNativeEnabled(parent, false);
             dialog.Show(parent);
             var prog = new Progress<ProgressInfo>(p => dialog.ReportProgress(p));
             await Task.Run(() => work(prog));
-            Native.SetNativeEnabled(parent.Handle, true);
+            Native.SetNativeEnabled(parent, true);
             dialog.Close();
         }
 
@@ -76,7 +76,7 @@ namespace CapsLockIndicatorV3
             var dialog = new ProgressDialog();
             dialog.Invoke(new MethodInvoker(() =>
             {
-                Native.SetNativeEnabled(parent.Handle, false);
+                Native.SetNativeEnabled(parent, false);
                 dialog.Show(parent);
             }));
             var prog = new Progress<ProgressInfo>(p =>
@@ -92,7 +92,7 @@ namespace CapsLockIndicatorV3
             work(prog);
             dialog.Invoke(new MethodInvoker(() =>
             {
-                Native.SetNativeEnabled(parent.Handle, true);
+                Native.SetNativeEnabled(parent, true);
                 dialog.Close();
             }));
         }

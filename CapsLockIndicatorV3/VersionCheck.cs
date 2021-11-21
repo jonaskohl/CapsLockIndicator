@@ -9,20 +9,27 @@ namespace CapsLockIndicatorV3
     /// <summary>
     /// This class checks if a new version is available.
     /// </summary>
-    static class VersionCheck
+    public static class VersionCheck
     {
-        const string CheckURL = "https://cli.jonaskohl.de/version.php?details&xml&newClient3=true";
+        const string CheckURL = "https://cli.jonaskohl.de/!/version?details&xml&newClient3=true";
         public static string newVersion = null;
 
-        public static async void IsLatestVersion(Action<string> callback, bool isManualCheck)
+        private static string version;
+
+        public static string UserAgent =>
+            "Mozilla/4.0 (compatible; MSIE 7.0; " + Environment.OSVersion.ToString() + "; " + (Environment.Is64BitOperatingSystem? "Win64; x64" : "Win32; x86") + ") Trident 7.0 (KHTML, like Gecko) CapsLockIndicator/" + version;
+
+        static VersionCheck()
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
-            string version = fvi.FileVersion;
-            var userAgentString = "Mozilla/4.0 (compatible; MSIE 7.0; " + Environment.OSVersion.ToString() + "; " + (Environment.Is64BitOperatingSystem ? "Win64; x64" : "Win32; x86") + ") Trident 7.0 (KHTML, like Gecko) CapsLockIndicator/" + version;
+            version = fvi.FileVersion;
+        }
 
+        public static async void IsLatestVersion(Action<string> callback, bool isManualCheck)
+        {
             WebClient client = new WebClient();
-            client.Headers.Add(HttpRequestHeader.UserAgent, userAgentString);
+            client.Headers.Add(HttpRequestHeader.UserAgent, UserAgent);
             ServicePointManager.Expect100Continue = true;
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             try

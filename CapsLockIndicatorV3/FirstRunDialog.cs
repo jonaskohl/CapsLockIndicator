@@ -25,10 +25,9 @@ namespace CapsLockIndicatorV3
 
             HandleCreated += FirstRunDialog_HandleCreated;
 
-            DarkModeProvider.RegisterForm(this);
-            DarkModeChanged += FirstRunDialog_DarkModeChanged;
-
             FormClosing += FirstRunDialog_FormClosing;
+
+            Shown += FirstRunDialog_Shown;
 
             ControlScheduleSetDarkMode(darkButton, true);
 
@@ -50,6 +49,12 @@ namespace CapsLockIndicatorV3
             }
         }
 
+        private void FirstRunDialog_Shown(object sender, EventArgs e)
+        {
+            Width = Width + 1;
+            Height = Height + 1;
+        }
+
         private void FirstRunDialog_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
@@ -58,9 +63,20 @@ namespace CapsLockIndicatorV3
 
         private void FirstRunDialog_HandleCreated(object sender, EventArgs e)
         {
+            DarkModeProvider.RegisterForm(this);
+            DarkModeChanged += FirstRunDialog_DarkModeChanged;
+        }
+
+        private void FirstRunDialog_DarkModeChanged(object sender, EventArgs e)
+        {
+            //RecreateHandle();
+
             var dark = DarkModeProvider.IsDark;
 
             Native.UseImmersiveDarkModeColors(Handle, dark);
+
+            Opacity -= 0.0001;
+            Opacity += 0.0001;
 
             headerLabel.ForeColor = dark ? Color.White : Color.FromArgb(255, 0, 51, 153);
 
@@ -74,6 +90,7 @@ namespace CapsLockIndicatorV3
             allowUpdatesCheckBox.ForeColor =
             dark ? Color.White : SystemColors.WindowText;
 
+            allowUpdatesCheckBox.DarkMode = dark;
             allowUpdatesCheckBox.FlatStyle = dark ? FlatStyle.Standard : FlatStyle.System;
 
             BackColor = dark ? Color.FromArgb(255, 32, 32, 32) : SystemColors.Window;
@@ -81,11 +98,6 @@ namespace CapsLockIndicatorV3
 
             ControlScheduleSetDarkMode(okButton, dark);
             ControlScheduleSetDarkMode(exitButton, dark);
-        }
-
-        private void FirstRunDialog_DarkModeChanged(object sender, EventArgs e)
-        {
-            RecreateHandle();
         }
 
         private void allowUpdatesCheckBox_CheckedChanged(object sender, EventArgs e)

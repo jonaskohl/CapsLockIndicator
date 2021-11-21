@@ -63,10 +63,13 @@ namespace CapsLockIndicatorV3
         [STAThread]
         private static void Main(string[] args)
         {
+            CleanupPreviousVersion();
+            ApplyLocaleUpdates();
+
             SettingsManager.Load();
 
-            if (Environment.OSVersion.Version.Major >= 6)
-                SetProcessDPIAware();
+            //if (Environment.OSVersion.Version.Major >= 6)
+            //    SetProcessDPIAware();
 
             if (mutex.WaitOne(TimeSpan.Zero, true)) // No instance is open
             {
@@ -119,11 +122,70 @@ namespace CapsLockIndicatorV3
             }
         }
 
+        private static void ApplyLocaleUpdates()
+        {
+            var currExe = Assembly.GetExecutingAssembly().Location;
+            var currDir = Path.GetDirectoryName(currExe);
+
+            var updateDir = Path.Combine(currDir, LanguageDownloadProgressForm.DLL_UPDATE_DIR);
+
+            if (Directory.Exists(updateDir))
+            {
+                var dlls = Directory.GetFiles(updateDir, "*.dll");
+
+                foreach (var dll in dlls)
+                {
+                    var targetDir = Path.Combine(currDir, Path.GetFileNameWithoutExtension(dll));
+                    var targetFile = Path.Combine(targetDir, LanguageDownloadProgressForm.DLL_NAME);
+
+                    Directory.CreateDirectory(targetDir);
+
+                    if (File.Exists(targetFile))
+                        File.Delete(targetFile);
+
+                    File.Move(dll, targetFile);
+                }
+
+                Directory.Delete(updateDir, true);
+            }
+        }
+
         public static void ReleaseMutex()
         {
             mutex.ReleaseMutex();
             mutex.Close();
             mutex.Dispose();
+        }
+
+        public static void CleanupPreviousVersion()
+        {
+            var currExe = Assembly.GetExecutingAssembly().Location;
+            var currDir = Path.GetDirectoryName(currExe);
+            var bakFile = Path.Combine(currDir, DownloadDialog.BAK_NAME);
+            if (File.Exists(bakFile))
+                File.Delete(bakFile);
+        }
+
+        public static void Restart()
+        {
+            ReleaseMutex();
+
+            Thread.Sleep(100);
+            var currExe = Assembly.GetExecutingAssembly().Location;
+
+            var psi = new ProcessStartInfo("powershell", "Start-Sleep -Milliseconds 1000; & \"" + currExe + "\"");
+            psi.UseShellExecute = false;
+            psi.CreateNoWindow = true;
+            Process.Start(psi);
+
+            Application.Exit();
+
+            //for (var i = Application.OpenForms.Count - 1; i >= 0; --i)
+                //Application.OpenForms[i].Close();
+
+            //AppDomain.Unload(AppDomain.CurrentDomain);
+
+            //Application.Restart();
         }
     }
 }

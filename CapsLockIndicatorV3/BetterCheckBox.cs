@@ -25,8 +25,20 @@ namespace CapsLockIndicatorV3
             }
         }
 
-        const int STARTX = 16;
+        const int STARTX = 13;
+        int StartX => (int)(DPIHelper.GetScalingFactorPercent(Handle) * STARTX);
         const int STARTY = 1;
+
+        private TextFormatFlags TextRenderingFlags
+        {
+            get
+            {
+                var flags = TextFormatFlags.Left | TextFormatFlags.VerticalCenter | TextFormatFlags.WordBreak;
+                if (!ShowKeyboardCues)
+                    flags |= TextFormatFlags.HidePrefix;
+                return flags;
+            }
+        }
 
         private static readonly Color N_Border = Color.FromArgb(137, 137, 137);
         private static readonly Color N_Background = Color.FromArgb(0, 0, 0);
@@ -68,11 +80,12 @@ namespace CapsLockIndicatorV3
 
                 if (!Enabled && FlatStyle != FlatStyle.System)
                 {
-                    e.Graphics.SetClip(new Rectangle(STARTX, 0, Width - STARTX, Height));
+                    var bounds = new Rectangle(StartX, 0, Width - StartX, Height);
+                    e.Graphics.SetClip(bounds);
                     e.Graphics.Clear(bgColor);
                     e.Graphics.ResetClip();
                     // Use legacy "DrawText" to make it look exactly the same as default
-                    TextRenderer.DrawText(e.Graphics, Text, Font, new Point(STARTX, STARTY), ForeColor.Blend(bgColor, 0.5d));
+                    TextRenderer.DrawText(e.Graphics, base.Text, base.Font, bounds, base.ForeColor.Blend(bgColor, 0.5d), TextRenderingFlags);
                 }
             }
             else
@@ -153,7 +166,7 @@ namespace CapsLockIndicatorV3
                 var textY = Height / 2 - textSz.Height / 2;
                 var textPt = new Point(boxSize + textMargin, textY);
 
-                TextRenderer.DrawText(e.Graphics, Text, Font, textPt, fg);
+                TextRenderer.DrawText(e.Graphics, Text, Font, new Rectangle(StartX, 0, Width - StartX, Height), fg, TextRenderingFlags);
 
                 var focusRect = new Rectangle(textPt, textSz);
 

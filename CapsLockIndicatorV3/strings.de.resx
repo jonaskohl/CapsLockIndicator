@@ -121,7 +121,16 @@
     <value>Farbschema wird angepasst... Bitte warten...</value>
   </data>
   <data name="advancedSettings" xml:space="preserve">
-    <value>Erw. Einstellungen</value>
+    <value>Erweiterte Optionen</value>
+  </data>
+  <data name="advancedSettingsConfirmation" xml:space="preserve">
+    <value>Ich verstehe die oben genannten Risiken und möchte fortfahren</value>
+  </data>
+  <data name="advancedSettingsTitle" xml:space="preserve">
+    <value>Erweiterte Optionen</value>
+  </data>
+  <data name="advancedSettingsWarning" xml:space="preserve">
+    <value>Das Ändern der erweiterten Optionen kann zu unerwartetem Verhalten und einem instablien Zustand von CapsLock Indicator führen. Bitte starten Sie CapsLock Indicator neu, nachdem Sie die Einstellungen geändert haben. Ändern Sie nur Einstellungen, sofern Sie wissen, was Sie machen! Verwenden Sie diesen Editor auf eigene Gefahr!</value>
   </data>
   <data name="autoCheckForUpdates" xml:space="preserve">
     <value>Automatisch nach Aktualisierungen suchen</value>
@@ -141,6 +150,9 @@
   <data name="borderThicknessGroup" xml:space="preserve">
     <value>Randstärke</value>
   </data>
+  <data name="cancel" xml:space="preserve">
+    <value>&amp;Abbrechen</value>
+  </data>
   <data name="capsLock" xml:space="preserve">
     <value>Feststelltaste</value>
   </data>
@@ -149,6 +161,9 @@
   </data>
   <data name="checkingForUpdates" xml:space="preserve">
     <value>Suche nach Updates...</value>
+  </data>
+  <data name="close" xml:space="preserve">
+    <value>&amp;Schließen</value>
   </data>
   <data name="coloursGroup" xml:space="preserve">
     <value>Farben</value>
@@ -180,14 +195,20 @@
   <data name="downloadMoreTranslations" xml:space="preserve">
     <value>Mehr Sprachen herunterladen...</value>
   </data>
+  <data name="downloadTranslationsTitle" xml:space="preserve">
+    <value>Übersetzungen herunterladen</value>
+  </data>
   <data name="exitApplication" xml:space="preserve">
     <value>V&amp;erlassen</value>
   </data>
   <data name="exitMessage" xml:space="preserve">
     <value>Die Anwendung zu verlassen heißt, dass die Icons und Benachrichtigungen nicht länger angezeigt weden. Trotzdem verlassen?</value>
   </data>
+  <data name="failedToDownloadTranslationToolTip" xml:space="preserve">
+    <value>Herunterladen der Übersetzung fehlgeschlagen</value>
+  </data>
   <data name="firstRunAllowUpdateCheck" xml:space="preserve">
-    <value>Zulassen, dass CapsLock Indicator online nach Aktualisierungen sucht</value>
+    <value>&amp;Zulassen, dass CapsLock Indicator online nach Aktualisierungen sucht</value>
   </data>
   <data name="firstRunColorSchemeDark" xml:space="preserve">
     <value>&amp;Dunkel</value>
@@ -231,6 +252,9 @@
   <data name="generalIconBalloonText" xml:space="preserve">
     <value>CapsLock Indicator kann wieder angezeigt werden, wenn Sie auf dieses Symbol doppelklicken.</value>
   </data>
+  <data name="headerWarning" xml:space="preserve">
+    <value>&amp;Warnung!</value>
+  </data>
   <data name="hideOnStartup" xml:space="preserve">
     <value>Beim Starten verstecken</value>
   </data>
@@ -264,6 +288,9 @@
   <data name="keyIsOn" xml:space="preserve">
     <value>{0} ist an</value>
   </data>
+  <data name="no" xml:space="preserve">
+    <value>&amp;Nein</value>
+  </data>
   <data name="notificationSettings" xml:space="preserve">
     <value>Benachr.-Einst.</value>
   </data>
@@ -272,6 +299,9 @@
   </data>
   <data name="numLock" xml:space="preserve">
     <value>Num-Lock</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>&amp;OK</value>
   </data>
   <data name="opacity" xml:space="preserve">
     <value>Deckkraft</value>
@@ -284,6 +314,9 @@
   </data>
   <data name="reloadedIconsInfo" xml:space="preserve">
     <value>Symbole neu geladen</value>
+  </data>
+  <data name="restart" xml:space="preserve">
+    <value>&amp;Neu starten</value>
   </data>
   <data name="saveAndCloseButton" xml:space="preserve">
     <value>&amp;Speichern &amp;&amp; schließen</value>
@@ -304,13 +337,13 @@
     <value>Keine Icons zeigen</value>
   </data>
   <data name="showNoNotification" xml:space="preserve">
-    <value>Keine Benachr. anzeigen</value>
+    <value>Keine Benachrichtigung anzeigen</value>
   </data>
   <data name="showNotificationWhen" xml:space="preserve">
-    <value>Zeige Benachr., wenn...</value>
+    <value>Zeige Benachrichtigung wenn...</value>
   </data>
   <data name="showOverlayOnlyWhenActive" xml:space="preserve">
-    <value>Benachr. immer anz., wenn aktiv</value>
+    <value>Benachrichtigung immer anzeigen, wenn aktiv</value>
   </data>
   <data name="startOnLogon" xml:space="preserve">
     <value>Autostart</value>
@@ -336,7 +369,13 @@
   <data name="updateInfoFormat" xml:space="preserve">
     <value>Version {0}, erschienen {1}</value>
   </data>
+  <data name="updateLocaleMessageBox" xml:space="preserve">
+    <value>Einige installierte Übersetzungen sind veraltet. Möchten Sie diese jetzt aktualisieren?</value>
+  </data>
   <data name="updateNow" xml:space="preserve">
     <value>Jetzt update&amp;n</value>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>&amp;Ja</value>
   </data>
 </root>

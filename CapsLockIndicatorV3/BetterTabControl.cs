@@ -80,9 +80,9 @@ namespace CapsLockIndicatorV3
 
             SetStyles();
 
-            this.ControlAdded += new ControlEventHandler(FlatTabControl_ControlAdded);
-            this.ControlRemoved += new ControlEventHandler(FlatTabControl_ControlRemoved);
-            this.SelectedIndexChanged += new EventHandler(FlatTabControl_SelectedIndexChanged);
+            ControlAdded += new ControlEventHandler(FlatTabControl_ControlAdded);
+            ControlRemoved += new ControlEventHandler(FlatTabControl_ControlRemoved);
+            SelectedIndexChanged += new EventHandler(FlatTabControl_SelectedIndexChanged);
 
             leftRightImages = new ImageList();
             leftRightImages.ImageSize = new Size(16, 16); // default
@@ -141,76 +141,75 @@ namespace CapsLockIndicatorV3
             if (!Visible)
                 return;
 
-            Rectangle TabControlArea = this.ClientRectangle;
-            Rectangle TabArea = this.DisplayRectangle;
+            Rectangle TabControlArea = ClientRectangle;
+            Rectangle TabArea = DisplayRectangle;
 
             //----------------------------
             // fill client area
-            Brush br = new SolidBrush(mBackColor); //(SystemColors.Control); UPDATED
-            g.FillRectangle(br, TabControlArea);
-            br.Dispose();
+            using (Brush br = new SolidBrush(mBackColor))
+                g.FillRectangle(br, TabControlArea);
             //----------------------------
 
             //----------------------------
             // draw border
             int nDelta = SystemInformation.Border3DSize.Width;
 
-            Pen border = new Pen(SystemColors.ControlDark);
             TabArea.Inflate(nDelta, nDelta);
-            g.DrawRectangle(border, TabArea);
-            border.Dispose();
+            using (Pen border = new Pen(SystemColors.ControlDark))
+                g.DrawRectangle(border, TabArea);
             //----------------------------
 
 
             //----------------------------
             // clip region for drawing tabs
-            Region rsaved = g.Clip;
-            Rectangle rreg;
-
-            int nWidth = TabArea.Width + nMargin;
-            if (bUpDown)
+            using (Region rsaved = g.Clip)
             {
-                // exclude updown control for painting
-                if (scUpDown?.Handle != null && Native.IsWindowVisible(scUpDown.Handle))
+                Rectangle rreg;
+
+                int nWidth = TabArea.Width + nMargin;
+                if (bUpDown)
                 {
-                    Rectangle rupdown = new Rectangle();
-                    Native.GetWindowRect(scUpDown.Handle, ref rupdown);
-                    Rectangle rupdown2 = this.RectangleToClient(rupdown);
+                    // exclude updown control for painting
+                    if (scUpDown?.Handle != null && Native.IsWindowVisible(scUpDown.Handle))
+                    {
+                        Rectangle rupdown = new Rectangle();
+                        Native.GetWindowRect(scUpDown.Handle, ref rupdown);
+                        Rectangle rupdown2 = RectangleToClient(rupdown);
 
-                    nWidth = rupdown2.X;
+                        nWidth = rupdown2.X;
+                    }
                 }
+
+                rreg = new Rectangle(TabArea.Left, TabControlArea.Top, nWidth - nMargin, TabControlArea.Height);
+
+                g.SetClip(rreg);
+
+                // draw tabs
+                for (int i = 0; i < TabCount; i++)
+                    DrawTab(g, TabPages[i], i);
+
+                g.Clip = rsaved;
             }
-
-            rreg = new Rectangle(TabArea.Left, TabControlArea.Top, nWidth - nMargin, TabControlArea.Height);
-
-            g.SetClip(rreg);
-
-            // draw tabs
-            for (int i = 0; i < this.TabCount; i++)
-                DrawTab(g, this.TabPages[i], i);
-
-            g.Clip = rsaved;
             //----------------------------
 
 
             //----------------------------
             // draw background to cover flat border areas
-            if (this.SelectedTab != null)
+            if (SelectedTab != null)
             {
-                TabPage tabPage = this.SelectedTab;
+                TabPage tabPage = SelectedTab;
                 Color color = tabPage.BackColor;
-                border = new Pen(color);
+                using (Pen border = new Pen(color))
+                {
+                    TabArea.Offset(1, 1);
+                    TabArea.Width -= 2;
+                    TabArea.Height -= 2;
 
-                TabArea.Offset(1, 1);
-                TabArea.Width -= 2;
-                TabArea.Height -= 2;
-
-                g.DrawRectangle(border, TabArea);
-                TabArea.Width -= 1;
-                TabArea.Height -= 1;
-                g.DrawRectangle(border, TabArea);
-
-                border.Dispose();
+                    g.DrawRectangle(border, TabArea);
+                    TabArea.Width -= 1;
+                    TabArea.Height -= 1;
+                    g.DrawRectangle(border, TabArea);
+                }
             }
             //----------------------------
         }
@@ -221,9 +220,9 @@ namespace CapsLockIndicatorV3
             Rectangle recBounds = tr;
             recBounds.Y -= 2;
             recBounds.Height += 2;
-            RectangleF tabTextArea = (RectangleF)recBounds;
+            RectangleF tabTextArea = recBounds;
 
-            bool bSelected = (this.SelectedIndex == nIndex);
+            bool bSelected = (SelectedIndex == nIndex);
 
             var state = new Native.DRAWITEMSTRUCT();
             state.itemID = nIndex;
@@ -248,14 +247,13 @@ namespace CapsLockIndicatorV3
                     recBounds.Width,
                     recBounds.Height - 2
                 );
-                tabTextArea = (RectangleF)recBounds;
+                tabTextArea = recBounds;
             }
 
             //----------------------------
             // fill this tab with background color
-            Brush br = new SolidBrush(hoveredTab == nIndex && !bSelected ? Color.FromArgb(35, 66, 89) : tabPage.BackColor);
-            g.FillRectangle(br, recBounds);
-            br.Dispose();
+            using (Brush br = new SolidBrush(hoveredTab == nIndex && !bSelected ? Color.FromArgb(35, 66, 89) : tabPage.BackColor))
+                g.FillRectangle(br, recBounds);
             //----------------------------
 
             //----------------------------
@@ -266,23 +264,24 @@ namespace CapsLockIndicatorV3
             {
                 //----------------------------
                 // clear bottom lines
-                Pen pen = new Pen(tabPage.BackColor);
-
-                switch (this.Alignment)
+                using (Pen pen = new Pen(tabPage.BackColor))
                 {
-                    case TabAlignment.Top:
-                        g.DrawLine(pen, recBounds.Left + 1, recBounds.Bottom, recBounds.Right - 1, recBounds.Bottom);
-                        g.DrawLine(pen, recBounds.Left + 1, recBounds.Bottom + 1, recBounds.Right - 1, recBounds.Bottom + 1);
-                        break;
 
-                    case TabAlignment.Bottom:
-                        g.DrawLine(pen, recBounds.Left + 1, recBounds.Top, recBounds.Right - 1, recBounds.Top);
-                        g.DrawLine(pen, recBounds.Left + 1, recBounds.Top - 1, recBounds.Right - 1, recBounds.Top - 1);
-                        g.DrawLine(pen, recBounds.Left + 1, recBounds.Top - 2, recBounds.Right - 1, recBounds.Top - 2);
-                        break;
+                    switch (Alignment)
+                    {
+                        case TabAlignment.Top:
+                            g.DrawLine(pen, recBounds.Left + 1, recBounds.Bottom, recBounds.Right - 1, recBounds.Bottom);
+                            g.DrawLine(pen, recBounds.Left + 1, recBounds.Bottom + 1, recBounds.Right - 1, recBounds.Bottom + 1);
+                            break;
+
+                        case TabAlignment.Bottom:
+                            g.DrawLine(pen, recBounds.Left + 1, recBounds.Top, recBounds.Right - 1, recBounds.Top);
+                            g.DrawLine(pen, recBounds.Left + 1, recBounds.Top - 1, recBounds.Right - 1, recBounds.Top - 1);
+                            g.DrawLine(pen, recBounds.Left + 1, recBounds.Top - 2, recBounds.Right - 1, recBounds.Top - 2);
+                            break;
+                    }
+
                 }
-
-                pen.Dispose();
                 //----------------------------
             }
             //----------------------------
@@ -299,7 +298,7 @@ namespace CapsLockIndicatorV3
                 Rectangle rimage = new Rectangle(recBounds.X + nLeftMargin, recBounds.Y + 1, img.Width, img.Height);
 
                 // adjust rectangles
-                float nAdj = (float)(nLeftMargin + img.Width + nRightMargin);
+                float nAdj = nLeftMargin + img.Width + nRightMargin;
 
                 rimage.Y += (recBounds.Height - img.Height) / 2;
                 tabTextArea.X += nAdj;
@@ -312,13 +311,15 @@ namespace CapsLockIndicatorV3
 
             //----------------------------
             // draw string
-            StringFormat stringFormat = new StringFormat();
-            stringFormat.Alignment = StringAlignment.Center;
-            stringFormat.LineAlignment = StringAlignment.Center;
+            using (StringFormat stringFormat = new StringFormat())
+            {
+                stringFormat.Alignment = StringAlignment.Center;
+                stringFormat.LineAlignment = StringAlignment.Center;
+                stringFormat.FormatFlags |= StringFormatFlags.NoWrap;
 
-            br = new SolidBrush(tabPage.ForeColor);
-
-            g.DrawString(tabPage.Text, Font, br, tabTextArea, stringFormat);
+                using (Brush br = new SolidBrush(tabPage.ForeColor))
+                    g.DrawString(tabPage.Text, Font, br, tabTextArea, stringFormat);
+            }
             //----------------------------
 
             if (bSelected && !((DrawItemState)state.itemState).HasFlag(DrawItemState.NoFocusRect))
@@ -353,7 +354,7 @@ namespace CapsLockIndicatorV3
 
             //----------------------------
             // calc positions
-            Rectangle TabControlArea = this.ClientRectangle;
+            Rectangle TabControlArea = ClientRectangle;
 
             Rectangle r0 = new Rectangle();
             Native.GetClientRect(scUpDown.Handle, ref r0);
@@ -381,7 +382,7 @@ namespace CapsLockIndicatorV3
             Image img = leftRightImages.Images[1];
             if (img != null)
             {
-                if (this.TabCount > 0)
+                if (TabCount > 0)
                 {
                     Rectangle r3 = GetTabRectDPI(0);
                     if (r3.Left < TabControlArea.Left)
@@ -398,9 +399,9 @@ namespace CapsLockIndicatorV3
             img = leftRightImages.Images[0];
             if (img != null)
             {
-                if (this.TabCount > 0)
+                if (TabCount > 0)
                 {
-                    Rectangle r3 = GetTabRectDPI(this.TabCount - 1);
+                    Rectangle r3 = GetTabRectDPI(TabCount - 1);
                     if (r3.Right > (TabControlArea.Width - r0.Width))
                         g.DrawImage(img, r2);
                     else
@@ -419,7 +420,27 @@ namespace CapsLockIndicatorV3
             base.OnCreateControl();
 
             FindUpDown();
-            ItemSize = new Size(ItemSize.Width, (int)(24 * DPIHelper.GetScalingFactorPercent(Handle)));
+
+            UpdateItemSize();
+        }
+
+        public void UpdateItemSize()
+        {
+            const int H_PAD = 4;
+
+            var scale = DPIHelper.GetScalingFactorPercent(Handle);
+
+            int w = 0;
+            foreach (var tabText in TabPages.OfType<TabPage>().Select(p => p.Text).Where(p => p.Length > 0))
+                w = Math.Max(w, TextRenderer.MeasureText(tabText, Font).Width);
+
+            if (w < 1)
+                return;
+
+            w += H_PAD * 2;
+
+            ItemSize = new Size(w, (int)(24 * scale));
+            SizeMode = TabSizeMode.Fixed;
         }
 
         private void FlatTabControl_ControlAdded(object sender, ControlEventArgs e)
@@ -485,7 +506,7 @@ namespace CapsLockIndicatorV3
             bool bFound = false;
 
             // find the UpDown control
-            IntPtr pWnd = Native.GetWindow(this.Handle, Native.GW_CHILD);
+            IntPtr pWnd = Native.GetWindow(Handle, Native.GW_CHILD);
 
             while (pWnd != IntPtr.Zero)
             {
@@ -506,8 +527,8 @@ namespace CapsLockIndicatorV3
                     {
                         //----------------------------
                         // Subclass it
-                        this.scUpDown = new SubClass(pWnd, true);
-                        this.scUpDown.SubClassedWndProc += new SubClass.SubClassWndProcEventHandler(scUpDown_SubClassedWndProc);
+                        scUpDown = new SubClass(pWnd, true);
+                        scUpDown.SubClassedWndProc += new SubClass.SubClassWndProcEventHandler(scUpDown_SubClassedWndProc);
                         //----------------------------
 
                         bUpDown = true;
@@ -550,11 +571,8 @@ namespace CapsLockIndicatorV3
                         //------------------------
                         // redraw
                         IntPtr hDC = Native.GetWindowDC(scUpDown.Handle);
-                        Graphics g = Graphics.FromHdc(hDC);
-
-                        DrawIcons(g);
-
-                        g.Dispose();
+                        using (Graphics g = Graphics.FromHdc(hDC))
+                            DrawIcons(g);
                         Native.ReleaseDC(scUpDown.Handle, hDC);
                         //------------------------
 
@@ -624,7 +642,7 @@ namespace CapsLockIndicatorV3
         public Color MyBackColor
         {
             get { return mBackColor; }
-            set { mBackColor = value; this.Invalidate(); }
+            set { mBackColor = value; Invalidate(); }
         }
 
         #endregion

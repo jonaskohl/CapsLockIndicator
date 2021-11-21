@@ -15,6 +15,7 @@ b:firstRun=True
 b:searchForUpdatesAfterResume=True
 b:showNotificationOnAllScreens=False
 b:supressEOLMessage=False
+b:dontOverwriteApplicationOnUpdate=False
 c:indBgColourActive=255;66;66;66
 c:indFgColourActive=255;255;255;255
 c:indBdColourActive=255;77;180;52

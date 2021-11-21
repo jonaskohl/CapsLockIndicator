@@ -29,7 +29,6 @@ namespace CapsLockIndicatorV3
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdvancedSettings));
             this.listView1 = new System.Windows.Forms.DarkModeListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -122,7 +121,7 @@ namespace CapsLockIndicatorV3
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
-            this.button1.Text = "&OK";
+            this.button1.Text = "value";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -131,11 +130,11 @@ namespace CapsLockIndicatorV3
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox1.AutoSize = true;
             this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.checkBox1.Location = new System.Drawing.Point(99, 106);
+            this.checkBox1.Location = new System.Drawing.Point(389, 106);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(350, 20);
+            this.checkBox1.Size = new System.Drawing.Size(60, 20);
             this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "I understand the above mentioned risks and wish to proceed";
+            this.checkBox1.Text = "value";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
@@ -148,7 +147,7 @@ namespace CapsLockIndicatorV3
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(473, 68);
             this.label3.TabIndex = 2;
-            this.label3.Text = resources.GetString("label3.Text");
+            this.label3.Text = "value";
             // 
             // label2
             // 
@@ -157,9 +156,9 @@ namespace CapsLockIndicatorV3
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(153)))));
             this.label2.Location = new System.Drawing.Point(56, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 21);
+            this.label2.Size = new System.Drawing.Size(47, 21);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Warning!";
+            this.label2.Text = "value";
             // 
             // tableLayoutPanel1
             // 
@@ -240,7 +239,7 @@ namespace CapsLockIndicatorV3
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Advanced Settings";
+            this.Text = "value";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

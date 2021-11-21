@@ -50,6 +50,12 @@ namespace CapsLockIndicatorV3
             }
 
             pictureBox1.Image = IconExtractor.GetIcon("imageres.dll", 79, 48)?.ToBitmap();
+
+            Text = strings.advancedSettingsTitle;
+            label2.Text = strings.headerWarning;
+            label3.Text = strings.advancedSettingsWarning;
+            checkBox1.Text = strings.advancedSettingsConfirmation;
+            button1.Text = strings.ok;
         }
 
         private void ListView1_ItemActivate(object sender, EventArgs e)

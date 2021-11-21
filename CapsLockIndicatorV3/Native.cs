@@ -33,6 +33,9 @@ namespace CapsLockIndicatorV3
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         public extern static IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
 
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public extern static IntPtr SendMessage(IntPtr hWnd, uint Msg, uint wParam, uint lParam);
+
         [DllImport("uxtheme.dll", CharSet = CharSet.Unicode)]
         internal static extern IntPtr OpenThemeData(IntPtr hwnd, string pszClassList);
 
@@ -92,6 +95,12 @@ namespace CapsLockIndicatorV3
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         internal static extern bool GetWindowRect(IntPtr hWnd, [In, Out] ref Rectangle rect);
+
+        [DllImport("user32")]
+        static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
+
+        [DllImport("user32")]
+        static extern bool EnableMenuItem(IntPtr hMenu, uint uIDEnableItem, uint uEnable);
 
         [StructLayout(LayoutKind.Sequential)]
         public struct COLORREF
@@ -222,11 +231,36 @@ namespace CapsLockIndicatorV3
         public const int HC_ACTION = 0;
         public const int WH_CALLWNDPROC = 4;
         public const int GWL_WNDPROC = -4;
+        const uint MF_BYCOMMAND = 0;
+        const uint MF_DISABLED = 2;
+        const uint MF_ENABLED = 0;
+        const uint SC_CLOSE = 0xF060;
+        const uint PBM_SETRANGE = WM_USER + 1;
+        const uint PBM_SETRANGE32 = WM_USER + 6;
+        const uint PBM_SETPOS = WM_USER + 2;
+        const uint PBM_SETSTATE = WM_USER + 16;
+        const uint PBST_NORMAL = 0x0001;
+        const uint PBST_ERROR = 0x0002;
+        const uint PBST_PAUSED = 0x0003;
 
-        public static void SetNativeEnabled(IntPtr hWnd, bool enabled)
+        public static void SetNativeEnabled(Form form, bool enabled)
         {
-            SetWindowLong(hWnd, GWL_STYLE, GetWindowLong(hWnd, GWL_STYLE) &
+            SetWindowLong(form.Handle, GWL_STYLE, GetWindowLong(form.Handle, GWL_STYLE) &
                 ~WS_DISABLED | (enabled ? 0 : WS_DISABLED));
+
+            if (enabled)
+                form.Focus();
+        }
+
+        public static void SetProgressBarState(ProgressBar pbar, ProgressBarState state)
+        {
+            SendMessage(pbar.Handle, PBM_SETSTATE, (uint)state, 0);
+        }
+
+        public static void SetProgressBarValue(ProgressBar pbar, int value, int max)
+        {
+            SendMessage(pbar.Handle, PBM_SETRANGE32, 0, (uint)max);
+            SendMessage(pbar.Handle, PBM_SETPOS, (uint)value, 0);
         }
 
         public enum DeviceCap
@@ -330,6 +364,12 @@ namespace CapsLockIndicatorV3
             var dynMethod = typeof(ButtonBase).GetMethod("GetFlag", BindingFlags.NonPublic | BindingFlags.Instance);
             return (bool)dynMethod.Invoke(button, new object[] { (int)flag });
         }
+
+        public static void SetCloseButtonEnabled(IWin32Window form, bool enabled)
+        {
+            var sm = GetSystemMenu(form.Handle, false);
+            EnableMenuItem(sm, SC_CLOSE, MF_BYCOMMAND | (enabled ? MF_ENABLED : MF_DISABLED));
+        }
     }
     
     internal class SubClass : System.Windows.Forms.NativeWindow
@@ -402,5 +442,12 @@ namespace CapsLockIndicatorV3
 
             return 0;
         }
+    }
+
+    public enum ProgressBarState : uint
+    {
+        Normal = 0x0001,
+        Error = 0x0002,
+        Paused = 0x0003
     }
 }

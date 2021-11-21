@@ -108,6 +108,7 @@
     <Compile Include="DarkModeListView.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DllInfo.cs" />
     <Compile Include="DownloadDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +146,18 @@
       <DependentUpon>IndicatorOverlay.cs</DependentUpon>
     </Compile>
     <Compile Include="KeyHelper.cs" />
+    <Compile Include="LanguageDownloadProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LanguageDownloadProgressForm.Designer.cs">
+      <DependentUpon>LanguageDownloadProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LanguageProgressRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LanguageProgressRow.Designer.cs">
+      <DependentUpon>LanguageProgressRow.cs</DependentUpon>
+    </Compile>
     <Compile Include="LnComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -307,6 +320,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IndicatorOverlay.resx">
       <DependentUpon>IndicatorOverlay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LanguageDownloadProgressForm.resx">
+      <DependentUpon>LanguageDownloadProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LanguageProgressRow.resx">
+      <DependentUpon>LanguageProgressRow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

@@ -21,6 +21,7 @@ namespace CapsLockIndicatorV3
         public enum SHSTOCKICONID : uint
         {
             SIID_WARNING = 78,
+            SIID_ERROR = 80,
             SIID_SHIELD = 131,
         }
 

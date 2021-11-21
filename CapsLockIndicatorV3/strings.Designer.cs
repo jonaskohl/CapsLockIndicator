@@ -79,6 +79,33 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to I understand the above mentioned risks and wish to proceed.
+        /// </summary>
+        internal static string advancedSettingsConfirmation {
+            get {
+                return ResourceManager.GetString("advancedSettingsConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advanced settings.
+        /// </summary>
+        internal static string advancedSettingsTitle {
+            get {
+                return ResourceManager.GetString("advancedSettingsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Changing advanced settings may cause unexpected behaviour and may lead to an unstable state of CapsLock Indicator. Please restart CapsLock Indicator after changing settings. Only change settings if you know what you are doing! Use this editor at your own risk!.
+        /// </summary>
+        internal static string advancedSettingsWarning {
+            get {
+                return ResourceManager.GetString("advancedSettingsWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Automatically check for updates.
         /// </summary>
         internal static string autoCheckForUpdates {
@@ -115,7 +142,7 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Border colour deactivated.
+        ///   Looks up a localized string similar to Border colour decativated.
         /// </summary>
         internal static string borderColourDeactivatedButton {
             get {
@@ -129,6 +156,15 @@ namespace CapsLockIndicatorV3 {
         internal static string borderThicknessGroup {
             get {
                 return ResourceManager.GetString("borderThicknessGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to C&amp;ancel.
+        /// </summary>
+        internal static string cancel {
+            get {
+                return ResourceManager.GetString("cancel", resourceCulture);
             }
         }
         
@@ -156,6 +192,15 @@ namespace CapsLockIndicatorV3 {
         internal static string checkingForUpdates {
             get {
                 return ResourceManager.GetString("checkingForUpdates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Close.
+        /// </summary>
+        internal static string close {
+            get {
+                return ResourceManager.GetString("close", resourceCulture);
             }
         }
         
@@ -250,6 +295,15 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Download translations.
+        /// </summary>
+        internal static string downloadTranslationsTitle {
+            get {
+                return ResourceManager.GetString("downloadTranslationsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;Exit Application.
         /// </summary>
         internal static string exitApplication {
@@ -268,7 +322,16 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &amp;Allow CapsLock Indicator to periodically check for updates online (can be changed later).
+        ///   Looks up a localized string similar to Failed to download translation.
+        /// </summary>
+        internal static string failedToDownloadTranslationToolTip {
+            get {
+                return ResourceManager.GetString("failedToDownloadTranslationToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow CapsLock Indicator to periodically check for updates online (can be changed later).
         /// </summary>
         internal static string firstRunAllowUpdateCheck {
             get {
@@ -385,7 +448,7 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Text colour deactivated.
+        ///   Looks up a localized string similar to Text colour activated.
         /// </summary>
         internal static string foregroundColourDeactivatedButton {
             get {
@@ -399,6 +462,15 @@ namespace CapsLockIndicatorV3 {
         internal static string generalIconBalloonText {
             get {
                 return ResourceManager.GetString("generalIconBalloonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning!.
+        /// </summary>
+        internal static string headerWarning {
+            get {
+                return ResourceManager.GetString("headerWarning", resourceCulture);
             }
         }
         
@@ -502,6 +574,15 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &amp;No.
+        /// </summary>
+        internal static string no {
+            get {
+                return ResourceManager.GetString("no", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;Notification settings.
         /// </summary>
         internal static string notificationSettings {
@@ -525,6 +606,15 @@ namespace CapsLockIndicatorV3 {
         internal static string numLock {
             get {
                 return ResourceManager.GetString("numLock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;OK.
+        /// </summary>
+        internal static string ok {
+            get {
+                return ResourceManager.GetString("ok", resourceCulture);
             }
         }
         
@@ -561,6 +651,15 @@ namespace CapsLockIndicatorV3 {
         internal static string reloadedIconsInfo {
             get {
                 return ResourceManager.GetString("reloadedIconsInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Restart.
+        /// </summary>
+        internal static string restart {
+            get {
+                return ResourceManager.GetString("restart", resourceCulture);
             }
         }
         
@@ -718,11 +817,29 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Some of the currently installed translations seem to be outdated. Do you want to update them now?.
+        /// </summary>
+        internal static string updateLocaleMessageBox {
+            get {
+                return ResourceManager.GetString("updateLocaleMessageBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;Update now.
         /// </summary>
         internal static string updateNow {
             get {
                 return ResourceManager.GetString("updateNow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Yes.
+        /// </summary>
+        internal static string yes {
+            get {
+                return ResourceManager.GetString("yes", resourceCulture);
             }
         }
     }

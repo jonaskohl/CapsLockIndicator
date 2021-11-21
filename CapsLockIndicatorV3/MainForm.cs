@@ -22,6 +22,8 @@ using System.IO;
 using System.ComponentModel;
 using System.Text;
 using System.Net;
+using System.Security.Cryptography;
+using System.Threading.Tasks;
 
 namespace CapsLockIndicatorV3
 {
@@ -230,6 +232,134 @@ namespace CapsLockIndicatorV3
 
             if (!SettingsManager.Get<bool>("hideOnStartup"))
                 Visible = true;
+
+            if (SettingsManager.Get<bool>("checkForUpdates"))
+                BeginCheckOldLanguageFiles();
+        }
+
+        private void BeginCheckOldLanguageFiles()
+        {
+            Task.Run(async () =>
+            {
+                var oldLangs = await CheckOldLanguageFiles();
+
+                if (oldLangs.Length > 0 && MessageBox.Show(strings.updateLocaleMessageBox, "CapsLock Indicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    UpdateLanguageFiles(oldLangs);
+            });
+        }
+
+        private List<KeyValuePair<string, DllInfo>> GetLanguageFileVersions()
+        {
+            using (var cryptoProvider = new SHA1CryptoServiceProvider())
+            {
+                var l = new List<KeyValuePair<string, DllInfo>>();
+
+                CultureInfo[] culture = CultureInfo.GetCultures(CultureTypes.AllCultures);
+                string exeLocation = Path.GetDirectoryName(Uri.UnescapeDataString(new UriBuilder(Assembly.GetExecutingAssembly().CodeBase).Path));
+                var cis = culture.Where(cultureInfo => cultureInfo.Name.Length > 0 && Directory.Exists(Path.Combine(exeLocation, cultureInfo.Name)));
+
+                foreach (var ci in cis)
+                {
+                    var name = ci.Name;
+                    var path = Path.Combine(exeLocation, ci.Name, "CapsLockIndicatorV3.resources.dll");
+                    var inf = AssemblyName.GetAssemblyName(path);
+                    var ver = inf.Version;
+                    string sha1;
+                    using (var fs = File.OpenRead(path))
+                    using (var bs = new BufferedStream(fs))
+                        sha1 = ToLowerCaseHexString(cryptoProvider.ComputeHash(bs));
+
+                    l.Add(new KeyValuePair<string, DllInfo>(name, new DllInfo()
+                    {
+                        Filepath = path,
+                        SHA1 = sha1,
+                        Version = ver
+                    }));
+                }
+
+                return l;
+            }
+        }
+
+        void UpdateLanguageFiles(KeyValuePair<string, DllInfo>[] dlls)
+        {
+            //var sb = new StringBuilder();
+
+            //foreach (var kvp in dlls)
+            //    sb.AppendLine(kvp.Key + "\t" + kvp.Value);
+
+            //MessageBox.Show(sb.ToString());
+
+            BeginInvoke((MethodInvoker)delegate
+            {
+                var w = new LanguageDownloadProgressForm();
+                Native.SetNativeEnabled(this, false);
+                w.DownloadLangFiles(dlls);
+                w.FormClosed += (sender, e) =>
+                {
+                    //w.Close();
+                    w.Dispose();
+                    Native.SetNativeEnabled(this, true);
+                };
+            });
+        }
+
+        async private Task<KeyValuePair<string, DllInfo>[]> CheckOldLanguageFiles()
+        {
+            const string langServiceUrl = "https://cli.jonaskohl.de/!/langservice";
+
+            using (var wc = new WebClient())
+            {
+                wc.Headers.Add(HttpRequestHeader.UserAgent, VersionCheck.UserAgent);
+
+                var langInfoStr = await wc.DownloadStringTaskAsync(langServiceUrl);
+
+                var langInfo = XDocument.Parse(langInfoStr).Root;
+                var remoteLangs = langInfo.Elements("lang").Select(t =>
+                {
+                    var name = t.Attribute("locale").Value;
+                    var version = t.Attribute("version").Value;
+                    var sha1 = t.Attribute("dllHashSHA1").Value;
+
+                    return new KeyValuePair<string, DllInfo>(name, new DllInfo()
+                    {
+                        Filepath = langServiceUrl + "?download=" + name + "&as=dll",
+                        SHA1 = sha1,
+                        Version = new Version(version)
+                    });
+                }).ToDictionary(i => i.Key, i => i.Value);
+                var currentLangs = GetLanguageFileVersions().ToDictionary(i => i.Key, i => i.Value);
+
+                var oldLangs = new List<KeyValuePair<string, DllInfo>>();
+
+                foreach (var lang in currentLangs)
+                {
+                    if (!remoteLangs.ContainsKey(lang.Key))
+                        continue;
+
+                    var remoteLang = remoteLangs[lang.Key];
+
+                    var localVer = lang.Value.Version;
+                    var remoteVer = remoteLang.Version;
+
+#if DEBUG
+                    if (remoteVer != localVer)
+#else
+                    if (remoteVer > localVer)
+#endif
+                        oldLangs.Add(new KeyValuePair<string, DllInfo>(lang.Key, remoteLang));
+                }
+
+                return oldLangs.ToArray();
+            }
+        }
+
+        private string ToLowerCaseHexString(byte[] vs)
+        {
+            var sb = new StringBuilder();
+            foreach (var b in vs)
+                sb.Append(b.ToString("x2"));
+            return sb.ToString();
         }
 
         private void TabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -585,6 +715,7 @@ namespace CapsLockIndicatorV3
                 localeComboBox.SelectedIndex = 0;
 
             localeComboBox.Items.Add(new DropDownLocale("--ln", ""));
+            localeComboBox.Items.Add(new DropDownLocale("--check-for-updates", strings.checkForUpdates));
             localeComboBox.Items.Add(new DropDownLocale("--get-more", strings.downloadMoreTranslations));
         }
 
@@ -645,6 +776,8 @@ namespace CapsLockIndicatorV3
             darkModeCheckBox.Text = strings.darkModeOption;
             searchOnResumeCheckBox.Text = strings.searchForUpdatesOnResumeOption;
             mainToolTip.SetToolTip(dismissButton, strings.dismiss);
+
+            tabControl1.UpdateItemSize();
 
             ApplyEOLStrings();
         }
@@ -833,7 +966,7 @@ namespace CapsLockIndicatorV3
                 Version cVersion = new Version(currentVersion);
                 Version lVersion = new Version(latestVersion);
 
-#if !DEBUG
+#if !DEBUG || DEBUG
                 if (lVersion > cVersion)
 #endif
                 {
@@ -913,7 +1046,7 @@ namespace CapsLockIndicatorV3
         {
             Show();
             Focus();
-            generalIcon.Visible = false;
+            //generalIcon.Visible = false;
             isHidden = false;
             ShowInTaskbar = true;
         }
@@ -1035,6 +1168,11 @@ namespace CapsLockIndicatorV3
                 localeComboBox.SelectedIndex = previousLocaleIndex;
                 Process.Start("https://cli.jonaskohl.de/!/translations#download-translations");
             }
+            else if (locale.localeString == "--check-for-updates")
+            {
+                localeComboBox.SelectedIndex = previousLocaleIndex;
+                BeginCheckOldLanguageFiles();
+            }
             else
             {
                 Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(locale.localeString);
@@ -1063,6 +1201,8 @@ namespace CapsLockIndicatorV3
             var itm = (DropDownLocale)e.ListItem;
             if (itm.localeString == "--get-more")
                 e.Value = strings.downloadMoreTranslations;
+            else if (itm.localeString == "--check-for-updates")
+                e.Value = strings.checkForUpdates.Replace("&", "");
             else if (itm.localeString == "__default")
                 e.Value = itm.displayText;
             else if (itm.localeString == "--ln")

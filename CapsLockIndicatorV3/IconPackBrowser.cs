@@ -134,7 +134,7 @@ namespace CapsLockIndicatorV3
                 Total = -1,
                 Message = strings.iconPackDownloadingMetadata
             });
-            Native.SetNativeEnabled(Handle, false);
+            Native.SetNativeEnabled(this, false);
 
             using (var w = new WebClient())
             {
@@ -153,7 +153,7 @@ namespace CapsLockIndicatorV3
                     cancelled = e.Cancelled;
 
                     progressDialog.Close();
-                    Native.SetNativeEnabled(Handle, true);
+                    Native.SetNativeEnabled(this, true);
                     Show();
                     Focus();
 
@@ -187,7 +187,7 @@ namespace CapsLockIndicatorV3
                 Total = -1,
                 Message = strings.iconPackDownloadingPack
             });
-            Native.SetNativeEnabled(Handle, false);
+            Native.SetNativeEnabled(this, false);
 
             using (var w = new WebClient())
             {
@@ -203,7 +203,7 @@ namespace CapsLockIndicatorV3
                 w.DownloadDataCompleted += (object wcsender, DownloadDataCompletedEventArgs e) =>
                 {
                     progressDialog.Close();
-                    Native.SetNativeEnabled(Handle, true);
+                    Native.SetNativeEnabled(this, true);
                     Show();
                     Focus();
 

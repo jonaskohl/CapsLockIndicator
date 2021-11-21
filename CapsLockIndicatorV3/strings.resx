@@ -125,6 +125,18 @@
     <value>Advanced Settings</value>
     <comment>Label of the hyperlink that opens the settings file</comment>
   </data>
+  <data name="advancedSettingsConfirmation" xml:space="preserve">
+    <value>I understand the above mentioned risks and wish to proceed</value>
+    <comment>Confirmation text for Advanced Settings</comment>
+  </data>
+  <data name="advancedSettingsTitle" xml:space="preserve">
+    <value>Advanced settings</value>
+    <comment>Window text for Advanced Settings</comment>
+  </data>
+  <data name="advancedSettingsWarning" xml:space="preserve">
+    <value>Changing advanced settings may cause unexpected behaviour and may lead to an unstable state of CapsLock Indicator. Please restart CapsLock Indicator after changing settings. Only change settings if you know what you are doing! Use this editor at your own risk!</value>
+    <comment>Warning text for Advanced Settings</comment>
+  </data>
   <data name="autoCheckForUpdates" xml:space="preserve">
     <value>Automatically check for updates</value>
     <comment>Tooltip for the checkbox next to the update button</comment>
@@ -142,12 +154,16 @@
     <comment>The caption for the "Border colour activated" button.</comment>
   </data>
   <data name="borderColourDeactivatedButton" xml:space="preserve">
-    <value>Border colour deactivated</value>
+    <value>Border colour decativated</value>
     <comment>The caption for the "Border colour deactivated" button.</comment>
   </data>
   <data name="borderThicknessGroup" xml:space="preserve">
     <value>Border thickness</value>
     <comment>Label of the border thickness groupbox</comment>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>C&amp;ancel</value>
+    <comment>Generic label for Cancel button</comment>
   </data>
   <data name="capsLock" xml:space="preserve">
     <value>Caps lock</value>
@@ -160,6 +176,10 @@
   <data name="checkingForUpdates" xml:space="preserve">
     <value>Checking for updates...</value>
     <comment>The caption for the "Check for updates" button when it's searching for updates.</comment>
+  </data>
+  <data name="close" xml:space="preserve">
+    <value>&amp;Close</value>
+    <comment>Generic label for Close button</comment>
   </data>
   <data name="coloursGroup" xml:space="preserve">
     <value>Colours</value>
@@ -201,6 +221,10 @@
     <value>Download more translations...</value>
     <comment>The last dropdown item in the locale dropdown.</comment>
   </data>
+  <data name="downloadTranslationsTitle" xml:space="preserve">
+    <value>Download translations</value>
+    <comment>Window title for the download translations dialog</comment>
+  </data>
   <data name="exitApplication" xml:space="preserve">
     <value>&amp;Exit Application</value>
     <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -209,8 +233,12 @@
     <value>Exiting the application means the icons and notifications are no longer displayed. Exit anyway?</value>
     <comment>The message to display on application exit</comment>
   </data>
+  <data name="failedToDownloadTranslationToolTip" xml:space="preserve">
+    <value>Failed to download translation</value>
+    <comment>Tooltip for failed translation download</comment>
+  </data>
   <data name="firstRunAllowUpdateCheck" xml:space="preserve">
-    <value>&amp;Allow CapsLock Indicator to periodically check for updates online (can be changed later)</value>
+    <value>Allow CapsLock Indicator to periodically check for updates online (can be changed later)</value>
     <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
   </data>
   <data name="firstRunColorSchemeDark" xml:space="preserve">
@@ -262,12 +290,16 @@
     <comment>The caption for the "Text colour activated" button.</comment>
   </data>
   <data name="foregroundColourDeactivatedButton" xml:space="preserve">
-    <value>Text colour deactivated</value>
+    <value>Text colour activated</value>
     <comment>The caption for the "Text colour deactivated" button.</comment>
   </data>
   <data name="generalIconBalloonText" xml:space="preserve">
     <value>You can show CapsLock Indicator again by double clicking on this icon.</value>
     <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
+  </data>
+  <data name="headerWarning" xml:space="preserve">
+    <value>Warning!</value>
+    <comment>Generic header for Warning</comment>
   </data>
   <data name="hideOnStartup" xml:space="preserve">
     <value>Hide on start up</value>
@@ -313,6 +345,10 @@
     <value>{0} is on</value>
     <comment>The text to display in the notification when a key is on. "{0}" will be replaced with the key name</comment>
   </data>
+  <data name="no" xml:space="preserve">
+    <value>&amp;No</value>
+    <comment>Generic label for No button</comment>
+  </data>
   <data name="notificationSettings" xml:space="preserve">
     <value>&amp;Notification settings</value>
     <comment>The caption for the button that opens the notification settings. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -324,6 +360,10 @@
   <data name="numLock" xml:space="preserve">
     <value>Num lock</value>
     <comment>The name of the num lock key</comment>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>&amp;OK</value>
+    <comment>Generic label for OK button</comment>
   </data>
   <data name="opacity" xml:space="preserve">
     <value>Opacity</value>
@@ -340,6 +380,10 @@
   <data name="reloadedIconsInfo" xml:space="preserve">
     <value>Reloaded icons</value>
     <comment>Shown in a notification when hot-reloading icons.</comment>
+  </data>
+  <data name="restart" xml:space="preserve">
+    <value>&amp;Restart</value>
+    <comment>Generic label for Restart button</comment>
   </data>
   <data name="saveAndCloseButton" xml:space="preserve">
     <value>&amp;Save &amp;&amp; close</value>
@@ -409,8 +453,16 @@
     <value>Version {0}, released {1}</value>
     <comment>Displayed in the "Update Available" dialog. {0} is the version, {1} is the release date and time.</comment>
   </data>
+  <data name="updateLocaleMessageBox" xml:space="preserve">
+    <value>Some of the currently installed translations seem to be outdated. Do you want to update them now?</value>
+    <comment>Message box when old translations are found</comment>
+  </data>
   <data name="updateNow" xml:space="preserve">
     <value>&amp;Update now</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>&amp;Yes</value>
+    <comment>Generic label for Yes button</comment>
   </data>
 </root>
