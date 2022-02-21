@@ -6,7 +6,7 @@
   <a href="https://cli.jonaskohl.de/"><img src="https://static.jonaskohl.de/q50c4wp6/cli-project-page_vlecvcbtz80tqvtt.svg?2" alt="Visit project page"></a>
   <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-red.svg?style=for-the-badge&color=344db4" alt="License"></a>
   <a href="https://cli.jonaskohl.de/!/download#latest"><img src="https://cli.jonaskohl.de/version.php?shield=true&amp;_=4" alt="Version"></a>
-  <a href="https://travis-ci.org/jonaskohl/CapsLockIndicator"><img src="https://img.shields.io/travis/jonaskohl/CapsLockIndicator?color=344db4&style=for-the-badge" alt="Build Status"></a>
+  <a href="https://jonaskohl.visualstudio.com/CapsLock%20Indicator/_build"><img src="https://img.shields.io/azure-devops/build/jonaskohl/1273c946-d005-437a-9acc-335d65c8e86b/1?color=344db4&style=for-the-badge" alt="Build Status"></a>
 </p>
 
 <p align="center">
