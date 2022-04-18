@@ -117,19 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  
-<!--
-<data name="adjustingColorScheme" xml:space="preserve">
-    <value>Adjusting color scheme... Please wait...</value>
+  <data name="adjustingColorScheme" xml:space="preserve">
+    <value>Ajustando tema... Por favor espere... </value>
     <comment>Shown in a popup when toggling dark mode</comment>
   </data>
--->
   <data name="advancedSettings" xml:space="preserve">
-    <value>Ajustes avanzados</value>
+    <value>Ajustes Avanzados</value>
     <comment>Label of the hyperlink that opens the settings file</comment>
   </data>
+  <data name="advancedSettingsConfirmation" xml:space="preserve">
+    <value>Entiendo los riesgos mencionados y deseo continuar</value>
+    <comment>Confirmation text for Advanced Settings</comment>
+  </data>
+  <data name="advancedSettingsTitle" xml:space="preserve">
+    <value>Configuración avanzada</value>
+    <comment>Window text for Advanced Settings</comment>
+  </data>
+  <data name="advancedSettingsWarning" xml:space="preserve">
+    <value>El cambio de los ajustes avanzados, puede causar un comportamiento inesperado e inestabilidad en CapsLock Indicator. Por favor, reinicie CapsLock Indicator después de realizar cambios en la configuración. Cambie la configuración sólo si sabe lo que está haciendo. Utilice este editor bajo su propia responsabilidad.</value>
+    <comment>Warning text for Advanced Settings</comment>
+  </data>
   <data name="autoCheckForUpdates" xml:space="preserve">
-    <value>Verificar automáticamente actualizaciones</value>
+    <value>Verificar actualizaciones de forma automática</value>
     <comment>Tooltip for the checkbox next to the update button</comment>
   </data>
   <data name="backgroundColourActivatedButton" xml:space="preserve">
@@ -141,19 +150,23 @@
     <comment>The caption for the "Background colour deactivated" button.</comment>
   </data>
   <data name="borderColourActivatedButton" xml:space="preserve">
-    <value>Color de borde activado</value>
+    <value>Color del borde activado</value>
     <comment>The caption for the "Border colour activated" button.</comment>
   </data>
   <data name="borderColourDeactivatedButton" xml:space="preserve">
-    <value>Color de borde desactivado</value>
+    <value>Color del borde desactivado</value>
     <comment>The caption for the "Border colour deactivated" button.</comment>
   </data>
   <data name="borderThicknessGroup" xml:space="preserve">
     <value>Grosor del borde</value>
     <comment>Label of the border thickness groupbox</comment>
   </data>
+  <data name="cancel" xml:space="preserve">
+    <value>&amp;Cancelar</value>
+    <comment>Generic label for Cancel button</comment>
+  </data>
   <data name="capsLock" xml:space="preserve">
-    <value>Bloq. Mayúsculas</value>
+    <value>Mayúsculas</value>
     <comment>The name of the caps lock key</comment>
   </data>
   <data name="checkForUpdates" xml:space="preserve">
@@ -164,6 +177,10 @@
     <value>Verificando actualizaciones</value>
     <comment>The caption for the "Check for updates" button when it's searching for updates.</comment>
   </data>
+  <data name="close" xml:space="preserve">
+    <value>&amp;Cerrar</value>
+    <comment>Generic label for Close button</comment>
+  </data>
   <data name="coloursGroup" xml:space="preserve">
     <value>Colores</value>
     <comment>The title for the "Colours" group box</comment>
@@ -173,23 +190,17 @@
     <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
   <data name="contextMenuShow" xml:space="preserve">
-    <value>&amp;Mostrar</value>
+    <value>&amp;Configurar</value>
     <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
-  
-<!--
-<data name="darkModeOption" xml:space="preserve">
-    <value>&amp;Dark mode</value>
+  <data name="darkModeOption" xml:space="preserve">
+    <value>&amp;Tema oscuro</value>
     <comment>Label of options checkbox for dark mode</comment>
   </data>
--->
-  
-<!--
-<data name="dismiss" xml:space="preserve">
-    <value>Dismiss</value>
+  <data name="dismiss" xml:space="preserve">
+    <value>Descartar</value>
     <comment>Used as tooltip (but may be used in other places in the future</comment>
   </data>
--->
   <data name="dismissButton" xml:space="preserve">
     <value>&amp;Descartar</value>
     <comment>The caption for the "Dismiss" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -207,19 +218,27 @@
     <comment>The caption for the "Download manually" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="downloadMoreTranslations" xml:space="preserve">
-    <value>Descargar más traducciones</value>
+    <value>Descargar más traducciones...</value>
     <comment>The last dropdown item in the locale dropdown.</comment>
+  </data>
+  <data name="downloadTranslationsTitle" xml:space="preserve">
+    <value>Descargar traducciones</value>
+    <comment>Window title for the download translations dialog</comment>
   </data>
   <data name="exitApplication" xml:space="preserve">
     <value>&amp;Cerrar aplicación</value>
     <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="exitMessage" xml:space="preserve">
-    <value>Saliendo de la aplicación - íconos y notificaciones no se mostrarán. ¿Salir?</value>
+    <value>Al salir de la aplicación, los iconos y las notificaciones dejaran de mostrarse. Desea salir de todos modos?</value>
     <comment>The message to display on application exit</comment>
   </data>
+  <data name="failedToDownloadTranslationToolTip" xml:space="preserve">
+    <value>Descarga de traducción fallida</value>
+    <comment>Tooltip for failed translation download</comment>
+  </data>
   <data name="firstRunAllowUpdateCheck" xml:space="preserve">
-    <value>Permitir a CapsLock Indicator verificar regularmente por actualizaciones (se puede cambiar después)</value>
+    <value>Permitir a CapsLock Indicator verificar periódicamente por actualizaciones (se puede cambiar después)</value>
     <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
   </data>
   <data name="firstRunColorSchemeDark" xml:space="preserve">
@@ -231,11 +250,11 @@
     <comment>Button for selecting light color scheme</comment>
   </data>
   <data name="firstRunColorSchemePreference" xml:space="preserve">
-    <value>¿Qué color prefiere más?</value>
+    <value>Qué combinación de colores prefiere?</value>
     <comment>Label for selecting color scheme</comment>
   </data>
   <data name="firstRunColorSchemeWin10Only" xml:space="preserve">
-    <value>Disponible solo en Windows 10</value>
+    <value>Disponible solo en Windows 10 y 11</value>
     <comment>Added to dark button if not running on Windows 10</comment>
   </data>
   <data name="firstRunContribute" xml:space="preserve">
@@ -255,11 +274,11 @@
     <comment>The message of the first-run dialog</comment>
   </data>
   <data name="firstRunPrivacyInfoLinkLabel" xml:space="preserve">
-    <value>¿Qué información se enviará?</value>
+    <value>Qué información se enviará?</value>
     <comment>The label of the hyperlink that shows which information will be sent on each update check</comment>
   </data>
   <data name="firstRunStart" xml:space="preserve">
-    <value>¡&amp;Vamos!</value>
+    <value>&amp;Vamos!</value>
     <comment>Button that starts the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="fontGroup" xml:space="preserve">
@@ -278,8 +297,12 @@
     <value>Puedes mostrar CapsLock Indicator nuevamente con doble clic en este ícono.</value>
     <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
   </data>
+  <data name="headerWarning" xml:space="preserve">
+    <value>Alerta!</value>
+    <comment>Generic header for Warning</comment>
+  </data>
   <data name="hideOnStartup" xml:space="preserve">
-    <value>Ocultar al iniciar</value>
+    <value>Ocultar ventana al iniciar sesión</value>
     <comment>Used for the hide on startup checkbox</comment>
   </data>
   <data name="hideWindow" xml:space="preserve">
@@ -295,11 +318,11 @@
     <comment>Shown when downloading an icon pack</comment>
   </data>
   <data name="iconPackPrompt" xml:space="preserve">
-    <value>¿Instalar paquete de íconos “{name}” (Versión {version}) por {authorName}?</value>
+    <value>Desea instalar el paquete de íconos “{name}” (Versión {version}) por {authorName}?</value>
     <comment>Prompt shown when installing an icon pack</comment>
   </data>
   <data name="iconPackResetPrompt" xml:space="preserve">
-    <value>¿Restablecer íconos por los predeterminados?</value>
+    <value>Desea restablecer los íconos por los predeterminados?</value>
     <comment>Shown when asked to reset the icons</comment>
   </data>
   <data name="iconPackResetSuccess" xml:space="preserve">
@@ -311,7 +334,7 @@
     <comment>Shown after an icon pack was installed successfully</comment>
   </data>
   <data name="keyChanged" xml:space="preserve">
-    <value>{0} cambiados</value>
+    <value>{0} cambie</value>
     <comment>Used for the check boxes in the "Show notification when..." group box. "{0}" will be replaced with the key name</comment>
   </data>
   <data name="keyIsOff" xml:space="preserve">
@@ -322,6 +345,10 @@
     <value>{0} activado</value>
     <comment>The text to display in the notification when a key is on. "{0}" will be replaced with the key name</comment>
   </data>
+  <data name="no" xml:space="preserve">
+    <value>&amp;No</value>
+    <comment>Generic label for No button</comment>
+  </data>
   <data name="notificationSettings" xml:space="preserve">
     <value>&amp;Ajustes de notificaciones</value>
     <comment>The caption for the button that opens the notification settings. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -331,15 +358,19 @@
     <comment>The caption of the notification settings window</comment>
   </data>
   <data name="numLock" xml:space="preserve">
-    <value>Bloq. Numérico</value>
+    <value>Números</value>
     <comment>The name of the num lock key</comment>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>&amp;OK</value>
+    <comment>Generic label for OK button</comment>
   </data>
   <data name="opacity" xml:space="preserve">
     <value>Opacidad</value>
     <comment>The title for the "Opacity" group box</comment>
   </data>
   <data name="overlayPositionGroup" xml:space="preserve">
-    <value>Superposición</value>
+    <value>Posición de notificación</value>
     <comment>The title for the "Overlay position" group box</comment>
   </data>
   <data name="permanentIndicator" xml:space="preserve">
@@ -350,87 +381,70 @@
     <value>Recargar íconos</value>
     <comment>Shown in a notification when hot-reloading icons.</comment>
   </data>
+  <data name="restart" xml:space="preserve">
+    <value>&amp;Reiniciar</value>
+    <comment>Generic label for Restart button</comment>
+  </data>
   <data name="saveAndCloseButton" xml:space="preserve">
     <value>&amp;Guardar &amp;&amp; cerrar</value>
     <comment>The caption for the "Save &amp; Close" button. The character after the "&amp;" is the hotkey that is used with the ALT key. Use two "&amp;" to display a "&amp;" character</comment>
   </data>
   <data name="scrollLock" xml:space="preserve">
-    <value>Bloq Despl</value>
+    <value>Bloq. Despl</value>
     <comment>The name of the scroll lock key</comment>
   </data>
-  
-<!--
-<data name="searchForUpdatesOnResumeOption" xml:space="preserve">
-    <value>Search for &amp;updates on resume</value>
+  <data name="searchForUpdatesOnResumeOption" xml:space="preserve">
+    <value>&amp;Buscar actualizaciones en segundo plano</value>
     <comment>Label of options checkbox for update search after resume</comment>
   </data>
--->
-  
-<!--
-<data name="settingsChangedToolTip" xml:space="preserve">
-    <value>The settings have moved! You will now find them in these tabs up here!</value>
+  <data name="settingsChangedToolTip" xml:space="preserve">
+    <value>Los ajustes se han movido! Ahora los encontrarás en estas pestañas de aquí arriba.</value>
     <comment>The tutorial tooltip shown when upgrading to 3.13.0.0</comment>
   </data>
--->
   <data name="showIconsFor" xml:space="preserve">
-    <value>Mostrar íconos de</value>
+    <value>Mostrar íconos para...</value>
     <comment>The title for the "Show icons for..." group box</comment>
   </data>
   <data name="showNoIcons" xml:space="preserve">
-    <value>Sin íconos</value>
+    <value>No mostrar iconos en la barra de tareas</value>
     <comment>The label for the check box that enables or disables all icons</comment>
   </data>
   <data name="showNoNotification" xml:space="preserve">
-    <value>Sin notificaciones</value>
+    <value>No mostrar notificaciones en pantalla</value>
     <comment>The label for the check box that enables or disables all notifications</comment>
   </data>
   <data name="showNotificationWhen" xml:space="preserve">
-    <value>Mostrar notificaciones cuando</value>
+    <value>Mostrar notificaciones cuando...</value>
     <comment>The title for the "Show notification when..." group box</comment>
   </data>
   <data name="showOverlayOnlyWhenActive" xml:space="preserve">
-    <value>Mostrar siempre la superposición al activarse</value>
+    <value>Mostrar siempre la notificación cuando se activa</value>
     <comment>The label for the check box that indicates whether overlay should only be shown when active</comment>
   </data>
   <data name="startOnLogon" xml:space="preserve">
-    <value>Activar al iniciar</value>
+    <value>Activar CapsLock Indicator al iniciar sesión</value>
     <comment>The label for the check box that enables or disabled the auto start.</comment>
   </data>
-  
-<!--
-<data name="tabAdvancedOptions" xml:space="preserve">
-    <value>Advanced Options</value>
+  <data name="tabAdvancedOptions" xml:space="preserve">
+    <value>Opciones Avanzadas</value>
     <comment>Tab header for advanced options</comment>
   </data>
--->
-  
-<!--
-<data name="tabGeneral" xml:space="preserve">
+  <data name="tabGeneral" xml:space="preserve">
     <value>General</value>
     <comment>Tab header for general settings</comment>
   </data>
--->
-  
-<!--
-<data name="tabNotification" xml:space="preserve">
-    <value>Notification</value>
+  <data name="tabNotification" xml:space="preserve">
+    <value>Notificación </value>
     <comment>Tab header for advanced settings</comment>
   </data>
--->
-  
-<!--
-<data name="unsupportedCLI" xml:space="preserve">
-    <value>This version of CapsLock Indicator (Version {version}) is not supported. Please update to the latest version!</value>
+  <data name="unsupportedCLI" xml:space="preserve">
+    <value>Esta versión del CapsLock Indicator (Versión {versión}) esta desactualizada. Por favor, actualice a la última versión.</value>
     <comment>Banner text when CLI version is unsupported</comment>
   </data>
--->
-  
-<!--
-<data name="unsupportedWin" xml:space="preserve">
-    <value>You are using {os} which is no longer supported by Microsoft. CapsLock Indicator will drop support for this OS in the future! Please upgrade to a modern version of Windows!</value>
+  <data name="unsupportedWin" xml:space="preserve">
+    <value>Estás usando {os} que ya no es soportado por Microsoft. CapsLock Indicator dejará de ser compatible con este sistema operativo en el futuro. Por favor, actualice a una versión mas moderna de Windows.</value>
     <comment>Banner text when Windows version is unsupported</comment>
   </data>
--->
   <data name="updateAvailable" xml:space="preserve">
     <value>¡Actualización disponible de CapsLock Indicator!</value>
     <comment>The title for the update window.</comment>
@@ -439,9 +453,17 @@
     <value>Versión {0}, publicada {1}</value>
     <comment>Displayed in the "Update Available" dialog. {0} is the version, {1} is the release date and time.</comment>
   </data>
+  <data name="updateLocaleMessageBox" xml:space="preserve">
+    <value>Algunas de las traducciones instaladas actualmente, parecen estar desactualizadas. ¿Quiere actualizarlas ahora?</value>
+    <comment>Message box when old translations are found</comment>
+  </data>
   <data name="updateNow" xml:space="preserve">
     <value>&amp;Actualizar ahora</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>&amp;Si</value>
+    <comment>Generic label for Yes button</comment>
   </data>
 
 </root>

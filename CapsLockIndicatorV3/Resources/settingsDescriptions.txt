@@ -25,6 +25,7 @@ indBdColourInactive					Border color of overlay when key is inactive
 indFont								Overlay font
 indDisplayTime						Overlay display time
 indOpacity							Overlay opacity
+indPadding							The padding of the overlay (the space between the window and the text)
 bdSize								Overlay border width
 versionNo							Internal. :b:{Do not change!}
 overlayPosition						Position of the overlay
@@ -35,3 +36,12 @@ customMessageNumOff					Custom message to display when num lock was deactivated
 customMessageScrollOn				Custom message to display when scroll lock was activated
 customMessageScrollOff				Custom message to display when scroll lock was deactivated
 selectedLanguage					Selected language
+persistentOverlayCapsOff			If true, shows the overlay as long as caps lock is off
+persistentOverlayCapsOn				If true, shows the overlay as long as caps lock is on
+persistentOverlayNumOff				If true, shows the overlay as long as num lock is off
+persistentOverlayNumOn				If true, shows the overlay as long as num lock is on
+persistentOverlayScrollOff			If true, shows the overlay as long as scroll lock is off
+persistentOverlayScrollOn			If true, shows the overlay as long as scroll lock is on
+numIcoOnlyWhenActive				If true, shows the num lock icon only when num lock is active
+capsIcoOnlyWhenActive				If true, shows the caps lock icon only when caps lock is active
+scrollIcoOnlyWhenActive				If true, shows the scroll lock icon only when scroll lock is active

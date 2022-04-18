@@ -11,7 +11,6 @@ namespace CapsLockIndicatorV3
     /// </summary>
     public static class VersionCheck
     {
-        const string CheckURL = "https://cli.jonaskohl.de/!/version?details&xml&newClient3=true";
         public static string newVersion = null;
 
         private static string version;
@@ -34,7 +33,7 @@ namespace CapsLockIndicatorV3
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             try
             {
-                string data = await client.DownloadStringTaskAsync(CheckURL + (DarkModeProvider.IsDark ? "&dark=true" : ""));
+                string data = await client.DownloadStringTaskAsync(URLs.VersionCheck + (DarkModeProvider.IsDark ? "&dark=true" : ""));
                 callback(data);
             }
             catch (Exception e)

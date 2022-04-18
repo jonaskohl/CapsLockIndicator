@@ -15,6 +15,8 @@ namespace CapsLockIndicatorV3
         public static string SettingsFileNormal => Environment.ExpandEnvironmentVariables(@"%appdata%\Jonas Kohl\CapsLock Indicator\settings\any\usercfg");
         public static string SettingsFilePortable => Environment.ExpandEnvironmentVariables(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "usercfg"));
 
+        public static event EventHandler<string> SettingChanged;
+
         private static Dictionary<string, (Type, object)> DefaultSettings;
         private static Dictionary<string, (Type, object)> Settings;
 
@@ -150,6 +152,20 @@ namespace CapsLockIndicatorV3
                 else
                     return Color.FromName(value);
             }
+            else if (type == typeof(Padding))
+            {
+                if (value.Contains(";"))
+                {
+                    var parts = value.Split(';');
+                    var parsedParts = parts.Select(p => int.Parse(p)).ToArray();
+                    if (parts.Length != 4)
+                        throw new FormatException("Invalid format for Padding");
+
+                    return new Padding(parsedParts[0], parsedParts[1], parsedParts[2], parsedParts[3]);
+                }
+                else
+                    throw new FormatException("Invalid format for Padding");
+            }
             else if (type == typeof(Font))
                 return new FontConverter().ConvertFromString(value);
             return Convert.ChangeType(value, type);
@@ -157,10 +173,12 @@ namespace CapsLockIndicatorV3
 
         private static string ConvertToString(object value)
         {
-            if (value.GetType() == typeof(Color))
+            if (value is Color)
                 return string.Join(";", new byte[] { ((Color)value).A, ((Color)value).R, ((Color)value).G, ((Color)value).B });
-            else if (value.GetType() == typeof(Font))
+            else if (value is Font)
                 return new FontConverter().ConvertToString((Font)value);
+            else if (value is Padding)
+                return string.Join(";", new int[] { ((Padding)value).Left, ((Padding)value).Top, ((Padding)value).Right, ((Padding)value).Bottom });
             return value.ToString();
         }
 
@@ -176,6 +194,8 @@ namespace CapsLockIndicatorV3
                 return "c";
             else if (type == typeof(Font))
                 return "f";
+            else if (type == typeof(Padding))
+                return "p";
             else
                 return "o";
         }
@@ -194,6 +214,8 @@ namespace CapsLockIndicatorV3
                     return typeof(Color);
                 case "f":
                     return typeof(Font);
+                case "p":
+                    return typeof(Padding);
                 default:
                     return typeof(object);
             }
@@ -202,12 +224,21 @@ namespace CapsLockIndicatorV3
         public static void Reset(string key)
         {
             Settings[key] = DefaultSettings[key];
+            SettingChanged?.Invoke(null, key);
+        }
+
+        internal static void ResetAll()
+        {
+            Settings = DefaultSettings;
         }
 
         public static void Set(string key, object value)
         {
             if (key != null)
+            {
                 Settings[key] = (value.GetType(), value);
+                SettingChanged?.Invoke(null, key);
+            }
         }
 
         public static string GetActualPath()

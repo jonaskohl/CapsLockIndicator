@@ -125,6 +125,18 @@
     <value>Gelişmiş Seçenekler</value>
     <comment>Label of the hyperlink that opens the settings file</comment>
   </data>
+  <data name="advancedSettingsConfirmation" xml:space="preserve">
+    <value>Yukarıda anlatılan riskleri anladım ve devam etmek istiyorum</value>
+    <comment>Confirmation text for Advanced Settings</comment>
+  </data>
+  <data name="advancedSettingsTitle" xml:space="preserve">
+    <value>Gelişmiş Seçenekler</value>
+    <comment>Window text for Advanced Settings</comment>
+  </data>
+  <data name="advancedSettingsWarning" xml:space="preserve">
+    <value>Gelişmiş seçeneklerin değiştirilmesi beklenmeyen sonuçlara yol açabilir ve CapsLock Indicator uygulamasının tutarsız davranmasına yol açabilir. Lütfen seçenekleri değiştirdikten sonra CapsLock Indicator uygulamasını yeniden başlatın. Seçenekleri değiştirirken ne yaptığınızı bildiğinizden emin olun! Bu editörü kullanmak kendi sorumluluğunuzdadır!</value>
+    <comment>Warning text for Advanced Settings</comment>
+  </data>
   <data name="autoCheckForUpdates" xml:space="preserve">
     <value>Güncellemeleri otomatik denetle</value>
     <comment>Tooltip for the checkbox next to the update button</comment>
@@ -149,6 +161,10 @@
     <value>Kenar kalınlığı</value>
     <comment>Label of the border thickness groupbox</comment>
   </data>
+  <data name="cancel" xml:space="preserve">
+    <value>İptal</value>
+    <comment>Generic label for Cancel button</comment>
+  </data>
   <data name="capsLock" xml:space="preserve">
     <value>Caps lock</value>
     <comment>The name of the caps lock key</comment>
@@ -160,6 +176,10 @@
   <data name="checkingForUpdates" xml:space="preserve">
     <value>Güncellemeler denetleniyor...</value>
     <comment>The caption for the "Check for updates" button when it's searching for updates.</comment>
+  </data>
+  <data name="close" xml:space="preserve">
+    <value>Kapat</value>
+    <comment>Generic label for Close button</comment>
   </data>
   <data name="coloursGroup" xml:space="preserve">
     <value>Renkler</value>
@@ -201,6 +221,10 @@
     <value>Daha fazla çeviri indir...</value>
     <comment>The last dropdown item in the locale dropdown.</comment>
   </data>
+  <data name="downloadTranslationsTitle" xml:space="preserve">
+    <value>Çeviri indir</value>
+    <comment>Window title for the download translations dialog</comment>
+  </data>
   <data name="exitApplication" xml:space="preserve">
     <value>&amp;Uygulamadan çık</value>
     <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -208,6 +232,10 @@
   <data name="exitMessage" xml:space="preserve">
     <value>Eğer uygulamadan çıkarsanız simgeler ve bildirimler görüntülenemeyecek. Yine de çıkmak istiyor musunuz?</value>
     <comment>The message to display on application exit</comment>
+  </data>
+  <data name="failedToDownloadTranslationToolTip" xml:space="preserve">
+    <value>Çeviri indirilemedi</value>
+    <comment>Tooltip for failed translation download</comment>
   </data>
   <data name="firstRunAllowUpdateCheck" xml:space="preserve">
     <value>CapsLock Indicator'a güncellemeleri belirli aralıklarla denetlemesi için izin verin (bu izin daha sonra değiştirilebilir)</value>
@@ -269,6 +297,10 @@
     <value>Bu simgeye çift tıklayarak CapsLock Indicator'ı tekrar görüntüleyebilirsiniz.</value>
     <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
   </data>
+  <data name="headerWarning" xml:space="preserve">
+    <value>Uyarı!</value>
+    <comment>Generic header for Warning</comment>
+  </data>
   <data name="hideOnStartup" xml:space="preserve">
     <value>Başlangıçta gizle</value>
     <comment>Used for the hide on startup checkbox</comment>
@@ -313,6 +345,10 @@
     <value>{0} açık</value>
     <comment>The text to display in the notification when a key is on. "{0}" will be replaced with the key name</comment>
   </data>
+  <data name="no" xml:space="preserve">
+    <value>&amp;Hayır</value>
+    <comment>Generic label for No button</comment>
+  </data>
   <data name="notificationSettings" xml:space="preserve">
     <value>Bildirim ayarları</value>
     <comment>The caption for the button that opens the notification settings. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -324,6 +360,10 @@
   <data name="numLock" xml:space="preserve">
     <value>Num lock</value>
     <comment>The name of the num lock key</comment>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>&amp;Tamam</value>
+    <comment>Generic label for OK button</comment>
   </data>
   <data name="opacity" xml:space="preserve">
     <value>Opaklık</value>
@@ -340,6 +380,10 @@
   <data name="reloadedIconsInfo" xml:space="preserve">
     <value>Simgeler yeniden yüklendi</value>
     <comment>Shown in a notification when hot-reloading icons.</comment>
+  </data>
+  <data name="restart" xml:space="preserve">
+    <value>Yeniden Başlat</value>
+    <comment>Generic label for Restart button</comment>
   </data>
   <data name="saveAndCloseButton" xml:space="preserve">
     <value>Kaydet ve kapat</value>
@@ -409,9 +453,17 @@
     <value>Versiyon {0}, {1} tarihinde yayınlandı.</value>
     <comment>Displayed in the "Update Available" dialog. {0} is the version, {1} is the release date and time.</comment>
   </data>
+  <data name="updateLocaleMessageBox" xml:space="preserve">
+    <value>Kurulu çevirilerin bir kısmı güncel değil. Bunları şimdi güncelemek ister misiniz?</value>
+    <comment>Message box when old translations are found</comment>
+  </data>
   <data name="updateNow" xml:space="preserve">
     <value>&amp;Şimdi güncelle</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>&amp;Evet</value>
+    <comment>Generic label for Yes button</comment>
   </data>
 
 </root>

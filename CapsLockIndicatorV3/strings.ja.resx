@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="adjustingColorScheme" xml:space="preserve">
+    <value>配色を調整しています...お待ちください...</value>
+    <comment>Shown in a popup when toggling dark mode</comment>
+  </data>
+  <data name="advancedSettings" xml:space="preserve">
+    <value>詳細設定</value>
+    <comment>Label of the hyperlink that opens the settings file</comment>
+  </data>
+  <data name="advancedSettingsConfirmation" xml:space="preserve">
+    <value>私は上記のリスクを理解し、続行します。</value>
+    <comment>Confirmation text for Advanced Settings</comment>
+  </data>
+  <data name="advancedSettingsTitle" xml:space="preserve">
+    <value>詳細設定</value>
+    <comment>Window text for Advanced Settings</comment>
+  </data>
+  <data name="advancedSettingsWarning" xml:space="preserve">
+    <value>詳細設定を変更すると予期しない動作が発生し、CapsLockインジケーターの状態が不安定になる可能性があります。 設定を変更後、CapsLockインジケーターを再起動してください。 自分が何をしているのか理解している場合のみ設定を変更してください。 このエディタは自己責任で使用してください。</value>
+    <comment>Warning text for Advanced Settings</comment>
+  </data>
+  <data name="autoCheckForUpdates" xml:space="preserve">
+    <value>更新を自動的にチェック</value>
+    <comment>Tooltip for the checkbox next to the update button</comment>
+  </data>
+  <data name="backgroundColourActivatedButton" xml:space="preserve">
+    <value>アクティブ時の背景色</value>
+    <comment>The caption for the "Background colour activated" button.</comment>
+  </data>
+  <data name="backgroundColourDeactivatedButton" xml:space="preserve">
+    <value>非アクティブ時の背景色</value>
+    <comment>The caption for the "Background colour deactivated" button.</comment>
+  </data>
+  <data name="borderColourActivatedButton" xml:space="preserve">
+    <value>アクティブ時のボーダーカラー</value>
+    <comment>The caption for the "Border colour activated" button.</comment>
+  </data>
+  <data name="borderColourDeactivatedButton" xml:space="preserve">
+    <value>非アクティブ時のボーダーカラー</value>
+    <comment>The caption for the "Border colour deactivated" button.</comment>
+  </data>
+  <data name="borderThicknessGroup" xml:space="preserve">
+    <value>ボーダーの太さ</value>
+    <comment>Label of the border thickness groupbox</comment>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>キャンセル(&amp;C)</value>
+    <comment>Generic label for Cancel button</comment>
+  </data>
+  <data name="capsLock" xml:space="preserve">
+    <value>Caps Lock</value>
+    <comment>The name of the caps lock key</comment>
+  </data>
+  <data name="checkForUpdates" xml:space="preserve">
+    <value>アップデートを確認する(&amp;U)</value>
+    <comment>The caption for the button that manually checks for updates. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="checkingForUpdates" xml:space="preserve">
+    <value>アップデートの確認...</value>
+    <comment>The caption for the "Check for updates" button when it's searching for updates.</comment>
+  </data>
+  <data name="close" xml:space="preserve">
+    <value>閉じる(&amp;C)</value>
+    <comment>Generic label for Close button</comment>
+  </data>
+  <data name="coloursGroup" xml:space="preserve">
+    <value>カラー</value>
+    <comment>The title for the "Colours" group box</comment>
+  </data>
+  <data name="contextMenuExit" xml:space="preserve">
+    <value>終了(&amp;E)</value>
+    <comment>Used in the context menu of the CLI tray icon.</comment>
+  </data>
+  <data name="contextMenuShow" xml:space="preserve">
+    <value>表示(&amp;S)</value>
+    <comment>Used in the context menu of the CLI tray icon.</comment>
+  </data>
+  <data name="darkModeOption" xml:space="preserve">
+    <value>ダークモード(&amp;D)</value>
+    <comment>Label of options checkbox for dark mode</comment>
+  </data>
+  <data name="dismiss" xml:space="preserve">
+    <value>却下</value>
+    <comment>Used as tooltip (but may be used in other places in the future</comment>
+  </data>
+  <data name="dismissButton" xml:space="preserve">
+    <value>却下(&amp;D)</value>
+    <comment>The caption for the "Dismiss" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="displayTime" xml:space="preserve">
+    <value>表示時間</value>
+    <comment>The title for the "Display time" group box</comment>
+  </data>
+  <data name="downloadIcons" xml:space="preserve">
+    <value>アイコンパックをダウンロード</value>
+    <comment>Hyperlink for accessing the icon pack browser</comment>
+  </data>
+  <data name="downloadManuallyButton" xml:space="preserve">
+    <value>手動ダウンロード(&amp;M)</value>
+    <comment>The caption for the "Download manually" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="downloadMoreTranslations" xml:space="preserve">
+    <value>さらに翻訳をダウンロード...</value>
+    <comment>The last dropdown item in the locale dropdown.</comment>
+  </data>
+  <data name="downloadTranslationsTitle" xml:space="preserve">
+    <value>翻訳をダウンロード</value>
+    <comment>Window title for the download translations dialog</comment>
+  </data>
+  <data name="exitApplication" xml:space="preserve">
+    <value>アプリケーションの終了(&amp;E)</value>
+    <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="exitMessage" xml:space="preserve">
+    <value>アプリケーションを終了すると、アイコンと通知は表示されなくなります。 終了しますか？</value>
+    <comment>The message to display on application exit</comment>
+  </data>
+  <data name="failedToDownloadTranslationToolTip" xml:space="preserve">
+    <value>翻訳のダウンロードに失敗しました</value>
+    <comment>Tooltip for failed translation download</comment>
+  </data>
+  <data name="firstRunAllowUpdateCheck" xml:space="preserve">
+    <value>CapsLockインジケーターがオンラインで更新を定期的にチェックできるようにします（後で変更できます）</value>
+    <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
+  </data>
+  <data name="firstRunColorSchemeDark" xml:space="preserve">
+    <value>ダーク(&amp;D)</value>
+    <comment>Button for selecting dark color scheme</comment>
+  </data>
+  <data name="firstRunColorSchemeLight" xml:space="preserve">
+    <value>ライト(&amp;I)</value>
+    <comment>Button for selecting light color scheme</comment>
+  </data>
+  <data name="firstRunColorSchemePreference" xml:space="preserve">
+    <value>どの配色が好きですか？</value>
+    <comment>Label for selecting color scheme</comment>
+  </data>
+  <data name="firstRunColorSchemeWin10Only" xml:space="preserve">
+    <value>Windows10以降でのみ使用可能</value>
+    <comment>Added to dark button if not running on Windows 10</comment>
+  </data>
+  <data name="firstRunContribute" xml:space="preserve">
+    <value>貢献する</value>
+    <comment>Label of the hyperlink that takes you to CLI's GitHub page</comment>
+  </data>
+  <data name="firstRunExit" xml:space="preserve">
+    <value>終了(&amp;E)</value>
+    <comment>Button that exists the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="firstRunHeading" xml:space="preserve">
+    <value>CapsLockインジケーターへようこそ</value>
+    <comment>The heading of the first-run dialog</comment>
+  </data>
+  <data name="firstRunMessage" xml:space="preserve">
+    <value>CapsLockインジケーターをお選びいただきありがとうございます。 このプログラムはオープンソースであり、無料です。 CapsLockインジケーターに自分で貢献することに興味がありますか？ 詳細については、以下のリンクにアクセスしてください。 また、以下の設定を確認してください。</value>
+    <comment>The message of the first-run dialog</comment>
+  </data>
+  <data name="firstRunPrivacyInfoLinkLabel" xml:space="preserve">
+    <value>どのような情報が送信されますか？</value>
+    <comment>The label of the hyperlink that shows which information will be sent on each update check</comment>
+  </data>
+  <data name="firstRunStart" xml:space="preserve">
+    <value>さあ行こう！</value>
+    <comment>Button that starts the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="fontGroup" xml:space="preserve">
+    <value>フォント</value>
+    <comment>The title for the "Font" group box</comment>
+  </data>
+  <data name="foregroundColourActivatedButton" xml:space="preserve">
+    <value>アクティブ時のテキストカラー</value>
+    <comment>The caption for the "Text colour activated" button.</comment>
+  </data>
+  <data name="foregroundColourDeactivatedButton" xml:space="preserve">
+    <value>非アクティブ時のテキストカラー</value>
+    <comment>The caption for the "Text colour deactivated" button.</comment>
+  </data>
+  <data name="generalIconBalloonText" xml:space="preserve">
+    <value>このアイコンをダブルクリックすると、CapsLockインジケーターを再表示できます。</value>
+    <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
+  </data>
+  <data name="headerWarning" xml:space="preserve">
+    <value>警告！</value>
+    <comment>Generic header for Warning</comment>
+  </data>
+  <data name="hideOnStartup" xml:space="preserve">
+    <value>起動時に非表示</value>
+    <comment>Used for the hide on startup checkbox</comment>
+  </data>
+  <data name="hideWindow" xml:space="preserve">
+    <value>ウィンドウを非表示(&amp;H)</value>
+    <comment>The caption for the button that hides the window. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="iconPackDownloadingMetadata" xml:space="preserve">
+    <value>メタデータをダウンロードしています...</value>
+    <comment>Shown when downloading metadata for icon pack</comment>
+  </data>
+  <data name="iconPackDownloadingPack" xml:space="preserve">
+    <value>パックをダウンロードしています...</value>
+    <comment>Shown when downloading an icon pack</comment>
+  </data>
+  <data name="iconPackPrompt" xml:space="preserve">
+    <value>{authorName}によるアイコンパック「{name}」(バージョン{version})をインストールしますか？</value>
+    <comment>Prompt shown when installing an icon pack</comment>
+  </data>
+  <data name="iconPackResetPrompt" xml:space="preserve">
+    <value>アイコンをデフォルトにリセットしますか？</value>
+    <comment>Shown when asked to reset the icons</comment>
+  </data>
+  <data name="iconPackResetSuccess" xml:space="preserve">
+    <value>アイコンがデフォルトにリセットされました！</value>
+    <comment>Shown after icons were reset</comment>
+  </data>
+  <data name="iconPackSuccess" xml:space="preserve">
+    <value>アイコンパック「{name}」(バージョン {version})が正常にインストールされました！</value>
+    <comment>Shown after an icon pack was installed successfully</comment>
+  </data>
+  <data name="keyChanged" xml:space="preserve">
+    <value>{0} 変更時</value>
+    <comment>Used for the check boxes in the "Show notification when..." group box. "{0}" will be replaced with the key name</comment>
+  </data>
+  <data name="keyIsOff" xml:space="preserve">
+    <value>{0} オフ</value>
+    <comment>The text to display in the notification when a key is off. "{0}" will be replaced with the key name</comment>
+  </data>
+  <data name="keyIsOn" xml:space="preserve">
+    <value>{0} オン</value>
+    <comment>The text to display in the notification when a key is on. "{0}" will be replaced with the key name</comment>
+  </data>
+  <data name="no" xml:space="preserve">
+    <value>いいえ(&amp;N)</value>
+    <comment>Generic label for No button</comment>
+  </data>
+  <data name="notificationSettings" xml:space="preserve">
+    <value>通知設定(&amp;N)</value>
+    <comment>The caption for the button that opens the notification settings. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="notificationSettingsTitle" xml:space="preserve">
+    <value>通知設定</value>
+    <comment>The caption of the notification settings window</comment>
+  </data>
+  <data name="numLock" xml:space="preserve">
+    <value>Num Lock</value>
+    <comment>The name of the num lock key</comment>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>OK(&amp;O)</value>
+    <comment>Generic label for OK button</comment>
+  </data>
+  <data name="opacity" xml:space="preserve">
+    <value>不透明度</value>
+    <comment>The title for the "Opacity" group box</comment>
+  </data>
+  <data name="overlayPositionGroup" xml:space="preserve">
+    <value>オーバーレイ位置</value>
+    <comment>The title for the "Overlay position" group box</comment>
+  </data>
+  <data name="permanentIndicator" xml:space="preserve">
+    <value>常に表示</value>
+    <comment>Text to display instead of the time if indicator overlay display is set to permanently.</comment>
+  </data>
+  <data name="reloadedIconsInfo" xml:space="preserve">
+    <value>再読み込みしたアイコン</value>
+    <comment>Shown in a notification when hot-reloading icons.</comment>
+  </data>
+  <data name="restart" xml:space="preserve">
+    <value>再起動(&amp;R)</value>
+    <comment>Generic label for Restart button</comment>
+  </data>
+  <data name="saveAndCloseButton" xml:space="preserve">
+    <value>保存して閉じる(&amp;C)</value>
+    <comment>The caption for the "Save &amp; Close" button. The character after the "&amp;" is the hotkey that is used with the ALT key. Use two "&amp;" to display a "&amp;" character</comment>
+  </data>
+  <data name="scrollLock" xml:space="preserve">
+    <value>Scroll Lock</value>
+    <comment>The name of the scroll lock key</comment>
+  </data>
+  <data name="searchForUpdatesOnResumeOption" xml:space="preserve">
+    <value>更新履歴を検索する(&amp;U)</value>
+    <comment>Label of options checkbox for update search after resume</comment>
+  </data>
+  <data name="settingsChangedToolTip" xml:space="preserve">
+    <value>設定が移動しました！ ここにあるこれらのタブでそれらを見つけることができます！</value>
+    <comment>The tutorial tooltip shown when upgrading to 3.13.0.0</comment>
+  </data>
+  <data name="showIconsFor" xml:space="preserve">
+    <value>アイコンを表示...</value>
+    <comment>The title for the "Show icons for..." group box</comment>
+  </data>
+  <data name="showNoIcons" xml:space="preserve">
+    <value>アイコンを表示しない</value>
+    <comment>The label for the check box that enables or disables all icons</comment>
+  </data>
+  <data name="showNoNotification" xml:space="preserve">
+    <value>通知を表示しない</value>
+    <comment>The label for the check box that enables or disables all notifications</comment>
+  </data>
+  <data name="showNotificationWhen" xml:space="preserve">
+    <value>通知を表示する...</value>
+    <comment>The title for the "Show notification when..." group box</comment>
+  </data>
+  <data name="showOverlayOnlyWhenActive" xml:space="preserve">
+    <value>アクティブなときは常にオーバーレイを表示する</value>
+    <comment>The label for the check box that indicates whether overlay should only be shown when active</comment>
+  </data>
+  <data name="startOnLogon" xml:space="preserve">
+    <value>ログオン時に開始</value>
+    <comment>The label for the check box that enables or disabled the auto start.</comment>
+  </data>
+  <data name="tabAdvancedOptions" xml:space="preserve">
+    <value>詳細オプション</value>
+    <comment>Tab header for advanced options</comment>
+  </data>
+  <data name="tabGeneral" xml:space="preserve">
+    <value>一般</value>
+    <comment>Tab header for general settings</comment>
+  </data>
+  <data name="tabNotification" xml:space="preserve">
+    <value>通知</value>
+    <comment>Tab header for advanced settings</comment>
+  </data>
+  <data name="unsupportedCLI" xml:space="preserve">
+    <value>このバージョンのCapsLockインジケーター（(Version {version})はサポートされていません。 最新バージョンにアップデートしてください！</value>
+    <comment>Banner text when CLI version is unsupported</comment>
+  </data>
+  <data name="unsupportedWin" xml:space="preserve">
+    <value>Microsoftでサポートされなくなった{os}を使用しています。 CapsLockインジケーターは、将来このOSのサポートを終了します。 最新バージョンのWindowsにアップグレードしてください。</value>
+    <comment>Banner text when Windows version is unsupported</comment>
+  </data>
+  <data name="updateAvailable" xml:space="preserve">
+    <value>CapsLockインジケーターの更新が利用可能です！</value>
+    <comment>The title for the update window.</comment>
+  </data>
+  <data name="updateInfoFormat" xml:space="preserve">
+    <value>バージョン{0}、リリース{1}</value>
+    <comment>Displayed in the "Update Available" dialog. {0} is the version, {1} is the release date and time.</comment>
+  </data>
+  <data name="updateLocaleMessageBox" xml:space="preserve">
+    <value>現在インストールされている翻訳の一部は古くなっているようです。 今すぐ更新しますか？</value>
+    <comment>Message box when old translations are found</comment>
+  </data>
+  <data name="updateNow" xml:space="preserve">
+    <value>今すぐアップデート(&amp;U)</value>
+    <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>はい(&amp;Y)</value>
+    <comment>Generic label for Yes button</comment>
+  </data>
+
+</root>

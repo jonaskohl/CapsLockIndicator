@@ -82,7 +82,7 @@ namespace CapsLockIndicatorV3
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "IndicatorOverlay";
-            this.Padding = new System.Windows.Forms.Padding(2);
+            this.Padding = new System.Windows.Forms.Padding(16, 8, 16, 8);
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "IndicatorOverlay";

@@ -108,7 +108,7 @@ namespace CapsLockIndicatorV3
 
         private void lnkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://cli.jonaskohl.de/kb/?a=updatecheck");
+            Process.Start(URLs.KBUpdateCheck);
         }
 
         private void okButton_Click(object sender, EventArgs e)
@@ -120,7 +120,7 @@ namespace CapsLockIndicatorV3
 
         private void lnkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://github.com/jonaskohl/CapsLockIndicator");
+            Process.Start(URLs.GithubRepo);
         }
 
         private void lightButton_Click(object sender, EventArgs e)

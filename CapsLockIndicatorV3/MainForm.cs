@@ -24,11 +24,18 @@ using System.Text;
 using System.Net;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
+using System.Drawing.Drawing2D;
 
 namespace CapsLockIndicatorV3
 {
     public partial class MainForm : DarkModeForm
     {
+        //Imports the user32.dll
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern IntPtr SendMessage(IntPtr hWnd, int msg, int wParam, IntPtr lParam);
+        const int BM_SETIMAGE = 0x00F7;
+
         public bool isHidden = false;
 
         // Define variables used to load the icons from resources.resx
@@ -60,6 +67,11 @@ namespace CapsLockIndicatorV3
         readonly string oldVersion;
 
         private int unsupportedReason = -1;
+
+
+        private bool numIcoOnlyWhenActive;
+        private bool capsIcoOnlyWhenActive;
+        private bool scrollIcoOnlyWhenActive;
 
         public MainForm()
         {
@@ -139,12 +151,12 @@ namespace CapsLockIndicatorV3
 
             var scale = Native.GetScalingFactor();
 
-            pictureBox1.Image = SysIcons.GetSystemIcon(SysIcons.SHSTOCKICONID.SIID_SHIELD, SysIcons.IconSize.Small).ToBitmap();
+            pictureBox1.Image = SysIcons.GetSystemIcon(SysIcons.SHSTOCKICONID.SIID_SHIELD, SysIcons.IconSize.Large).ToBitmap();
 
             if (Environment.OSVersion.Version >= new Version(6, 2))
             {
                 var sz = (int)(scale * 16);
-                dismissButton.Image = IconExtractor.GetIcon("imageres.dll", 235, sz)?.ToBitmap();
+                dismissButton.Image = IconExtractor.GetIcon("imageres.dll", Versions.IsWindows11 ? 236 : 235, sz)?.ToBitmap();
                 dismissButton.FlatStyle = FlatStyle.Flat;
                 dismissButton.FlatAppearance.BorderSize = 0;
                 dismissButton.FlatAppearance.MouseOverBackColor =
@@ -235,6 +247,31 @@ namespace CapsLockIndicatorV3
 
             if (SettingsManager.Get<bool>("checkForUpdates"))
                 BeginCheckOldLanguageFiles();
+
+            var warningIcon = SysIcons.GetSystemIconRaw(SysIcons.SHSTOCKICONID.SIID_SHIELD, SysIcons.IconSize.Small);
+            SendMessage(resetSettingsButton.Handle, BM_SETIMAGE, 1, warningIcon);
+
+            TabControl1_SelectedIndexChanged(tabControl1, EventArgs.Empty);
+            CenterToScreen();
+
+#if DEBUG && TEST_EOL
+            Wc_DownloadStringCompleted(null, null);
+#endif
+            RefreshCachedSettings();
+
+            SettingsManager.SettingChanged += SettingsManager_SettingChanged;
+        }
+
+        private void SettingsManager_SettingChanged(object sender, string e)
+        {
+            RefreshCachedSettings();
+        }
+
+        private void RefreshCachedSettings()
+        {
+            numIcoOnlyWhenActive = SettingsManager.Get<bool>("numIcoOnlyWhenActive");
+            capsIcoOnlyWhenActive = SettingsManager.Get<bool>("capsIcoOnlyWhenActive");
+            scrollIcoOnlyWhenActive = SettingsManager.Get<bool>("scrollIcoOnlyWhenActive");
         }
 
         private void BeginCheckOldLanguageFiles()
@@ -306,13 +343,11 @@ namespace CapsLockIndicatorV3
 
         async private Task<KeyValuePair<string, DllInfo>[]> CheckOldLanguageFiles()
         {
-            const string langServiceUrl = "https://cli.jonaskohl.de/!/langservice";
-
             using (var wc = new WebClient())
             {
                 wc.Headers.Add(HttpRequestHeader.UserAgent, VersionCheck.UserAgent);
 
-                var langInfoStr = await wc.DownloadStringTaskAsync(langServiceUrl);
+                var langInfoStr = await wc.DownloadStringTaskAsync(URLs.LangServiceUrl);
 
                 var langInfo = XDocument.Parse(langInfoStr).Root;
                 var remoteLangs = langInfo.Elements("lang").Select(t =>
@@ -323,7 +358,7 @@ namespace CapsLockIndicatorV3
 
                     return new KeyValuePair<string, DllInfo>(name, new DllInfo()
                     {
-                        Filepath = langServiceUrl + "?download=" + name + "&as=dll",
+                        Filepath = URLs.LangServiceUrl + "?download=" + name + "&as=dll",
                         SHA1 = sha1,
                         Version = new Version(version)
                     });
@@ -393,7 +428,7 @@ namespace CapsLockIndicatorV3
 
         private void CheckSupport()
         {
-            var ub = new UriBuilder("https://cli.jonaskohl.de/clientsupported");
+            var ub = new UriBuilder(URLs.ClientSupported);
             var qb = new QueryBuilder();
 #if DEBUG
             qb.Append("v", "dev");
@@ -410,10 +445,11 @@ namespace CapsLockIndicatorV3
 
         private void Wc_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
         {
-            (sender as WebClient).Dispose();
+            (sender as WebClient)?.Dispose();
 
             try
             {
+#if !(DEBUG && TEST_EOL)
                 var (client, os, supportStatus, reason) = e.Result.Split('\n');
                 var intReason = reason.Length > 0 ? int.Parse(reason) : -1;
 
@@ -423,6 +459,9 @@ namespace CapsLockIndicatorV3
                     return;
                 }
                 else
+#else
+                var intReason = 1;
+#endif
                 {
                     unsupportedReason = intReason;
                     ApplyEOLStrings();
@@ -466,6 +505,12 @@ namespace CapsLockIndicatorV3
             return sb.ToString();
         }
 
+        private static string GetReleaseId11()
+        {
+            var id = Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion", "DisplayVersion", "").ToString();
+            return id;
+        }
+
         private static string GetReleaseId()
         {
             var id = Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion", "ReleaseId", "").ToString();
@@ -488,9 +533,10 @@ namespace CapsLockIndicatorV3
         private static string GetOSName()
         {
             var osVer = Environment.OSVersion.Version;
-            var version = osVer.Major.ToString() + "." + osVer.Minor.ToString();
+            var version = Versions.IsWindows11 ? "11" : osVer.Major.ToString() + "." + osVer.Minor.ToString();
             switch (version)
             {
+                case "11": return ("Windows 11 " + GetReleaseId11()).Trim();
                 case "10.0": return ("Windows 10 " + GetReleaseId()).Trim();
                 case "6.3": return "Windows 8.1";
                 case "6.2": return "Windows 8";
@@ -576,6 +622,12 @@ namespace CapsLockIndicatorV3
             onlyShowWhenActiveCheckBox.FlatStyle =
             darkModeCheckBox.FlatStyle =
             searchOnResumeCheckBox.FlatStyle =
+            cbPersistentNumOff.FlatStyle =
+            cbPersistentNumOn.FlatStyle =
+            cbPersistentCapsOff.FlatStyle =
+            cbPersistentCapsOn.FlatStyle =
+            cbPersistentScrollOff.FlatStyle =
+            cbPersistentScrollOn.FlatStyle =
             dark ? FlatStyle.Standard : FlatStyle.System;
 
             enableNumInd.DarkMode =
@@ -594,6 +646,12 @@ namespace CapsLockIndicatorV3
             onlyShowWhenActiveCheckBox.DarkMode =
             darkModeCheckBox.DarkMode =
             searchOnResumeCheckBox.DarkMode =
+            cbPersistentNumOff.DarkMode =
+            cbPersistentNumOn.DarkMode =
+            cbPersistentCapsOff.DarkMode =
+            cbPersistentCapsOn.DarkMode =
+            cbPersistentScrollOff.DarkMode =
+            cbPersistentScrollOn.DarkMode =
             dark;
 
             downloadIcons.LinkColor =
@@ -626,6 +684,7 @@ namespace CapsLockIndicatorV3
             ControlScheduleSetDarkMode(enableScrollIcon, dark);
             ControlScheduleSetDarkMode(localeComboBox, dark);
             ControlScheduleSetDarkMode(advSettingsButton, dark);
+            ControlScheduleSetDarkMode(resetSettingsButton, dark);
             ControlScheduleSetDarkMode(fontButton, dark);
             ControlScheduleSetDarkMode(backgroundColourActivatedButton, dark);
             ControlScheduleSetDarkMode(backgroundColourDeactivatedButton, dark);
@@ -770,12 +829,23 @@ namespace CapsLockIndicatorV3
             borderGroup.Text = strings.borderThicknessGroup;
             downloadIcons.Text = strings.downloadIcons;
             advSettingsButton.Text = strings.advancedSettings;
+            resetSettingsButton.Text = strings.resetSettings;
             tabPage3.Text = strings.tabGeneral;
             tabPage1.Text = strings.tabNotification;
             tabPage2.Text = strings.tabAdvancedOptions;
             darkModeCheckBox.Text = strings.darkModeOption;
             searchOnResumeCheckBox.Text = strings.searchForUpdatesOnResumeOption;
             mainToolTip.SetToolTip(dismissButton, strings.dismiss);
+            persistentHeadingLabel.Text = strings.persistentHeadingLabel;
+            persistentNumLabel.Text = strings.persistentNumLabel;
+            persistentCapsLabel.Text = strings.persistentCapsLabel;
+            persistentScrollLabel.Text = strings.persistentScrollLabel;
+            cbPersistentNumOff.Text = strings.cbPersistentNumOff;
+            cbPersistentNumOn.Text = strings.cbPersistentNumOn;
+            cbPersistentCapsOff.Text = strings.cbPersistentCapsOff;
+            cbPersistentCapsOn.Text = strings.cbPersistentCapsOn;
+            cbPersistentScrollOff.Text = strings.cbPersistentScrollOff;
+            cbPersistentScrollOn.Text = strings.cbPersistentScrollOn;
 
             tabControl1.UpdateItemSize();
 
@@ -785,50 +855,59 @@ namespace CapsLockIndicatorV3
         // This timer ticks approx. 60 times a second (overkill?)
         void UpdateTimerTick(object sender, EventArgs e)
         {
+            var showNum = enableNumIcon.Checked && !showNoIcons.Checked && (!numIcoOnlyWhenActive || (numIcoOnlyWhenActive && KeyHelper.isNumlockActive));
+            var showCaps = enableCapsIcon.Checked && !showNoIcons.Checked && (!capsIcoOnlyWhenActive || (capsIcoOnlyWhenActive && KeyHelper.isCapslockActive));
+            var showScroll = enableScrollIcon.Checked && !showNoIcons.Checked && (!scrollIcoOnlyWhenActive || (scrollIcoOnlyWhenActive && KeyHelper.isScrolllockActive));
+
             // Set the icons for the NotifyIcons depending on the key state
-            if (enableNumIcon.Checked && !showNoIcons.Checked)
+            if (showNum)
                 numLockIcon.Icon = KeyHelper.isNumlockActive ? NumOn : NumOff;
             else
                 numLockIcon.Icon = null;
 
-            if (enableCapsIcon.Checked && !showNoIcons.Checked)
+            if (showCaps)
                 capsLockIcon.Icon = KeyHelper.isCapslockActive ? CapsOn : CapsOff;
             else
                 capsLockIcon.Icon = null;
 
-            if (enableScrollIcon.Checked && !showNoIcons.Checked)
+            if (showScroll)
                 scrollLockIcon.Icon = KeyHelper.isScrolllockActive ? ScrollOn : ScrollOff;
             else
                 scrollLockIcon.Icon = null;
 
-            generalIcon.Visible =
-                !(enableNumIcon.Checked && !showNoIcons.Checked) &&
-                !(enableCapsIcon.Checked && !showNoIcons.Checked) &&
-                !(enableScrollIcon.Checked && !showNoIcons.Checked)
-            ;
+            generalIcon.Visible = !showNum && !showCaps && !showScroll;
 
             // Handle the overlay
             if (numState != KeyHelper.isNumlockActive && enableNumInd.Checked && !showNoNotification.Checked)
-                ShowOverlay(
-                    KeyHelper.isNumlockActive ?
+                ShowOverlay(new IndicatorTrigger()
+                {
+                    DisplayText = KeyHelper.isNumlockActive ?
                         (SettingsManager.Get<string>("customMessageNumOn").Trim().Length > 0 ? SettingsManager.Get<string>("customMessageNumOn") : string.Format(strings.keyIsOn, strings.numLock)) :
                         (SettingsManager.Get<string>("customMessageNumOff").Trim().Length > 0 ? SettingsManager.Get<string>("customMessageNumOff") : string.Format(strings.keyIsOff, strings.numLock)),
-                    KeyHelper.isNumlockActive);
+                    NewState = KeyHelper.isNumlockActive,
+                    Key = IndicatorKey.Num
+                });
             //ShowOverlay("Numlock is " + (KeyHelper.isNumlockActive ? "on" : "off"), KeyHelper.isNumlockActive);
 
             if (capsState != KeyHelper.isCapslockActive && enableCapsInd.Checked && !showNoNotification.Checked)
-                ShowOverlay(
-                    KeyHelper.isCapslockActive ?
+                ShowOverlay(new IndicatorTrigger()
+                {
+                    DisplayText = KeyHelper.isCapslockActive ?
                         (SettingsManager.Get<string>("customMessageCapsOn").Trim().Length > 0 ? SettingsManager.Get<string>("customMessageCapsOn") : string.Format(strings.keyIsOn, strings.capsLock)) :
                         (SettingsManager.Get<string>("customMessageCapsOff").Trim().Length > 0 ? SettingsManager.Get<string>("customMessageCapsOff") : string.Format(strings.keyIsOff, strings.capsLock)),
-                    KeyHelper.isCapslockActive);
+                    NewState = KeyHelper.isCapslockActive,
+                    Key = IndicatorKey.Caps
+                });
 
             if (scrollState != KeyHelper.isScrolllockActive && enableScrollInd.Checked && !showNoNotification.Checked)
-                ShowOverlay(
-                    KeyHelper.isScrolllockActive ?
+                ShowOverlay(new IndicatorTrigger()
+                {
+                    DisplayText = KeyHelper.isScrolllockActive ?
                         (SettingsManager.Get<string>("customMessageScrollOn").Trim().Length > 0 ? SettingsManager.Get<string>("customMessageScrollOn") : string.Format(strings.keyIsOn, strings.scrollLock)) :
                         (SettingsManager.Get<string>("customMessageScrollOff").Trim().Length > 0 ? SettingsManager.Get<string>("customMessageScrollOff") : string.Format(strings.keyIsOff, strings.scrollLock)),
-                    KeyHelper.isScrolllockActive);
+                    NewState = KeyHelper.isScrolllockActive,
+                    Key = IndicatorKey.Scroll
+                });
 
             // Reset the values
             numState = KeyHelper.isNumlockActive;
@@ -836,8 +915,9 @@ namespace CapsLockIndicatorV3
             scrollState = KeyHelper.isScrolllockActive;
         }
 
-        void ShowOverlay(string message, bool isActive)
+        void ShowOverlay(IndicatorTrigger trigger)
         {
+            var isActive = trigger.NewState;
             int timeOut = SettingsManager.Get<int>("indDisplayTime");
             var alwaysShow = SettingsManager.Get<bool>("alwaysShowWhenActive") && isActive;
             var showOnAllScreens = SettingsManager.Get<bool>("showNotificationOnAllScreens");
@@ -845,7 +925,7 @@ namespace CapsLockIndicatorV3
             {
                 IndicatorOverlay indicatorOverlay = Application.OpenForms.OfType<IndicatorOverlay>().Where(f => !f.IsDisposed).First();
                 indicatorOverlay.UpdateIndicator(
-                      message
+                      trigger
                     , timeOut
                     , isActive ? SettingsManager.Get<Color>("indBgColourActive") : SettingsManager.Get<Color>("indBgColourInactive")
                     , isActive ? SettingsManager.Get<Color>("indFgColourActive") : SettingsManager.Get<Color>("indFgColourInactive")
@@ -860,7 +940,7 @@ namespace CapsLockIndicatorV3
             else
             {
                 IndicatorOverlay indicatorOverlay = new IndicatorOverlay(
-                      message
+                      trigger
                     , timeOut
                     , isActive ? SettingsManager.Get<Color>("indBgColourActive") : SettingsManager.Get<Color>("indBgColourInactive")
                     , isActive ? SettingsManager.Get<Color>("indFgColourActive") : SettingsManager.Get<Color>("indFgColourInactive")
@@ -884,7 +964,11 @@ namespace CapsLockIndicatorV3
             {
                 IndicatorOverlay indicatorOverlay = Application.OpenForms.OfType<IndicatorOverlay>().Where(f => !f.IsDisposed).First();
                 indicatorOverlay.UpdateIndicator(
-                      message
+                      new IndicatorTrigger()
+                      {
+                          DisplayText = message,
+                          Key = IndicatorKey.None
+                      }
                     , timeOut
                     , SettingsManager.Get<Color>("indBgColourInactive")
                     , SettingsManager.Get<Color>("indFgColourInactive")
@@ -899,7 +983,11 @@ namespace CapsLockIndicatorV3
             else
             {
                 IndicatorOverlay indicatorOverlay = new IndicatorOverlay(
-                      message
+                      new IndicatorTrigger()
+                      {
+                          DisplayText = message,
+                          Key = IndicatorKey.None
+                      }
                     , timeOut
                     , SettingsManager.Get<Color>("indBgColourInactive")
                     , SettingsManager.Get<Color>("indFgColourInactive")
@@ -963,8 +1051,14 @@ namespace CapsLockIndicatorV3
                                          .FirstOrDefault()
                                          .Value;
 
+                string min_os = parent.Descendants()
+                                         .Where(x => (string)x.Attribute("name") == "minos")
+                                         .FirstOrDefault()
+                                         .Value;
+
                 Version cVersion = new Version(currentVersion);
                 Version lVersion = new Version(latestVersion);
+                Version oVersion = new Version(min_os);
 
 #if !DEBUG || DEBUG
                 if (lVersion > cVersion)
@@ -976,7 +1070,7 @@ namespace CapsLockIndicatorV3
 
                     UpdateDialog ud = new UpdateDialog();
                     ud.ShowInTaskbar = isHidden;
-                    ud.SetNewVersion(lVersion);
+                    ud.SetNewVersion(lVersion, oVersion);
                     ud.changelogRtf.Rtf = changelog;
                     ud.infoLabel.Text = string.Format(strings.updateInfoFormat, latestVersion, release_date_formatted);
                     DialogResult res = ud.ShowDialog();
@@ -1124,7 +1218,7 @@ namespace CapsLockIndicatorV3
 
         private void lnkLabel1_Click(object sender, EventArgs e)
         {
-            Process.Start("https://jonaskohl.de/");
+            Process.Start(URLs.MainWebsite);
         }
 
         private void showToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1145,7 +1239,7 @@ namespace CapsLockIndicatorV3
 
         private void appNameLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://cli.jonaskohl.de/");
+            Process.Start(URLs.ProjectWebsite);
         }
 
         private void checkForUpdatedCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -1166,7 +1260,7 @@ namespace CapsLockIndicatorV3
             else if (locale.localeString == "--get-more")
             {
                 localeComboBox.SelectedIndex = previousLocaleIndex;
-                Process.Start("https://cli.jonaskohl.de/!/translations#download-translations");
+                Process.Start(URLs.DownloadTranslations);
             }
             else if (locale.localeString == "--check-for-updates")
             {
@@ -1429,6 +1523,28 @@ namespace CapsLockIndicatorV3
         {
             using (var f = new AdvancedSettings())
                 f.ShowDialog(this);
+        }
+
+        private void resetSettingsButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(strings.resetSettingsConfirmationText, "CapsLock Indicator", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                SettingsManager.ResetAll();
+                SettingsManager.Save();
+                Program.ReleaseMutex();
+                Application.Restart();
+            }
+        }
+
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+            using (var b = new LinearGradientBrush(new Point(0, 0), new Point(tableLayoutPanel3.Width), Color.FromArgb(unchecked((int)0xfff2b100)), Color.FromArgb(unchecked((int)0xfffecd48))))
+                e.Graphics.FillRectangle(b, new Rectangle(0, 0, tableLayoutPanel3.Width, tableLayoutPanel3.Height));
+        }
+
+        private void cbPersistent_CheckedChanged(object sender, EventArgs e)
+        {
+            SettingsManager.Set("persistentOverlay" + (sender as BetterCheckBox).Tag.ToString(), (sender as BetterCheckBox).Checked);
         }
     }
 }

@@ -73,6 +73,8 @@ namespace CapsLockIndicatorV3
                 value = AskColor((Color)value);
             else if (type == typeof(Font))
                 value = AskFont((Font)value);
+            else if (type == typeof(Padding))
+                value = AskPadding((Padding)value);
             else
             {
                 MessageBox.Show("Unsupported type: " + type.FullName, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -131,6 +133,16 @@ namespace CapsLockIndicatorV3
             {
                 if (d.ShowDialog() == DialogResult.OK)
                     return d.Font;
+                return value;
+            }
+        }
+
+        private Padding AskPadding(Padding value)
+        {
+            using (var d = new PaddingInputDialog(value))
+            {
+                if (d.ShowDialog() == DialogResult.OK)
+                    return d.Value;
                 return value;
             }
         }

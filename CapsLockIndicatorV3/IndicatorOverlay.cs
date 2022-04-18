@@ -26,6 +26,80 @@ namespace CapsLockIndicatorV3
         [DllImport("user32.dll")]
         static extern int SetWindowLong(IntPtr hWnd, int nIndex, uint dwNewLong);
 
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, SetWindowPosFlags uFlags);
+
+        [DllImport("dwmapi.dll", CharSet = CharSet.Unicode, PreserveSig = false)]
+        internal static extern void DwmSetWindowAttribute(IntPtr hwnd, DWMWINDOWATTRIBUTE attribute, ref DWM_WINDOW_CORNER_PREFERENCE pvAttribute, uint cbAttribute);
+
+        public enum DWMWINDOWATTRIBUTE
+        {
+            DWMWA_WINDOW_CORNER_PREFERENCE = 33
+        }
+
+        public enum DWM_WINDOW_CORNER_PREFERENCE
+        {
+            DWMWCP_DEFAULT = 0,
+            DWMWCP_DONOTROUND = 1,
+            DWMWCP_ROUND = 2,
+            DWMWCP_ROUNDSMALL = 3
+        }
+
+        [Flags()]
+        private enum SetWindowPosFlags : uint
+        {
+            AsynchronousWindowPosition = 0x4000,
+            DeferErase = 0x2000,
+            DrawFrame = 0x0020,
+            FrameChanged = 0x0020,
+            HideWindow = 0x0080,
+            DoNotActivate = 0x0010,
+            DoNotCopyBits = 0x0100,
+            IgnoreMove = 0x0002,
+            DoNotChangeOwnerZOrder = 0x0200,
+            DoNotRedraw = 0x0008,
+            DoNotReposition = 0x0200,
+            DoNotSendChangingEvent = 0x0400,
+            IgnoreResize = 0x0001,
+            IgnoreZOrder = 0x0004,
+            ShowWindow = 0x0040,
+        }
+
+        static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
+        static readonly IntPtr HWND_NOTOPMOST = new IntPtr(-2);
+        static readonly IntPtr HWND_TOP = new IntPtr(0);
+        static readonly IntPtr HWND_BOTTOM = new IntPtr(1);
+
+        public static class HWND
+        {
+            public static IntPtr
+            NoTopMost = new IntPtr(-2),
+            TopMost = new IntPtr(-1),
+            Top = new IntPtr(0),
+            Bottom = new IntPtr(1);
+        }
+
+        public static class SWP
+        {
+            public static readonly int
+            NOSIZE = 0x0001,
+            NOMOVE = 0x0002,
+            NOZORDER = 0x0004,
+            NOREDRAW = 0x0008,
+            NOACTIVATE = 0x0010,
+            DRAWFRAME = 0x0020,
+            FRAMECHANGED = 0x0020,
+            SHOWWINDOW = 0x0040,
+            HIDEWINDOW = 0x0080,
+            NOCOPYBITS = 0x0100,
+            NOOWNERZORDER = 0x0200,
+            NOREPOSITION = 0x0200,
+            NOSENDCHANGING = 0x0400,
+            DEFERERASE = 0x2000,
+            ASYNCWINDOWPOS = 0x4000;
+        }
+
+
         const uint WS_EX_LAYERED = 0x80000;
         const uint WS_EX_TOPMOST = 0x00000008;
         const uint WS_EX_TOOLWINDOW = 0x00000080;
@@ -153,9 +227,21 @@ namespace CapsLockIndicatorV3
             if (BorderSize > 0)
                 e.Graphics.DrawRectangle(new Pen(BorderColour, (int)(BorderSize * factor)), e.ClipRectangle);
 
-            using (var sf = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center })
-            using (var b = new SolidBrush(contentLabel.ForeColor))
-                e.Graphics.DrawString(contentLabel.Text, contentLabel.Font, b, ClientRectangle, sf);
+            //using (var sf = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center })
+            //using (var b = new SolidBrush(contentLabel.ForeColor))
+            //    e.Graphics.DrawString(contentLabel.Text, contentLabel.Font, b, new Rectangle(
+            //        Padding.Left,
+            //        Padding.Top,
+            //        Width - Padding.Horizontal,
+            //        Height - Padding.Vertical
+            //    ), sf);
+
+            TextRenderer.DrawText(e.Graphics, contentLabel.Text, contentLabel.Font, new Rectangle(
+                Padding.Left,
+                Padding.Top,
+                Width - Padding.Horizontal,
+                Height - Padding.Vertical
+            ), ForeColor, TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
         }
 
         private int ClickThroughWindow(double opacity = 1d)
@@ -181,9 +267,18 @@ namespace CapsLockIndicatorV3
         public IndicatorOverlay(string content)
         {
             InitializeComponent();
+            InitializeCommon();
         }
 
-        public IndicatorOverlay(string content, int timeoutInMs, IndicatorDisplayPosition position)
+        private void InitializeCommon()
+        {
+            // Doesn't look very nice and is Win11 only
+            //var attribute = DWMWINDOWATTRIBUTE.DWMWA_WINDOW_CORNER_PREFERENCE;
+            //var preference = DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;
+            //DwmSetWindowAttribute(Handle, attribute, ref preference, sizeof(uint));
+        }
+
+        public IndicatorOverlay(IndicatorTrigger trigger, int timeoutInMs, IndicatorDisplayPosition position)
         {
             pos = position;
 
@@ -191,14 +286,16 @@ namespace CapsLockIndicatorV3
                 return;
 
             InitializeComponent();
+            InitializeCommon();
+            ReapplyPadding();
 
             if (IsDisposed)
                 return;
 
-            contentLabel.Text = content;
+            contentLabel.Text = trigger.DisplayText;
             originalSize = Size;
 
-            if (timeoutInMs < 1)
+            if (timeoutInMs < 0 || IndicatorTrigger.ShowInfinite(trigger))
             {
                 windowCloseTimer.Enabled = false;
                 fadeTimer.Enabled = false;
@@ -209,25 +306,31 @@ namespace CapsLockIndicatorV3
                 fadeTimer.Interval = (int)Math.Floor((decimal)(timeoutInMs / 20));
             }
             ClickThroughWindow();
+            RecalculateSize();
+            BringToFrontNoFocus();
         }
 
-        public IndicatorOverlay(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, int bdSize, Font font, IndicatorDisplayPosition position, int indOpacity, bool alwaysShow)
+        public IndicatorOverlay(IndicatorTrigger trigger, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, int bdSize, Font font, IndicatorDisplayPosition position, int indOpacity, bool alwaysShow)
         {
             var ret = 0;
 
             pos = position;
 
             InitializeComponent();
+            InitializeCommon();
 
 
-            contentLabel.Text = content;
+            contentLabel.Text = trigger.DisplayText;
             Font = font;
             originalSize = Size;
+
+            ReapplyPadding();
+            RecalculateSize();
 
             var op = indOpacity / 100d;
             lastOpacity = op;
             ret |= SetOpacity(op);
-            if (timeoutInMs < 0 || alwaysShow)
+            if (timeoutInMs < 0 || alwaysShow || IndicatorTrigger.ShowInfinite(trigger))
             {
                 windowCloseTimer.Enabled = false;
                 fadeTimer.Enabled = false;
@@ -244,6 +347,8 @@ namespace CapsLockIndicatorV3
             ret |= ClickThroughWindow(op);
             if (ret != -1)
                 Show();
+
+            BringToFrontNoFocus();
         }
 
         private int SetOpacity(double op)
@@ -262,28 +367,31 @@ namespace CapsLockIndicatorV3
             return 0;
         }
 
-        public void UpdateIndicator(string content, IndicatorDisplayPosition position)
+        public void UpdateIndicator(IndicatorTrigger trigger, IndicatorDisplayPosition position)
         {
             pos = position;
             Opacity = 1;
-            contentLabel.Text = content;
+            contentLabel.Text = trigger.DisplayText;
             opacity_timer_value = 2.0;
             windowCloseTimer.Stop();
             windowCloseTimer.Start();
             fadeTimer.Stop();
             fadeTimer.Start();
+            ReapplyPadding();
             Show();
+            RecalculateSize();
             UpdatePosition();
             SetWindowStyles();
+            BringToFrontNoFocus();
         }
 
-        public void UpdateIndicator(string content, int timeoutInMs, IndicatorDisplayPosition position)
+        public void UpdateIndicator(IndicatorTrigger trigger, int timeoutInMs, IndicatorDisplayPosition position)
         {
             pos = position;
             Opacity = 1;
-            contentLabel.Text = content;
+            contentLabel.Text = trigger.DisplayText;
             opacity_timer_value = 2.0;
-            if (timeoutInMs < 0)
+            if (timeoutInMs < 0 || IndicatorTrigger.ShowInfinite(trigger))
             {
                 windowCloseTimer.Enabled = false;
                 fadeTimer.Enabled = false;
@@ -297,21 +405,25 @@ namespace CapsLockIndicatorV3
                 fadeTimer.Interval = (int)Math.Floor((decimal)(timeoutInMs / 20));
                 fadeTimer.Start();
             }
+            ReapplyPadding();
             Show();
+            RecalculateSize();
             UpdatePosition();
             SetWindowStyles();
+            BringToFrontNoFocus();
         }
 
-        public void UpdateIndicator(string content, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, int bdSize, Font font, IndicatorDisplayPosition position, int indOpacity, bool alwaysShow)
+
+        public void UpdateIndicator(IndicatorTrigger trigger, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, int bdSize, Font font, IndicatorDisplayPosition position, int indOpacity, bool alwaysShow)
         {
             pos = position;
             var op = indOpacity / 100d;
             lastOpacity = op;
             SetOpacity(op);
-            contentLabel.Text = content;
+            contentLabel.Text = trigger.DisplayText;
             Font = font;
             opacity_timer_value = 2.0;
-            if (timeoutInMs < 0 || alwaysShow)
+            if (timeoutInMs < 0 || alwaysShow || IndicatorTrigger.ShowInfinite(trigger))
             {
                 windowCloseTimer.Enabled = false;
                 fadeTimer.Enabled = false;
@@ -329,10 +441,13 @@ namespace CapsLockIndicatorV3
             ForeColor = fgColour;
             BorderColour = bdColour;
             BorderSize = bdSize;
+            ReapplyPadding();
             Show();
+            RecalculateSize();
             Invalidate();
             UpdatePosition();
             SetWindowStyles();
+            BringToFrontNoFocus();
         }
 
         void WindowCloseTimerTick(object sender, EventArgs e)
@@ -355,6 +470,22 @@ namespace CapsLockIndicatorV3
         {
             UpdatePosition();
             SetWindowStyles();
+        }
+
+        void RecalculateSize()
+        {
+            var textSize = TextRenderer.MeasureText(contentLabel.Text, Font);
+            textSize.Width += Padding.Horizontal;
+            textSize.Height += Padding.Vertical;
+            Size = textSize;
+        }
+        void BringToFrontNoFocus()
+        {
+            SetWindowPos(Handle, HWND_TOP, 0, 0, 0, 0, SetWindowPosFlags.DoNotActivate | SetWindowPosFlags.IgnoreResize | SetWindowPosFlags.IgnoreMove);
+        }
+        void ReapplyPadding()
+        {
+            Padding = SettingsManager.Get<Padding>("indPadding");
         }
     }
 }

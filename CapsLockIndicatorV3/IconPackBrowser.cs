@@ -170,7 +170,7 @@ namespace CapsLockIndicatorV3
                         DownloadPack(id, metadata);
                 };
 
-                var url = "https://cli.jonaskohl.de/icongallery/getmeta.php?id=" + id;
+                var url = URLs.IconGalleryMeta + "?id=" + id;
                 w.DownloadStringAsync(new Uri(url));
             }
         }
@@ -228,7 +228,7 @@ namespace CapsLockIndicatorV3
                     MessageBox.Show(this, message.ToString(), "CapsLock Indicator", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 };
 
-                var url = "https://cli.jonaskohl.de/icongallery/?download=" + id;
+                var url = URLs.IconGalleryDownload + "?download=" + id;
                 w.DownloadDataAsync(new Uri(url));
             }
         }
@@ -244,7 +244,7 @@ namespace CapsLockIndicatorV3
 
             ControlScheduleSetDarkMode(webBrowser1, dark);
 
-            webBrowser1.Navigate("https://cli.jonaskohl.de/icongallery/embedded.php?dark=" + (dark ? "true" : "false") + "&scale=" + ((int)(DPIHelper.GetScalingFactorPercent(Handle) * 100)).ToString());
+            webBrowser1.Navigate(URLs.IconGallery + "?dark=" + (dark ? "true" : "false") + "&scale=" + ((int)(DPIHelper.GetScalingFactorPercent(Handle) * 100)).ToString());
         }
     }
 }

@@ -24,9 +24,10 @@
 <p align="center"><br /></p>
 
 <p align="center">
-  <img src="https://static.jonaskohl.de/q50c4wp6/cli_screenshot_sxc0l179voz8jqbq.png?2" alt="Screenshot">
+  <img alt="Screenshot" src="https://user-images.githubusercontent.com/23175424/163570726-7eea1239-8b2e-40cd-a226-458be1e821c4.png#gh-dark-mode-only" />
+  <img alt="Screenshot" src="https://user-images.githubusercontent.com/23175424/163570706-1d946847-fdfb-47e8-b16b-200f954f5a43.png#gh-light-mode-only" />
 </p>
-
+  
 <p align="center"><br /></p>
 
 # Edit & compile source code

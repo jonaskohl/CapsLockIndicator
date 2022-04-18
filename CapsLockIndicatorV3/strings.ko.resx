@@ -125,6 +125,18 @@
     <value>고급 설정</value>
     <comment>Label of the hyperlink that opens the settings file</comment>
   </data>
+  <data name="advancedSettingsConfirmation" xml:space="preserve">
+    <value>나는 위험 사항을 알고 있으며 계속 진행하기를 바랍니다.</value>
+    <comment>Confirmation text for Advanced Settings</comment>
+  </data>
+  <data name="advancedSettingsTitle" xml:space="preserve">
+    <value>고급 설정</value>
+    <comment>Window text for Advanced Settings</comment>
+  </data>
+  <data name="advancedSettingsWarning" xml:space="preserve">
+    <value>고급 설정의 수정은 예상치 못한 프로그램의 불안정한 상태를 일으킬 수 있습니다. 수정 후에는 프로그램을 재 시작 해야 합니다. 수정 전에 무엇을 수정하는지 알고 수정하시기 바랍니다! 이 작업으로 발생하는 모든 책임은 당신에게 있습니다!</value>
+    <comment>Warning text for Advanced Settings</comment>
+  </data>
   <data name="autoCheckForUpdates" xml:space="preserve">
     <value>업데이트 자동 확인</value>
     <comment>Tooltip for the checkbox next to the update button</comment>
@@ -149,6 +161,10 @@
     <value>경계선 두께</value>
     <comment>Label of the border thickness groupbox</comment>
   </data>
+  <data name="cancel" xml:space="preserve">
+    <value>취소(&amp;a)</value>
+    <comment>Generic label for Cancel button</comment>
+  </data>
   <data name="capsLock" xml:space="preserve">
     <value>Caps lock</value>
     <comment>The name of the caps lock key</comment>
@@ -160,6 +176,10 @@
   <data name="checkingForUpdates" xml:space="preserve">
     <value>업데이트 확인중...</value>
     <comment>The caption for the "Check for updates" button when it's searching for updates.</comment>
+  </data>
+  <data name="close" xml:space="preserve">
+    <value>닫기(&amp;C)</value>
+    <comment>Generic label for Close button</comment>
   </data>
   <data name="coloursGroup" xml:space="preserve">
     <value>색상</value>
@@ -201,6 +221,10 @@
     <value>다른 언어 다운로드...</value>
     <comment>The last dropdown item in the locale dropdown.</comment>
   </data>
+  <data name="downloadTranslationsTitle" xml:space="preserve">
+    <value>언어 다운로드</value>
+    <comment>Window title for the download translations dialog</comment>
+  </data>
   <data name="exitApplication" xml:space="preserve">
     <value>프로그램 종료(&amp;E)</value>
     <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -208,6 +232,10 @@
   <data name="exitMessage" xml:space="preserve">
     <value>프로그램을 종료하면 트레이 아이콘과 알림이 표시되지 않습니다. 그래도 종료 하시겠습니까?</value>
     <comment>The message to display on application exit</comment>
+  </data>
+  <data name="failedToDownloadTranslationToolTip" xml:space="preserve">
+    <value>언어 다운로드에 실패했습니다.</value>
+    <comment>Tooltip for failed translation download</comment>
   </data>
   <data name="firstRunAllowUpdateCheck" xml:space="preserve">
     <value>주기적인 업데이트 확인을 허용합니다. (설정 변경 가능)</value>
@@ -269,8 +297,12 @@
     <value>이 아이콘을 더블클릭하면 CapsLock Indicator를 볼 수 있습니다.</value>
     <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
   </data>
+  <data name="headerWarning" xml:space="preserve">
+    <value>주의!</value>
+    <comment>Generic header for Warning</comment>
+  </data>
   <data name="hideOnStartup" xml:space="preserve">
-    <value>시작시 창 숨기기</value>
+    <value>시작 시 창 숨기기</value>
     <comment>Used for the hide on startup checkbox</comment>
   </data>
   <data name="hideWindow" xml:space="preserve">
@@ -313,6 +345,10 @@
     <value>{0} 켜짐</value>
     <comment>The text to display in the notification when a key is on. "{0}" will be replaced with the key name</comment>
   </data>
+  <data name="no" xml:space="preserve">
+    <value>아니오(&amp;N)</value>
+    <comment>Generic label for No button</comment>
+  </data>
   <data name="notificationSettings" xml:space="preserve">
     <value>알림 설정(&amp;N)</value>
     <comment>The caption for the button that opens the notification settings. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -324,6 +360,10 @@
   <data name="numLock" xml:space="preserve">
     <value>Num lock</value>
     <comment>The name of the num lock key</comment>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>확인(&amp;O)</value>
+    <comment>Generic label for OK button</comment>
   </data>
   <data name="opacity" xml:space="preserve">
     <value>투명도</value>
@@ -340,6 +380,10 @@
   <data name="reloadedIconsInfo" xml:space="preserve">
     <value>아이콘이 다시 로드 되었습니다.</value>
     <comment>Shown in a notification when hot-reloading icons.</comment>
+  </data>
+  <data name="restart" xml:space="preserve">
+    <value>재시작(&amp;R)</value>
+    <comment>Generic label for Restart button</comment>
   </data>
   <data name="saveAndCloseButton" xml:space="preserve">
     <value>저장 후 종료(&amp;S)</value>
@@ -409,9 +453,17 @@
     <value>버전 {0} , 배포일  {1}</value>
     <comment>Displayed in the "Update Available" dialog. {0} is the version, {1} is the release date and time.</comment>
   </data>
+  <data name="updateLocaleMessageBox" xml:space="preserve">
+    <value>현재 설치 된 언어 중 오래된 언어가 확인 됩니다. 지금 업데이트 하시겠습니까?</value>
+    <comment>Message box when old translations are found</comment>
+  </data>
   <data name="updateNow" xml:space="preserve">
     <value>지금 업데이트(&amp;U)</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>예(&amp;Y)</value>
+    <comment>Generic label for Yes button</comment>
   </data>
 
 </root>

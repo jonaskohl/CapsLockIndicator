@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration ("")]
 [assembly: AssemblyCompany ("Jonas Kohl")]
 [assembly: AssemblyProduct ("CapsLock Indicator")]
-[assembly: AssemblyCopyright("© 2017-2021 Jonas Kohl / All rights reserved")]
+[assembly: AssemblyCopyright("© 2017-2022 Jonas Kohl / All rights reserved")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
 // This sets the default COM visibility of types in the assembly to invisible.
@@ -24,6 +24,6 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can use the default the Revision and 
 // Build Numbers by using the '*' as shown below:
-[assembly: AssemblyVersion("3.15.0.0")]
-[assembly: AssemblyFileVersion("3.15.0.0")]
+[assembly: AssemblyVersion("3.16.0.0")]
+[assembly: AssemblyFileVersion("3.16.0.0")]
 [assembly: Guid ("6f54c357-0542-4d7d-9225-338bc3cd7834")]

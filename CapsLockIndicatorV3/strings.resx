@@ -169,6 +169,30 @@
     <value>Caps lock</value>
     <comment>The name of the caps lock key</comment>
   </data>
+  <data name="cbPersistentCapsOff" xml:space="preserve">
+    <value>Off</value>
+    <comment>Label for caps lock off checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentCapsOn" xml:space="preserve">
+    <value>On</value>
+    <comment>Label for caps lock on checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentNumOff" xml:space="preserve">
+    <value>Off</value>
+    <comment>Label for num lock off checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentNumOn" xml:space="preserve">
+    <value>On</value>
+    <comment>Label for num lock on checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentScrollOff" xml:space="preserve">
+    <value>Off</value>
+    <comment>Label for scroll lock off checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentScrollOn" xml:space="preserve">
+    <value>On</value>
+    <comment>Label for scroll lock on checkbox in persistent overlay section</comment>
+  </data>
   <data name="checkForUpdates" xml:space="preserve">
     <value>Check for &amp;updates</value>
     <comment>The caption for the button that manually checks for updates. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -377,9 +401,34 @@
     <value>Permanently</value>
     <comment>Text to display instead of the time if indicator overlay display is set to permanently.</comment>
   </data>
+  <data name="persistentCapsLabel" xml:space="preserve">
+    <value>...Caps lock is</value>
+    <comment>Label for caps lock row in persistent overlay section</comment>
+  </data>
+  <data name="persistentHeadingLabel" xml:space="preserve">
+    <value>Show persistent overlay when...</value>
+    <comment>Heading for persistent overlay section</comment>
+  </data>
+  <data name="persistentNumLabel" xml:space="preserve">
+    <value>...Num lock is</value>
+    <comment>Label for num lock row in persistent overlay section</comment>
+  </data>
+  <data name="persistentScrollLabel" xml:space="preserve">
+    <value>...Scroll lock is</value>
+    <comment>Label for scroll lock row in persistent overlay section</comment>
+  </data>
   <data name="reloadedIconsInfo" xml:space="preserve">
     <value>Reloaded icons</value>
     <comment>Shown in a notification when hot-reloading icons.</comment>
+  </data>
+  <data name="resetSettings" xml:space="preserve">
+    <value>Reset settings</value>
+    <comment>Used for the "Reset settings" button</comment>
+  </data>
+  <data name="resetSettingsConfirmationText" xml:space="preserve">
+    <value>This will reset all settings to their default values and restart CapsLock Indicator. All customisation will be lost! This cannot be undone!
+Do you want to reset all settings now?</value>
+    <comment>Used for the confirmation prompt after clicking "Reset settings"</comment>
   </data>
   <data name="restart" xml:space="preserve">
     <value>&amp;Restart</value>

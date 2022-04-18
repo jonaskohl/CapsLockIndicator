@@ -125,6 +125,18 @@
     <value>進階設定</value>
     <comment>Label of the hyperlink that opens the settings file</comment>
   </data>
+  <data name="advancedSettingsConfirmation" xml:space="preserve">
+    <value>我已了解上述可能會發生的問題，仍要繼續</value>
+    <comment>Confirmation text for Advanced Settings</comment>
+  </data>
+  <data name="advancedSettingsTitle" xml:space="preserve">
+    <value>進階設定</value>
+    <comment>Window text for Advanced Settings</comment>
+  </data>
+  <data name="advancedSettingsWarning" xml:space="preserve">
+    <value>編輯進階設定可能會導致預期外的問題，並可能使 CapsLock Indicator 不穩定。 請在更改設定後重新啟動 CapsLock Indicator。請您確定知道自己在做什麼！使用此設定編輯器需要您自負風險！</value>
+    <comment>Warning text for Advanced Settings</comment>
+  </data>
   <data name="autoCheckForUpdates" xml:space="preserve">
     <value>自動檢查更新</value>
     <comment>Tooltip for the checkbox next to the update button</comment>
@@ -149,6 +161,10 @@
     <value>邊框寬度</value>
     <comment>Label of the border thickness groupbox</comment>
   </data>
+  <data name="cancel" xml:space="preserve">
+    <value>取消 (&amp;A)</value>
+    <comment>Generic label for Cancel button</comment>
+  </data>
   <data name="capsLock" xml:space="preserve">
     <value>Caps Lock</value>
     <comment>The name of the caps lock key</comment>
@@ -160,6 +176,10 @@
   <data name="checkingForUpdates" xml:space="preserve">
     <value>正在檢查更新…</value>
     <comment>The caption for the "Check for updates" button when it's searching for updates.</comment>
+  </data>
+  <data name="close" xml:space="preserve">
+    <value>關閉 (&amp;C)</value>
+    <comment>Generic label for Close button</comment>
   </data>
   <data name="coloursGroup" xml:space="preserve">
     <value>顏色</value>
@@ -201,6 +221,10 @@
     <value>下載更多翻譯…</value>
     <comment>The last dropdown item in the locale dropdown.</comment>
   </data>
+  <data name="downloadTranslationsTitle" xml:space="preserve">
+    <value>下載翻譯</value>
+    <comment>Window title for the download translations dialog</comment>
+  </data>
   <data name="exitApplication" xml:space="preserve">
     <value>退出程式 (&amp;E)</value>
     <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -209,6 +233,10 @@
     <value>退出程式後，通知區的 CapsLock Indicator 圖示
 和切換通知都將不再顯示。確定要退出嗎？</value>
     <comment>The message to display on application exit</comment>
+  </data>
+  <data name="failedToDownloadTranslationToolTip" xml:space="preserve">
+    <value>翻譯下載失敗</value>
+    <comment>Tooltip for failed translation download</comment>
   </data>
   <data name="firstRunAllowUpdateCheck" xml:space="preserve">
     <value>自動檢查更新 (稍後可再更改) (&amp;A)</value>
@@ -270,6 +298,10 @@
     <value>按兩下此圖示即可顯示 CapsLock 指示器主畫面</value>
     <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
   </data>
+  <data name="headerWarning" xml:space="preserve">
+    <value>警告！</value>
+    <comment>Generic header for Warning</comment>
+  </data>
   <data name="hideOnStartup" xml:space="preserve">
     <value>啟動時自動隱藏</value>
     <comment>Used for the hide on startup checkbox</comment>
@@ -314,6 +346,10 @@
     <value>{0} 已開啟</value>
     <comment>The text to display in the notification when a key is on. "{0}" will be replaced with the key name</comment>
   </data>
+  <data name="no" xml:space="preserve">
+    <value>否 (&amp;N)</value>
+    <comment>Generic label for No button</comment>
+  </data>
   <data name="notificationSettings" xml:space="preserve">
     <value>通知設定 (&amp;N)</value>
     <comment>The caption for the button that opens the notification settings. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -325,6 +361,10 @@
   <data name="numLock" xml:space="preserve">
     <value>Num Lock</value>
     <comment>The name of the num lock key</comment>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>好 (&amp;O)</value>
+    <comment>Generic label for OK button</comment>
   </data>
   <data name="opacity" xml:space="preserve">
     <value>透明度</value>
@@ -341,6 +381,10 @@
   <data name="reloadedIconsInfo" xml:space="preserve">
     <value>縮圖已重新載入</value>
     <comment>Shown in a notification when hot-reloading icons.</comment>
+  </data>
+  <data name="restart" xml:space="preserve">
+    <value>重啟程式 (&amp;R)</value>
+    <comment>Generic label for Restart button</comment>
   </data>
   <data name="saveAndCloseButton" xml:space="preserve">
     <value>儲存並關閉 (&amp;S)</value>
@@ -410,9 +454,17 @@
     <value>版本 {0}，發佈於 {1}</value>
     <comment>Displayed in the "Update Available" dialog. {0} is the version, {1} is the release date and time.</comment>
   </data>
+  <data name="updateLocaleMessageBox" xml:space="preserve">
+    <value>部分現有的翻譯已過時，是否要現在更新翻譯？</value>
+    <comment>Message box when old translations are found</comment>
+  </data>
   <data name="updateNow" xml:space="preserve">
     <value>立即更新 (&amp;U)</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>是 (&amp;Y)</value>
+    <comment>Generic label for Yes button</comment>
   </data>
 
 </root>

@@ -14,6 +14,7 @@ namespace CapsLockIndicatorV3
     public partial class UpdateDialog : DarkModeForm
     {
         private Version newVersion;
+        private Version minOsVersion;
 
         public UpdateDialog()
         {
@@ -52,11 +53,12 @@ namespace CapsLockIndicatorV3
             ControlScheduleSetDarkMode(downloadManuallyButton, dark);
         }
 
-        public void SetNewVersion(Version v)
+        public void SetNewVersion(Version v, Version minOsVersion = null)
         {
             newVersion = v;
+            this.minOsVersion = minOsVersion;
 
-            if (newVersion.Major >= 4 && Environment.OSVersion.Version.Major < 10)
+            if (minOsVersion != null && Environment.OSVersion.Version < minOsVersion)
             {
                 lnkLabel1.Show();
                 downloadManuallyButton.Enabled = false;
@@ -78,7 +80,7 @@ namespace CapsLockIndicatorV3
 
         private void lnkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("Version 4.x or newer of CapsLock Indicator requires Windows 10! You are running " + FriendlyName(), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show("Version " + newVersion + " of CapsLock Indicator requires at least Windows " + minOsVersion + "! You are running " + FriendlyName(), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         public string HKLM_GetString(string path, string key)

@@ -156,6 +156,24 @@
   <data name="capsLock" xml:space="preserve">
     <value>Feststelltaste</value>
   </data>
+  <data name="cbPersistentCapsOff" xml:space="preserve">
+    <value>aus ist</value>
+  </data>
+  <data name="cbPersistentCapsOn" xml:space="preserve">
+    <value>an ist</value>
+  </data>
+  <data name="cbPersistentNumOff" xml:space="preserve">
+    <value>aus ist</value>
+  </data>
+  <data name="cbPersistentNumOn" xml:space="preserve">
+    <value>an ist</value>
+  </data>
+  <data name="cbPersistentScrollOff" xml:space="preserve">
+    <value>aus ist</value>
+  </data>
+  <data name="cbPersistentScrollOn" xml:space="preserve">
+    <value>an ist</value>
+  </data>
   <data name="checkForUpdates" xml:space="preserve">
     <value>Nach Updates suchen</value>
   </data>
@@ -312,8 +330,27 @@
   <data name="permanentIndicator" xml:space="preserve">
     <value>Dauerhaft</value>
   </data>
+  <data name="persistentCapsLabel" xml:space="preserve">
+    <value>Feststelltaste</value>
+  </data>
+  <data name="persistentHeadingLabel" xml:space="preserve">
+    <value>Dauerhafte Benachrichtigung anzeigen, wenn...</value>
+  </data>
+  <data name="persistentNumLabel" xml:space="preserve">
+    <value>Num-Lock</value>
+  </data>
+  <data name="persistentScrollLabel" xml:space="preserve">
+    <value>Rollen</value>
+  </data>
   <data name="reloadedIconsInfo" xml:space="preserve">
     <value>Symbole neu geladen</value>
+  </data>
+  <data name="resetSettings" xml:space="preserve">
+    <value>Einstellungen zurücksetzen</value>
+  </data>
+  <data name="resetSettingsConfirmationText" xml:space="preserve">
+    <value>Dies setzt alle Einstellungen auf ihre Standardwerte zurück und startet CapsLock Indicator neu. Alle Anpassungen werden verloren gehen! Dies kann nicht rückgängig gemacht werden!
+Möchen Sie jetzt alle Einstellungen zurücksetzen?</value>
   </data>
   <data name="restart" xml:space="preserve">
     <value>&amp;Neu starten</value>

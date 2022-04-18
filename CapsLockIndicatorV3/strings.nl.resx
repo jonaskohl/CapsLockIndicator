@@ -130,6 +130,27 @@
   </data>
   
 <!--
+<data name="advancedSettingsConfirmation" xml:space="preserve">
+    <value>I understand the above mentioned risks and wish to proceed</value>
+    <comment>Confirmation text for Advanced Settings</comment>
+  </data>
+-->
+  
+<!--
+<data name="advancedSettingsTitle" xml:space="preserve">
+    <value>Advanced settings</value>
+    <comment>Window text for Advanced Settings</comment>
+  </data>
+-->
+  
+<!--
+<data name="advancedSettingsWarning" xml:space="preserve">
+    <value>Changing advanced settings may cause unexpected behaviour and may lead to an unstable state of CapsLock Indicator. Please restart CapsLock Indicator after changing settings. Only change settings if you know what you are doing! Use this editor at your own risk!</value>
+    <comment>Warning text for Advanced Settings</comment>
+  </data>
+-->
+  
+<!--
 <data name="autoCheckForUpdates" xml:space="preserve">
     <value>Automatically check for updates</value>
     <comment>Tooltip for the checkbox next to the update button</comment>
@@ -155,6 +176,13 @@
     <value>Randdikte</value>
     <comment>Label of the border thickness groupbox</comment>
   </data>
+  
+<!--
+<data name="cancel" xml:space="preserve">
+    <value>C&amp;ancel</value>
+    <comment>Generic label for Cancel button</comment>
+  </data>
+-->
   <data name="capsLock" xml:space="preserve">
     <value>Caps lock</value>
     <comment>The name of the caps lock key</comment>
@@ -167,6 +195,13 @@
     <value>Controleren op updates...</value>
     <comment>The caption for the "Check for updates" button when it's searching for updates.</comment>
   </data>
+  
+<!--
+<data name="close" xml:space="preserve">
+    <value>&amp;Close</value>
+    <comment>Generic label for Close button</comment>
+  </data>
+-->
   <data name="coloursGroup" xml:space="preserve">
     <value>Kleuren</value>
     <comment>The title for the "Colours" group box</comment>
@@ -216,6 +251,13 @@
     <value>Download meer vertalingen...</value>
     <comment>The last dropdown item in the locale dropdown.</comment>
   </data>
+  
+<!--
+<data name="downloadTranslationsTitle" xml:space="preserve">
+    <value>Download translations</value>
+    <comment>Window title for the download translations dialog</comment>
+  </data>
+-->
   <data name="exitApplication" xml:space="preserve">
     <value>&amp;Programma sluiten</value>
     <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -224,6 +266,13 @@
     <value>De pictogrammen en notificaties zullen niet meer worden getoond als het programma wordt afgesloten. Toch afsluiten?</value>
     <comment>The message to display on application exit</comment>
   </data>
+  
+<!--
+<data name="failedToDownloadTranslationToolTip" xml:space="preserve">
+    <value>Failed to download translation</value>
+    <comment>Tooltip for failed translation download</comment>
+  </data>
+-->
   <data name="firstRunAllowUpdateCheck" xml:space="preserve">
     <value>Sta CapsLock Indicator toe om periodiek op updates te controleren (kan later aangepast worden)</value>
     <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
@@ -296,6 +345,13 @@
     <value>Activeer de CapsLock indicator opnieuw door te dubbelklikken op het pictogram.</value>
     <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
   </data>
+  
+<!--
+<data name="headerWarning" xml:space="preserve">
+    <value>Warning!</value>
+    <comment>Generic header for Warning</comment>
+  </data>
+-->
   <data name="hideOnStartup" xml:space="preserve">
     <value>Verberg bij opstarten</value>
     <comment>Used for the hide on startup checkbox</comment>
@@ -358,6 +414,13 @@
     <value>{0} is aan</value>
     <comment>The text to display in the notification when a key is on. "{0}" will be replaced with the key name</comment>
   </data>
+  
+<!--
+<data name="no" xml:space="preserve">
+    <value>&amp;No</value>
+    <comment>Generic label for No button</comment>
+  </data>
+-->
   <data name="notificationSettings" xml:space="preserve">
     <value>&amp;Notificatie instellingen</value>
     <comment>The caption for the button that opens the notification settings. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -370,6 +433,13 @@
     <value>Num lock</value>
     <comment>The name of the num lock key</comment>
   </data>
+  
+<!--
+<data name="ok" xml:space="preserve">
+    <value>&amp;OK</value>
+    <comment>Generic label for OK button</comment>
+  </data>
+-->
   <data name="opacity" xml:space="preserve">
     <value>Ondoorzichtigheid</value>
     <comment>The title for the "Opacity" group box</comment>
@@ -387,6 +457,13 @@
 <data name="reloadedIconsInfo" xml:space="preserve">
     <value>Reloaded icons</value>
     <comment>Shown in a notification when hot-reloading icons.</comment>
+  </data>
+-->
+  
+<!--
+<data name="restart" xml:space="preserve">
+    <value>&amp;Restart</value>
+    <comment>Generic label for Restart button</comment>
   </data>
 -->
   <data name="saveAndCloseButton" xml:space="preserve">
@@ -478,9 +555,23 @@
     <value>Versie {0}, vrijgegeven {1}</value>
     <comment>Displayed in the "Update Available" dialog. {0} is the version, {1} is the release date and time.</comment>
   </data>
+  
+<!--
+<data name="updateLocaleMessageBox" xml:space="preserve">
+    <value>Some of the currently installed translations seem to be outdated. Do you want to update them now?</value>
+    <comment>Message box when old translations are found</comment>
+  </data>
+-->
   <data name="updateNow" xml:space="preserve">
     <value>&amp;Update nu</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
+  
+<!--
+<data name="yes" xml:space="preserve">
+    <value>&amp;Yes</value>
+    <comment>Generic label for Yes button</comment>
+  </data>
+-->
 
 </root>

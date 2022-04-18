@@ -22,7 +22,7 @@ namespace CapsLockIndicatorV3
         {
             SIID_WARNING = 78,
             SIID_ERROR = 80,
-            SIID_SHIELD = 131,
+            SIID_SHIELD = 131
         }
 
         [Flags]
@@ -46,6 +46,13 @@ namespace CapsLockIndicatorV3
 
         public static Icon GetSystemIcon(SHSTOCKICONID icon, IconSize size = IconSize.Unspecified)
         {
+            var hIco = GetSystemIconRaw(icon, size);
+            if (hIco == IntPtr.Zero)
+                return null;
+            return Icon.FromHandle(hIco);
+        }
+        public static IntPtr GetSystemIconRaw(SHSTOCKICONID icon, IconSize size = IconSize.Unspecified)
+        {
             var info = new SHSTOCKICONINFO();
             info.cbSize = (uint)unchecked(Marshal.SizeOf(info));
             var flags = SHGSI.SHGSI_ICON;
@@ -59,10 +66,10 @@ namespace CapsLockIndicatorV3
             if (r != 0)
             {
                 LAST_WIN32_ERROR = Marshal.GetLastWin32Error();
-                return null;
+                return IntPtr.Zero;
             }
 
-            return Icon.FromHandle(info.hIcon);
+            return info.hIcon;
         }
 
         public enum IconSize

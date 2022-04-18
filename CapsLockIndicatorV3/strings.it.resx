@@ -125,6 +125,21 @@
     <value>Impostazioni avanzate</value>
     <comment>Label of the hyperlink that opens the settings file</comment>
   </data>
+  <data name="advancedSettingsConfirmation" xml:space="preserve">
+    <value>Comprendo i rischi sopra menzionati e vorrei procedere</value>
+    <comment>Confirmation text for Advanced Settings</comment>
+  </data>
+  <data name="advancedSettingsTitle" xml:space="preserve">
+    <value>Impostazioni avanzate</value>
+    <comment>Window text for Advanced Settings</comment>
+  </data>
+  <data name="advancedSettingsWarning" xml:space="preserve">
+    <value>La modifica delle impostazioni avanzate può causare un comportamento imprevisto e può portare a uno stato instabile dell'indicatore CapsLock. 
+Dopo aver modificato le impostazioni riavviare CapsLock Indicator. 
+Modifica le impostazioni solo se sai cosa stai facendo! 
+Usa questo editor a tuo rischio!</value>
+    <comment>Warning text for Advanced Settings</comment>
+  </data>
   <data name="autoCheckForUpdates" xml:space="preserve">
     <value>Controlla automaticamente aggiornamenti</value>
     <comment>Tooltip for the checkbox next to the update button</comment>
@@ -149,6 +164,10 @@
     <value>Spessore bordo</value>
     <comment>Label of the border thickness groupbox</comment>
   </data>
+  <data name="cancel" xml:space="preserve">
+    <value>&amp;Annulla</value>
+    <comment>Generic label for Cancel button</comment>
+  </data>
   <data name="capsLock" xml:space="preserve">
     <value>Blocco maiuscole</value>
     <comment>The name of the caps lock key</comment>
@@ -160,6 +179,10 @@
   <data name="checkingForUpdates" xml:space="preserve">
     <value>Controllo aggiornamenti...</value>
     <comment>The caption for the "Check for updates" button when it's searching for updates.</comment>
+  </data>
+  <data name="close" xml:space="preserve">
+    <value>&amp;Chiudi</value>
+    <comment>Generic label for Close button</comment>
   </data>
   <data name="coloursGroup" xml:space="preserve">
     <value>Colori</value>
@@ -201,6 +224,10 @@
     <value>Scarica altre lingue...</value>
     <comment>The last dropdown item in the locale dropdown.</comment>
   </data>
+  <data name="downloadTranslationsTitle" xml:space="preserve">
+    <value>Scarica traduzioni</value>
+    <comment>Window title for the download translations dialog</comment>
+  </data>
   <data name="exitApplication" xml:space="preserve">
     <value>&amp;Esci dall'applicazione</value>
     <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -209,6 +236,10 @@
     <value>Chiudendo il programma le icone e le notifiche non verranno più visualizzate. 
 Vuoi uscire comunque?</value>
     <comment>The message to display on application exit</comment>
+  </data>
+  <data name="failedToDownloadTranslationToolTip" xml:space="preserve">
+    <value>Impossibile scaricare la traduzione</value>
+    <comment>Tooltip for failed translation download</comment>
   </data>
   <data name="firstRunAllowUpdateCheck" xml:space="preserve">
     <value>Consenti a CapsLock Indicator di verificare periodicamente la presenza di aggiornamenti online (può essere modificato in seguito)</value>
@@ -274,6 +305,10 @@ Inoltre, prenditi un momento per rivedere le impostazioni di seguito!</value>
     <value>Potrai visualizzare l'indicatore del blocco maiuscole facendo doppio clic su questa icona</value>
     <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
   </data>
+  <data name="headerWarning" xml:space="preserve">
+    <value>Attenzione!</value>
+    <comment>Generic header for Warning</comment>
+  </data>
   <data name="hideOnStartup" xml:space="preserve">
     <value>Nascondi all'avvio</value>
     <comment>Used for the hide on startup checkbox</comment>
@@ -318,6 +353,10 @@ Inoltre, prenditi un momento per rivedere le impostazioni di seguito!</value>
     <value>{0} è attivato</value>
     <comment>The text to display in the notification when a key is on. "{0}" will be replaced with the key name</comment>
   </data>
+  <data name="no" xml:space="preserve">
+    <value>&amp;No</value>
+    <comment>Generic label for No button</comment>
+  </data>
   <data name="notificationSettings" xml:space="preserve">
     <value>Impostazioni &amp;notifiche</value>
     <comment>The caption for the button that opens the notification settings. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -329,6 +368,10 @@ Inoltre, prenditi un momento per rivedere le impostazioni di seguito!</value>
   <data name="numLock" xml:space="preserve">
     <value>Blocco numerico</value>
     <comment>The name of the num lock key</comment>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>&amp;OK</value>
+    <comment>Generic label for OK button</comment>
   </data>
   <data name="opacity" xml:space="preserve">
     <value>Opacità</value>
@@ -345,6 +388,10 @@ Inoltre, prenditi un momento per rivedere le impostazioni di seguito!</value>
   <data name="reloadedIconsInfo" xml:space="preserve">
     <value>Icone ricaricate</value>
     <comment>Shown in a notification when hot-reloading icons.</comment>
+  </data>
+  <data name="restart" xml:space="preserve">
+    <value>&amp;Riavvia</value>
+    <comment>Generic label for Restart button</comment>
   </data>
   <data name="saveAndCloseButton" xml:space="preserve">
     <value>&amp;Salva e chiudi</value>
@@ -419,9 +466,18 @@ Aggiorna Windows ad una versione più recente!</value>
     <value>Versione {0}, rilasciata il {1}</value>
     <comment>Displayed in the "Update Available" dialog. {0} is the version, {1} is the release date and time.</comment>
   </data>
+  <data name="updateLocaleMessageBox" xml:space="preserve">
+    <value>Alcune delle traduzioni attualmente installate sembrano essere obsolete. 
+Vuoi aggiornare le traduzioni?</value>
+    <comment>Message box when old translations are found</comment>
+  </data>
   <data name="updateNow" xml:space="preserve">
     <value>&amp;Aggiorna adesso</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>&amp;Sì</value>
+    <comment>Generic label for Yes button</comment>
   </data>
 
 </root>
