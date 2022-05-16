@@ -502,7 +502,7 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Text colour activated ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Text colour deactivated ähnelt.
         /// </summary>
         internal static string foregroundColourDeactivatedButton {
             get {

@@ -314,7 +314,7 @@
     <comment>The caption for the "Text colour activated" button.</comment>
   </data>
   <data name="foregroundColourDeactivatedButton" xml:space="preserve">
-    <value>Text colour activated</value>
+    <value>Text colour deactivated</value>
     <comment>The caption for the "Text colour deactivated" button.</comment>
   </data>
   <data name="generalIconBalloonText" xml:space="preserve">
