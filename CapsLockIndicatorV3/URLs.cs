@@ -15,7 +15,7 @@
         public const string IconGalleryMeta = ServiceEndpointBase + "icongallery/getmeta.php";
         public const string IconGalleryDownload = ServiceEndpointBase + "icongallery/";
         public const string IconGallery = ServiceEndpointBase + "icongallery/embedded.php";
-        public const string ClientSupported = ServiceEndpointBase + "clientsupported";
+        public const string ClientSupported = ServiceEndpointBase + "eolcheck";
         public const string VersionCheck = ServiceEndpointBase + "!/version?details&xml&newClient3=true";
     }
 }

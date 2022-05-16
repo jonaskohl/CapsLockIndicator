@@ -35,7 +35,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-    <DefineConstants>TRACE;DEBUG;TEST_EOL</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;TEST_EOL_</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <Prefer32Bit>false</Prefer32Bit>

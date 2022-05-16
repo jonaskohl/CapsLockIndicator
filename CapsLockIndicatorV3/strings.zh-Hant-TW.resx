@@ -169,6 +169,30 @@
     <value>Caps Lock</value>
     <comment>The name of the caps lock key</comment>
   </data>
+  <data name="cbPersistentCapsOff" xml:space="preserve">
+    <value>關</value>
+    <comment>Label for caps lock off checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentCapsOn" xml:space="preserve">
+    <value>開</value>
+    <comment>Label for caps lock on checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentNumOff" xml:space="preserve">
+    <value>關</value>
+    <comment>Label for num lock off checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentNumOn" xml:space="preserve">
+    <value>開</value>
+    <comment>Label for num lock on checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentScrollOff" xml:space="preserve">
+    <value>關</value>
+    <comment>Label for scroll lock off checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentScrollOn" xml:space="preserve">
+    <value>開</value>
+    <comment>Label for scroll lock on checkbox in persistent overlay section</comment>
+  </data>
   <data name="checkForUpdates" xml:space="preserve">
     <value>檢查更新 (&amp;U)</value>
     <comment>The caption for the button that manually checks for updates. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -378,9 +402,34 @@
     <value>持續顯示</value>
     <comment>Text to display instead of the time if indicator overlay display is set to permanently.</comment>
   </data>
+  <data name="persistentCapsLabel" xml:space="preserve">
+    <value>Caps Lock 為</value>
+    <comment>Label for caps lock row in persistent overlay section</comment>
+  </data>
+  <data name="persistentHeadingLabel" xml:space="preserve">
+    <value>持續顯示提示窗：</value>
+    <comment>Heading for persistent overlay section</comment>
+  </data>
+  <data name="persistentNumLabel" xml:space="preserve">
+    <value>Num Lock 為</value>
+    <comment>Label for num lock row in persistent overlay section</comment>
+  </data>
+  <data name="persistentScrollLabel" xml:space="preserve">
+    <value>Scroll Lock 為</value>
+    <comment>Label for scroll lock row in persistent overlay section</comment>
+  </data>
   <data name="reloadedIconsInfo" xml:space="preserve">
     <value>縮圖已重新載入</value>
     <comment>Shown in a notification when hot-reloading icons.</comment>
+  </data>
+  <data name="resetSettings" xml:space="preserve">
+    <value>重置設定</value>
+    <comment>Used for the "Reset settings" button</comment>
+  </data>
+  <data name="resetSettingsConfirmationText" xml:space="preserve">
+    <value>這會將所有設定重置為預設值並重新啟動 CapsLock Indicator，所有自訂設定都將會遺失！這是無法恢復的！
+您確定要重置所有設定嗎？</value>
+    <comment>Used for the confirmation prompt after clicking "Reset settings"</comment>
   </data>
   <data name="restart" xml:space="preserve">
     <value>重新啟動 (&amp;R)</value>

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="adjustingColorScheme" xml:space="preserve">
-    <value>색 구성표 조정 중... 잠시만 기다려 주세요...</value>
+    <value>색 구성표 조정 중... 기다려 주세요.</value>
     <comment>Shown in a popup when toggling dark mode</comment>
   </data>
   <data name="advancedSettings" xml:space="preserve">
@@ -126,7 +126,7 @@
     <comment>Label of the hyperlink that opens the settings file</comment>
   </data>
   <data name="advancedSettingsConfirmation" xml:space="preserve">
-    <value>나는 위험 사항을 알고 있으며 계속 진행하기를 바랍니다.</value>
+    <value>위에 언급된 위험을 이해하고 진행하기를 원합니다.</value>
     <comment>Confirmation text for Advanced Settings</comment>
   </data>
   <data name="advancedSettingsTitle" xml:space="preserve">
@@ -134,7 +134,7 @@
     <comment>Window text for Advanced Settings</comment>
   </data>
   <data name="advancedSettingsWarning" xml:space="preserve">
-    <value>고급 설정의 수정은 예상치 못한 프로그램의 불안정한 상태를 일으킬 수 있습니다. 수정 후에는 프로그램을 재 시작 해야 합니다. 수정 전에 무엇을 수정하는지 알고 수정하시기 바랍니다! 이 작업으로 발생하는 모든 책임은 당신에게 있습니다!</value>
+    <value>고급 설정을 변경하면 예기치 않은 동작이 발생하여 CapsLock 표시기가 불안정해질 수 있습니다. 설정을 변경한 후 CapsLock 표시기를 다시 시작하십시오. 현재 작업을 알고 있는 경우에만 설정을 변경하십시오! 이 편집기를 당신의 책임으로 사용하세요!</value>
     <comment>Warning text for Advanced Settings</comment>
   </data>
   <data name="autoCheckForUpdates" xml:space="preserve">
@@ -142,11 +142,11 @@
     <comment>Tooltip for the checkbox next to the update button</comment>
   </data>
   <data name="backgroundColourActivatedButton" xml:space="preserve">
-    <value>활성화시 배경 색</value>
+    <value>활성화시 배경색</value>
     <comment>The caption for the "Background colour activated" button.</comment>
   </data>
   <data name="backgroundColourDeactivatedButton" xml:space="preserve">
-    <value>비활성화시 배경 색</value>
+    <value>비활성화시 배경색</value>
     <comment>The caption for the "Background colour deactivated" button.</comment>
   </data>
   <data name="borderColourActivatedButton" xml:space="preserve">
@@ -158,23 +158,47 @@
     <comment>The caption for the "Border colour deactivated" button.</comment>
   </data>
   <data name="borderThicknessGroup" xml:space="preserve">
-    <value>경계선 두께</value>
+    <value>테두리 두께</value>
     <comment>Label of the border thickness groupbox</comment>
   </data>
   <data name="cancel" xml:space="preserve">
-    <value>취소(&amp;a)</value>
+    <value>취소(&amp;A)</value>
     <comment>Generic label for Cancel button</comment>
   </data>
   <data name="capsLock" xml:space="preserve">
     <value>Caps lock</value>
     <comment>The name of the caps lock key</comment>
   </data>
+  <data name="cbPersistentCapsOff" xml:space="preserve">
+    <value>끄기</value>
+    <comment>Label for caps lock off checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentCapsOn" xml:space="preserve">
+    <value>껴기</value>
+    <comment>Label for caps lock on checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentNumOff" xml:space="preserve">
+    <value>끄기</value>
+    <comment>Label for num lock off checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentNumOn" xml:space="preserve">
+    <value>껴기</value>
+    <comment>Label for num lock on checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentScrollOff" xml:space="preserve">
+    <value>끄기</value>
+    <comment>Label for scroll lock off checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentScrollOn" xml:space="preserve">
+    <value>껴기</value>
+    <comment>Label for scroll lock on checkbox in persistent overlay section</comment>
+  </data>
   <data name="checkForUpdates" xml:space="preserve">
-    <value>업데이트 확인(&amp;u)</value>
+    <value>업데이트 확인(&amp;U)</value>
     <comment>The caption for the button that manually checks for updates. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="checkingForUpdates" xml:space="preserve">
-    <value>업데이트 확인중...</value>
+    <value>업데이트 확인 중...</value>
     <comment>The caption for the "Check for updates" button when it's searching for updates.</comment>
   </data>
   <data name="close" xml:space="preserve">
@@ -190,23 +214,23 @@
     <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
   <data name="contextMenuShow" xml:space="preserve">
-    <value>창 보이기(&amp;S)</value>
+    <value>표시(&amp;S)</value>
     <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
   <data name="darkModeOption" xml:space="preserve">
-    <value>다크 모드(&amp;D)</value>
+    <value>어두운 모드(&amp;D)</value>
     <comment>Label of options checkbox for dark mode</comment>
   </data>
   <data name="dismiss" xml:space="preserve">
-    <value>버리기</value>
+    <value>해제</value>
     <comment>Used as tooltip (but may be used in other places in the future</comment>
   </data>
   <data name="dismissButton" xml:space="preserve">
-    <value>창 숨기기(&amp;D)</value>
+    <value>해제(&amp;D)</value>
     <comment>The caption for the "Dismiss" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="displayTime" xml:space="preserve">
-    <value>노출 시간</value>
+    <value>표시 시간</value>
     <comment>The title for the "Display time" group box</comment>
   </data>
   <data name="downloadIcons" xml:space="preserve">
@@ -214,7 +238,7 @@
     <comment>Hyperlink for accessing the icon pack browser</comment>
   </data>
   <data name="downloadManuallyButton" xml:space="preserve">
-    <value>수동 다운로드(&amp;m)</value>
+    <value>수동 다운로드(&amp;M)</value>
     <comment>The caption for the "Download manually" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="downloadMoreTranslations" xml:space="preserve">
@@ -226,35 +250,35 @@
     <comment>Window title for the download translations dialog</comment>
   </data>
   <data name="exitApplication" xml:space="preserve">
-    <value>프로그램 종료(&amp;E)</value>
+    <value>응용 프로그램 종료(&amp;E)</value>
     <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="exitMessage" xml:space="preserve">
-    <value>프로그램을 종료하면 트레이 아이콘과 알림이 표시되지 않습니다. 그래도 종료 하시겠습니까?</value>
+    <value>응용 프로그램을 종료하면 아이콘과 알림이 더 이상 표시되지 않습니다. 그래도 종료하시겠습니까?</value>
     <comment>The message to display on application exit</comment>
   </data>
   <data name="failedToDownloadTranslationToolTip" xml:space="preserve">
-    <value>언어 다운로드에 실패했습니다.</value>
+    <value>언어 다운로드에 실패했습니다</value>
     <comment>Tooltip for failed translation download</comment>
   </data>
   <data name="firstRunAllowUpdateCheck" xml:space="preserve">
-    <value>주기적인 업데이트 확인을 허용합니다. (설정 변경 가능)</value>
+    <value>CapsLock 표시기가 정기적으로 온라인으로 업데이트를 확인하도록 허용 (나중에 변경할 수 있음)</value>
     <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
   </data>
   <data name="firstRunColorSchemeDark" xml:space="preserve">
-    <value>다크(&amp;D)</value>
+    <value>어두운(&amp;D)</value>
     <comment>Button for selecting dark color scheme</comment>
   </data>
   <data name="firstRunColorSchemeLight" xml:space="preserve">
-    <value>라이트(&amp;i)</value>
+    <value>밝은(&amp;I)</value>
     <comment>Button for selecting light color scheme</comment>
   </data>
   <data name="firstRunColorSchemePreference" xml:space="preserve">
-    <value>어떤 색 구성표를 선호 합니까?</value>
+    <value>어떤 색 구성표를 선호하십니까?</value>
     <comment>Label for selecting color scheme</comment>
   </data>
   <data name="firstRunColorSchemeWin10Only" xml:space="preserve">
-    <value>윈도10 또는 그 이후 버전에서만 작동 합니다.</value>
+    <value>Windows 10 이상에서만 사용 가능</value>
     <comment>Added to dark button if not running on Windows 10</comment>
   </data>
   <data name="firstRunContribute" xml:space="preserve">
@@ -266,15 +290,15 @@
     <comment>Button that exists the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="firstRunHeading" xml:space="preserve">
-    <value>CapsLock Indicator 사용을 환영합니다.</value>
+    <value>CapsLock Indicator에 오신 것을 환영합니다</value>
     <comment>The heading of the first-run dialog</comment>
   </data>
   <data name="firstRunMessage" xml:space="preserve">
-    <value>CapsLock Indicator를 사용해 주셔서 고맙습니다! 이 프로그램은 지금까지 그랬듯이 오픈소스이며 무료입니다. 앞으로도 그럴 것입니다. 만약 CapsLock Indicator에 기여하고 싶다면 아래 링크를 눌러 정보를 얻기 바랍니다. 그리고 사용 전에 아래 설정들을 확인하기 바랍니다.</value>
+    <value>CapsLock Indicator를 선택해 주셔서 감사합니다! 이 프로그램은 오픈 소스이며 무료입니다. 언제나 그랬고 앞으로도 그럴 것입니다! CapsLock Indicator에 직접 기여하는 데 관심이 있으십니까? 자세한 내용을 보려면 아래 링크를 방문하세요! 또한 아래 설정을 잠시 검토하십시오!</value>
     <comment>The message of the first-run dialog</comment>
   </data>
   <data name="firstRunPrivacyInfoLinkLabel" xml:space="preserve">
-    <value>어떤 정보가 보내지나요?</value>
+    <value>어떤 정보가 전송됩니까?</value>
     <comment>The label of the hyperlink that shows which information will be sent on each update check</comment>
   </data>
   <data name="firstRunStart" xml:space="preserve">
@@ -294,15 +318,15 @@
     <comment>The caption for the "Text colour deactivated" button.</comment>
   </data>
   <data name="generalIconBalloonText" xml:space="preserve">
-    <value>이 아이콘을 더블클릭하면 CapsLock Indicator를 볼 수 있습니다.</value>
+    <value>이 아이콘을 두 번 클릭하여 CapsLock 표시기를 다시 표시할 수 있습니다.</value>
     <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
   </data>
   <data name="headerWarning" xml:space="preserve">
-    <value>주의!</value>
+    <value>경고!</value>
     <comment>Generic header for Warning</comment>
   </data>
   <data name="hideOnStartup" xml:space="preserve">
-    <value>시작 시 창 숨기기</value>
+    <value>시작할 때 숨기기</value>
     <comment>Used for the hide on startup checkbox</comment>
   </data>
   <data name="hideWindow" xml:space="preserve">
@@ -318,15 +342,15 @@
     <comment>Shown when downloading an icon pack</comment>
   </data>
   <data name="iconPackPrompt" xml:space="preserve">
-    <value>제작자 {authorName}의 아이콘 팩 “{name}” (버전 {version}) 을 설치 하시겠습니까?</value>
+    <value>{authorName}의 아이콘 팩 "{name}" (버전 {version})을(를) 설치하시겠습니까?</value>
     <comment>Prompt shown when installing an icon pack</comment>
   </data>
   <data name="iconPackResetPrompt" xml:space="preserve">
-    <value>기본 아이콘으로 되돌리겠습니까?</value>
+    <value>아이콘을 기본 아이콘으로 재설정하시겠습니까?</value>
     <comment>Shown when asked to reset the icons</comment>
   </data>
   <data name="iconPackResetSuccess" xml:space="preserve">
-    <value>기본 아이콘으로 복구 되었습니다.</value>
+    <value>아이콘이 기본값으로 재설정되었습니다!</value>
     <comment>Shown after icons were reset</comment>
   </data>
   <data name="iconPackSuccess" xml:space="preserve">
@@ -370,16 +394,41 @@
     <comment>The title for the "Opacity" group box</comment>
   </data>
   <data name="overlayPositionGroup" xml:space="preserve">
-    <value>알림 표시 위치</value>
+    <value>오버레이 위치</value>
     <comment>The title for the "Overlay position" group box</comment>
   </data>
   <data name="permanentIndicator" xml:space="preserve">
     <value>계속 유지</value>
     <comment>Text to display instead of the time if indicator overlay display is set to permanently.</comment>
   </data>
+  <data name="persistentCapsLabel" xml:space="preserve">
+    <value>...Caps lock 을</value>
+    <comment>Label for caps lock row in persistent overlay section</comment>
+  </data>
+  <data name="persistentHeadingLabel" xml:space="preserve">
+    <value>영구 오버레이 표시...</value>
+    <comment>Heading for persistent overlay section</comment>
+  </data>
+  <data name="persistentNumLabel" xml:space="preserve">
+    <value>...Num lock 을</value>
+    <comment>Label for num lock row in persistent overlay section</comment>
+  </data>
+  <data name="persistentScrollLabel" xml:space="preserve">
+    <value>...Scroll lock 을</value>
+    <comment>Label for scroll lock row in persistent overlay section</comment>
+  </data>
   <data name="reloadedIconsInfo" xml:space="preserve">
-    <value>아이콘이 다시 로드 되었습니다.</value>
+    <value>아이콘을 다시 로드했습니다</value>
     <comment>Shown in a notification when hot-reloading icons.</comment>
+  </data>
+  <data name="resetSettings" xml:space="preserve">
+    <value>설정 초기화</value>
+    <comment>Used for the "Reset settings" button</comment>
+  </data>
+  <data name="resetSettingsConfirmationText" xml:space="preserve">
+    <value>그러면 모든 설정이 기본값으로 재설정되고 CapsLock 표시기가 다시 시작됩니다. 모든 사용자 지정이 손실됩니다! 이건 되돌릴 수 없습니다!
+지금 모든 설정을 초기화하시겠습니까?</value>
+    <comment>Used for the confirmation prompt after clicking "Reset settings"</comment>
   </data>
   <data name="restart" xml:space="preserve">
     <value>재시작(&amp;R)</value>
@@ -394,15 +443,15 @@
     <comment>The name of the scroll lock key</comment>
   </data>
   <data name="searchForUpdatesOnResumeOption" xml:space="preserve">
-    <value>창 보일때 업데이트 확인(&amp;u)</value>
+    <value>재개시 업데이트 검색(&amp;U)</value>
     <comment>Label of options checkbox for update search after resume</comment>
   </data>
   <data name="settingsChangedToolTip" xml:space="preserve">
-    <value>설정이 이동 되었습니다! 이제 위의 탭에서 찾을 수 있습니다.</value>
+    <value>설정이 이동이 이동되었습니다! 이제 위의 탭에서 해당 항목을 찾을 수 있습니다!</value>
     <comment>The tutorial tooltip shown when upgrading to 3.13.0.0</comment>
   </data>
   <data name="showIconsFor" xml:space="preserve">
-    <value>아이콘 설정</value>
+    <value>아이콘 표시...</value>
     <comment>The title for the "Show icons for..." group box</comment>
   </data>
   <data name="showNoIcons" xml:space="preserve">
@@ -410,19 +459,19 @@
     <comment>The label for the check box that enables or disables all icons</comment>
   </data>
   <data name="showNoNotification" xml:space="preserve">
-    <value>모든 알림 숨기기</value>
+    <value>알림 표시 안 함</value>
     <comment>The label for the check box that enables or disables all notifications</comment>
   </data>
   <data name="showNotificationWhen" xml:space="preserve">
-    <value>알림 설정</value>
+    <value>알림 표시...</value>
     <comment>The title for the "Show notification when..." group box</comment>
   </data>
   <data name="showOverlayOnlyWhenActive" xml:space="preserve">
-    <value>활성시 항상 오버레이 보이기</value>
+    <value>활성시 항상 오버레이 표시</value>
     <comment>The label for the check box that indicates whether overlay should only be shown when active</comment>
   </data>
   <data name="startOnLogon" xml:space="preserve">
-    <value>시작시 자동 시작</value>
+    <value>로그온 시 시작</value>
     <comment>The label for the check box that enables or disabled the auto start.</comment>
   </data>
   <data name="tabAdvancedOptions" xml:space="preserve">
@@ -438,23 +487,23 @@
     <comment>Tab header for advanced settings</comment>
   </data>
   <data name="unsupportedCLI" xml:space="preserve">
-    <value>현재 버전의 CapsLock Indicator (버전 {version})는 지원되지 않습니다. 최신 버전으로 업데이트 바랍니다.</value>
+    <value> 이 버전의 CapsLock Indicator (버전 {version})는 지원되지 않습니다. 최신 버전으로 업데이트하십시오!</value>
     <comment>Banner text when CLI version is unsupported</comment>
   </data>
   <data name="unsupportedWin" xml:space="preserve">
-    <value>사용 중인 {os} 는 Microsoft에서 더 이상 지원되지 않습니다. CapsLock Indicator는 미래에는 이 운영체제에 대해 지원하지 않습니다! 최신 버전의 윈도로 업그레이드 바랍니다.</value>
+    <value>Microsoft에서 더 이상 지원하지 않는 {os}을(를) 사용하고 있습니다. CapsLock Indicator는 향후 이 OS에 대한 지원을 중단합니다! 최신 버전의 Windows로 업그레이드하십시오!</value>
     <comment>Banner text when Windows version is unsupported</comment>
   </data>
   <data name="updateAvailable" xml:space="preserve">
-    <value>CapsLock Indicator 업데이트가 있습니다.</value>
+    <value>CapsLock 표시기 업데이트를 사용할 수 있습니다!</value>
     <comment>The title for the update window.</comment>
   </data>
   <data name="updateInfoFormat" xml:space="preserve">
-    <value>버전 {0} , 배포일  {1}</value>
+    <value>버전 {0} , 배포  {1}</value>
     <comment>Displayed in the "Update Available" dialog. {0} is the version, {1} is the release date and time.</comment>
   </data>
   <data name="updateLocaleMessageBox" xml:space="preserve">
-    <value>현재 설치 된 언어 중 오래된 언어가 확인 됩니다. 지금 업데이트 하시겠습니까?</value>
+    <value>현재 설치된 번역 중 일부가 오래된 것 같습니다. 지금 업데이트하시겠습니까?</value>
     <comment>Message box when old translations are found</comment>
   </data>
   <data name="updateNow" xml:space="preserve">

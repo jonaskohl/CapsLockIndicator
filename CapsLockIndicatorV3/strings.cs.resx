@@ -117,38 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  
-<!--
-<data name="adjustingColorScheme" xml:space="preserve">
-    <value>Adjusting color scheme... Please wait...</value>
+  <data name="adjustingColorScheme" xml:space="preserve">
+    <value>Nastavování barevného schématu… Počkejte prosím…</value>
     <comment>Shown in a popup when toggling dark mode</comment>
   </data>
--->
   <data name="advancedSettings" xml:space="preserve">
     <value>Pokročilá nastavení</value>
     <comment>Label of the hyperlink that opens the settings file</comment>
   </data>
-  
-<!--
-<data name="advancedSettingsConfirmation" xml:space="preserve">
-    <value>I understand the above mentioned risks and wish to proceed</value>
+  <data name="advancedSettingsConfirmation" xml:space="preserve">
+    <value>Rozumím uvedeným rizikům a přeji si pokračovat</value>
     <comment>Confirmation text for Advanced Settings</comment>
   </data>
--->
-  
-<!--
-<data name="advancedSettingsTitle" xml:space="preserve">
-    <value>Advanced settings</value>
+  <data name="advancedSettingsTitle" xml:space="preserve">
+    <value>Pokročilá nastavení</value>
     <comment>Window text for Advanced Settings</comment>
   </data>
--->
-  
-<!--
-<data name="advancedSettingsWarning" xml:space="preserve">
-    <value>Changing advanced settings may cause unexpected behaviour and may lead to an unstable state of CapsLock Indicator. Please restart CapsLock Indicator after changing settings. Only change settings if you know what you are doing! Use this editor at your own risk!</value>
+  <data name="advancedSettingsWarning" xml:space="preserve">
+    <value>Změna pokročilého nastavení může způsobit nečekané chovaní a může vést k nestabilitě programu CapsLock Indicator. Prosím, restartujte program po změně nastavení. Měňte nastavení pouze, pokud víte, co děláte! Používejte tento editor na své vlastní riziko!</value>
     <comment>Warning text for Advanced Settings</comment>
   </data>
--->
   <data name="autoCheckForUpdates" xml:space="preserve">
     <value>Automaticky kontrolovat aktualizace</value>
     <comment>Tooltip for the checkbox next to the update button</comment>
@@ -173,16 +161,37 @@
     <value>Tloušťka rámečku</value>
     <comment>Label of the border thickness groupbox</comment>
   </data>
-  
-<!--
-<data name="cancel" xml:space="preserve">
-    <value>C&amp;ancel</value>
+  <data name="cancel" xml:space="preserve">
+    <value>U&amp;končit</value>
     <comment>Generic label for Cancel button</comment>
   </data>
--->
   <data name="capsLock" xml:space="preserve">
     <value>Caps lock</value>
     <comment>The name of the caps lock key</comment>
+  </data>
+  <data name="cbPersistentCapsOff" xml:space="preserve">
+    <value>Vypnuto</value>
+    <comment>Label for caps lock off checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentCapsOn" xml:space="preserve">
+    <value>Zapnuto</value>
+    <comment>Label for caps lock on checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentNumOff" xml:space="preserve">
+    <value>Vypnuto</value>
+    <comment>Label for num lock off checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentNumOn" xml:space="preserve">
+    <value>Zapnuto</value>
+    <comment>Label for num lock on checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentScrollOff" xml:space="preserve">
+    <value>Vypnuto</value>
+    <comment>Label for scroll lock off checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentScrollOn" xml:space="preserve">
+    <value>Zapnuto</value>
+    <comment>Label for scroll lock on checkbox in persistent overlay section</comment>
   </data>
   <data name="checkForUpdates" xml:space="preserve">
     <value>Zkontrolovat &amp;aktualizace</value>
@@ -192,13 +201,10 @@
     <value>Kontrola aktualizací…</value>
     <comment>The caption for the "Check for updates" button when it's searching for updates.</comment>
   </data>
-  
-<!--
-<data name="close" xml:space="preserve">
-    <value>&amp;Close</value>
+  <data name="close" xml:space="preserve">
+    <value>&amp;Zavřít</value>
     <comment>Generic label for Close button</comment>
   </data>
--->
   <data name="coloursGroup" xml:space="preserve">
     <value>Barvy</value>
     <comment>The title for the "Colours" group box</comment>
@@ -211,20 +217,14 @@
     <value>&amp;Zobrazit</value>
     <comment>Used in the context menu of the CLI tray icon.</comment>
   </data>
-  
-<!--
-<data name="darkModeOption" xml:space="preserve">
-    <value>&amp;Dark mode</value>
+  <data name="darkModeOption" xml:space="preserve">
+    <value>&amp;Tmavý režim</value>
     <comment>Label of options checkbox for dark mode</comment>
   </data>
--->
-  
-<!--
-<data name="dismiss" xml:space="preserve">
-    <value>Dismiss</value>
+  <data name="dismiss" xml:space="preserve">
+    <value>Zavřít</value>
     <comment>Used as tooltip (but may be used in other places in the future</comment>
   </data>
--->
   <data name="dismissButton" xml:space="preserve">
     <value>&amp;Zavřít</value>
     <comment>The caption for the "Dismiss" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -245,13 +245,10 @@
     <value>Stáhnout více překladů…</value>
     <comment>The last dropdown item in the locale dropdown.</comment>
   </data>
-  
-<!--
-<data name="downloadTranslationsTitle" xml:space="preserve">
-    <value>Download translations</value>
+  <data name="downloadTranslationsTitle" xml:space="preserve">
+    <value>Stáhnout překlady</value>
     <comment>Window title for the download translations dialog</comment>
   </data>
--->
   <data name="exitApplication" xml:space="preserve">
     <value>&amp;Ukončit aplikaci</value>
     <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -260,13 +257,10 @@
     <value>Ukončení aplikace způsobí skrytí ikon a oznámení. Pokračovat?</value>
     <comment>The message to display on application exit</comment>
   </data>
-  
-<!--
-<data name="failedToDownloadTranslationToolTip" xml:space="preserve">
-    <value>Failed to download translation</value>
+  <data name="failedToDownloadTranslationToolTip" xml:space="preserve">
+    <value>Chyba při stahování překladu</value>
     <comment>Tooltip for failed translation download</comment>
   </data>
--->
   <data name="firstRunAllowUpdateCheck" xml:space="preserve">
     <value>Povolit automatické kontroly aktualizací (možno změnit později)</value>
     <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
@@ -284,7 +278,7 @@
     <comment>Label for selecting color scheme</comment>
   </data>
   <data name="firstRunColorSchemeWin10Only" xml:space="preserve">
-    <value>Dostupné pouze na Windows 10</value>
+    <value>Dostupné pouze pro Windows verze 10 a novější</value>
     <comment>Added to dark button if not running on Windows 10</comment>
   </data>
   <data name="firstRunContribute" xml:space="preserve">
@@ -327,13 +321,10 @@
     <value>Můžete ukázat indikátor klávesy „CapsLock“ dvojitým kliknutím na tuto ikonu.</value>
     <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
   </data>
-  
-<!--
-<data name="headerWarning" xml:space="preserve">
-    <value>Warning!</value>
+  <data name="headerWarning" xml:space="preserve">
+    <value>Varování!</value>
     <comment>Generic header for Warning</comment>
   </data>
--->
   <data name="hideOnStartup" xml:space="preserve">
     <value>Skrýt při spuštění</value>
     <comment>Used for the hide on startup checkbox</comment>
@@ -378,13 +369,10 @@
     <value>Klávesa „{0}“ je aktivována</value>
     <comment>The text to display in the notification when a key is on. "{0}" will be replaced with the key name</comment>
   </data>
-  
-<!--
-<data name="no" xml:space="preserve">
-    <value>&amp;No</value>
+  <data name="no" xml:space="preserve">
+    <value>&amp;Ne</value>
     <comment>Generic label for No button</comment>
   </data>
--->
   <data name="notificationSettings" xml:space="preserve">
     <value>Nastavení &amp;oznámení</value>
     <comment>The caption for the button that opens the notification settings. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -397,13 +385,10 @@
     <value>Num lock</value>
     <comment>The name of the num lock key</comment>
   </data>
-  
-<!--
-<data name="ok" xml:space="preserve">
+  <data name="ok" xml:space="preserve">
     <value>&amp;OK</value>
     <comment>Generic label for OK button</comment>
   </data>
--->
   <data name="opacity" xml:space="preserve">
     <value>Krytí (neprůhlednost)</value>
     <comment>The title for the "Opacity" group box</comment>
@@ -416,17 +401,39 @@
     <value>Trvale</value>
     <comment>Text to display instead of the time if indicator overlay display is set to permanently.</comment>
   </data>
+  <data name="persistentCapsLabel" xml:space="preserve">
+    <value>…Caps lock: </value>
+    <comment>Label for caps lock row in persistent overlay section</comment>
+  </data>
+  <data name="persistentHeadingLabel" xml:space="preserve">
+    <value>Zobrazit trvalé krycí okno, když…</value>
+    <comment>Heading for persistent overlay section</comment>
+  </data>
+  <data name="persistentNumLabel" xml:space="preserve">
+    <value>…Num lock: </value>
+    <comment>Label for num lock row in persistent overlay section</comment>
+  </data>
+  <data name="persistentScrollLabel" xml:space="preserve">
+    <value>…Scroll lock: </value>
+    <comment>Label for scroll lock row in persistent overlay section</comment>
+  </data>
   <data name="reloadedIconsInfo" xml:space="preserve">
     <value>Ikony znovu načteny</value>
     <comment>Shown in a notification when hot-reloading icons.</comment>
   </data>
-  
-<!--
-<data name="restart" xml:space="preserve">
-    <value>&amp;Restart</value>
+  <data name="resetSettings" xml:space="preserve">
+    <value>Obnovit nastavení</value>
+    <comment>Used for the "Reset settings" button</comment>
+  </data>
+  <data name="resetSettingsConfirmationText" xml:space="preserve">
+    <value>Tato akce obnoví veškerá nastavení v jejich výchozí hodnoty a restartuje CapsLock Indicator. Veškerá přizpůsobení budou ztracena! Tuto akci nelze zvrátit!
+Chcete teď obnovit veškerá nastavení?</value>
+    <comment>Used for the confirmation prompt after clicking "Reset settings"</comment>
+  </data>
+  <data name="restart" xml:space="preserve">
+    <value>&amp;Restartovat</value>
     <comment>Generic label for Restart button</comment>
   </data>
--->
   <data name="saveAndCloseButton" xml:space="preserve">
     <value>&amp;Uložit a zavřít</value>
     <comment>The caption for the "Save &amp; Close" button. The character after the "&amp;" is the hotkey that is used with the ALT key. Use two "&amp;" to display a "&amp;" character</comment>
@@ -435,20 +442,14 @@
     <value>Scroll lock</value>
     <comment>The name of the scroll lock key</comment>
   </data>
-  
-<!--
-<data name="searchForUpdatesOnResumeOption" xml:space="preserve">
-    <value>Search for &amp;updates on resume</value>
+  <data name="searchForUpdatesOnResumeOption" xml:space="preserve">
+    <value>Vyhledat &amp;aktualizace při pokračování</value>
     <comment>Label of options checkbox for update search after resume</comment>
   </data>
--->
-  
-<!--
-<data name="settingsChangedToolTip" xml:space="preserve">
-    <value>The settings have moved! You will now find them in these tabs up here!</value>
+  <data name="settingsChangedToolTip" xml:space="preserve">
+    <value>Nastavení se přesunula! Nyní je najdete v těchto horních kartách:</value>
     <comment>The tutorial tooltip shown when upgrading to 3.13.0.0</comment>
   </data>
--->
   <data name="showIconsFor" xml:space="preserve">
     <value>Zobrazit ikony pro…</value>
     <comment>The title for the "Show icons for..." group box</comment>
@@ -473,41 +474,26 @@
     <value>Spustit při přihlášení</value>
     <comment>The label for the check box that enables or disabled the auto start.</comment>
   </data>
-  
-<!--
-<data name="tabAdvancedOptions" xml:space="preserve">
-    <value>Advanced Options</value>
+  <data name="tabAdvancedOptions" xml:space="preserve">
+    <value>Pokročilá nastavení</value>
     <comment>Tab header for advanced options</comment>
   </data>
--->
-  
-<!--
-<data name="tabGeneral" xml:space="preserve">
-    <value>General</value>
+  <data name="tabGeneral" xml:space="preserve">
+    <value>Obecné</value>
     <comment>Tab header for general settings</comment>
   </data>
--->
-  
-<!--
-<data name="tabNotification" xml:space="preserve">
-    <value>Notification</value>
+  <data name="tabNotification" xml:space="preserve">
+    <value>Oznámení</value>
     <comment>Tab header for advanced settings</comment>
   </data>
--->
-  
-<!--
-<data name="unsupportedCLI" xml:space="preserve">
-    <value>This version of CapsLock Indicator (Version {version}) is not supported. Please update to the latest version!</value>
+  <data name="unsupportedCLI" xml:space="preserve">
+    <value>Tato verze programu CapsLock Indicator (verze {version}) již není podporována. Akzualizujte, prosím, tento program na nejnovější verzi!</value>
     <comment>Banner text when CLI version is unsupported</comment>
   </data>
--->
-  
-<!--
-<data name="unsupportedWin" xml:space="preserve">
-    <value>You are using {os} which is no longer supported by Microsoft. CapsLock Indicator will drop support for this OS in the future! Please upgrade to a modern version of Windows!</value>
+  <data name="unsupportedWin" xml:space="preserve">
+    <value>Používáte operační systém {os}, jenž už není podporován Microsoftem. CapsLock Indicator v budoucnu již nebude tento systém podporovat! Aktualizujte, prosím, systém Windows na moderní verzi!</value>
     <comment>Banner text when Windows version is unsupported</comment>
   </data>
--->
   <data name="updateAvailable" xml:space="preserve">
     <value>Dostupná aktualizace programu „CapsLock Indicator“</value>
     <comment>The title for the update window.</comment>
@@ -516,23 +502,17 @@
     <value>Verze {0}, vydána {1}</value>
     <comment>Displayed in the "Update Available" dialog. {0} is the version, {1} is the release date and time.</comment>
   </data>
-  
-<!--
-<data name="updateLocaleMessageBox" xml:space="preserve">
-    <value>Some of the currently installed translations seem to be outdated. Do you want to update them now?</value>
+  <data name="updateLocaleMessageBox" xml:space="preserve">
+    <value>Některé z nainstalovaných překladů se zdají být zastaralé. Chcete je aktualizovat teď?</value>
     <comment>Message box when old translations are found</comment>
   </data>
--->
   <data name="updateNow" xml:space="preserve">
     <value>&amp;Aktualizovat teď</value>
     <comment>The caption for the "Update now" button. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
-  
-<!--
-<data name="yes" xml:space="preserve">
-    <value>&amp;Yes</value>
+  <data name="yes" xml:space="preserve">
+    <value>&amp;Ano</value>
     <comment>Generic label for Yes button</comment>
   </data>
--->
 
 </root>

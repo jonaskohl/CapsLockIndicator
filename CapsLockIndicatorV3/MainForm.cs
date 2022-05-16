@@ -431,11 +431,12 @@ namespace CapsLockIndicatorV3
             var ub = new UriBuilder(URLs.ClientSupported);
             var qb = new QueryBuilder();
 #if DEBUG
-            qb.Append("v", "dev");
+            qb.Append("e", "debug");
 #else
-            qb.Append("v", version);
+            qb.Append("e", "release");
 #endif
-            qb.Append("w", GetOSVersion());
+            qb.Append("c", version);
+            qb.Append("o", GetOSBuildVersion());
             ub.Query = qb.ToString();
 
             var wc = new WebClient();
@@ -443,9 +444,18 @@ namespace CapsLockIndicatorV3
             wc.DownloadStringAsync(ub.Uri);
         }
 
+        private string GetOSBuildVersion()
+        {
+            return string.Join(".", new[]
+            {
+                Environment.OSVersion.Version.Major.ToString(),
+                Environment.OSVersion.Version.Minor.ToString(),
+                Environment.OSVersion.Version.Build.ToString()
+            });
+        }
+
         private void Wc_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
         {
-            (sender as WebClient)?.Dispose();
 
             try
             {
@@ -468,7 +478,9 @@ namespace CapsLockIndicatorV3
                     tableLayoutPanel3.Visible = true;
                 }
             }
-            catch { }
+            catch(Exception ex) { MessageBox.Show(ex.ToString()); }
+
+            (sender as WebClient)?.Dispose();
         }
 
         private void ApplyEOLStrings()
@@ -1099,6 +1111,7 @@ namespace CapsLockIndicatorV3
         void doVersionCheck(bool isManualCheck)
         {
             VersionCheck.IsLatestVersion(handleVersion, isManualCheck);
+            CheckSupport();
         }
 
         void MainFormLoad(object sender, EventArgs e)

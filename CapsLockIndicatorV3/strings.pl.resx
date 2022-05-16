@@ -169,6 +169,30 @@
     <value>Caps lock</value>
     <comment>The name of the caps lock key</comment>
   </data>
+  <data name="cbPersistentCapsOff" xml:space="preserve">
+    <value>Wył.</value>
+    <comment>Label for caps lock off checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentCapsOn" xml:space="preserve">
+    <value>Wł.</value>
+    <comment>Label for caps lock on checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentNumOff" xml:space="preserve">
+    <value>Wył.</value>
+    <comment>Label for num lock off checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentNumOn" xml:space="preserve">
+    <value>Wł.</value>
+    <comment>Label for num lock on checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentScrollOff" xml:space="preserve">
+    <value>Wył.</value>
+    <comment>Label for scroll lock off checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentScrollOn" xml:space="preserve">
+    <value>Wł.</value>
+    <comment>Label for scroll lock on checkbox in persistent overlay section</comment>
+  </data>
   <data name="checkForUpdates" xml:space="preserve">
     <value>Sprawdź &amp;aktualizacje</value>
     <comment>The caption for the button that manually checks for updates. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
@@ -258,7 +282,7 @@
     <comment>Added to dark button if not running on Windows 10</comment>
   </data>
   <data name="firstRunContribute" xml:space="preserve">
-    <value>Przyczyńć się do rozwoju</value>
+    <value>Przyczyń się do rozwoju</value>
     <comment>Label of the hyperlink that takes you to CLI's GitHub page</comment>
   </data>
   <data name="firstRunExit" xml:space="preserve">
@@ -377,9 +401,34 @@
     <value>Na stałe</value>
     <comment>Text to display instead of the time if indicator overlay display is set to permanently.</comment>
   </data>
+  <data name="persistentCapsLabel" xml:space="preserve">
+    <value>...jest Caps lock</value>
+    <comment>Label for caps lock row in persistent overlay section</comment>
+  </data>
+  <data name="persistentHeadingLabel" xml:space="preserve">
+    <value>Pokaż trwałą nakładkę, gdy ...</value>
+    <comment>Heading for persistent overlay section</comment>
+  </data>
+  <data name="persistentNumLabel" xml:space="preserve">
+    <value>...jest Num lock</value>
+    <comment>Label for num lock row in persistent overlay section</comment>
+  </data>
+  <data name="persistentScrollLabel" xml:space="preserve">
+    <value>...jest Scroll lock</value>
+    <comment>Label for scroll lock row in persistent overlay section</comment>
+  </data>
   <data name="reloadedIconsInfo" xml:space="preserve">
-    <value>Ponowne załadowanie ikon</value>
+    <value>Ponowne wczytywanie ikon</value>
     <comment>Shown in a notification when hot-reloading icons.</comment>
+  </data>
+  <data name="resetSettings" xml:space="preserve">
+    <value>Resetowanie ustawień</value>
+    <comment>Used for the "Reset settings" button</comment>
+  </data>
+  <data name="resetSettingsConfirmationText" xml:space="preserve">
+    <value>Spowoduje to zresetowanie wszystkich ustawień do ich wartości domyślnych i ponowne uruchomienie CapsLock Indicator. Wszystkie ustawienia zostaną utracone! Tego nie można cofnąć!
+Czy chcesz teraz zresetować wszystkie ustawienia?</value>
+    <comment>Used for the confirmation prompt after clicking "Reset settings"</comment>
   </data>
   <data name="restart" xml:space="preserve">
     <value>U&amp;ruchom ponownie</value>
