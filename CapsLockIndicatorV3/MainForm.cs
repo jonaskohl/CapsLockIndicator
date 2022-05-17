@@ -478,7 +478,7 @@ namespace CapsLockIndicatorV3
                     tableLayoutPanel3.Visible = true;
                 }
             }
-            catch(Exception ex) { MessageBox.Show(ex.ToString()); }
+            catch { }
 
             (sender as WebClient)?.Dispose();
         }
