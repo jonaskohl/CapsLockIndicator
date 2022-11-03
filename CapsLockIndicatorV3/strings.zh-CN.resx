@@ -443,11 +443,11 @@
     <comment>The name of the scroll lock key</comment>
   </data>
   <data name="searchForUpdatesOnResumeOption" xml:space="preserve">
-    <value>再次开启介面时检查更新 (&amp;U)</value>
+    <value>再次开启界面时检查更新 (&amp;U)</value>
     <comment>Label of options checkbox for update search after resume</comment>
   </data>
   <data name="settingsChangedToolTip" xml:space="preserve">
-    <value>设定介面已更新！现在可于顶部页签找到各个对应设置！</value>
+    <value>设定界面已更新！现在可于顶部页签找到各个对应设置！</value>
     <comment>The tutorial tooltip shown when upgrading to 3.13.0.0</comment>
   </data>
   <data name="showIconsFor" xml:space="preserve">
