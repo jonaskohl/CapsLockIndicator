@@ -6,26 +6,26 @@
 
 //#define _DEBUG_FEATURE_EOL
 
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
+using System.ComponentModel;
 using System.Diagnostics;
-using System.Windows.Forms;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Resources;
-using System.Linq;
-using Microsoft.Win32;
-using System.Xml.Linq;
-using System.Globalization;
-using System.Threading;
-using System.IO;
-using System.ComponentModel;
-using System.Text;
-using System.Net;
-using System.Security.Cryptography;
-using System.Threading.Tasks;
 using System.Runtime.InteropServices;
-using System.Drawing.Drawing2D;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace CapsLockIndicatorV3
 {
@@ -54,6 +54,10 @@ namespace CapsLockIndicatorV3
         bool numState;
         bool capsState;
         bool scrollState;
+        int oldKeyboardLayoutInt;
+        int oldImeModeInt;
+        int newKeyboardLayoutInt;
+        int newImeModeInt;
 
         public bool askCancel = true;
         private bool shouldClose = false;
@@ -94,6 +98,8 @@ namespace CapsLockIndicatorV3
             numState = KeyHelper.isNumlockActive;
             capsState = KeyHelper.isCapslockActive;
             scrollState = KeyHelper.isScrolllockActive;
+            oldKeyboardLayoutInt = KeyHelper.GetCurrentKeyboardLayoutInt();
+            oldImeModeInt = KeyHelper.GetImeMode();
 
             // Load settings
             enableNumIcon.Checked = SettingsManager.Get<bool>("numIco");
@@ -103,6 +109,7 @@ namespace CapsLockIndicatorV3
             enableNumInd.Checked = SettingsManager.Get<bool>("numInd");
             enableCapsInd.Checked = SettingsManager.Get<bool>("capsInd");
             enableScrollInd.Checked = SettingsManager.Get<bool>("scrollInd");
+            enableKeyboardLayoutInd.Checked = SettingsManager.Get<bool>("keybInd");
 
             showNoIcons.Checked = SettingsManager.Get<bool>("noIco");
             showNoNotification.Checked = SettingsManager.Get<bool>("noInd");
@@ -593,6 +600,7 @@ namespace CapsLockIndicatorV3
             enableNumInd.ForeColor =
             enableCapsInd.ForeColor =
             enableScrollInd.ForeColor =
+            enableKeyboardLayoutInd.ForeColor =
             enableNumIcon.ForeColor =
             enableCapsIcon.ForeColor =
             enableScrollIcon.ForeColor =
@@ -622,6 +630,7 @@ namespace CapsLockIndicatorV3
             enableNumInd.FlatStyle =
             enableCapsInd.FlatStyle =
             enableScrollInd.FlatStyle =
+            enableKeyboardLayoutInd.FlatStyle =
             enableNumIcon.FlatStyle =
             enableCapsIcon.FlatStyle =
             enableScrollIcon.FlatStyle =
@@ -640,11 +649,14 @@ namespace CapsLockIndicatorV3
             cbPersistentCapsOn.FlatStyle =
             cbPersistentScrollOff.FlatStyle =
             cbPersistentScrollOn.FlatStyle =
+            cbPersistentKeyboardOff.FlatStyle =
+            cbPersistentKeyboardOn.FlatStyle =
             dark ? FlatStyle.Standard : FlatStyle.System;
 
             enableNumInd.DarkMode =
             enableCapsInd.DarkMode =
             enableScrollInd.DarkMode =
+            enableKeyboardLayoutInd.DarkMode =
             enableNumIcon.DarkMode =
             enableCapsIcon.DarkMode =
             enableScrollIcon.DarkMode =
@@ -664,6 +676,8 @@ namespace CapsLockIndicatorV3
             cbPersistentCapsOn.DarkMode =
             cbPersistentScrollOff.DarkMode =
             cbPersistentScrollOn.DarkMode =
+            cbPersistentKeyboardOff.DarkMode =
+            cbPersistentKeyboardOn.DarkMode =
             dark;
 
             downloadIcons.LinkColor =
@@ -694,6 +708,7 @@ namespace CapsLockIndicatorV3
             ControlScheduleSetDarkMode(enableNumIcon, dark);
             ControlScheduleSetDarkMode(enableCapsIcon, dark);
             ControlScheduleSetDarkMode(enableScrollIcon, dark);
+            ControlScheduleSetDarkMode(enableKeyboardLayoutInd, dark);
             ControlScheduleSetDarkMode(localeComboBox, dark);
             ControlScheduleSetDarkMode(advSettingsButton, dark);
             ControlScheduleSetDarkMode(resetSettingsButton, dark);
@@ -809,6 +824,7 @@ namespace CapsLockIndicatorV3
             enableNumIcon.Text = strings.numLock;
             enableCapsIcon.Text = strings.capsLock;
             enableScrollIcon.Text = strings.scrollLock;
+            enableKeyboardLayoutInd.Text = string.Format(strings.keyChanged, strings.keyboardLayout);
             enableNumInd.Text = string.Format(strings.keyChanged, strings.numLock);
             enableCapsInd.Text = string.Format(strings.keyChanged, strings.capsLock);
             enableScrollInd.Text = string.Format(strings.keyChanged, strings.scrollLock);
@@ -852,12 +868,15 @@ namespace CapsLockIndicatorV3
             persistentNumLabel.Text = strings.persistentNumLabel;
             persistentCapsLabel.Text = strings.persistentCapsLabel;
             persistentScrollLabel.Text = strings.persistentScrollLabel;
+            persistentKeyboardLabel.Text = strings.persistentKeyboardLabel;
             cbPersistentNumOff.Text = strings.cbPersistentNumOff;
             cbPersistentNumOn.Text = strings.cbPersistentNumOn;
             cbPersistentCapsOff.Text = strings.cbPersistentCapsOff;
             cbPersistentCapsOn.Text = strings.cbPersistentCapsOn;
             cbPersistentScrollOff.Text = strings.cbPersistentScrollOff;
             cbPersistentScrollOn.Text = strings.cbPersistentScrollOn;
+            cbPersistentKeyboardOff.Text = strings.cbPersistentKeyboardOff;
+            cbPersistentKeyboardOn.Text = strings.cbPersistentKeyboardOn;
 
             tabControl1.UpdateItemSize();
 
@@ -920,11 +939,29 @@ namespace CapsLockIndicatorV3
                     NewState = KeyHelper.isScrolllockActive,
                     Key = IndicatorKey.Scroll
                 });
-
+            newKeyboardLayoutInt = KeyHelper.GetCurrentKeyboardLayoutInt();
+            newImeModeInt = KeyHelper.GetImeMode();
+            if (oldKeyboardLayoutInt != newKeyboardLayoutInt && enableKeyboardLayoutInd.Checked && !showNoNotification.Checked)
+                ShowOverlay(new IndicatorTrigger()
+                {
+                    //DisplayText =  KeyHelper.getKeyboardLayoutName,
+                    DisplayText = KeyHelper.getKeyboardLayoutName + "[" + KeyHelper.GetImeModeString(newKeyboardLayoutInt, newImeModeInt) + "]",
+                    NewState = true,
+                    Key = IndicatorKey.Keyboard
+                });
+            if (oldImeModeInt != newImeModeInt && enableKeyboardLayoutInd.Checked && !showNoNotification.Checked)
+                ShowOverlay(new IndicatorTrigger()
+                {
+                    DisplayText = KeyHelper.getKeyboardLayoutName + "[" + KeyHelper.GetImeModeString(newKeyboardLayoutInt, newImeModeInt) + "]",
+                    NewState = true,
+                    Key = IndicatorKey.Keyboard
+                });
             // Reset the values
             numState = KeyHelper.isNumlockActive;
             capsState = KeyHelper.isCapslockActive;
             scrollState = KeyHelper.isScrolllockActive;
+            oldKeyboardLayoutInt = newKeyboardLayoutInt;
+            oldImeModeInt = newImeModeInt;
         }
 
         void ShowOverlay(IndicatorTrigger trigger)
@@ -1194,6 +1231,11 @@ namespace CapsLockIndicatorV3
             SettingsManager.Save();
         }
 
+        private void enableKeyboardLayoutInd_CheckedChanged(object sender, EventArgs e)
+        {
+            SettingsManager.Set("keybInd", enableKeyboardLayoutInd.Checked);
+            SettingsManager.Save();
+        }
         private void checkForUpdatesButton_Click(object sender, EventArgs e)
         {
             checkForUpdatesButton.Enabled = false;
@@ -1559,5 +1601,7 @@ namespace CapsLockIndicatorV3
         {
             SettingsManager.Set("persistentOverlay" + (sender as BetterCheckBox).Tag.ToString(), (sender as BetterCheckBox).Checked);
         }
+
+
     }
 }

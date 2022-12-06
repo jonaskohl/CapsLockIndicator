@@ -10,6 +10,9 @@
 </p>
 
 <p align="center">
+  ImeChange Indicator is forked by https://github.com/jonaskohl/CapsLockIndicator/ It's not only indicate Num lock, Caps lock and Scroll lock key. (So forked. because It might be violate Program's definition) Added Indicate Keyboard Layout change (like language) and Ime-Mode change
+  from now. CapsLock Indicator's information. 
+  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
   CapsLock Indicator is a small utility that indicates the state of the Num lock, Caps lock and Scroll lock key.
 </p>
 

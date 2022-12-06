@@ -174,15 +174,21 @@
     <comment>Label for caps lock off checkbox in persistent overlay section</comment>
   </data>
   <data name="cbPersistentCapsOn" xml:space="preserve">
-    <value>껴기</value>
+    <value>켜기</value>
     <comment>Label for caps lock on checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentKeyboardOff" xml:space="preserve">
+    <value>끄기</value>
+  </data>
+  <data name="cbPersistentKeyboardOn" xml:space="preserve">
+    <value>켜기</value>
   </data>
   <data name="cbPersistentNumOff" xml:space="preserve">
     <value>끄기</value>
     <comment>Label for num lock off checkbox in persistent overlay section</comment>
   </data>
   <data name="cbPersistentNumOn" xml:space="preserve">
-    <value>껴기</value>
+    <value>켜기</value>
     <comment>Label for num lock on checkbox in persistent overlay section</comment>
   </data>
   <data name="cbPersistentScrollOff" xml:space="preserve">
@@ -190,7 +196,7 @@
     <comment>Label for scroll lock off checkbox in persistent overlay section</comment>
   </data>
   <data name="cbPersistentScrollOn" xml:space="preserve">
-    <value>껴기</value>
+    <value>켜기</value>
     <comment>Label for scroll lock on checkbox in persistent overlay section</comment>
   </data>
   <data name="checkForUpdates" xml:space="preserve">
@@ -357,6 +363,9 @@
     <value>아이콘 팩 “{name}” (버전 {version})이 성공적으로 설치 되었습니다!</value>
     <comment>Shown after an icon pack was installed successfully</comment>
   </data>
+  <data name="keyboardLayout" xml:space="preserve">
+    <value>키보드 레이아웃</value>
+  </data>
   <data name="keyChanged" xml:space="preserve">
     <value>{0} 변경됨</value>
     <comment>Used for the check boxes in the "Show notification when..." group box. "{0}" will be replaced with the key name</comment>
@@ -408,6 +417,9 @@
   <data name="persistentHeadingLabel" xml:space="preserve">
     <value>영구 오버레이 표시...</value>
     <comment>Heading for persistent overlay section</comment>
+  </data>
+  <data name="persistentKeyboardLabel" xml:space="preserve">
+    <value>...키보드 레이아웃 을</value>
   </data>
   <data name="persistentNumLabel" xml:space="preserve">
     <value>...Num lock 을</value>
@@ -514,5 +526,4 @@
     <value>예(&amp;Y)</value>
     <comment>Generic label for Yes button</comment>
   </data>
-
 </root>

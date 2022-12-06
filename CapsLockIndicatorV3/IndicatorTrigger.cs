@@ -27,6 +27,7 @@ namespace CapsLockIndicatorV3
         None,
         Caps,
         Num,
-        Scroll
+        Scroll,
+        Keyboard
     }
 }

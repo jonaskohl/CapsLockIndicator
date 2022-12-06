@@ -177,6 +177,14 @@
     <value>On</value>
     <comment>Label for caps lock on checkbox in persistent overlay section</comment>
   </data>
+  <data name="cbPersistentKeyboardOff" xml:space="preserve">
+    <value>Off</value>
+    <comment>Label for Keyboard Layboard off checkbox in persistent overlay section</comment>
+  </data>
+  <data name="cbPersistentKeyboardOn" xml:space="preserve">
+    <value>On</value>
+    <comment>Label for Keyboard Layboard on checkbox in persistent overlay section</comment>
+  </data>
   <data name="cbPersistentNumOff" xml:space="preserve">
     <value>Off</value>
     <comment>Label for num lock off checkbox in persistent overlay section</comment>
@@ -357,6 +365,10 @@
     <value>Successfully installed icon pack “{name}” (Version {version})!</value>
     <comment>Shown after an icon pack was installed successfully</comment>
   </data>
+  <data name="keyboardLayout" xml:space="preserve">
+    <value>Keyboard Layout</value>
+    <comment>Keyboard Layout</comment>
+  </data>
   <data name="keyChanged" xml:space="preserve">
     <value>{0} changed</value>
     <comment>Used for the check boxes in the "Show notification when..." group box. "{0}" will be replaced with the key name</comment>
@@ -408,6 +420,10 @@
   <data name="persistentHeadingLabel" xml:space="preserve">
     <value>Show persistent overlay when...</value>
     <comment>Heading for persistent overlay section</comment>
+  </data>
+  <data name="persistentKeyboardLabel" xml:space="preserve">
+    <value>...KeyboardLayout is</value>
+    <comment>Label for Keyboard Layout row in persistent overlay section</comment>
   </data>
   <data name="persistentNumLabel" xml:space="preserve">
     <value>...Num lock is</value>
@@ -473,6 +489,9 @@ Do you want to reset all settings now?</value>
   <data name="startOnLogon" xml:space="preserve">
     <value>Start on logon</value>
     <comment>The label for the check box that enables or disabled the auto start.</comment>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
   </data>
   <data name="tabAdvancedOptions" xml:space="preserve">
     <value>Advanced Options</value>

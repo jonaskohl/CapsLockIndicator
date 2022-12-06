@@ -45,6 +45,7 @@ namespace CapsLockIndicatorV3
             this.enableScrollIcon = new CapsLockIndicatorV3.BetterCheckBox();
             this.enableCapsIcon = new CapsLockIndicatorV3.BetterCheckBox();
             this.enableNumIcon = new CapsLockIndicatorV3.BetterCheckBox();
+            this.enableKeyboardLayoutInd = new CapsLockIndicatorV3.BetterCheckBox();
             this.indicatorGroup = new System.Windows.Forms.GroupBox();
             this.enableScrollInd = new CapsLockIndicatorV3.BetterCheckBox();
             this.enableCapsInd = new CapsLockIndicatorV3.BetterCheckBox();
@@ -84,13 +85,16 @@ namespace CapsLockIndicatorV3
             this.persistentHeadingLabel = new System.Windows.Forms.Label();
             this.persistentNumLabel = new System.Windows.Forms.Label();
             this.persistentCapsLabel = new System.Windows.Forms.Label();
-            this.persistentScrollLabel = new System.Windows.Forms.Label();
             this.cbPersistentNumOff = new CapsLockIndicatorV3.BetterCheckBox();
             this.cbPersistentNumOn = new CapsLockIndicatorV3.BetterCheckBox();
             this.cbPersistentCapsOff = new CapsLockIndicatorV3.BetterCheckBox();
             this.cbPersistentCapsOn = new CapsLockIndicatorV3.BetterCheckBox();
             this.cbPersistentScrollOff = new CapsLockIndicatorV3.BetterCheckBox();
             this.cbPersistentScrollOn = new CapsLockIndicatorV3.BetterCheckBox();
+            this.persistentScrollLabel = new System.Windows.Forms.Label();
+            this.persistentKeyboardLabel = new System.Windows.Forms.Label();
+            this.cbPersistentKeyboardOff = new CapsLockIndicatorV3.BetterCheckBox();
+            this.cbPersistentKeyboardOn = new CapsLockIndicatorV3.BetterCheckBox();
             this.onlyShowWhenActiveCheckBox = new CapsLockIndicatorV3.BetterCheckBox();
             this.coloursGroup = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -242,7 +246,7 @@ namespace CapsLockIndicatorV3
             this.iconsGroup.Location = new System.Drawing.Point(12, 12);
             this.iconsGroup.Margin = new System.Windows.Forms.Padding(12, 12, 3, 3);
             this.iconsGroup.Name = "iconsGroup";
-            this.iconsGroup.Size = new System.Drawing.Size(292, 299);
+            this.iconsGroup.Size = new System.Drawing.Size(292, 207);
             this.iconsGroup.TabIndex = 0;
             this.iconsGroup.TabStop = false;
             this.iconsGroup.Text = "showIconsFor";
@@ -289,8 +293,23 @@ namespace CapsLockIndicatorV3
             this.enableNumIcon.UseVisualStyleBackColor = true;
             this.enableNumIcon.CheckedChanged += new System.EventHandler(this.enableNumIcon_CheckedChanged);
             // 
+            // enableKeyboardLayoutInd
+            // 
+            this.enableKeyboardLayoutInd.AutoSize = true;
+            this.enableKeyboardLayoutInd.Checked = true;
+            this.enableKeyboardLayoutInd.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.enableKeyboardLayoutInd.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.enableKeyboardLayoutInd.Location = new System.Drawing.Point(6, 98);
+            this.enableKeyboardLayoutInd.Name = "enableKeyboardLayoutInd";
+            this.enableKeyboardLayoutInd.Size = new System.Drawing.Size(166, 20);
+            this.enableKeyboardLayoutInd.TabIndex = 3;
+            this.enableKeyboardLayoutInd.Text = "KeyboardLayoutChanged";
+            this.enableKeyboardLayoutInd.UseVisualStyleBackColor = true;
+            this.enableKeyboardLayoutInd.CheckedChanged += new System.EventHandler(this.enableKeyboardLayoutInd_CheckedChanged);
+            // 
             // indicatorGroup
             // 
+            this.indicatorGroup.Controls.Add(this.enableKeyboardLayoutInd);
             this.indicatorGroup.Controls.Add(this.enableScrollInd);
             this.indicatorGroup.Controls.Add(this.enableCapsInd);
             this.indicatorGroup.Controls.Add(this.enableNumInd);
@@ -298,7 +317,7 @@ namespace CapsLockIndicatorV3
             this.indicatorGroup.Location = new System.Drawing.Point(310, 12);
             this.indicatorGroup.Margin = new System.Windows.Forms.Padding(3, 12, 12, 3);
             this.indicatorGroup.Name = "indicatorGroup";
-            this.indicatorGroup.Size = new System.Drawing.Size(292, 299);
+            this.indicatorGroup.Size = new System.Drawing.Size(292, 207);
             this.indicatorGroup.TabIndex = 1;
             this.indicatorGroup.TabStop = false;
             this.indicatorGroup.Text = "showNotificationWhen";
@@ -377,7 +396,7 @@ namespace CapsLockIndicatorV3
             this.aboutPanel.Controls.Add(this.aboutPanelTopBorder);
             this.aboutPanel.Controls.Add(this.aboutText);
             this.aboutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.aboutPanel.Location = new System.Drawing.Point(0, 628);
+            this.aboutPanel.Location = new System.Drawing.Point(0, 444);
             this.aboutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.aboutPanel.Name = "aboutPanel";
             this.aboutPanel.Size = new System.Drawing.Size(614, 65);
@@ -577,7 +596,7 @@ namespace CapsLockIndicatorV3
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(614, 693);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(614, 509);
             this.tableLayoutPanel1.TabIndex = 14;
             // 
             // flowLayoutPanel1
@@ -588,10 +607,10 @@ namespace CapsLockIndicatorV3
             this.flowLayoutPanel1.Controls.Add(this.hideOnStartupCheckBox);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 317);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 225);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(12, 3, 3, 9);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(292, 302);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(292, 210);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -606,7 +625,7 @@ namespace CapsLockIndicatorV3
             this.tableLayoutPanel2.Controls.Add(this.checkForUpdatesButton, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.checkForUpdatedCheckBox, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(310, 317);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(310, 225);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 3, 12, 9);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
@@ -615,7 +634,7 @@ namespace CapsLockIndicatorV3
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(292, 302);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(292, 210);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // hideWindow
@@ -660,6 +679,7 @@ namespace CapsLockIndicatorV3
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(622, 48);
             this.tableLayoutPanel3.TabIndex = 15;
             this.tableLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel3_Paint);
@@ -711,17 +731,20 @@ namespace CapsLockIndicatorV3
             this.tableLayoutPanel6.Controls.Add(this.persistentHeadingLabel, 0, 2);
             this.tableLayoutPanel6.Controls.Add(this.persistentNumLabel, 0, 3);
             this.tableLayoutPanel6.Controls.Add(this.persistentCapsLabel, 0, 4);
-            this.tableLayoutPanel6.Controls.Add(this.persistentScrollLabel, 0, 5);
             this.tableLayoutPanel6.Controls.Add(this.cbPersistentNumOff, 2, 3);
             this.tableLayoutPanel6.Controls.Add(this.cbPersistentNumOn, 3, 3);
             this.tableLayoutPanel6.Controls.Add(this.cbPersistentCapsOff, 2, 4);
             this.tableLayoutPanel6.Controls.Add(this.cbPersistentCapsOn, 3, 4);
             this.tableLayoutPanel6.Controls.Add(this.cbPersistentScrollOff, 2, 5);
             this.tableLayoutPanel6.Controls.Add(this.cbPersistentScrollOn, 3, 5);
+            this.tableLayoutPanel6.Controls.Add(this.persistentScrollLabel, 0, 5);
+            this.tableLayoutPanel6.Controls.Add(this.persistentKeyboardLabel, 0, 6);
+            this.tableLayoutPanel6.Controls.Add(this.cbPersistentKeyboardOff, 2, 6);
+            this.tableLayoutPanel6.Controls.Add(this.cbPersistentKeyboardOn, 3, 6);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 19);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 7;
+            this.tableLayoutPanel6.RowCount = 8;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -729,6 +752,9 @@ namespace CapsLockIndicatorV3
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(292, 222);
             this.tableLayoutPanel6.TabIndex = 3;
             // 
@@ -764,7 +790,7 @@ namespace CapsLockIndicatorV3
             this.persistentHeadingLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.persistentHeadingLabel.AutoSize = true;
             this.tableLayoutPanel6.SetColumnSpan(this.persistentHeadingLabel, 4);
-            this.persistentHeadingLabel.Location = new System.Drawing.Point(3, 91);
+            this.persistentHeadingLabel.Location = new System.Drawing.Point(3, 81);
             this.persistentHeadingLabel.Name = "persistentHeadingLabel";
             this.persistentHeadingLabel.Size = new System.Drawing.Size(131, 15);
             this.persistentHeadingLabel.TabIndex = 2;
@@ -775,7 +801,7 @@ namespace CapsLockIndicatorV3
             this.persistentNumLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.persistentNumLabel.AutoSize = true;
             this.tableLayoutPanel6.SetColumnSpan(this.persistentNumLabel, 2);
-            this.persistentNumLabel.Location = new System.Drawing.Point(3, 111);
+            this.persistentNumLabel.Location = new System.Drawing.Point(3, 101);
             this.persistentNumLabel.Name = "persistentNumLabel";
             this.persistentNumLabel.Size = new System.Drawing.Size(113, 15);
             this.persistentNumLabel.TabIndex = 3;
@@ -786,27 +812,16 @@ namespace CapsLockIndicatorV3
             this.persistentCapsLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.persistentCapsLabel.AutoSize = true;
             this.tableLayoutPanel6.SetColumnSpan(this.persistentCapsLabel, 2);
-            this.persistentCapsLabel.Location = new System.Drawing.Point(3, 136);
+            this.persistentCapsLabel.Location = new System.Drawing.Point(3, 126);
             this.persistentCapsLabel.Name = "persistentCapsLabel";
             this.persistentCapsLabel.Size = new System.Drawing.Size(112, 15);
             this.persistentCapsLabel.TabIndex = 3;
             this.persistentCapsLabel.Text = "persistentCapsLabel";
             // 
-            // persistentScrollLabel
-            // 
-            this.persistentScrollLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.persistentScrollLabel.AutoSize = true;
-            this.tableLayoutPanel6.SetColumnSpan(this.persistentScrollLabel, 2);
-            this.persistentScrollLabel.Location = new System.Drawing.Point(3, 161);
-            this.persistentScrollLabel.Name = "persistentScrollLabel";
-            this.persistentScrollLabel.Size = new System.Drawing.Size(115, 15);
-            this.persistentScrollLabel.TabIndex = 3;
-            this.persistentScrollLabel.Text = "persistentScrollLabel";
-            // 
             // cbPersistentNumOff
             // 
             this.cbPersistentNumOff.AutoSize = true;
-            this.cbPersistentNumOff.Location = new System.Drawing.Point(149, 109);
+            this.cbPersistentNumOff.Location = new System.Drawing.Point(149, 99);
             this.cbPersistentNumOff.Name = "cbPersistentNumOff";
             this.cbPersistentNumOff.Size = new System.Drawing.Size(67, 19);
             this.cbPersistentNumOff.TabIndex = 4;
@@ -818,7 +833,7 @@ namespace CapsLockIndicatorV3
             // cbPersistentNumOn
             // 
             this.cbPersistentNumOn.AutoSize = true;
-            this.cbPersistentNumOn.Location = new System.Drawing.Point(222, 109);
+            this.cbPersistentNumOn.Location = new System.Drawing.Point(222, 99);
             this.cbPersistentNumOn.Name = "cbPersistentNumOn";
             this.cbPersistentNumOn.Size = new System.Drawing.Size(67, 19);
             this.cbPersistentNumOn.TabIndex = 4;
@@ -830,7 +845,7 @@ namespace CapsLockIndicatorV3
             // cbPersistentCapsOff
             // 
             this.cbPersistentCapsOff.AutoSize = true;
-            this.cbPersistentCapsOff.Location = new System.Drawing.Point(149, 134);
+            this.cbPersistentCapsOff.Location = new System.Drawing.Point(149, 124);
             this.cbPersistentCapsOff.Name = "cbPersistentCapsOff";
             this.cbPersistentCapsOff.Size = new System.Drawing.Size(67, 19);
             this.cbPersistentCapsOff.TabIndex = 4;
@@ -842,7 +857,7 @@ namespace CapsLockIndicatorV3
             // cbPersistentCapsOn
             // 
             this.cbPersistentCapsOn.AutoSize = true;
-            this.cbPersistentCapsOn.Location = new System.Drawing.Point(222, 134);
+            this.cbPersistentCapsOn.Location = new System.Drawing.Point(222, 124);
             this.cbPersistentCapsOn.Name = "cbPersistentCapsOn";
             this.cbPersistentCapsOn.Size = new System.Drawing.Size(67, 19);
             this.cbPersistentCapsOn.TabIndex = 4;
@@ -854,7 +869,7 @@ namespace CapsLockIndicatorV3
             // cbPersistentScrollOff
             // 
             this.cbPersistentScrollOff.AutoSize = true;
-            this.cbPersistentScrollOff.Location = new System.Drawing.Point(149, 159);
+            this.cbPersistentScrollOff.Location = new System.Drawing.Point(149, 149);
             this.cbPersistentScrollOff.Name = "cbPersistentScrollOff";
             this.cbPersistentScrollOff.Size = new System.Drawing.Size(67, 19);
             this.cbPersistentScrollOff.TabIndex = 4;
@@ -866,7 +881,7 @@ namespace CapsLockIndicatorV3
             // cbPersistentScrollOn
             // 
             this.cbPersistentScrollOn.AutoSize = true;
-            this.cbPersistentScrollOn.Location = new System.Drawing.Point(222, 159);
+            this.cbPersistentScrollOn.Location = new System.Drawing.Point(222, 149);
             this.cbPersistentScrollOn.Name = "cbPersistentScrollOn";
             this.cbPersistentScrollOn.Size = new System.Drawing.Size(67, 19);
             this.cbPersistentScrollOn.TabIndex = 4;
@@ -874,6 +889,54 @@ namespace CapsLockIndicatorV3
             this.cbPersistentScrollOn.Text = "cbPersistentScrollOn";
             this.cbPersistentScrollOn.UseVisualStyleBackColor = true;
             this.cbPersistentScrollOn.CheckedChanged += new System.EventHandler(this.cbPersistent_CheckedChanged);
+            // 
+            // persistentScrollLabel
+            // 
+            this.persistentScrollLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.persistentScrollLabel.AutoSize = true;
+            this.tableLayoutPanel6.SetColumnSpan(this.persistentScrollLabel, 2);
+            this.persistentScrollLabel.Location = new System.Drawing.Point(3, 151);
+            this.persistentScrollLabel.Name = "persistentScrollLabel";
+            this.persistentScrollLabel.Size = new System.Drawing.Size(115, 15);
+            this.persistentScrollLabel.TabIndex = 3;
+            this.persistentScrollLabel.Text = "persistentScrollLabel";
+            // 
+            // persistentKeyboardLabel
+            // 
+            this.persistentKeyboardLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tableLayoutPanel6.SetColumnSpan(this.persistentKeyboardLabel, 2);
+            this.persistentKeyboardLabel.Location = new System.Drawing.Point(3, 176);
+            this.persistentKeyboardLabel.Name = "persistentKeyboardLabel";
+            this.persistentKeyboardLabel.Size = new System.Drawing.Size(140, 20);
+            this.persistentKeyboardLabel.TabIndex = 5;
+            this.persistentKeyboardLabel.Text = "persistentKeyboardLabel";
+            // 
+            // cbPersistentKeyboardOff
+            // 
+            this.cbPersistentKeyboardOff.AutoSize = true;
+            this.cbPersistentKeyboardOff.Location = new System.Drawing.Point(149, 174);
+            this.cbPersistentKeyboardOff.Name = "cbPersistentKeyboardOff";
+            this.cbPersistentKeyboardOff.Size = new System.Drawing.Size(67, 19);
+            this.cbPersistentKeyboardOff.TabIndex = 6;
+            this.cbPersistentKeyboardOff.Tag = "KeyboardOff";
+            this.cbPersistentKeyboardOff.Text = "cbPersistentKeyboardOff";
+            this.cbPersistentKeyboardOff.UseMnemonic = false;
+            this.cbPersistentKeyboardOff.UseVisualStyleBackColor = true;
+            this.cbPersistentKeyboardOff.Visible = false;
+            this.cbPersistentKeyboardOff.CheckedChanged += new System.EventHandler(this.cbPersistent_CheckedChanged);
+            // 
+            // cbPersistentKeyboardOn
+            // 
+            this.cbPersistentKeyboardOn.AutoSize = true;
+            this.cbPersistentKeyboardOn.Location = new System.Drawing.Point(222, 174);
+            this.cbPersistentKeyboardOn.Name = "cbPersistentKeyboardOn";
+            this.cbPersistentKeyboardOn.Size = new System.Drawing.Size(67, 19);
+            this.cbPersistentKeyboardOn.TabIndex = 7;
+            this.cbPersistentKeyboardOn.Tag = "KeyboardOn";
+            this.cbPersistentKeyboardOn.Text = "cbPersistentKeyboardOn";
+            this.cbPersistentKeyboardOn.UseMnemonic = false;
+            this.cbPersistentKeyboardOn.UseVisualStyleBackColor = true;
+            this.cbPersistentKeyboardOn.CheckedChanged += new System.EventHandler(this.cbPersistent_CheckedChanged);
             // 
             // onlyShowWhenActiveCheckBox
             // 
@@ -1276,7 +1339,7 @@ namespace CapsLockIndicatorV3
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 149F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 99F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(292, 97);
             this.tableLayoutPanel7.TabIndex = 2;
             // 
@@ -1329,7 +1392,7 @@ namespace CapsLockIndicatorV3
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 149F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 102F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(292, 100);
             this.tableLayoutPanel8.TabIndex = 2;
             // 
@@ -1378,7 +1441,7 @@ namespace CapsLockIndicatorV3
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.ItemSize = new System.Drawing.Size(99, 24);
+            this.tabControl1.ItemSize = new System.Drawing.Size(111, 24);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.MyBackColor = System.Drawing.SystemColors.Control;
             this.tabControl1.Name = "tabControl1";
@@ -1392,9 +1455,9 @@ namespace CapsLockIndicatorV3
             this.tabPage3.Controls.Add(this.tableLayoutPanel1);
             this.tabPage3.Location = new System.Drawing.Point(4, 28);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(614, 693);
+            this.tabPage3.Size = new System.Drawing.Size(614, 509);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Tag = "340";
+            this.tabPage3.Tag = "390";
             this.tabPage3.Text = "general";
             // 
             // tabPage1
@@ -1438,7 +1501,7 @@ namespace CapsLockIndicatorV3
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(614, 693);
+            this.tabPage2.Size = new System.Drawing.Size(614, 509);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Tag = "190";
             this.tabPage2.Text = "advancedOptions";
@@ -1455,7 +1518,7 @@ namespace CapsLockIndicatorV3
             this.flowLayoutPanel1b.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1b.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1b.Name = "flowLayoutPanel1b";
-            this.flowLayoutPanel1b.Size = new System.Drawing.Size(608, 687);
+            this.flowLayoutPanel1b.Size = new System.Drawing.Size(608, 503);
             this.flowLayoutPanel1b.TabIndex = 0;
             // 
             // darkModeCheckBox
@@ -1486,7 +1549,7 @@ namespace CapsLockIndicatorV3
             this.advSettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.advSettingsButton.Location = new System.Drawing.Point(3, 82);
             this.advSettingsButton.Name = "advSettingsButton";
-            this.advSettingsButton.Size = new System.Drawing.Size(82, 24);
+            this.advSettingsButton.Size = new System.Drawing.Size(84, 24);
             this.advSettingsButton.TabIndex = 2;
             this.advSettingsButton.Text = "advSettings";
             this.advSettingsButton.UseVisualStyleBackColor = true;
@@ -1499,7 +1562,7 @@ namespace CapsLockIndicatorV3
             this.resetSettingsButton.Location = new System.Drawing.Point(3, 112);
             this.resetSettingsButton.Name = "resetSettingsButton";
             this.resetSettingsButton.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.resetSettingsButton.Size = new System.Drawing.Size(104, 24);
+            this.resetSettingsButton.Size = new System.Drawing.Size(108, 24);
             this.resetSettingsButton.TabIndex = 13;
             this.resetSettingsButton.Text = "resetSettings";
             this.resetSettingsButton.UseVisualStyleBackColor = true;
@@ -1697,5 +1760,9 @@ namespace CapsLockIndicatorV3
         private BetterCheckBox cbPersistentCapsOn;
         private BetterCheckBox cbPersistentScrollOff;
         private BetterCheckBox cbPersistentScrollOn;
+        private BetterCheckBox enableKeyboardLayoutInd;
+        private System.Windows.Forms.Label persistentKeyboardLabel;
+        private BetterCheckBox cbPersistentKeyboardOff;
+        private BetterCheckBox cbPersistentKeyboardOn;
     }
 }

@@ -177,6 +177,12 @@
     <value>オン</value>
     <comment>Label for caps lock on checkbox in persistent overlay section</comment>
   </data>
+  <data name="cbPersistentKeyboardOff" xml:space="preserve">
+    <value>オフ</value>
+  </data>
+  <data name="cbPersistentKeyboardOn" xml:space="preserve">
+    <value>オン</value>
+  </data>
   <data name="cbPersistentNumOff" xml:space="preserve">
     <value>オフ</value>
     <comment>Label for num lock off checkbox in persistent overlay section</comment>
@@ -357,6 +363,9 @@
     <value>アイコンパック「{name}」(バージョン {version})が正常にインストールされました！</value>
     <comment>Shown after an icon pack was installed successfully</comment>
   </data>
+  <data name="keyboardLayout" xml:space="preserve">
+    <value>キーボードレイアウト</value>
+  </data>
   <data name="keyChanged" xml:space="preserve">
     <value>{0} 変更時</value>
     <comment>Used for the check boxes in the "Show notification when..." group box. "{0}" will be replaced with the key name</comment>
@@ -408,6 +417,10 @@
   <data name="persistentHeadingLabel" xml:space="preserve">
     <value>永続的なオーバーレイを表示する</value>
     <comment>Heading for persistent overlay section</comment>
+  </data>
+  <data name="persistentKeyboardLabel" xml:space="preserve">
+    <value>キーボードレイアウトが</value>
+    <comment>Label for Keyboard Layout row in persistent overlay section</comment>
   </data>
   <data name="persistentNumLabel" xml:space="preserve">
     <value>Num Lockが</value>
@@ -514,5 +527,4 @@
     <value>はい(&amp;Y)</value>
     <comment>Generic label for Yes button</comment>
   </data>
-
 </root>
