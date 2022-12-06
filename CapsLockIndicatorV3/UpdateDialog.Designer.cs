@@ -143,7 +143,7 @@ namespace CapsLockIndicatorV3
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CapsLock Indicator Update available!";
+            this.Text = "ImeModeIndicator Update available!";
             this.borderPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -346,7 +346,7 @@ namespace CapsLockIndicatorV3
         {
             if (!SettingsManager.Get<bool>("advSettingsWarnShown"))
             {
-                if (MessageBox.Show("Before you edit the settings, please exit CapsLock Indicator completely. This message will only be shown once. Do you wish to proceed?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) != DialogResult.Yes)
+                if (MessageBox.Show("Before you edit the settings, please exit ImeModeIndicator completely. This message will only be shown once. Do you wish to proceed?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) != DialogResult.Yes)
                     return;
                 SettingsManager.Set("advSettingsWarnShown", true);
             }

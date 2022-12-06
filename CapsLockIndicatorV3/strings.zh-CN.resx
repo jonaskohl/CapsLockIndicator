@@ -134,7 +134,7 @@
     <comment>Window text for Advanced Settings</comment>
   </data>
   <data name="advancedSettingsWarning" xml:space="preserve">
-    <value>更改高级设置可能会导致意外行为，并可能导致 CapsLock Indicator 状态不稳定。请在更改设置后重新启动 CapsLock Indicator。 仅当您知道自己在做什么时才更改设置！使用此编辑器需要您自担风险！</value>
+    <value>更改高级设置可能会导致意外行为，并可能导致 ImeModeIndicator 状态不稳定。请在更改设置后重新启动 ImeModeIndicator。 仅当您知道自己在做什么时才更改设置！使用此编辑器需要您自担风险！</value>
     <comment>Warning text for Advanced Settings</comment>
   </data>
   <data name="autoCheckForUpdates" xml:space="preserve">
@@ -426,7 +426,7 @@
     <comment>Used for the "Reset settings" button</comment>
   </data>
   <data name="resetSettingsConfirmationText" xml:space="preserve">
-    <value>这会将所有配置重设为默认值并重启 CapsLock Indicator，所有自定义值都将会丢失！这是无法恢复的！
+    <value>这会将所有配置重设为默认值并重启 ImeModeIndicator，所有自定义值都将会丢失！这是无法恢复的！
 您确定要重设所有配置吗？</value>
     <comment>Used for the confirmation prompt after clicking "Reset settings"</comment>
   </data>
@@ -487,11 +487,11 @@
     <comment>Tab header for advanced settings</comment>
   </data>
   <data name="unsupportedCLI" xml:space="preserve">
-    <value>不支持此版本的 CapsLock Indicator (版本 {version})。请更新为最新版本！</value>
+    <value>不支持此版本的 ImeModeIndicator (版本 {version})。请更新为最新版本！</value>
     <comment>Banner text when CLI version is unsupported</comment>
   </data>
   <data name="unsupportedWin" xml:space="preserve">
-    <value>你正在使用已不再受 Microsoft 支持的操作系统 {os}。CapsLock Indicator 未来的版本将不会再支持此操作系统！请尽早升级为最新版本的 Windows！</value>
+    <value>你正在使用已不再受 Microsoft 支持的操作系统 {os}。ImeModeIndicator 未来的版本将不会再支持此操作系统！请尽早升级为最新版本的 Windows！</value>
     <comment>Banner text when Windows version is unsupported</comment>
   </data>
   <data name="updateAvailable" xml:space="preserve">

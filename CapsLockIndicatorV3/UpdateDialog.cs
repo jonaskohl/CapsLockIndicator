@@ -80,7 +80,7 @@ namespace CapsLockIndicatorV3
 
         private void lnkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("Version " + newVersion + " of CapsLock Indicator requires at least Windows " + minOsVersion + "! You are running " + FriendlyName(), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show("Version " + newVersion + " of ImeModeIndicator requires at least Windows " + minOsVersion + "! You are running " + FriendlyName(), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         public string HKLM_GetString(string path, string key)

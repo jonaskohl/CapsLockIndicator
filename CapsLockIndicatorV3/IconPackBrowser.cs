@@ -105,7 +105,7 @@ namespace CapsLockIndicatorV3
         {
             if (id == ":reset:")
             {
-                if (MessageBox.Show(this, strings.iconPackResetPrompt, "CapsLock Indicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show(this, strings.iconPackResetPrompt, "ImeModeIndicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     var thisDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
                     foreach (var n in new[] { "caps", "num", "scroll" })
@@ -117,7 +117,7 @@ namespace CapsLockIndicatorV3
                         }
 
                     Program.MainForm.ReloadIcons();
-                    MessageBox.Show(this, strings.iconPackResetSuccess, "CapsLock Indicator", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(this, strings.iconPackResetSuccess, "ImeModeIndicator", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 return;
@@ -166,7 +166,7 @@ namespace CapsLockIndicatorV3
                     message.Add("name", metadata.Name);
                     message.Add("version", metadata.Version);
                     message.Add("authorName", metadata.AuthorName);
-                    if (MessageBox.Show(this, message.ToString(), "CapsLock Indicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show(this, message.ToString(), "ImeModeIndicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         DownloadPack(id, metadata);
                 };
 
@@ -225,7 +225,7 @@ namespace CapsLockIndicatorV3
                     var message = new StringFormatter(strings.iconPackSuccess);
                     message.Add("name", metadata.Name);
                     message.Add("version", metadata.Version);
-                    MessageBox.Show(this, message.ToString(), "CapsLock Indicator", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(this, message.ToString(), "ImeModeIndicator", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 };
 
                 var url = URLs.IconGalleryDownload + "?download=" + id;

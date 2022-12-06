@@ -118,6 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="messageLabel.Text" xml:space="preserve">
-    <value>Thank you for choosing CapsLock Indicator! This program is open-source and free, always has been, always will be! Are you interested in contributing to CapsLock Indicator yourself? Visit the link below for more information! Also, please take a moment to review the settings below!</value>
+    <value>Thank you for choosing ImeModeIndicator! This program is open-source and free, always has been, always will be! Are you interested in contributing to ImeModeIndicator yourself? Visit the link below for more information! Also, please take a moment to review the settings below!</value>
   </data>
 </root>

@@ -134,7 +134,7 @@
     <comment>Window text for Advanced Settings</comment>
   </data>
   <data name="advancedSettingsWarning" xml:space="preserve">
-    <value>Changing advanced settings may cause unexpected behaviour and may lead to an unstable state of CapsLock Indicator. Please restart CapsLock Indicator after changing settings. Only change settings if you know what you are doing! Use this editor at your own risk!</value>
+    <value>Changing advanced settings may cause unexpected behaviour and may lead to an unstable state of ImeModeIndicator. Please restart ImeModeIndicator after changing settings. Only change settings if you know what you are doing! Use this editor at your own risk!</value>
     <comment>Warning text for Advanced Settings</comment>
   </data>
   <data name="autoCheckForUpdates" xml:space="preserve">
@@ -270,7 +270,7 @@
     <comment>Tooltip for failed translation download</comment>
   </data>
   <data name="firstRunAllowUpdateCheck" xml:space="preserve">
-    <value>Allow CapsLock Indicator to periodically check for updates online (can be changed later)</value>
+    <value>Allow ImeModeIndicator to periodically check for updates online (can be changed later)</value>
     <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
   </data>
   <data name="firstRunColorSchemeDark" xml:space="preserve">
@@ -298,11 +298,11 @@
     <comment>Button that exists the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="firstRunHeading" xml:space="preserve">
-    <value>Welcome to CapsLock Indicator</value>
+    <value>Welcome to ImeModeIndicator</value>
     <comment>The heading of the first-run dialog</comment>
   </data>
   <data name="firstRunMessage" xml:space="preserve">
-    <value>Thank you for choosing CapsLock Indicator! This program is open-source and free, always has been, always will be! Are you interested in contributing to CapsLock Indicator yourself? Visit the link below for more information! Also, please take a moment to review the settings below!</value>
+    <value>Thank you for choosing ImeModeIndicator! This program is open-source and free, always has been, always will be! Are you interested in contributing to ImeModeIndicator yourself? Visit the link below for more information! Also, please take a moment to review the settings below!</value>
     <comment>The message of the first-run dialog</comment>
   </data>
   <data name="firstRunPrivacyInfoLinkLabel" xml:space="preserve">
@@ -326,7 +326,7 @@
     <comment>The caption for the "Text colour deactivated" button.</comment>
   </data>
   <data name="generalIconBalloonText" xml:space="preserve">
-    <value>You can show CapsLock Indicator again by double clicking on this icon.</value>
+    <value>You can show ImeModeIndicator again by double clicking on this icon.</value>
     <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
   </data>
   <data name="headerWarning" xml:space="preserve">
@@ -442,7 +442,7 @@
     <comment>Used for the "Reset settings" button</comment>
   </data>
   <data name="resetSettingsConfirmationText" xml:space="preserve">
-    <value>This will reset all settings to their default values and restart CapsLock Indicator. All customisation will be lost! This cannot be undone!
+    <value>This will reset all settings to their default values and restart ImeModeIndicator. All customisation will be lost! This cannot be undone!
 Do you want to reset all settings now?</value>
     <comment>Used for the confirmation prompt after clicking "Reset settings"</comment>
   </data>
@@ -506,15 +506,15 @@ Do you want to reset all settings now?</value>
     <comment>Tab header for advanced settings</comment>
   </data>
   <data name="unsupportedCLI" xml:space="preserve">
-    <value>This version of CapsLock Indicator (Version {version}) is not supported. Please update to the latest version!</value>
+    <value>This version of ImeModeIndicator (Version {version}) is not supported. Please update to the latest version!</value>
     <comment>Banner text when CLI version is unsupported</comment>
   </data>
   <data name="unsupportedWin" xml:space="preserve">
-    <value>You are using {os} which is no longer supported by Microsoft. CapsLock Indicator will drop support for this OS in the future! Please upgrade to a modern version of Windows!</value>
+    <value>You are using {os} which is no longer supported by Microsoft. ImeModeIndicator will drop support for this OS in the future! Please upgrade to a modern version of Windows!</value>
     <comment>Banner text when Windows version is unsupported</comment>
   </data>
   <data name="updateAvailable" xml:space="preserve">
-    <value>CapsLock Indicator Update available!</value>
+    <value>ImeModeIndicator Update available!</value>
     <comment>The title for the update window.</comment>
   </data>
   <data name="updateInfoFormat" xml:space="preserve">

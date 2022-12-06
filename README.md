@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://cli.jonaskohl.de/capslock-indicator-logo.png" alt="CapsLock Indicator" />
+  <img src="https://cli.jonaskohl.de/capslock-indicator-logo.png" alt="ImeModeIndicator" />
 </p>
 
 <p align="center">
@@ -14,10 +14,10 @@
   It's not only indicate Num lock, Caps lock and Scroll lock key. <br />
   (So forked. because It might be violate Program's definition)<br />
   Added Indicate Keyboard Layout change (like language) and Ime-Mode change <br />
-  from now. CapsLock Indicator's information. <br />
+  from now. ImeModeIndicator's information. <br />
   ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ <br />
   
-  CapsLock Indicator is a small utility that indicates the state of the Num lock, Caps lock and Scroll lock key.
+  ImeModeIndicator is a small utility that indicates the state of the Num lock, Caps lock and Scroll lock key.
 </p>
 
 <p align="center"><br /></p>

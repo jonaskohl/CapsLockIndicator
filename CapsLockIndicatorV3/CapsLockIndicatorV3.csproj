@@ -7,7 +7,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <OutputType>WinExe</OutputType>
     <RootNamespace>CapsLockIndicatorV3</RootNamespace>
-    <AssemblyName>CapsLockIndicatorV3</AssemblyName>
+    <AssemblyName>ImeModeIndicator</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <TargetFrameworkProfile />
@@ -44,7 +44,8 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>CLIv3_Icon.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>CapsLockIndicatorV3.Program</StartupObject>
@@ -212,6 +213,11 @@
     <Compile Include="Settings.cs" />
     <Compile Include="SettingsManager.cs" />
     <Compile Include="StringFormatter.cs" />
+    <Compile Include="strings.ar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>strings.ar.resx</DependentUpon>
+    </Compile>
     <Compile Include="strings.cs.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -242,6 +248,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>strings.it.resx</DependentUpon>
     </Compile>
+    <Compile Include="strings.ja.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>strings.ja.resx</DependentUpon>
+    </Compile>
     <Compile Include="strings.ko.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -251,6 +262,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>strings.nl.resx</DependentUpon>
+    </Compile>
+    <Compile Include="strings.pl.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>strings.pl.resx</DependentUpon>
     </Compile>
     <Compile Include="strings.pt-BR.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -276,6 +292,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>strings.zh-CN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="strings.zh-Hant-TW.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>strings.zh-Hant-TW.resx</DependentUpon>
     </Compile>
     <Compile Include="strings.zh-TW.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -350,9 +371,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="strings.ar.resx" />
+    <EmbeddedResource Include="strings.ar.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>strings.ar.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="strings.cs.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.cs.Designer.cs</LastGenOutput>
@@ -360,6 +385,7 @@
     <EmbeddedResource Include="strings.de.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.de.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="strings.es.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -373,7 +399,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.it.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="strings.ja.resx" />
+    <EmbeddedResource Include="strings.ja.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>strings.ja.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="strings.ko.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.ko.Designer.cs</LastGenOutput>
@@ -382,7 +411,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.nl.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="strings.pl.resx" />
+    <EmbeddedResource Include="strings.pl.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>strings.pl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="strings.pt-BR.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.pt-BR.Designer.cs</LastGenOutput>
@@ -407,7 +439,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.zh-CN.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="strings.zh-Hant-TW.resx" />
+    <EmbeddedResource Include="strings.zh-Hant-TW.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>strings.zh-Hant-TW.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="strings.zh-TW.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.zh-TW.Designer.cs</LastGenOutput>
@@ -420,17 +455,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CLIv3_Icon.ico" />
     <None Include="Resources\TabIcons.bmp" />
     <None Include="Resources\settingsDescriptions.txt" />
     <None Include="Resources\settings.ico" />
-    <None Include="Resources\logo.Image.png" />
-    <None Include="Resources\MainWindow.Icon.ico" />
-    <None Include="Resources\generalIcon.Icon.ico" />
     <None Include="Resources\settings_w.ico" />
-    <None Include="Resources\CLIv3_Icon_Dark.ico" />
-    <None Include="Resources\generalIcon_dark.Icon.ico" />
-    <None Include="Resources\logo_dark.Image.png" />
     <None Include="Resources\defaultSettings.txt" />
     <None Include="Resources\CLIv3_Scroll_On.ico" />
     <None Include="Resources\CLIv3_Scroll_Off.ico" />

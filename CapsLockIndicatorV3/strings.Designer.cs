@@ -97,7 +97,7 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Changing advanced settings may cause unexpected behaviour and may lead to an unstable state of CapsLock Indicator. Please restart CapsLock Indicator after changing settings. Only change settings if you know what you are doing! Use this editor at your own risk!.
+        ///   Looks up a localized string similar to Changing advanced settings may cause unexpected behaviour and may lead to an unstable state of ImeModeIndicator. Please restart ImeModeIndicator after changing settings. Only change settings if you know what you are doing! Use this editor at your own risk!.
         /// </summary>
         internal static string advancedSettingsWarning {
             get {
@@ -403,7 +403,7 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Allow CapsLock Indicator to periodically check for updates online (can be changed later).
+        ///   Looks up a localized string similar to Allow ImeModeIndicator to periodically check for updates online (can be changed later).
         /// </summary>
         internal static string firstRunAllowUpdateCheck {
             get {
@@ -466,7 +466,7 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome to CapsLock Indicator.
+        ///   Looks up a localized string similar to Welcome to ImeModeIndicator.
         /// </summary>
         internal static string firstRunHeading {
             get {
@@ -475,7 +475,7 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thank you for choosing CapsLock Indicator! This program is open-source and free, always has been, always will be! Are you interested in contributing to CapsLock Indicator yourself? Visit the link below for more information! Also, please take a moment to review the settings below!.
+        ///   Looks up a localized string similar to Thank you for choosing ImeModeIndicator! This program is open-source and free, always has been, always will be! Are you interested in contributing to ImeModeIndicator yourself? Visit the link below for more information! Also, please take a moment to review the settings below!.
         /// </summary>
         internal static string firstRunMessage {
             get {
@@ -529,7 +529,7 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can show CapsLock Indicator again by double clicking on this icon..
+        ///   Looks up a localized string similar to You can show ImeModeIndicator again by double clicking on this icon..
         /// </summary>
         internal static string generalIconBalloonText {
             get {
@@ -790,7 +790,7 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This will reset all settings to their default values and restart CapsLock Indicator. All customisation will be lost! This cannot be undone!
+        ///   Looks up a localized string similar to This will reset all settings to their default values and restart ImeModeIndicator. All customisation will be lost! This cannot be undone!
         ///Do you want to reset all settings now?.
         /// </summary>
         internal static string resetSettingsConfirmationText {
@@ -935,7 +935,7 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This version of CapsLock Indicator (Version {version}) is not supported. Please update to the latest version!.
+        ///   Looks up a localized string similar to This version of ImeModeIndicator (Version {version}) is not supported. Please update to the latest version!.
         /// </summary>
         internal static string unsupportedCLI {
             get {
@@ -944,7 +944,7 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You are using {os} which is no longer supported by Microsoft. CapsLock Indicator will drop support for this OS in the future! Please upgrade to a modern version of Windows!.
+        ///   Looks up a localized string similar to You are using {os} which is no longer supported by Microsoft. ImeModeIndicator will drop support for this OS in the future! Please upgrade to a modern version of Windows!.
         /// </summary>
         internal static string unsupportedWin {
             get {
@@ -953,7 +953,7 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CapsLock Indicator Update available!.
+        ///   Looks up a localized string similar to ImeModeIndicator Update available!.
         /// </summary>
         internal static string updateAvailable {
             get {

@@ -135,7 +135,7 @@
   </data>
   <data name="advancedSettingsWarning" xml:space="preserve">
     <value>La modifica delle impostazioni avanzate può causare un comportamento imprevisto e può portare a uno stato instabile dell'indicatore CapsLock. 
-Dopo aver modificato le impostazioni riavviare CapsLock Indicator. 
+Dopo aver modificato le impostazioni riavviare ImeModeIndicator. 
 Modifica le impostazioni solo se sai cosa stai facendo! 
 Usa questo editor a tuo rischio!</value>
     <comment>Warning text for Advanced Settings</comment>
@@ -266,7 +266,7 @@ Vuoi uscire comunque?</value>
     <comment>Tooltip for failed translation download</comment>
   </data>
   <data name="firstRunAllowUpdateCheck" xml:space="preserve">
-    <value>Consenti a CapsLock Indicator di verificare periodicamente la presenza di aggiornamenti online (può essere modificato in seguito)</value>
+    <value>Consenti a ImeModeIndicator di verificare periodicamente la presenza di aggiornamenti online (può essere modificato in seguito)</value>
     <comment>Label of the checkbox that determines whether or not CLI should search for updates</comment>
   </data>
   <data name="firstRunColorSchemeDark" xml:space="preserve">
@@ -294,13 +294,13 @@ Vuoi uscire comunque?</value>
     <comment>Button that exists the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="firstRunHeading" xml:space="preserve">
-    <value>Benvenuto in CapsLock Indicator</value>
+    <value>Benvenuto in ImeModeIndicator</value>
     <comment>The heading of the first-run dialog</comment>
   </data>
   <data name="firstRunMessage" xml:space="preserve">
-    <value>Grazie per aver scelto CapsLock Indicator! 
+    <value>Grazie per aver scelto ImeModeIndicator! 
 Questo programma è open-source e gratuito, lo è sempre stato, lo sarà sempre! 
-Sei interessato a contribuire personalmente a CapsLock Indicator? 
+Sei interessato a contribuire personalmente a ImeModeIndicator? 
 Visita il link sottostante per maggiori informazioni! 
 Inoltre, prenditi un momento per rivedere le impostazioni di seguito!</value>
     <comment>The message of the first-run dialog</comment>
@@ -510,7 +510,7 @@ Aggiorna Windows ad una versione più recente!</value>
     <comment>Banner text when Windows version is unsupported</comment>
   </data>
   <data name="updateAvailable" xml:space="preserve">
-    <value>Aggiornamento disponibile per CapsLock Indicator!</value>
+    <value>Aggiornamento disponibile per ImeModeIndicator!</value>
     <comment>The title for the update window.</comment>
   </data>
   <data name="updateInfoFormat" xml:space="preserve">

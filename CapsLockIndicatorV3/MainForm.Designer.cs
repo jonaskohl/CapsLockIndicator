@@ -404,8 +404,8 @@ namespace CapsLockIndicatorV3
             // 
             // logo
             // 
+            this.logo.BackColor = System.Drawing.Color.Lime;
             this.logo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logo.Image = global::CapsLockIndicatorV3.resources.logo;
             this.logo.Location = new System.Drawing.Point(12, 9);
             this.logo.Name = "logo";
             this.logo.Size = new System.Drawing.Size(48, 48);
@@ -1339,7 +1339,7 @@ namespace CapsLockIndicatorV3
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 99F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(292, 97);
             this.tableLayoutPanel7.TabIndex = 2;
             // 
@@ -1392,7 +1392,7 @@ namespace CapsLockIndicatorV3
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 102F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 103F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(292, 100);
             this.tableLayoutPanel8.TabIndex = 2;
             // 
@@ -1441,7 +1441,7 @@ namespace CapsLockIndicatorV3
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.ItemSize = new System.Drawing.Size(111, 24);
+            this.tabControl1.ItemSize = new System.Drawing.Size(99, 24);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.MyBackColor = System.Drawing.SystemColors.Control;
             this.tabControl1.Name = "tabControl1";
@@ -1589,7 +1589,6 @@ namespace CapsLockIndicatorV3
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "MainForm";

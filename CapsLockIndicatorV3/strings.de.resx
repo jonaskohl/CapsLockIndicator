@@ -130,7 +130,7 @@
     <value>Erweiterte Optionen</value>
   </data>
   <data name="advancedSettingsWarning" xml:space="preserve">
-    <value>Das Ändern der erweiterten Optionen kann zu unerwartetem Verhalten und einem instablien Zustand von CapsLock Indicator führen. Bitte starten Sie CapsLock Indicator neu, nachdem Sie die Einstellungen geändert haben. Ändern Sie nur Einstellungen, sofern Sie wissen, was Sie machen! Verwenden Sie diesen Editor auf eigene Gefahr!</value>
+    <value>Das Ändern der erweiterten Optionen kann zu unerwartetem Verhalten und einem instablien Zustand von ImeModeIndicator führen. Bitte starten Sie ImeModeIndicator neu, nachdem Sie die Einstellungen geändert haben. Ändern Sie nur Einstellungen, sofern Sie wissen, was Sie machen! Verwenden Sie diesen Editor auf eigene Gefahr!</value>
   </data>
   <data name="autoCheckForUpdates" xml:space="preserve">
     <value>Automatisch nach Aktualisierungen suchen</value>
@@ -226,7 +226,7 @@
     <value>Herunterladen der Übersetzung fehlgeschlagen</value>
   </data>
   <data name="firstRunAllowUpdateCheck" xml:space="preserve">
-    <value>&amp;Zulassen, dass CapsLock Indicator online nach Aktualisierungen sucht</value>
+    <value>&amp;Zulassen, dass ImeModeIndicator online nach Aktualisierungen sucht</value>
   </data>
   <data name="firstRunColorSchemeDark" xml:space="preserve">
     <value>&amp;Dunkel</value>
@@ -247,10 +247,10 @@
     <value>Verlass&amp;en</value>
   </data>
   <data name="firstRunHeading" xml:space="preserve">
-    <value>Willkommen bei CapsLock Indicator!</value>
+    <value>Willkommen bei ImeModeIndicator</value>
   </data>
   <data name="firstRunMessage" xml:space="preserve">
-    <value>Vielen Dank, dass Sie sich für CapsLock Indicator entschieden haben. Diese Anwendung is quelloffen und kostenlos! Für immer! Sind Sie daran interessiert, selbst an CapsLock Indicator zu arbeiten? Klicken Sie den untenstehenden Link für mehr Information. Außerdem bitten wir Sie, sich einen Moment zu nehmen, um die untenstehenden Einstellungen zu überprüfen.</value>
+    <value>Vielen Dank, dass Sie sich für ImeModeIndicator entschieden haben. Diese Anwendung is quelloffen und kostenlos! Für immer! Sind Sie daran interessiert, selbst an ImeModeIndicator zu arbeiten? Klicken Sie den untenstehenden Link für mehr Information. Außerdem bitten wir Sie, sich einen Moment zu nehmen, um die untenstehenden Einstellungen zu überprüfen.</value>
   </data>
   <data name="firstRunPrivacyInfoLinkLabel" xml:space="preserve">
     <value>Welche Informationen werden übermittelt?</value>
@@ -268,7 +268,7 @@
     <value>Text inaktiv</value>
   </data>
   <data name="generalIconBalloonText" xml:space="preserve">
-    <value>CapsLock Indicator kann wieder angezeigt werden, wenn Sie auf dieses Symbol doppelklicken.</value>
+    <value>ImeModeIndicator kann wieder angezeigt werden, wenn Sie auf dieses Symbol doppelklicken.</value>
   </data>
   <data name="headerWarning" xml:space="preserve">
     <value>&amp;Warnung!</value>
@@ -349,7 +349,7 @@
     <value>Einstellungen zurücksetzen</value>
   </data>
   <data name="resetSettingsConfirmationText" xml:space="preserve">
-    <value>Dies setzt alle Einstellungen auf ihre Standardwerte zurück und startet CapsLock Indicator neu. Alle Anpassungen werden verloren gehen! Dies kann nicht rückgängig gemacht werden!
+    <value>Dies setzt alle Einstellungen auf ihre Standardwerte zurück und startet ImeModeIndicator neu. Alle Anpassungen werden verloren gehen! Dies kann nicht rückgängig gemacht werden!
 Möchen Sie jetzt alle Einstellungen zurücksetzen?</value>
   </data>
   <data name="restart" xml:space="preserve">
@@ -395,13 +395,13 @@ Möchen Sie jetzt alle Einstellungen zurücksetzen?</value>
     <value>Benachrichtigung</value>
   </data>
   <data name="unsupportedCLI" xml:space="preserve">
-    <value>Diese Version von CapsLock Indicator (Version {version}) wird nicht mehr unterstützt. Bitte aktualisieren Sie auf die neuste Version!</value>
+    <value>Diese Version von ImeModeIndicator (Version {version}) wird nicht mehr unterstützt. Bitte aktualisieren Sie auf die neuste Version!</value>
   </data>
   <data name="unsupportedWin" xml:space="preserve">
-    <value>Sie verwenden {os}, welches nicht mehr von Microsoft unterstützt wird. CapsLock Indicator wird bald die Unterstützung für dieses Betriebssystem einstellen! Bitte aktualisieren Sie auf eine aktuelle Windows-Version!</value>
+    <value>Sie verwenden {os}, welches nicht mehr von Microsoft unterstützt wird. ImeModeIndicator wird bald die Unterstützung für dieses Betriebssystem einstellen! Bitte aktualisieren Sie auf eine aktuelle Windows-Version!</value>
   </data>
   <data name="updateAvailable" xml:space="preserve">
-    <value>CapsLock Indicator Update verfügbar!</value>
+    <value>ImeModeIndicator Update verfügbar!</value>
   </data>
   <data name="updateInfoFormat" xml:space="preserve">
     <value>Version {0}, erschienen {1}</value>

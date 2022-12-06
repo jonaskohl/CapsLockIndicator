@@ -2,11 +2,11 @@
 {
     static class URLs
     {
-        public const string MainWebsite = "https://jonaskohl.de/";
-        public const string ProjectWebsite = "https://cli.jonaskohl.de/";
-        public const string GithubRepo = "https://github.com/jonaskohl/CapsLockIndicator";
+        public const string MainWebsite = "https://github.com/wowwon/ImeModeIndicator/";
+        public const string ProjectWebsite = "https://github.com/wowwon/ImeModeIndicator/";
+        public const string GithubRepo = "https://github.com/wowwon/ImeModeIndicator/";
 
-        public const string ServiceEndpointBase = ProjectWebsite;
+        public const string ServiceEndpointBase = "";
 
         public const string DownloadTranslations = ProjectWebsite + "!/translations#download-translations";
 

@@ -12,7 +12,7 @@ namespace CapsLockIndicatorV3
 {
     public static class SettingsManager
     {
-        public static string SettingsFileNormal => Environment.ExpandEnvironmentVariables(@"%appdata%\Jonas Kohl\CapsLock Indicator\settings\any\usercfg");
+        public static string SettingsFileNormal => Environment.ExpandEnvironmentVariables(@"%appdata%\ImeModeIndicator\settings\any\usercfg");
         public static string SettingsFilePortable => Environment.ExpandEnvironmentVariables(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "usercfg"));
 
         public static event EventHandler<string> SettingChanged;

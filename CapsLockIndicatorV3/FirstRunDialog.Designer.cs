@@ -57,7 +57,7 @@ namespace CapsLockIndicatorV3
             this.headerLabel.Name = "headerLabel";
             this.headerLabel.Size = new System.Drawing.Size(227, 21);
             this.headerLabel.TabIndex = 0;
-            this.headerLabel.Text = "Welcome to CapsLock Indicator";
+            this.headerLabel.Text = "Welcome to ImeModeIndicator";
             // 
             // tableLayoutPanel1
             // 
@@ -128,7 +128,7 @@ namespace CapsLockIndicatorV3
             this.allowUpdatesCheckBox.Name = "allowUpdatesCheckBox";
             this.allowUpdatesCheckBox.Size = new System.Drawing.Size(357, 57);
             this.allowUpdatesCheckBox.TabIndex = 0;
-            this.allowUpdatesCheckBox.Text = "Allow CapsLock Indicator to periodically check for updates online (can be changed" +
+            this.allowUpdatesCheckBox.Text = "Allow ImeModeIndicator to periodically check for updates online (can be changed" +
     " later)";
             this.allowUpdatesCheckBox.UseVisualStyleBackColor = false;
             this.allowUpdatesCheckBox.CheckedChanged += new System.EventHandler(this.allowUpdatesCheckBox_CheckedChanged);
@@ -242,7 +242,7 @@ namespace CapsLockIndicatorV3
             this.Padding = new System.Windows.Forms.Padding(9);
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CapsLock Indicator";
+            this.Text = "ImeModeIndicator";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);

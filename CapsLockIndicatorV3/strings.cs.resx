@@ -134,7 +134,7 @@
     <comment>Window text for Advanced Settings</comment>
   </data>
   <data name="advancedSettingsWarning" xml:space="preserve">
-    <value>Změna pokročilého nastavení může způsobit nečekané chovaní a může vést k nestabilitě programu CapsLock Indicator. Prosím, restartujte program po změně nastavení. Měňte nastavení pouze, pokud víte, co děláte! Používejte tento editor na své vlastní riziko!</value>
+    <value>Změna pokročilého nastavení může způsobit nečekané chovaní a může vést k nestabilitě programu ImeModeIndicator. Prosím, restartujte program po změně nastavení. Měňte nastavení pouze, pokud víte, co děláte! Používejte tento editor na své vlastní riziko!</value>
     <comment>Warning text for Advanced Settings</comment>
   </data>
   <data name="autoCheckForUpdates" xml:space="preserve">
@@ -290,11 +290,11 @@
     <comment>Button that exists the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="firstRunHeading" xml:space="preserve">
-    <value>Vítejte v programu CapsLock Indicator</value>
+    <value>Vítejte v programu ImeModeIndicator</value>
     <comment>The heading of the first-run dialog</comment>
   </data>
   <data name="firstRunMessage" xml:space="preserve">
-    <value>Děkujeme za to, že jste si zvolili CapsLock Indicator! Tento program je open-source a zdarma, vždy byl a vždy bude! Rádi byste sami přispívali? Klikněte na odkaz níže pro více informací! Také se, prosíme, podívejte na nastavení níže!</value>
+    <value>Děkujeme za to, že jste si zvolili ImeModeIndicator! Tento program je open-source a zdarma, vždy byl a vždy bude! Rádi byste sami přispívali? Klikněte na odkaz níže pro více informací! Také se, prosíme, podívejte na nastavení níže!</value>
     <comment>The message of the first-run dialog</comment>
   </data>
   <data name="firstRunPrivacyInfoLinkLabel" xml:space="preserve">
@@ -426,7 +426,7 @@
     <comment>Used for the "Reset settings" button</comment>
   </data>
   <data name="resetSettingsConfirmationText" xml:space="preserve">
-    <value>Tato akce obnoví veškerá nastavení v jejich výchozí hodnoty a restartuje CapsLock Indicator. Veškerá přizpůsobení budou ztracena! Tuto akci nelze zvrátit!
+    <value>Tato akce obnoví veškerá nastavení v jejich výchozí hodnoty a restartuje ImeModeIndicator. Veškerá přizpůsobení budou ztracena! Tuto akci nelze zvrátit!
 Chcete teď obnovit veškerá nastavení?</value>
     <comment>Used for the confirmation prompt after clicking "Reset settings"</comment>
   </data>
@@ -487,15 +487,15 @@ Chcete teď obnovit veškerá nastavení?</value>
     <comment>Tab header for advanced settings</comment>
   </data>
   <data name="unsupportedCLI" xml:space="preserve">
-    <value>Tato verze programu CapsLock Indicator (verze {version}) již není podporována. Akzualizujte, prosím, tento program na nejnovější verzi!</value>
+    <value>Tato verze programu ImeModeIndicator (verze {version}) již není podporována. Akzualizujte, prosím, tento program na nejnovější verzi!</value>
     <comment>Banner text when CLI version is unsupported</comment>
   </data>
   <data name="unsupportedWin" xml:space="preserve">
-    <value>Používáte operační systém {os}, jenž už není podporován Microsoftem. CapsLock Indicator v budoucnu již nebude tento systém podporovat! Aktualizujte, prosím, systém Windows na moderní verzi!</value>
+    <value>Používáte operační systém {os}, jenž už není podporován Microsoftem. ImeModeIndicator v budoucnu již nebude tento systém podporovat! Aktualizujte, prosím, systém Windows na moderní verzi!</value>
     <comment>Banner text when Windows version is unsupported</comment>
   </data>
   <data name="updateAvailable" xml:space="preserve">
-    <value>Dostupná aktualizace programu „CapsLock Indicator“</value>
+    <value>Dostupná aktualizace programu „ImeModeIndicator“</value>
     <comment>The title for the update window.</comment>
   </data>
   <data name="updateInfoFormat" xml:space="preserve">

@@ -139,7 +139,7 @@ namespace CapsLockIndicatorV3
             };
 
             // Check if application is in startup
-            startonlogonCheckBox.Checked = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "CapsLock Indicator", null) != null;
+            startonlogonCheckBox.Checked = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "ImeModeIndicator", null) != null;
             hideOnStartupCheckBox.Checked = SettingsManager.Get<bool>("hideOnStartup");
             checkForUpdatedCheckBox.Checked = SettingsManager.Get<bool>("checkForUpdates");
 
@@ -287,7 +287,7 @@ namespace CapsLockIndicatorV3
             {
                 var oldLangs = await CheckOldLanguageFiles();
 
-                if (oldLangs.Length > 0 && MessageBox.Show(strings.updateLocaleMessageBox, "CapsLock Indicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (oldLangs.Length > 0 && MessageBox.Show(strings.updateLocaleMessageBox, "ImeModeIndicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     UpdateLanguageFiles(oldLangs);
             });
         }
@@ -592,8 +592,8 @@ namespace CapsLockIndicatorV3
             var dark = DarkModeProvider.IsDark;
 
             Native.UseImmersiveDarkModeColors(Handle, dark);
-            generalIcon.Icon = (Icon)resources.GetObject("generalIcon");
-            Icon = (Icon)resources.GetObject("CLIv3_Icon" + (dark ? "_Dark" : ""));
+            generalIcon.Icon = (Icon)resources.GetObject("settings");
+            Icon = (Icon)resources.GetObject("AppIcon_" + (dark ? "_Dark" : ""));
 
             iconsGroup.ForeColor =
             indicatorGroup.ForeColor =
@@ -688,7 +688,7 @@ namespace CapsLockIndicatorV3
             aboutPanelTopBorder.BackColor =
             appNameLabel.LinkColor =
             appNameLabel.ActiveLinkColor =
-            dark ? Color.FromArgb(255, 196, 204, 238) : Color.FromArgb(255, 52, 77, 180); ;
+            dark ? Color.FromArgb(255, 196, 196, 255) : Color.FromArgb(255, 50, 50, 170); ;
             logo.Image = (Bitmap)resources.GetObject("logo" + (dark ? "_dark" : ""));
 
             foreach (TabPage p in tabControl1.TabPages)
@@ -1165,7 +1165,7 @@ namespace CapsLockIndicatorV3
 
         void ExitApplicationClick(object sender, EventArgs e)
         {
-            if (MessageBox.Show(strings.exitMessage, "CapsLock Indicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            if (MessageBox.Show(strings.exitMessage, "ImeModeIndicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 shouldClose = true;
                 //Close();
@@ -1248,9 +1248,9 @@ namespace CapsLockIndicatorV3
             RegistryKey rk = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
 
             if (startonlogonCheckBox.Checked)
-                rk.SetValue("CapsLock Indicator", Application.ExecutablePath);
+                rk.SetValue("ImeModeIndicator", Application.ExecutablePath);
             else
-                rk.DeleteValue("CapsLock Indicator", false);
+                rk.DeleteValue("ImeModeIndicator", false);
         }
 
         private void hideOnStartupCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -1542,7 +1542,7 @@ namespace CapsLockIndicatorV3
         {
             if (!SettingsManager.Get<bool>("advSettingsWarnShown"))
             {
-                if (MessageBox.Show("Before you edit the settings, please exit CapsLock Indicator completely. This message will only be shown once. Do you wish to proceed?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) != DialogResult.Yes)
+                if (MessageBox.Show("Before you edit the settings, please exit ImeModeIndicator completely. This message will only be shown once. Do you wish to proceed?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) != DialogResult.Yes)
                     return;
                 SettingsManager.Set("advSettingsWarnShown", true);
             }
@@ -1582,7 +1582,7 @@ namespace CapsLockIndicatorV3
 
         private void resetSettingsButton_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(strings.resetSettingsConfirmationText, "CapsLock Indicator", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            if (MessageBox.Show(strings.resetSettingsConfirmationText, "ImeModeIndicator", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
                 SettingsManager.ResetAll();
                 SettingsManager.Save();

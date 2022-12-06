@@ -16,7 +16,7 @@ namespace CapsLockIndicatorV3
         private static string version;
 
         public static string UserAgent =>
-            "Mozilla/4.0 (compatible; MSIE 7.0; " + Environment.OSVersion.ToString() + "; " + (Environment.Is64BitOperatingSystem? "Win64; x64" : "Win32; x86") + ") Trident 7.0 (KHTML, like Gecko) CapsLockIndicator/" + version;
+            "Mozilla/4.0 (compatible; MSIE 7.0; " + Environment.OSVersion.ToString() + "; " + (Environment.Is64BitOperatingSystem? "Win64; x64" : "Win32; x86") + ") Trident 7.0 (KHTML, like Gecko) ImeModeIndicator/" + version;
 
         static VersionCheck()
         {

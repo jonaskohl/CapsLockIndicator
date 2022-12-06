@@ -7,12 +7,12 @@ scrollInd							Show notification for scroll lock
 noIco								Don't show icons
 noInd								Don't show notifications
 darkMode							Enable dark color scheme (Has no effect on anything below Windows 10)
-hideOnStartup						Hide CapsLock Indicator on startup
+hideOnStartup						Hide ImeModeIndicator on startup
 checkForUpdates						Automatically check for updates
 upgradeRequired						Internal. :b:{Do not change!}
 alwaysShowWhenActive				Don't hide overlay as long as key is active
 firstRun							If true, shows the :i:{First run} dialog on next start
-searchForUpdatesAfterResume			Whether CapsLock Indicator should search for updates after a system resume (i.e. after hibernation)
+searchForUpdatesAfterResume			Whether ImeModeIndicator should search for updates after a system resume (i.e. after hibernation)
 showNotificationOnAllScreens		:b:{Experimental:} Show notification on all screens instead of the screen containg the cursor
 supressEOLMessage					Internal. :b:{Do not change!}
 dontOverwriteApplicationOnUpdate	If true, restores the previous behaviour where on each update a new executable would be downloaded. If false, replaces the old executable.

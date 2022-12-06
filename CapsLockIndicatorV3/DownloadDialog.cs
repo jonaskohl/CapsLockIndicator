@@ -14,7 +14,7 @@ namespace CapsLockIndicatorV3
 {
     public partial class DownloadDialog : DarkModeForm
     {
-        public const string BAK_NAME = "~CapsLockIndicator.previousVersion.bak";
+        public const string BAK_NAME = "~ImeModeIndicator.previousVersion.bak";
 
         Stopwatch sw = new Stopwatch();
 #if !DEBUG
@@ -131,12 +131,12 @@ namespace CapsLockIndicatorV3
 #if !DEBUG
             if (SettingsManager.Get<bool>("dontOverwriteApplicationOnUpdate"))
             {
-                bool runAtStarup = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "CapsLock Indicator", null) != null;
+                bool runAtStarup = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "ImeModeIndicator", null) != null;
 
                 if (runAtStarup)
                 {
                     RegistryKey rk = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
-                    rk.SetValue("CapsLock Indicator", newPath);
+                    rk.SetValue("ImeModeIndicator", newPath);
                 }
 
                 MainForm mainForm = Application.OpenForms.OfType<MainForm>().First();

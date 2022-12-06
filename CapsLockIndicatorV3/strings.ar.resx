@@ -461,7 +461,7 @@
   
 <!--
 <data name="resetSettingsConfirmationText" xml:space="preserve">
-    <value>This will reset all settings to their default values and restart CapsLock Indicator. All customisation will be lost! This cannot be undone!
+    <value>This will reset all settings to their default values and restart ImeModeIndicator. All customisation will be lost! This cannot be undone!
 Do you want to reset all settings now?</value>
     <comment>Used for the confirmation prompt after clicking "Reset settings"</comment>
   </data>
@@ -527,7 +527,7 @@ Do you want to reset all settings now?</value>
     <comment>Banner text when CLI version is unsupported</comment>
   </data>
   <data name="unsupportedWin" xml:space="preserve">
-    <value>أنت تستخدم {os} والذي لم يعد مدعومًا من قبل Microsoft. سوف يقوم CapsLock Indicator بإسقاط دعم نظام التشغيل هذا في المستقبل! الرجاء الترقية إلى إصدار حديث من Windows! </value>
+    <value>أنت تستخدم {os} والذي لم يعد مدعومًا من قبل Microsoft. سوف يقوم ImeModeIndicator بإسقاط دعم نظام التشغيل هذا في المستقبل! الرجاء الترقية إلى إصدار حديث من Windows! </value>
     <comment>Banner text when Windows version is unsupported</comment>
   </data>
   <data name="updateAvailable" xml:space="preserve">

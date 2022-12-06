@@ -134,7 +134,7 @@
     <comment>Window text for Advanced Settings</comment>
   </data>
   <data name="advancedSettingsWarning" xml:space="preserve">
-    <value>編輯進階設定可能會導致預期外的問題，並可能使 CapsLock Indicator 不穩定。 請在更改設定後重新啟動 CapsLock Indicator。請您確定知道自己在做什麼！使用此設定編輯器需要您自負風險！</value>
+    <value>編輯進階設定可能會導致預期外的問題，並可能使 ImeModeIndicator 不穩定。 請在更改設定後重新啟動 ImeModeIndicator。請您確定知道自己在做什麼！使用此設定編輯器需要您自負風險！</value>
     <comment>Warning text for Advanced Settings</comment>
   </data>
   <data name="autoCheckForUpdates" xml:space="preserve">
@@ -254,7 +254,7 @@
     <comment>The caption for the button that exits the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="exitMessage" xml:space="preserve">
-    <value>退出程式後，通知區的 CapsLock Indicator 圖示
+    <value>退出程式後，通知區的 ImeModeIndicator 圖示
 和切換通知都將不再顯示。確定要退出嗎？</value>
     <comment>The message to display on application exit</comment>
   </data>
@@ -291,11 +291,11 @@
     <comment>Button that exists the application. The character after the "&amp;" is the hotkey that is used with the ALT key.</comment>
   </data>
   <data name="firstRunHeading" xml:space="preserve">
-    <value>歡迎使用 CapsLock Indicator</value>
+    <value>歡迎使用 ImeModeIndicator</value>
     <comment>The heading of the first-run dialog</comment>
   </data>
   <data name="firstRunMessage" xml:space="preserve">
-    <value>感謝您使用 CapsLock Indicator！這個程式將會永遠維持開源和免費！您是否有興趣為 CapsLock Indicator 做出貢獻？前往左下方的 GitHub 連結了解更多資訊！另外，請花點時間查看以下設定！</value>
+    <value>感謝您使用 ImeModeIndicator！這個程式將會永遠維持開源和免費！您是否有興趣為 ImeModeIndicator 做出貢獻？前往左下方的 GitHub 連結了解更多資訊！另外，請花點時間查看以下設定！</value>
     <comment>The message of the first-run dialog</comment>
   </data>
   <data name="firstRunPrivacyInfoLinkLabel" xml:space="preserve">
@@ -427,7 +427,7 @@
     <comment>Used for the "Reset settings" button</comment>
   </data>
   <data name="resetSettingsConfirmationText" xml:space="preserve">
-    <value>這會將所有設定重置為預設值並重新啟動 CapsLock Indicator，所有自訂設定都將會遺失！這是無法恢復的！
+    <value>這會將所有設定重置為預設值並重新啟動 ImeModeIndicator，所有自訂設定都將會遺失！這是無法恢復的！
 您確定要重置所有設定嗎？</value>
     <comment>Used for the confirmation prompt after clicking "Reset settings"</comment>
   </data>
@@ -488,15 +488,15 @@
     <comment>Tab header for advanced settings</comment>
   </data>
   <data name="unsupportedCLI" xml:space="preserve">
-    <value>不支援此版本的 CapsLock Indicator (版本 {version})。請更新為最新版本！</value>
+    <value>不支援此版本的 ImeModeIndicator (版本 {version})。請更新為最新版本！</value>
     <comment>Banner text when CLI version is unsupported</comment>
   </data>
   <data name="unsupportedWin" xml:space="preserve">
-    <value>你正在使用已不再受 Microsoft 支援的作業系統 {os}。CapsLock Indicator 未來的版本將不會再支援此作業系統！請盡早升級為最新版本的 Windows！</value>
+    <value>你正在使用已不再受 Microsoft 支援的作業系統 {os}。ImeModeIndicator 未來的版本將不會再支援此作業系統！請盡早升級為最新版本的 Windows！</value>
     <comment>Banner text when Windows version is unsupported</comment>
   </data>
   <data name="updateAvailable" xml:space="preserve">
-    <value>CapsLock Indicator 有可用的更新！</value>
+    <value>ImeModeIndicator 有可用的更新！</value>
     <comment>The title for the update window.</comment>
   </data>
   <data name="updateInfoFormat" xml:space="preserve">

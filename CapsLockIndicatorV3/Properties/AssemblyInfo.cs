@@ -7,12 +7,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle ("CapsLock Indicator")]
-[assembly: AssemblyDescription("A small utility that indicates the state of the num lock, caps lock and scroll lock key.")]
+[assembly: AssemblyTitle ("ImeModeIndicator")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration ("")]
-[assembly: AssemblyCompany ("Jonas Kohl")]
-[assembly: AssemblyProduct ("CapsLock Indicator")]
-[assembly: AssemblyCopyright("© 2017-2022 Jonas Kohl / All rights reserved")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct ("ImeModeIndicator")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
 // This sets the default COM visibility of types in the assembly to invisible.
