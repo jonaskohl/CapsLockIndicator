@@ -427,8 +427,8 @@ namespace CapsLockIndicatorV3
             this.appNameLabel.Size = new System.Drawing.Size(111, 15);
             this.appNameLabel.TabIndex = 5;
             this.appNameLabel.TabStop = true;
-            this.appNameLabel.Text = "CapsLock Indicator";
-            this.mainToolTip.SetToolTip(this.appNameLabel, "Visit CapsLock Indicator website");
+            this.appNameLabel.Text = "ImeModeIndicator";
+            this.mainToolTip.SetToolTip(this.appNameLabel, "Visit project website");
             this.appNameLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.appNameLabel_LinkClicked);
             // 
             // aboutPanelTopBorder
@@ -469,10 +469,10 @@ namespace CapsLockIndicatorV3
             // generalIcon
             // 
             this.generalIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.generalIcon.BalloonTipText = "You can show CapsLock Indicator again by double clicking on this icon.";
-            this.generalIcon.BalloonTipTitle = "CapsLock Indicator";
+            this.generalIcon.BalloonTipText = "You can show ImeModeIndicator again by double clicking on this icon.";
+            this.generalIcon.BalloonTipTitle = "ImeModeIndicator";
             this.generalIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("generalIcon.Icon")));
-            this.generalIcon.Text = "CapsLock Indicator";
+            this.generalIcon.Text = "ImeModeIndicator";
             this.generalIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.GeneralIconMouseDoubleClick);
             // 
             // checkForUpdatesButton
@@ -1572,7 +1572,7 @@ namespace CapsLockIndicatorV3
             // 
             this.tutorialToolTip.IsBalloon = true;
             this.tutorialToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.tutorialToolTip.ToolTipTitle = "CapsLock Indicator";
+            this.tutorialToolTip.ToolTipTitle = "ImeModeIndicator";
             // 
             // tutorialTimer
             // 
@@ -1594,7 +1594,7 @@ namespace CapsLockIndicatorV3
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CapsLock Indicator";
+            this.Text = "ImeModeIndicator";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainFormLoad);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
