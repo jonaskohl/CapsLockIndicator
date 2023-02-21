@@ -31,4 +31,5 @@ jobs:
           new activity since it has been marked as stale.
         stale-issue-label: 'stale'
         stale-pr-label: 'stale'
+        exempt-issue-labels: in-backlog,no-stale
         days-before-stale: 30
