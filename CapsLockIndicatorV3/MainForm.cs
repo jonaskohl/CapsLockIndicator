@@ -727,7 +727,7 @@ namespace CapsLockIndicatorV3
                 (Icon) resources.GetObject("CLIv3_Caps_Off");
             CapsOn = File.Exists(Path.Combine(dir, "caps1.ico")) ? 
                 new Icon(Path.Combine(dir, "caps1.ico"), SystemInformation.SmallIconSize) : 
-                (Icon) resources.GetObject("CLIv3_Caps_On")
+                (Icon) resources.GetObject("CLIv3_Caps_On");
                 
             NumOff = File.Exists(Path.Combine(dir, "num0.ico")) ?
                 new Icon(Path.Combine(dir, "num0.ico"), SystemInformation.SmallIconSize) :
