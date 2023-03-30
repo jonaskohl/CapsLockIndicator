@@ -722,14 +722,26 @@ namespace CapsLockIndicatorV3
         {
             var dir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-            CapsOff = File.Exists(Path.Combine(dir, "caps0.ico")) ? Icon.ExtractAssociatedIcon(Path.Combine(dir, "caps0.ico")) : (Icon)resources.GetObject("CLIv3_Caps_Off");
-            CapsOn = File.Exists(Path.Combine(dir, "caps1.ico")) ? Icon.ExtractAssociatedIcon(Path.Combine(dir, "caps1.ico")) : (Icon)resources.GetObject("CLIv3_Caps_On");
+            CapsOff = File.Exists(Path.Combine(dir, "caps0.ico")) ? 
+                new Icon(Path.Combine(dir, "caps0.ico"), SystemInformation.SmallIconSize) : 
+                (Icon) resources.GetObject("CLIv3_Caps_Off");
+            CapsOn = File.Exists(Path.Combine(dir, "caps1.ico")) ? 
+                new Icon(Path.Combine(dir, "caps1.ico"), SystemInformation.SmallIconSize) : 
+                (Icon) resources.GetObject("CLIv3_Caps_On")
+                
+            NumOff = File.Exists(Path.Combine(dir, "num0.ico")) ?
+                new Icon(Path.Combine(dir, "num0.ico"), SystemInformation.SmallIconSize) :
+                (Icon)resources.GetObject("CLIv3_Num_Off");
+            NumOn = File.Exists(Path.Combine(dir, "num1.ico")) ?
+                new Icon(Path.Combine(dir, "num1.ico"), SystemInformation.SmallIconSize) :
+                (Icon)resources.GetObject("CLIv3_Num_Off");
 
-            NumOff = File.Exists(Path.Combine(dir, "num0.ico")) ? Icon.ExtractAssociatedIcon(Path.Combine(dir, "num0.ico")) : (Icon)resources.GetObject("CLIv3_Num_Off");
-            NumOn = File.Exists(Path.Combine(dir, "num1.ico")) ? Icon.ExtractAssociatedIcon(Path.Combine(dir, "num1.ico")) : (Icon)resources.GetObject("CLIv3_Num_On");
-
-            ScrollOff = File.Exists(Path.Combine(dir, "scroll0.ico")) ? Icon.ExtractAssociatedIcon(Path.Combine(dir, "scroll0.ico")) : (Icon)resources.GetObject("CLIv3_Scroll_Off");
-            ScrollOn = File.Exists(Path.Combine(dir, "scroll1.ico")) ? Icon.ExtractAssociatedIcon(Path.Combine(dir, "scroll1.ico")) : (Icon)resources.GetObject("CLIv3_Scroll_On");
+            ScrollOff = File.Exists(Path.Combine(dir, "scroll0.ico")) ?
+                new Icon(Path.Combine(dir, "scroll0.ico"), SystemInformation.SmallIconSize) :
+                (Icon)resources.GetObject("CLIv3_Scroll_Off");
+            ScrollOn = File.Exists(Path.Combine(dir, "scroll1.ico")) ?
+                new Icon(Path.Combine(dir, "scroll1.ico"), SystemInformation.SmallIconSize) :
+                (Icon)resources.GetObject("CLIv3_Scroll_On");
 
             if (isUserInitiated)
                 ShowOverlayInfo(strings.reloadedIconsInfo);
