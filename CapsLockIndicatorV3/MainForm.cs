@@ -1206,7 +1206,7 @@ namespace CapsLockIndicatorV3
             RegistryKey rk = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
 
             if (startonlogonCheckBox.Checked)
-                rk.SetValue("CapsLock Indicator", Application.ExecutablePath);
+                rk.SetValue("CapsLock Indicator", $"\"{Application.ExecutablePath}\"");
             else
                 rk.DeleteValue("CapsLock Indicator", false);
         }

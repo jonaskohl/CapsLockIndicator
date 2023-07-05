@@ -136,7 +136,7 @@ namespace CapsLockIndicatorV3
                 if (runAtStarup)
                 {
                     RegistryKey rk = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
-                    rk.SetValue("CapsLock Indicator", newPath);
+                    rk.SetValue("CapsLock Indicator", $"\"{newPath}\"");
                 }
 
                 MainForm mainForm = Application.OpenForms.OfType<MainForm>().First();
