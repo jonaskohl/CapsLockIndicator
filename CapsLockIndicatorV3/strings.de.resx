@@ -318,6 +318,9 @@
   <data name="numLock" xml:space="preserve">
     <value>Num-Lock</value>
   </data>
+  <data name="offerSystemLanguage" xml:space="preserve">
+    <value>CapsLock Indicator ist auch auf {0} verfügbar. Möchten Sie diese Übersetzung jetzt herunterladen?</value>
+  </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;OK</value>
   </data>
@@ -409,6 +412,23 @@ Möchen Sie jetzt alle Einstellungen zurücksetzen?</value>
 {0}
 
 Verschieben Sie CapsLock Indicator in einen Ordner mit Schreibzugriff, oder führen Sie es einmalig als Administrator aus, um die Übersetzungen zu aktualisieren.</value>
+  </data>
+  <data name="translationsAllInstalled" xml:space="preserve">
+    <value>Alle verfügbaren Übersetzungen sind bereits installiert.</value>
+  </data>
+  <data name="translationsDownloadButton" xml:space="preserve">
+    <value>&amp;Herunterladen</value>
+  </data>
+  <data name="translationsListError" xml:space="preserve">
+    <value>Die Liste der verfügbaren Übersetzungen konnte nicht geladen werden:
+
+{0}</value>
+  </data>
+  <data name="translationsLoading" xml:space="preserve">
+    <value>Verfügbare Übersetzungen werden geladen...</value>
+  </data>
+  <data name="translationsSelectHint" xml:space="preserve">
+    <value>Wählen Sie die Übersetzungen aus, die Sie herunterladen möchten. CapsLock Indicator wird anschließend neu gestartet, um die Installation abzuschließen.</value>
   </data>
   <data name="uninstall" xml:space="preserve">
     <value>Deinstallieren</value>

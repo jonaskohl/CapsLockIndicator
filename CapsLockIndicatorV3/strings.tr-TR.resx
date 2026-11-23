@@ -385,6 +385,9 @@
     <value>Num lock</value>
     <comment>The name of the num lock key</comment>
   </data>
+  <data name="offerSystemLanguage" xml:space="preserve">
+    <value>CapsLock Indicator şu dilde de kullanılabilir: {0}. Bu çeviriyi şimdi indirmek istiyor musunuz?</value>
+  </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;Tamam</value>
     <comment>Generic label for OK button</comment>
@@ -501,6 +504,23 @@ Seçenekleri sıfırlamak istiyor musunuz?</value>
 {0}
 
 Çevirileri güncellemek için CapsLock Indicator'ı yazma izniniz olan bir klasöre taşıyın veya bir kez yönetici olarak çalıştırın.</value>
+  </data>
+  <data name="translationsAllInstalled" xml:space="preserve">
+    <value>Mevcut tüm çeviriler zaten yüklü.</value>
+  </data>
+  <data name="translationsDownloadButton" xml:space="preserve">
+    <value>&amp;İndir</value>
+  </data>
+  <data name="translationsListError" xml:space="preserve">
+    <value>Mevcut çevirilerin listesi yüklenemedi:
+
+{0}</value>
+  </data>
+  <data name="translationsLoading" xml:space="preserve">
+    <value>Mevcut çeviriler yükleniyor...</value>
+  </data>
+  <data name="translationsSelectHint" xml:space="preserve">
+    <value>İndirmek istediğiniz çevirileri seçin. Yüklemeyi tamamlamak için CapsLock Indicator ardından yeniden başlatılacak.</value>
   </data>
   <data name="uninstall" xml:space="preserve">
     <value>Kaldır</value>

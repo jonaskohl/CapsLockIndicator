@@ -147,7 +147,11 @@ namespace CapsLockIndicatorV3
                     // After the first run dialog closes, no window of ours has focus, so the
                     // settings window could open behind other windows. Bring it to the front.
                     if (isFirstRun)
-                        SynchronizationContext.Current.Post(_ => MainForm.ShowSettingsWindow(), null);
+                        SynchronizationContext.Current.Post(_ =>
+                        {
+                            MainForm.ShowSettingsWindow();
+                            MainForm.OfferSystemLanguageDownload();
+                        }, null);
 
                     Application.Run();
                 }

@@ -482,6 +482,9 @@
     <comment>Generic label for OK button</comment>
   </data>
 -->
+  <data name="offerSystemLanguage" xml:space="preserve">
+    <value>CapsLock Indicator is ook beschikbaar in het {0}. Wil je deze vertaling nu downloaden?</value>
+  </data>
   <data name="opacity" xml:space="preserve">
     <value>Ondoorzichtigheid</value>
     <comment>The title for the "Opacity" group box</comment>
@@ -647,6 +650,23 @@ Do you want to reset all settings now?</value>
 {0}
 
 Verplaats CapsLock Indicator naar een map waarin je schrijfrechten hebt, of voer het één keer uit als administrator om de vertalingen bij te werken.</value>
+  </data>
+  <data name="translationsAllInstalled" xml:space="preserve">
+    <value>Alle beschikbare vertalingen zijn al geïnstalleerd.</value>
+  </data>
+  <data name="translationsDownloadButton" xml:space="preserve">
+    <value>&amp;Downloaden</value>
+  </data>
+  <data name="translationsListError" xml:space="preserve">
+    <value>De lijst met beschikbare vertalingen kon niet worden geladen:
+
+{0}</value>
+  </data>
+  <data name="translationsLoading" xml:space="preserve">
+    <value>Beschikbare vertalingen laden...</value>
+  </data>
+  <data name="translationsSelectHint" xml:space="preserve">
+    <value>Selecteer de vertalingen die je wilt downloaden. CapsLock Indicator wordt daarna opnieuw gestart om de installatie te voltooien.</value>
   </data>
   <data name="uninstall" xml:space="preserve">
     <value>Verwijderen</value>

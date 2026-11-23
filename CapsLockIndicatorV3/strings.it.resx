@@ -393,6 +393,9 @@ Inoltre, prenditi un momento per rivedere le impostazioni di seguito!</value>
     <value>Blocco numerico</value>
     <comment>The name of the num lock key</comment>
   </data>
+  <data name="offerSystemLanguage" xml:space="preserve">
+    <value>CapsLock Indicator è disponibile anche in {0}. Scaricare questa traduzione ora?</value>
+  </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;OK</value>
     <comment>Generic label for OK button</comment>
@@ -513,6 +516,23 @@ Ora le troverai nelle schede qui sopra!
 {0}
 
 Spostare CapsLock Indicator in una cartella con permessi di scrittura oppure eseguirlo una volta come amministratore per aggiornare le traduzioni.</value>
+  </data>
+  <data name="translationsAllInstalled" xml:space="preserve">
+    <value>Tutte le traduzioni disponibili sono già installate.</value>
+  </data>
+  <data name="translationsDownloadButton" xml:space="preserve">
+    <value>&amp;Scarica</value>
+  </data>
+  <data name="translationsListError" xml:space="preserve">
+    <value>Impossibile caricare l'elenco delle traduzioni disponibili:
+
+{0}</value>
+  </data>
+  <data name="translationsLoading" xml:space="preserve">
+    <value>Caricamento delle traduzioni disponibili...</value>
+  </data>
+  <data name="translationsSelectHint" xml:space="preserve">
+    <value>Selezionare le traduzioni da scaricare. CapsLock Indicator verrà poi riavviato per completarne l'installazione.</value>
   </data>
   <data name="uninstall" xml:space="preserve">
     <value>Disinstalla</value>

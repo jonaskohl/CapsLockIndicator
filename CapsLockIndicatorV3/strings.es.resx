@@ -403,6 +403,9 @@
     <value>Números</value>
     <comment>The name of the num lock key</comment>
   </data>
+  <data name="offerSystemLanguage" xml:space="preserve">
+    <value>CapsLock Indicator también está disponible en {0}. ¿Quiere descargar esta traducción ahora?</value>
+  </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;OK</value>
     <comment>Generic label for OK button</comment>
@@ -537,6 +540,23 @@ Do you want to reset all settings now?</value>
 {0}
 
 Mueva CapsLock Indicator a una carpeta en la que tenga permisos de escritura o ejecútelo una vez como administrador para actualizar las traducciones.</value>
+  </data>
+  <data name="translationsAllInstalled" xml:space="preserve">
+    <value>Todas las traducciones disponibles ya están instaladas.</value>
+  </data>
+  <data name="translationsDownloadButton" xml:space="preserve">
+    <value>&amp;Descargar</value>
+  </data>
+  <data name="translationsListError" xml:space="preserve">
+    <value>No se pudo cargar la lista de traducciones disponibles:
+
+{0}</value>
+  </data>
+  <data name="translationsLoading" xml:space="preserve">
+    <value>Cargando las traducciones disponibles...</value>
+  </data>
+  <data name="translationsSelectHint" xml:space="preserve">
+    <value>Seleccione las traducciones que desea descargar. CapsLock Indicator se reiniciará después para completar la instalación.</value>
   </data>
   <data name="uninstall" xml:space="preserve">
     <value>Desinstalar</value>

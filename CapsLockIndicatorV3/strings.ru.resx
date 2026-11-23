@@ -385,6 +385,9 @@
     <value>Num Lock</value>
     <comment>The name of the num lock key</comment>
   </data>
+  <data name="offerSystemLanguage" xml:space="preserve">
+    <value>CapsLock Indicator также доступен на языке: {0}. Загрузить этот перевод сейчас?</value>
+  </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;OK</value>
     <comment>Generic label for OK button</comment>
@@ -501,6 +504,23 @@
 {0}
 
 Переместите CapsLock Indicator в папку, в которую у вас есть права на запись, или один раз запустите его от имени администратора, чтобы обновить переводы.</value>
+  </data>
+  <data name="translationsAllInstalled" xml:space="preserve">
+    <value>Все доступные переводы уже установлены.</value>
+  </data>
+  <data name="translationsDownloadButton" xml:space="preserve">
+    <value>&amp;Загрузить</value>
+  </data>
+  <data name="translationsListError" xml:space="preserve">
+    <value>Не удалось загрузить список доступных переводов:
+
+{0}</value>
+  </data>
+  <data name="translationsLoading" xml:space="preserve">
+    <value>Загрузка списка доступных переводов...</value>
+  </data>
+  <data name="translationsSelectHint" xml:space="preserve">
+    <value>Выберите переводы для загрузки. Затем CapsLock Indicator перезапустится, чтобы завершить их установку.</value>
   </data>
   <data name="uninstall" xml:space="preserve">
     <value>Удалить</value>

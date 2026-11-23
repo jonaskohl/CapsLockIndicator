@@ -385,6 +385,9 @@
     <value>Num Lock</value>
     <comment>The name of the num lock key</comment>
   </data>
+  <data name="offerSystemLanguage" xml:space="preserve">
+    <value>CapsLock Indicator は {0} でも利用できます。この翻訳を今すぐダウンロードしますか？</value>
+  </data>
   <data name="ok" xml:space="preserve">
     <value>OK(&amp;O)</value>
     <comment>Generic label for OK button</comment>
@@ -501,6 +504,23 @@
 {0}
 
 CapsLock Indicator を書き込み可能なフォルダーに移動するか、一度管理者として実行して翻訳を更新してください。</value>
+  </data>
+  <data name="translationsAllInstalled" xml:space="preserve">
+    <value>利用可能な翻訳はすべてインストール済みです。</value>
+  </data>
+  <data name="translationsDownloadButton" xml:space="preserve">
+    <value>ダウンロード(&amp;D)</value>
+  </data>
+  <data name="translationsListError" xml:space="preserve">
+    <value>利用可能な翻訳の一覧を読み込めませんでした:
+
+{0}</value>
+  </data>
+  <data name="translationsLoading" xml:space="preserve">
+    <value>利用可能な翻訳を読み込んでいます...</value>
+  </data>
+  <data name="translationsSelectHint" xml:space="preserve">
+    <value>ダウンロードする翻訳を選択してください。インストールを完了するため、その後 CapsLock Indicator が再起動します。</value>
   </data>
   <data name="uninstall" xml:space="preserve">
     <value>アンインストール</value>

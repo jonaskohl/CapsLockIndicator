@@ -385,6 +385,10 @@
     <value>Num lock</value>
     <comment>The name of the num lock key</comment>
   </data>
+  <data name="offerSystemLanguage" xml:space="preserve">
+    <value>CapsLock Indicator is also available in {0}. Do you want to download this translation now?</value>
+    <comment>Shown once after the first run if a translation for the Windows language is available but not installed. {0} is the language name, e.g. "français (French)".</comment>
+  </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;OK</value>
     <comment>Generic label for OK button</comment>
@@ -505,6 +509,28 @@ Do you want to reset all settings now?</value>
 
 Move CapsLock Indicator to a folder you have write access to, or run it as administrator once to update the translations.</value>
     <comment>Message box when translations cannot be installed because the program folder is not writable. {0} is the folder path.</comment>
+  </data>
+  <data name="translationsAllInstalled" xml:space="preserve">
+    <value>All available translations are already installed.</value>
+    <comment>Shown in the translation download dialog when there is nothing left to download.</comment>
+  </data>
+  <data name="translationsDownloadButton" xml:space="preserve">
+    <value>&amp;Download</value>
+    <comment>Download button in the translation download dialog. The character after the "&amp;" is the hotkey.</comment>
+  </data>
+  <data name="translationsListError" xml:space="preserve">
+    <value>The list of available translations could not be loaded:
+
+{0}</value>
+    <comment>Shown in the translation download dialog when the list can't be loaded. {0} is the error message.</comment>
+  </data>
+  <data name="translationsLoading" xml:space="preserve">
+    <value>Loading available translations...</value>
+    <comment>Shown in the translation download dialog while the list is loading.</comment>
+  </data>
+  <data name="translationsSelectHint" xml:space="preserve">
+    <value>Select the translations you want to download. CapsLock Indicator will restart afterwards to finish installing them.</value>
+    <comment>Explanation at the top of the translation download dialog.</comment>
   </data>
   <data name="uninstall" xml:space="preserve">
     <value>Uninstall</value>

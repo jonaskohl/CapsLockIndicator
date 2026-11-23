@@ -509,6 +509,9 @@
     <comment>Generic label for OK button</comment>
   </data>
 -->
+  <data name="offerSystemLanguage" xml:space="preserve">
+    <value>O CapsLock Indicator também está disponível em {0}. Pretende transferir esta tradução agora?</value>
+  </data>
   <data name="opacity" xml:space="preserve">
     <value>Transparência</value>
     <comment>The title for the "Opacity" group box</comment>
@@ -677,6 +680,23 @@ Do you want to reset all settings now?</value>
 {0}
 
 Mova o CapsLock Indicator para uma pasta na qual tenha permissão de escrita ou execute-o uma vez como administrador para atualizar as traduções.</value>
+  </data>
+  <data name="translationsAllInstalled" xml:space="preserve">
+    <value>Todas as traduções disponíveis já estão instaladas.</value>
+  </data>
+  <data name="translationsDownloadButton" xml:space="preserve">
+    <value>&amp;Transferir</value>
+  </data>
+  <data name="translationsListError" xml:space="preserve">
+    <value>Não foi possível carregar a lista de traduções disponíveis:
+
+{0}</value>
+  </data>
+  <data name="translationsLoading" xml:space="preserve">
+    <value>A carregar as traduções disponíveis...</value>
+  </data>
+  <data name="translationsSelectHint" xml:space="preserve">
+    <value>Selecione as traduções que pretende transferir. O CapsLock Indicator será reiniciado em seguida para concluir a instalação.</value>
   </data>
   <data name="uninstall" xml:space="preserve">
     <value>Desinstalar</value>

@@ -24,6 +24,11 @@ namespace CapsLockIndicatorV3
         private int completedOperations = 0;
         private int successfulOperations = 0;
 
+        /// <summary>
+        /// Locales that were downloaded, verified and staged successfully.
+        /// </summary>
+        public HashSet<string> SucceededLocales { get; } = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
         private KeyValuePair<string, DllInfo>[] dlls;
         Dictionary<string, LanguageProgressRow> progs;
 
@@ -146,6 +151,7 @@ namespace CapsLockIndicatorV3
 
                                     File.Move(tempFile, dllPath);
                                     ++successfulOperations;
+                                    SucceededLocales.Add(dll.Key);
                                 }
                                 catch (Exception ex) when (ex is UnauthorizedAccessException || ex is IOException)
                                 {

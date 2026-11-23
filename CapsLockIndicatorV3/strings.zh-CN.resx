@@ -385,6 +385,9 @@
     <value>Num lock</value>
     <comment>The name of the num lock key</comment>
   </data>
+  <data name="offerSystemLanguage" xml:space="preserve">
+    <value>CapsLock Indicator 也提供{0}版本。你想现在下载此翻译吗？</value>
+  </data>
   <data name="ok" xml:space="preserve">
     <value>好 (&amp;O)</value>
     <comment>Generic label for OK button</comment>
@@ -501,6 +504,23 @@
 {0}
 
 请将 CapsLock Indicator 移动到你有写入权限的文件夹，或以管理员身份运行一次以更新翻译。</value>
+  </data>
+  <data name="translationsAllInstalled" xml:space="preserve">
+    <value>所有可用的翻译均已安装。</value>
+  </data>
+  <data name="translationsDownloadButton" xml:space="preserve">
+    <value>下载(&amp;D)</value>
+  </data>
+  <data name="translationsListError" xml:space="preserve">
+    <value>无法加载可用翻译列表：
+
+{0}</value>
+  </data>
+  <data name="translationsLoading" xml:space="preserve">
+    <value>正在加载可用的翻译...</value>
+  </data>
+  <data name="translationsSelectHint" xml:space="preserve">
+    <value>请选择要下载的翻译。之后 CapsLock Indicator 将重新启动以完成安装。</value>
   </data>
   <data name="uninstall" xml:space="preserve">
     <value>卸载</value>

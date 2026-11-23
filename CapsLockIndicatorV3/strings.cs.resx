@@ -385,6 +385,9 @@
     <value>Num lock</value>
     <comment>The name of the num lock key</comment>
   </data>
+  <data name="offerSystemLanguage" xml:space="preserve">
+    <value>CapsLock Indicator je k dispozici také v jazyce {0}. Chcete tento překlad nyní stáhnout?</value>
+  </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;OK</value>
     <comment>Generic label for OK button</comment>
@@ -501,6 +504,23 @@ Chcete teď obnovit veškerá nastavení?</value>
 {0}
 
 Přesuňte CapsLock Indicator do složky, do které můžete zapisovat, nebo jej jednou spusťte jako správce, aby se překlady aktualizovaly.</value>
+  </data>
+  <data name="translationsAllInstalled" xml:space="preserve">
+    <value>Všechny dostupné překlady jsou již nainstalovány.</value>
+  </data>
+  <data name="translationsDownloadButton" xml:space="preserve">
+    <value>&amp;Stáhnout</value>
+  </data>
+  <data name="translationsListError" xml:space="preserve">
+    <value>Seznam dostupných překladů nelze načíst:
+
+{0}</value>
+  </data>
+  <data name="translationsLoading" xml:space="preserve">
+    <value>Načítání dostupných překladů...</value>
+  </data>
+  <data name="translationsSelectHint" xml:space="preserve">
+    <value>Vyberte překlady, které chcete stáhnout. CapsLock Indicator se poté restartuje, aby se instalace dokončila.</value>
   </data>
   <data name="uninstall" xml:space="preserve">
     <value>Odinstalovat</value>

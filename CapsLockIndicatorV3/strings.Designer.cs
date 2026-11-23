@@ -1033,5 +1033,59 @@ namespace CapsLockIndicatorV3 {
                 return ResourceManager.GetString("yes", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die CapsLock Indicator is also available in {0}. Do you want to download this translation now? ähnelt.
+        /// </summary>
+        internal static string offerSystemLanguage {
+            get {
+                return ResourceManager.GetString("offerSystemLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die All available translations are already installed. ähnelt.
+        /// </summary>
+        internal static string translationsAllInstalled {
+            get {
+                return ResourceManager.GetString("translationsAllInstalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &amp;Download ähnelt.
+        /// </summary>
+        internal static string translationsDownloadButton {
+            get {
+                return ResourceManager.GetString("translationsDownloadButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The list of available translations could not be loaded: {0} ähnelt.
+        /// </summary>
+        internal static string translationsListError {
+            get {
+                return ResourceManager.GetString("translationsListError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Loading available translations... ähnelt.
+        /// </summary>
+        internal static string translationsLoading {
+            get {
+                return ResourceManager.GetString("translationsLoading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Select the translations you want to download. CapsLock Indicator will restart afterwards to finish installing them. ähnelt.
+        /// </summary>
+        internal static string translationsSelectHint {
+            get {
+                return ResourceManager.GetString("translationsSelectHint", resourceCulture);
+            }
+        }
     }
 }

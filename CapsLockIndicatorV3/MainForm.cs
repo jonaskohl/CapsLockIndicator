@@ -358,7 +358,11 @@ namespace CapsLockIndicatorV3
             }
         }
 
-        void UpdateLanguageFiles(KeyValuePair<string, DllInfo>[] dlls)
+        /// <param name="switchToLocale">
+        /// If set and this translation installs successfully, it becomes the selected
+        /// language (takes effect after the restart).
+        /// </param>
+        void UpdateLanguageFiles(KeyValuePair<string, DllInfo>[] dlls, string switchToLocale = null)
         {
             //var sb = new StringBuilder();
 
@@ -371,6 +375,15 @@ namespace CapsLockIndicatorV3
             {
                 var w = new LanguageDownloadProgressForm();
                 Native.SetNativeEnabled(this, false);
+                if (switchToLocale != null)
+                    w.DownloadCompleted += (sender, e) =>
+                    {
+                        if (w.SucceededLocales.Contains(switchToLocale))
+                        {
+                            SettingsManager.Set("selectedLanguage", switchToLocale);
+                            SettingsManager.Save();
+                        }
+                    };
                 w.DownloadLangFiles(dlls);
                 w.FormClosed += (sender, e) =>
                 {
@@ -381,28 +394,60 @@ namespace CapsLockIndicatorV3
             });
         }
 
+        void DownloadLanguages(RemoteLanguage[] languages)
+        {
+            if (languages.Length == 0)
+                return;
+
+            UpdateLanguageFiles(
+                languages.Select(l => new KeyValuePair<string, DllInfo>(l.Locale, l.Dll)).ToArray(),
+                // Picking exactly one language almost certainly means "I want to use this one"
+                languages.Length == 1 ? languages[0].Locale : null);
+        }
+
+        void ShowTranslationDownloadDialog()
+        {
+            using (var d = new TranslationDownloadDialog())
+                if (d.ShowDialog(this) == DialogResult.OK)
+                    DownloadLanguages(d.SelectedLanguages);
+        }
+
+        /// <summary>
+        /// On first run: if Windows uses a language that CapsLock Indicator has a
+        /// translation for, but that translation isn't installed, offer to download it.
+        /// Only if the user allowed CapsLock Indicator to go online.
+        /// </summary>
+        public async void OfferSystemLanguageDownload()
+        {
+            try
+            {
+                if (!SettingsManager.Get<bool>("checkForUpdates"))
+                    return;
+
+                var systemCulture = CultureInfo.InstalledUICulture;
+                if (systemCulture.TwoLetterISOLanguageName == "en")
+                    return;
+
+                var match = LanguageService.FindBestMatch(await LanguageService.GetAvailableAsync(), systemCulture);
+                if (match == null || LanguageService.GetInstalledLocales().Contains(match.Locale) || IsDisposed)
+                    return;
+
+                if (MessageBox.Show(this, string.Format(strings.offerSystemLanguage, match.DisplayName), "CapsLock Indicator",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    DownloadLanguages(new[] { match });
+            }
+            catch (Exception ex) when (ex is WebException || ex is System.Xml.XmlException || ex is NullReferenceException || ex is FormatException)
+            {
+                // Offline or unexpected response: just don't offer anything
+            }
+        }
+
         async private Task<KeyValuePair<string, DllInfo>[]> CheckOldLanguageFiles()
         {
-            using (var wc = new WebClient())
             {
-                wc.Headers.Add(HttpRequestHeader.UserAgent, VersionCheck.UserAgent);
-
-                var langInfoStr = await wc.DownloadStringTaskAsync(URLs.LangServiceUrl);
-
-                var langInfo = XDocument.Parse(langInfoStr).Root;
-                var remoteLangs = langInfo.Elements("lang").Select(t =>
-                {
-                    var name = t.Attribute("locale").Value;
-                    var version = t.Attribute("version").Value;
-                    var sha1 = t.Attribute("dllHashSHA1").Value;
-
-                    return new KeyValuePair<string, DllInfo>(name, new DllInfo()
-                    {
-                        Filepath = URLs.LangServiceUrl + "?download=" + name + "&as=dll",
-                        SHA1 = sha1,
-                        Version = new Version(version)
-                    });
-                }).ToDictionary(i => i.Key, i => i.Value);
+                var remoteLangs = (await LanguageService.GetAvailableAsync())
+                    .GroupBy(l => l.Locale, StringComparer.OrdinalIgnoreCase)
+                    .ToDictionary(g => g.Key, g => g.First().Dll, StringComparer.OrdinalIgnoreCase);
                 var currentLangs = GetLanguageFileVersions().ToDictionary(i => i.Key, i => i.Value);
 
                 var oldLangs = new List<KeyValuePair<string, DllInfo>>();
@@ -1373,7 +1418,7 @@ namespace CapsLockIndicatorV3
                 localeComboBox.SelectedIndex = previousLocaleIndex;
 
                 if (locale.localeString == "--get-more")
-                    Process.Start(URLs.DownloadTranslations);
+                    ShowTranslationDownloadDialog();
                 else if (locale.localeString == "--check-for-updates")
                     BeginCheckOldLanguageFiles();
 
