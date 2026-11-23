@@ -294,21 +294,54 @@ namespace CapsLockIndicatorV3
             scrollIcoOnlyWhenActive = SettingsManager.Get<bool>("scrollIcoOnlyWhenActive");
         }
 
-        private void BeginCheckOldLanguageFiles()
+        // Outdated translations found while the settings window was hidden
+        private KeyValuePair<string, DllInfo>[] pendingLanguageUpdates;
+
+        private async void BeginCheckOldLanguageFiles()
         {
-            // The prompt is shown from a worker thread, so pass on the UI language
-            // the user selected; otherwise it would appear in the Windows language.
-            var uiCulture = Thread.CurrentThread.CurrentUICulture;
-
-            Task.Run(async () =>
+            KeyValuePair<string, DllInfo>[] oldLangs;
+            try
             {
-                Thread.CurrentThread.CurrentUICulture = uiCulture;
+                oldLangs = await CheckOldLanguageFiles();
+            }
+            catch (Exception)
+            {
+                // Offline, server unreachable or unexpected response: try again next time
+                return;
+            }
 
-                var oldLangs = await CheckOldLanguageFiles();
+            if (oldLangs.Length == 0 || IsDisposed)
+                return;
 
-                if (oldLangs.Length > 0 && MessageBox.Show(strings.updateLocaleMessageBox, "CapsLock Indicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    UpdateLanguageFiles(oldLangs);
-            });
+            // Don't ask while the settings window is hidden: the prompt would have no
+            // visible owner, could open unnoticed behind other windows and block the app
+            if (!Visible)
+            {
+                pendingLanguageUpdates = oldLangs;
+                return;
+            }
+
+            PromptLanguageUpdate(oldLangs);
+        }
+
+        private void PromptLanguageUpdate(KeyValuePair<string, DllInfo>[] oldLangs)
+        {
+            pendingLanguageUpdates = null;
+
+            if (MessageBox.Show(this, strings.updateLocaleMessageBox, "CapsLock Indicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                UpdateLanguageFiles(oldLangs);
+        }
+
+        protected override void OnVisibleChanged(EventArgs e)
+        {
+            base.OnVisibleChanged(e);
+
+            if (Visible && pendingLanguageUpdates != null)
+            {
+                var langs = pendingLanguageUpdates;
+                pendingLanguageUpdates = null;
+                BeginInvoke((MethodInvoker)(() => PromptLanguageUpdate(langs)));
+            }
         }
 
         private List<KeyValuePair<string, DllInfo>> GetLanguageFileVersions()
@@ -1188,17 +1221,16 @@ namespace CapsLockIndicatorV3
                     var release_date_formatted = rdate.ToLongDateString();
 
                     UpdateDialog ud = new UpdateDialog();
-                    ud.ShowInTaskbar = isHidden;
                     ud.SetNewVersion(lVersion, oVersion);
                     ud.changelogRtf.Rtf = changelog;
                     ud.infoLabel.Text = string.Format(strings.updateInfoFormat, latestVersion, release_date_formatted);
-                    DialogResult res = ud.ShowDialog();
+                    DialogResult res = ShowDialogInFront(ud);
 
                     if (res == DialogResult.OK)
                     {
                         DownloadDialog dd = new DownloadDialog();
                         dd.DownloadURL = download_url;
-                        dd.ShowDialog();
+                        ShowDialogInFront(dd);
                     }
                     else if (res == DialogResult.Ignore) // Download manually
                     {
@@ -1213,6 +1245,28 @@ namespace CapsLockIndicatorV3
 
             checkForUpdatesButton.Text = strings.checkForUpdates;
             checkForUpdatesButton.Enabled = true;
+        }
+
+        /// <summary>
+        /// Shows a modal dialog so that it can't get lost behind other windows. A modal
+        /// dialog disables all other windows of the application; if it opened unnoticed
+        /// in the background (e.g. the update dialog right after logon), CapsLock
+        /// Indicator appeared to be frozen. So the dialog always gets a taskbar button,
+        /// is owned by the settings window when that is visible, and is brought to the
+        /// front (or flashes in the taskbar if Windows doesn't allow that).
+        /// </summary>
+        private DialogResult ShowDialogInFront(Form dialog)
+        {
+            dialog.ShowInTaskbar = true;
+            dialog.Shown += (s, e) => Native.BringToFrontOrFlash(dialog);
+
+            if (Visible)
+            {
+                dialog.StartPosition = FormStartPosition.CenterParent;
+                return dialog.ShowDialog(this);
+            }
+
+            return dialog.ShowDialog();
         }
 
         void doVersionCheck(bool isManualCheck)

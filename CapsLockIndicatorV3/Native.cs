@@ -318,6 +318,51 @@ namespace CapsLockIndicatorV3
         [DllImport("uxtheme.dll", EntryPoint = "#136")]
         static extern void FlushMenuThemes();
 
+        [DllImport("user32.dll")]
+        static extern IntPtr GetForegroundWindow();
+
+        [DllImport("user32.dll")]
+        static extern bool FlashWindowEx(ref FLASHWINFO pwfi);
+
+        [StructLayout(LayoutKind.Sequential)]
+        struct FLASHWINFO
+        {
+            public uint cbSize;
+            public IntPtr hwnd;
+            public uint dwFlags;
+            public uint uCount;
+            public uint dwTimeout;
+        }
+
+        const uint FLASHW_ALL = 0x3;
+        const uint FLASHW_TIMERNOFG = 0xC;
+
+        /// <summary>
+        /// Tries to bring a window to the front. If Windows doesn't allow that (e.g. for a
+        /// program started at logon), flashes its taskbar button until it is activated, so
+        /// the window can't silently end up hidden behind other windows.
+        /// </summary>
+        public static void BringToFrontOrFlash(Form form)
+        {
+            if (form.IsDisposed || !form.IsHandleCreated)
+                return;
+
+            form.Activate();
+
+            if (GetForegroundWindow() != form.Handle)
+            {
+                var info = new FLASHWINFO()
+                {
+                    cbSize = (uint)Marshal.SizeOf(typeof(FLASHWINFO)),
+                    hwnd = form.Handle,
+                    dwFlags = FLASHW_ALL | FLASHW_TIMERNOFG,
+                    uCount = uint.MaxValue,
+                    dwTimeout = 0
+                };
+                FlashWindowEx(ref info);
+            }
+        }
+
         public static void SetPrefferDarkMode(bool dark)
         {
             SetPreferredAppMode(dark ? PREFFERED_APP_MODE__FORCE_DARK : PREFFERED_APP_MODE__DEFAULT);
