@@ -496,6 +496,24 @@
 
 CapsLock Indicator を書き込み可能なフォルダーに移動するか、一度管理者として実行して翻訳を更新してください。</value>
   </data>
+  <data name="uninstall" xml:space="preserve">
+    <value>アンインストール</value>
+  </data>
+  <data name="uninstallComplete" xml:space="preserve">
+    <value>CapsLock Indicator をアンインストールしました。</value>
+  </data>
+  <data name="uninstallConfirmation" xml:space="preserve">
+    <value>CapsLock Indicator をこのコンピューターから削除します。自動的に起動しなくなり、設定、翻訳、ダウンロードしたアイコンは削除されます。
+
+今すぐ CapsLock Indicator をアンインストールしますか？</value>
+  </data>
+  <data name="uninstallManualDelete" xml:space="preserve">
+    <value>CapsLock Indicator は自動的に起動しなくなり、設定は削除されました。
+
+プログラム ファイルを自動的に削除できませんでした。手動で削除してください:
+
+{0}</value>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value>このバージョンのCapsLockインジケーター（(Version {version})はサポートされていません。 最新バージョンにアップデートしてください！</value>
     <comment>Banner text when CLI version is unsupported</comment>

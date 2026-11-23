@@ -496,6 +496,24 @@ Seçenekleri sıfırlamak istiyor musunuz?</value>
 
 Çevirileri güncellemek için CapsLock Indicator'ı yazma izniniz olan bir klasöre taşıyın veya bir kez yönetici olarak çalıştırın.</value>
   </data>
+  <data name="uninstall" xml:space="preserve">
+    <value>Kaldır</value>
+  </data>
+  <data name="uninstallComplete" xml:space="preserve">
+    <value>CapsLock Indicator kaldırıldı.</value>
+  </data>
+  <data name="uninstallConfirmation" xml:space="preserve">
+    <value>Bu işlem CapsLock Indicator'ı bu bilgisayardan kaldıracak. Artık otomatik olarak başlatılmayacak; ayarları, çevirileri ve indirilen simgeleri silinecek.
+
+CapsLock Indicator'ı şimdi kaldırmak istiyor musunuz?</value>
+  </data>
+  <data name="uninstallManualDelete" xml:space="preserve">
+    <value>CapsLock Indicator artık otomatik olarak başlatılmıyor ve ayarları silindi.
+
+Program dosyası otomatik olarak silinemedi. Lütfen elle silin:
+
+{0}</value>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value>CapsLock Indicator'ın bu sürümü (Versiyon {version}) desteklenmiyor. Lütfen son sürüme güncelleme yapın.</value>
     <comment>Banner text when CLI version is unsupported</comment>

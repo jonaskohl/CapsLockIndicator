@@ -496,6 +496,24 @@
 
 CapsLock Indicator를 쓰기 권한이 있는 폴더로 옮기거나, 한 번 관리자 권한으로 실행하여 번역을 업데이트하십시오.</value>
   </data>
+  <data name="uninstall" xml:space="preserve">
+    <value>제거</value>
+  </data>
+  <data name="uninstallComplete" xml:space="preserve">
+    <value>CapsLock Indicator가 제거되었습니다.</value>
+  </data>
+  <data name="uninstallConfirmation" xml:space="preserve">
+    <value>이 컴퓨터에서 CapsLock Indicator를 제거합니다. 더 이상 자동으로 시작되지 않으며 설정, 번역 및 다운로드한 아이콘이 삭제됩니다.
+
+지금 CapsLock Indicator를 제거하시겠습니까?</value>
+  </data>
+  <data name="uninstallManualDelete" xml:space="preserve">
+    <value>CapsLock Indicator가 더 이상 자동으로 시작되지 않으며 설정이 삭제되었습니다.
+
+프로그램 파일을 자동으로 삭제할 수 없습니다. 직접 삭제하십시오:
+
+{0}</value>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value> 이 버전의 CapsLock Indicator (버전 {version})는 지원되지 않습니다. 최신 버전으로 업데이트하십시오!</value>
     <comment>Banner text when CLI version is unsupported</comment>

@@ -496,6 +496,24 @@ Chcete teď obnovit veškerá nastavení?</value>
 
 Přesuňte CapsLock Indicator do složky, do které můžete zapisovat, nebo jej jednou spusťte jako správce, aby se překlady aktualizovaly.</value>
   </data>
+  <data name="uninstall" xml:space="preserve">
+    <value>Odinstalovat</value>
+  </data>
+  <data name="uninstallComplete" xml:space="preserve">
+    <value>CapsLock Indicator byl odinstalován.</value>
+  </data>
+  <data name="uninstallConfirmation" xml:space="preserve">
+    <value>Tímto odeberete CapsLock Indicator z tohoto počítače. Již se nebude spouštět automaticky a jeho nastavení, překlady a stažené ikony budou smazány.
+
+Chcete nyní CapsLock Indicator odinstalovat?</value>
+  </data>
+  <data name="uninstallManualDelete" xml:space="preserve">
+    <value>CapsLock Indicator se již nespouští automaticky a jeho nastavení bylo smazáno.
+
+Soubor programu nebylo možné smazat automaticky. Smažte jej prosím ručně:
+
+{0}</value>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value>Tato verze programu CapsLock Indicator (verze {version}) již není podporována. Akzualizujte, prosím, tento program na nejnovější verzi!</value>
     <comment>Banner text when CLI version is unsupported</comment>

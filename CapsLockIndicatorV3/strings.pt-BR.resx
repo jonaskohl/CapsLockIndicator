@@ -642,6 +642,24 @@ Do you want to reset all settings now?</value>
 
 Mova o CapsLock Indicator para uma pasta na qual você tenha permissão de gravação ou execute-o uma vez como administrador para atualizar as traduções.</value>
   </data>
+  <data name="uninstall" xml:space="preserve">
+    <value>Desinstalar</value>
+  </data>
+  <data name="uninstallComplete" xml:space="preserve">
+    <value>O CapsLock Indicator foi desinstalado.</value>
+  </data>
+  <data name="uninstallConfirmation" xml:space="preserve">
+    <value>Isso removerá o CapsLock Indicator deste computador. Ele não será mais iniciado automaticamente, e suas configurações, traduções e ícones baixados serão excluídos.
+
+Deseja desinstalar o CapsLock Indicator agora?</value>
+  </data>
+  <data name="uninstallManualDelete" xml:space="preserve">
+    <value>O CapsLock Indicator não é mais iniciado automaticamente e suas configurações foram excluídas.
+
+Não foi possível excluir o arquivo do programa automaticamente. Exclua-o manualmente:
+
+{0}</value>
+  </data>
   <data name="updateAvailable" xml:space="preserve">
     <value>Atualização disponível para o Indicador de CapsLock!</value>
     <comment>The title for the update window.</comment>

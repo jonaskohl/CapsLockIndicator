@@ -17,6 +17,11 @@ namespace CapsLockIndicatorV3
 
         public static event EventHandler<string> SettingChanged;
 
+        /// <summary>
+        /// Set during uninstallation so the settings file isn't recreated on exit.
+        /// </summary>
+        public static bool SavingDisabled { get; set; }
+
         private static Dictionary<string, (Type, object)> DefaultSettings;
         private static Dictionary<string, (Type, object)> Settings;
 
@@ -123,6 +128,9 @@ namespace CapsLockIndicatorV3
 
         public static void Save()
         {
+            if (SavingDisabled)
+                return;
+
             var sb = new StringBuilder();
 
             foreach (var s in Settings)

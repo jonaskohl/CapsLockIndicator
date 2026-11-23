@@ -498,6 +498,28 @@ Do you want to reset all settings now?</value>
 Move CapsLock Indicator to a folder you have write access to, or run it as administrator once to update the translations.</value>
     <comment>Message box when translations cannot be installed because the program folder is not writable. {0} is the folder path.</comment>
   </data>
+  <data name="uninstall" xml:space="preserve">
+    <value>Uninstall</value>
+    <comment>Caption of the Uninstall button on the advanced options tab.</comment>
+  </data>
+  <data name="uninstallComplete" xml:space="preserve">
+    <value>CapsLock Indicator has been uninstalled.</value>
+    <comment>Message box shown after the program files have been deleted successfully.</comment>
+  </data>
+  <data name="uninstallConfirmation" xml:space="preserve">
+    <value>This will remove CapsLock Indicator from this computer. It will no longer start automatically, and its settings, translations and downloaded icons will be deleted.
+
+Do you want to uninstall CapsLock Indicator now?</value>
+    <comment>Confirmation message box before uninstalling.</comment>
+  </data>
+  <data name="uninstallManualDelete" xml:space="preserve">
+    <value>CapsLock Indicator no longer starts automatically and its settings have been deleted.
+
+The program file could not be deleted automatically. Please delete it manually:
+
+{0}</value>
+    <comment>Message box after uninstalling when the program file could not be deleted automatically. {0} is the path of the program file.</comment>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value>This version of CapsLock Indicator (Version {version}) is not supported. Please update to the latest version!</value>
     <comment>Banner text when CLI version is unsupported</comment>

@@ -251,6 +251,7 @@ namespace CapsLockIndicatorV3
 
             var warningIcon = SysIcons.GetSystemIconRaw(SysIcons.SHSTOCKICONID.SIID_SHIELD, SysIcons.IconSize.Small);
             SendMessage(resetSettingsButton.Handle, BM_SETIMAGE, 1, warningIcon);
+            SendMessage(uninstallButton.Handle, BM_SETIMAGE, 1, warningIcon);
 
             TabControl1_SelectedIndexChanged(tabControl1, EventArgs.Empty);
             CenterToScreen();
@@ -723,6 +724,7 @@ namespace CapsLockIndicatorV3
             ControlScheduleSetDarkMode(localeComboBox, dark);
             ControlScheduleSetDarkMode(advSettingsButton, dark);
             ControlScheduleSetDarkMode(resetSettingsButton, dark);
+            ControlScheduleSetDarkMode(uninstallButton, dark);
             ControlScheduleSetDarkMode(fontButton, dark);
             ControlScheduleSetDarkMode(backgroundColourActivatedButton, dark);
             ControlScheduleSetDarkMode(backgroundColourDeactivatedButton, dark);
@@ -868,6 +870,7 @@ namespace CapsLockIndicatorV3
             downloadIcons.Text = strings.downloadIcons;
             advSettingsButton.Text = strings.advancedSettings;
             resetSettingsButton.Text = strings.resetSettings;
+            uninstallButton.Text = strings.uninstall;
             tabPage3.Text = strings.tabGeneral;
             tabPage1.Text = strings.tabNotification;
             tabPage2.Text = strings.tabAdvancedOptions;
@@ -1616,6 +1619,15 @@ namespace CapsLockIndicatorV3
                 SettingsManager.Save();
                 Program.ReleaseMutex();
                 Application.Restart();
+            }
+        }
+
+        private void uninstallButton_Click(object sender, EventArgs e)
+        {
+            if (Uninstaller.Run(this))
+            {
+                shouldClose = true;
+                Exit();
             }
         }
 

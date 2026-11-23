@@ -496,6 +496,24 @@
 
 Переместите CapsLock Indicator в папку, в которую у вас есть права на запись, или один раз запустите его от имени администратора, чтобы обновить переводы.</value>
   </data>
+  <data name="uninstall" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="uninstallComplete" xml:space="preserve">
+    <value>CapsLock Indicator удалён.</value>
+  </data>
+  <data name="uninstallConfirmation" xml:space="preserve">
+    <value>CapsLock Indicator будет удалён с этого компьютера. Он больше не будет запускаться автоматически, а его настройки, переводы и загруженные значки будут удалены.
+
+Удалить CapsLock Indicator сейчас?</value>
+  </data>
+  <data name="uninstallManualDelete" xml:space="preserve">
+    <value>CapsLock Indicator больше не запускается автоматически, а его настройки удалены.
+
+Не удалось автоматически удалить файл программы. Удалите его вручную:
+
+{0}</value>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value>Эта версия CapsLock Indicator ({version}) не поддерживается. Обновитесь до последней версии!</value>
     <comment>Banner text when CLI version is unsupported</comment>

@@ -496,6 +496,24 @@
 
 请将 CapsLock Indicator 移动到你有写入权限的文件夹，或以管理员身份运行一次以更新翻译。</value>
   </data>
+  <data name="uninstall" xml:space="preserve">
+    <value>卸载</value>
+  </data>
+  <data name="uninstallComplete" xml:space="preserve">
+    <value>CapsLock Indicator 已卸载。</value>
+  </data>
+  <data name="uninstallConfirmation" xml:space="preserve">
+    <value>这将从此计算机中移除 CapsLock Indicator。它将不再自动启动，其设置、翻译和已下载的图标都将被删除。
+
+你想现在卸载 CapsLock Indicator 吗？</value>
+  </data>
+  <data name="uninstallManualDelete" xml:space="preserve">
+    <value>CapsLock Indicator 已不再自动启动，其设置已被删除。
+
+无法自动删除程序文件。请手动删除：
+
+{0}</value>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value>不支持此版本的 CapsLock Indicator (版本 {version})。请更新为最新版本！</value>
     <comment>Banner text when CLI version is unsupported</comment>

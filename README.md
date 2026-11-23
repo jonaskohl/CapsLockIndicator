@@ -30,6 +30,15 @@
   
 <p align="center"><br /></p>
 
+# Uninstalling
+Open the settings window, go to the *Advanced options* tab and click *Uninstall*. CapsLock Indicator removes itself from autostart, deletes its settings and then deletes its own files.
+
+To uninstall manually instead:
+1. Exit CapsLock Indicator (right-click a tray icon → *Exit*).
+2. Delete the program file (`CapsLockIndicatorV3.exe` or similar), plus any translation folders (e.g. `de`, `fr`) and `.ico` files next to it.
+3. Delete the settings folder `%AppData%\Jonas Kohl\CapsLock Indicator`.
+4. Remove the autostart entry: Task Manager → *Startup apps* → *CapsLock Indicator* → *Disable*, or delete the value `CapsLock Indicator` under `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run`.
+
 # Edit & compile source code
 You need Microsoft Visual Studio 2019 and the Microsoft .NET 4.7.1 SDK to edit and compile the source code.
 

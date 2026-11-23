@@ -642,6 +642,24 @@ Do you want to reset all settings now?</value>
 
 Verplaats CapsLock Indicator naar een map waarin je schrijfrechten hebt, of voer het één keer uit als administrator om de vertalingen bij te werken.</value>
   </data>
+  <data name="uninstall" xml:space="preserve">
+    <value>Verwijderen</value>
+  </data>
+  <data name="uninstallComplete" xml:space="preserve">
+    <value>CapsLock Indicator is verwijderd.</value>
+  </data>
+  <data name="uninstallConfirmation" xml:space="preserve">
+    <value>Hiermee wordt CapsLock Indicator van deze computer verwijderd. Het wordt niet meer automatisch gestart en de instellingen, vertalingen en gedownloade pictogrammen worden verwijderd.
+
+Wil je CapsLock Indicator nu verwijderen?</value>
+  </data>
+  <data name="uninstallManualDelete" xml:space="preserve">
+    <value>CapsLock Indicator wordt niet meer automatisch gestart en de instellingen zijn verwijderd.
+
+Het programmabestand kon niet automatisch worden verwijderd. Verwijder het handmatig:
+
+{0}</value>
+  </data>
   <data name="updateAvailable" xml:space="preserve">
     <value>CapsLock Indicator Update beschikbaar!</value>
     <comment>The title for the update window.</comment>

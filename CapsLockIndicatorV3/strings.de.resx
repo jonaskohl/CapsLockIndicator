@@ -404,6 +404,24 @@ Möchen Sie jetzt alle Einstellungen zurücksetzen?</value>
 
 Verschieben Sie CapsLock Indicator in einen Ordner mit Schreibzugriff, oder führen Sie es einmalig als Administrator aus, um die Übersetzungen zu aktualisieren.</value>
   </data>
+  <data name="uninstall" xml:space="preserve">
+    <value>Deinstallieren</value>
+  </data>
+  <data name="uninstallComplete" xml:space="preserve">
+    <value>CapsLock Indicator wurde deinstalliert.</value>
+  </data>
+  <data name="uninstallConfirmation" xml:space="preserve">
+    <value>Dadurch wird CapsLock Indicator von diesem Computer entfernt. Es wird nicht mehr automatisch gestartet, und seine Einstellungen, Übersetzungen und heruntergeladenen Symbole werden gelöscht.
+
+Möchten Sie CapsLock Indicator jetzt deinstallieren?</value>
+  </data>
+  <data name="uninstallManualDelete" xml:space="preserve">
+    <value>CapsLock Indicator wird nicht mehr automatisch gestartet und seine Einstellungen wurden gelöscht.
+
+Die Programmdatei konnte nicht automatisch gelöscht werden. Bitte löschen Sie sie manuell:
+
+{0}</value>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value>Diese Version von CapsLock Indicator (Version {version}) wird nicht mehr unterstützt. Bitte aktualisieren Sie auf die neuste Version!</value>
   </data>

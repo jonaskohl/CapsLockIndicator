@@ -912,6 +912,48 @@ namespace CapsLockIndicatorV3 {
         }
 
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Uninstall ähnelt.
+        /// </summary>
+        internal static string uninstall {
+            get {
+                return ResourceManager.GetString("uninstall", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die CapsLock Indicator has been uninstalled. ähnelt.
+        /// </summary>
+        internal static string uninstallComplete {
+            get {
+                return ResourceManager.GetString("uninstallComplete", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die This will remove CapsLock Indicator from this computer. It will no longer start automatically, and its settings, translations and downloaded icons will be deleted.
+        ///
+        ///Do you want to uninstall CapsLock Indicator now? ähnelt.
+        /// </summary>
+        internal static string uninstallConfirmation {
+            get {
+                return ResourceManager.GetString("uninstallConfirmation", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die CapsLock Indicator no longer starts automatically and its settings have been deleted.
+        ///
+        ///The program file could not be deleted automatically. Please delete it manually:
+        ///
+        ///{0} ähnelt.
+        /// </summary>
+        internal static string uninstallManualDelete {
+            get {
+                return ResourceManager.GetString("uninstallManualDelete", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die This version of CapsLock Indicator (Version {version}) is not supported. Please update to the latest version! ähnelt.
         /// </summary>
         internal static string unsupportedCLI {

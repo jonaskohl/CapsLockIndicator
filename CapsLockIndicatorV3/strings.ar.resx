@@ -532,6 +532,24 @@ Do you want to reset all settings now?</value>
 
 انقل CapsLock Indicator إلى مجلد لديك صلاحية الكتابة فيه، أو شغّله مرة واحدة كمسؤول لتحديث الترجمات.</value>
   </data>
+  <data name="uninstall" xml:space="preserve">
+    <value>إلغاء التثبيت</value>
+  </data>
+  <data name="uninstallComplete" xml:space="preserve">
+    <value>تم إلغاء تثبيت CapsLock Indicator.</value>
+  </data>
+  <data name="uninstallConfirmation" xml:space="preserve">
+    <value>سيؤدي هذا إلى إزالة CapsLock Indicator من هذا الكمبيوتر. لن يبدأ تلقائيًا بعد الآن، وسيتم حذف إعداداته وترجماته والأيقونات التي تم تنزيلها.
+
+هل تريد إلغاء تثبيت CapsLock Indicator الآن؟</value>
+  </data>
+  <data name="uninstallManualDelete" xml:space="preserve">
+    <value>لم يعد CapsLock Indicator يبدأ تلقائيًا وتم حذف إعداداته.
+
+تعذر حذف ملف البرنامج تلقائيًا. يرجى حذفه يدويًا:
+
+{0}</value>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value>هذا الإصدار من برنامج CapsLock (الإصدار {الإصدار}) غير مدعوم. يرجى التحديث إلى أحدث إصدار! </value>
     <comment>Banner text when CLI version is unsupported</comment>

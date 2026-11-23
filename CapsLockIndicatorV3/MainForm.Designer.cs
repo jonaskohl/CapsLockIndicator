@@ -140,6 +140,7 @@ namespace CapsLockIndicatorV3
             this.searchOnResumeCheckBox = new CapsLockIndicatorV3.BetterCheckBox();
             this.advSettingsButton = new System.Windows.Forms.Button();
             this.resetSettingsButton = new System.Windows.Forms.Button();
+            this.uninstallButton = new System.Windows.Forms.Button();
             this.tutorialToolTip = new CapsLockIndicatorV3.BetterToolTip(this.components);
             this.tutorialTimer = new System.Windows.Forms.Timer(this.components);
             this.generalIconContextMenuStrip.SuspendLayout();
@@ -1440,7 +1441,7 @@ namespace CapsLockIndicatorV3
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(614, 693);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Tag = "190";
+            this.tabPage2.Tag = "220";
             this.tabPage2.Text = "advancedOptions";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
@@ -1451,6 +1452,7 @@ namespace CapsLockIndicatorV3
             this.flowLayoutPanel1b.Controls.Add(this.downloadIcons);
             this.flowLayoutPanel1b.Controls.Add(this.advSettingsButton);
             this.flowLayoutPanel1b.Controls.Add(this.resetSettingsButton);
+            this.flowLayoutPanel1b.Controls.Add(this.uninstallButton);
             this.flowLayoutPanel1b.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1b.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1b.Location = new System.Drawing.Point(3, 3);
@@ -1504,7 +1506,20 @@ namespace CapsLockIndicatorV3
             this.resetSettingsButton.Text = "resetSettings";
             this.resetSettingsButton.UseVisualStyleBackColor = true;
             this.resetSettingsButton.Click += new System.EventHandler(this.resetSettingsButton_Click);
-            // 
+            //
+            // uninstallButton
+            //
+            this.uninstallButton.AutoSize = true;
+            this.uninstallButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.uninstallButton.Location = new System.Drawing.Point(3, 142);
+            this.uninstallButton.Name = "uninstallButton";
+            this.uninstallButton.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.uninstallButton.Size = new System.Drawing.Size(104, 24);
+            this.uninstallButton.TabIndex = 14;
+            this.uninstallButton.Text = "uninstall";
+            this.uninstallButton.UseVisualStyleBackColor = true;
+            this.uninstallButton.Click += new System.EventHandler(this.uninstallButton_Click);
+            //
             // tutorialToolTip
             // 
             this.tutorialToolTip.IsBalloon = true;
@@ -1687,6 +1702,7 @@ namespace CapsLockIndicatorV3
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Button resetSettingsButton;
+        private System.Windows.Forms.Button uninstallButton;
         private System.Windows.Forms.Label persistentHeadingLabel;
         private System.Windows.Forms.Label persistentNumLabel;
         private System.Windows.Forms.Label persistentCapsLabel;

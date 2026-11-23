@@ -73,6 +73,21 @@ namespace CapsLockIndicatorV3
                 rk?.DeleteValue(ValueName, false);
         }
 
+        /// <summary>
+        /// Removes the Run entry and the StartupApproved state Windows keeps for it.
+        /// </summary>
+        public static void Remove()
+        {
+            Disable();
+
+            try
+            {
+                using (var rk = Registry.CurrentUser.OpenSubKey(StartupApprovedKeyPath, true))
+                    rk?.DeleteValue(ValueName, false);
+            }
+            catch { }
+        }
+
         // StartupApproved values are 12-byte REG_BINARY blobs; an odd first
         // byte (0x03, 0x07) means the entry was disabled by the user.
         private static bool IsDisabledByWindows()
