@@ -1271,8 +1271,16 @@ namespace CapsLockIndicatorV3
 
         void doVersionCheck(bool isManualCheck)
         {
-            VersionCheck.IsLatestVersion(handleVersion, isManualCheck);
-            CheckSupport();
+            // Start the checks from the message loop. MainFormLoad runs inside WM_SHOWWINDOW,
+            // where SynchronizationContext.Current isn't the WinForms one, so the async callbacks would
+            // run on a thread pool thread. The banner label and the update dialog would
+            // then be created on that thread, which doesn't pump messages, and the next access
+            // from the UI thread would hang the application.
+            BeginInvoke((MethodInvoker)(() =>
+            {
+                VersionCheck.IsLatestVersion(handleVersion, isManualCheck);
+                CheckSupport();
+            }));
         }
 
         void MainFormLoad(object sender, EventArgs e)
