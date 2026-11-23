@@ -511,7 +511,7 @@ namespace CapsLockIndicatorV3 {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die You can show CapsLock Indicator again by double clicking on this icon. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die CapsLock Indicator is still running. To open the settings again, double-click this icon or start CapsLock Indicator again. ähnelt.
         /// </summary>
         internal static string generalIconBalloonText {
             get {

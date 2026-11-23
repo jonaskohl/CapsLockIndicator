@@ -318,7 +318,7 @@
     <comment>The caption for the "Text colour deactivated" button.</comment>
   </data>
   <data name="generalIconBalloonText" xml:space="preserve">
-    <value>You can show CapsLock Indicator again by double clicking on this icon.</value>
+    <value>CapsLock Indicator is still running. To open the settings again, double-click this icon or start CapsLock Indicator again.</value>
     <comment>The text that is shown in the icon balloon tip when CLI is being hidden.</comment>
   </data>
   <data name="headerWarning" xml:space="preserve">

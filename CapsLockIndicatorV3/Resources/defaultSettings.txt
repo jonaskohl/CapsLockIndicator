@@ -12,6 +12,7 @@ b:checkForUpdates=True
 b:upgradeRequired=True
 b:alwaysShowWhenActive=False
 b:firstRun=True
+b:hideHintShown=False
 b:searchForUpdatesAfterResume=True
 b:showNotificationOnAllScreens=False
 b:supressEOLMessage=False

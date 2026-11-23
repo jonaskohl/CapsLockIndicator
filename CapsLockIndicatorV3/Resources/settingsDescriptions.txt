@@ -12,6 +12,7 @@ checkForUpdates						Automatically check for updates
 upgradeRequired						Internal. :b:{Do not change!}
 alwaysShowWhenActive				Don't hide overlay as long as key is active
 firstRun							If true, shows the :i:{First run} dialog on next start
+hideHintShown						If true, the hint about reopening CapsLock Indicator from the notification area has already been shown
 searchForUpdatesAfterResume			Whether CapsLock Indicator should search for updates after a system resume (i.e. after hibernation)
 showNotificationOnAllScreens		:b:{Experimental:} Show notification on all screens instead of the screen containg the cursor
 supressEOLMessage					Internal. :b:{Do not change!}

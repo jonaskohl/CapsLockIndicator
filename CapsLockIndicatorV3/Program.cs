@@ -117,10 +117,11 @@ namespace CapsLockIndicatorV3
                     Native.SetPrefferDarkMode(true);
 
                 var runApp = true;
+                var isFirstRun = SettingsManager.Get<bool>("firstRun");
 
                 ApplyHandCursorFix();
-                
-                if (SettingsManager.Get<bool>("firstRun"))
+
+                if (isFirstRun)
                 {
                     do
                     {
@@ -142,6 +143,11 @@ namespace CapsLockIndicatorV3
                 {
                     MainForm = new MainForm();
                     ListenForShowRequests();
+
+                    // After the first run dialog closes, no window of ours has focus, so the
+                    // settings window could open behind other windows. Bring it to the front.
+                    if (isFirstRun)
+                        SynchronizationContext.Current.Post(_ => MainForm.ShowSettingsWindow(), null);
 
                     Application.Run();
                 }

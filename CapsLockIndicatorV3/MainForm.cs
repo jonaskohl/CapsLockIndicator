@@ -1148,6 +1148,33 @@ namespace CapsLockIndicatorV3
             Hide();
             isHidden = true;
             //Opacity = 1;
+
+            ShowHideHintOnce();
+        }
+
+        /// <summary>
+        /// The first time the settings window is hidden, tell the user that
+        /// the program keeps running in the notification area and how to get
+        /// the settings back.
+        /// </summary>
+        private void ShowHideHintOnce()
+        {
+            if (SettingsManager.Get<bool>("hideHintShown"))
+                return;
+
+            var icon = new[] { capsLockIcon, numLockIcon, scrollLockIcon, generalIcon }
+                .FirstOrDefault(i => i.Visible && i.Icon != null);
+
+            if (icon == null)
+                return;
+
+            icon.BalloonTipTitle = "CapsLock Indicator";
+            icon.BalloonTipText = strings.generalIconBalloonText;
+            icon.BalloonTipIcon = ToolTipIcon.Info;
+            icon.ShowBalloonTip(5000);
+
+            SettingsManager.Set("hideHintShown", true);
+            SettingsManager.Save();
         }
 
         void GeneralIconMouseDoubleClick(object sender, MouseEventArgs e)
