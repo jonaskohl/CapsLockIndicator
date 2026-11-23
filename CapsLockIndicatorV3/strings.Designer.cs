@@ -888,7 +888,29 @@ namespace CapsLockIndicatorV3 {
                 return ResourceManager.GetString("tabNotification", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The downloaded file is damaged (checksum mismatch). ähnelt.
+        /// </summary>
+        internal static string translationChecksumMismatch {
+            get {
+                return ResourceManager.GetString("translationChecksumMismatch", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Translations cannot be installed because the folder containing CapsLock Indicator is not writable:
+        ///
+        ///{0}
+        ///
+        ///Move CapsLock Indicator to a folder you have write access to, or run it as administrator once to update the translations. ähnelt.
+        /// </summary>
+        internal static string translationFolderNotWritable {
+            get {
+                return ResourceManager.GetString("translationFolderNotWritable", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die This version of CapsLock Indicator (Version {version}) is not supported. Please update to the latest version! ähnelt.
         /// </summary>

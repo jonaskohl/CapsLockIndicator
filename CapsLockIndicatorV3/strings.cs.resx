@@ -486,6 +486,16 @@ Chcete teď obnovit veškerá nastavení?</value>
     <value>Oznámení</value>
     <comment>Tab header for advanced settings</comment>
   </data>
+  <data name="translationChecksumMismatch" xml:space="preserve">
+    <value>Stažený soubor je poškozený (kontrolní součet nesouhlasí).</value>
+  </data>
+  <data name="translationFolderNotWritable" xml:space="preserve">
+    <value>Překlady nelze nainstalovat, protože do složky s aplikací CapsLock Indicator nelze zapisovat:
+
+{0}
+
+Přesuňte CapsLock Indicator do složky, do které můžete zapisovat, nebo jej jednou spusťte jako správce, aby se překlady aktualizovaly.</value>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value>Tato verze programu CapsLock Indicator (verze {version}) již není podporována. Akzualizujte, prosím, tento program na nejnovější verzi!</value>
     <comment>Banner text when CLI version is unsupported</comment>

@@ -394,6 +394,16 @@ Möchen Sie jetzt alle Einstellungen zurücksetzen?</value>
   <data name="tabNotification" xml:space="preserve">
     <value>Benachrichtigung</value>
   </data>
+  <data name="translationChecksumMismatch" xml:space="preserve">
+    <value>Die heruntergeladene Datei ist beschädigt (Prüfsumme stimmt nicht überein).</value>
+  </data>
+  <data name="translationFolderNotWritable" xml:space="preserve">
+    <value>Die Übersetzungen können nicht installiert werden, da der Ordner von CapsLock Indicator schreibgeschützt ist:
+
+{0}
+
+Verschieben Sie CapsLock Indicator in einen Ordner mit Schreibzugriff, oder führen Sie es einmalig als Administrator aus, um die Übersetzungen zu aktualisieren.</value>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value>Diese Version von CapsLock Indicator (Version {version}) wird nicht mehr unterstützt. Bitte aktualisieren Sie auf die neuste Version!</value>
   </data>

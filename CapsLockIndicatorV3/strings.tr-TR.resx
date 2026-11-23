@@ -486,6 +486,16 @@ Seçenekleri sıfırlamak istiyor musunuz?</value>
     <value>Bildirim</value>
     <comment>Tab header for advanced settings</comment>
   </data>
+  <data name="translationChecksumMismatch" xml:space="preserve">
+    <value>İndirilen dosya bozuk (sağlama toplamı eşleşmiyor).</value>
+  </data>
+  <data name="translationFolderNotWritable" xml:space="preserve">
+    <value>CapsLock Indicator'ın bulunduğu klasöre yazılamadığı için çeviriler yüklenemiyor:
+
+{0}
+
+Çevirileri güncellemek için CapsLock Indicator'ı yazma izniniz olan bir klasöre taşıyın veya bir kez yönetici olarak çalıştırın.</value>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value>CapsLock Indicator'ın bu sürümü (Versiyon {version}) desteklenmiyor. Lütfen son sürüme güncelleme yapın.</value>
     <comment>Banner text when CLI version is unsupported</comment>

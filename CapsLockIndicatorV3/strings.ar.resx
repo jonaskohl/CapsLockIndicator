@@ -522,6 +522,16 @@ Do you want to reset all settings now?</value>
     <value>الإشعارات</value>
     <comment>Tab header for advanced settings</comment>
   </data>
+  <data name="translationChecksumMismatch" xml:space="preserve">
+    <value>الملف الذي تم تنزيله تالف (المجموع الاختباري غير مطابق).</value>
+  </data>
+  <data name="translationFolderNotWritable" xml:space="preserve">
+    <value>لا يمكن تثبيت الترجمات لأن المجلد الذي يحتوي على CapsLock Indicator غير قابل للكتابة:
+
+{0}
+
+انقل CapsLock Indicator إلى مجلد لديك صلاحية الكتابة فيه، أو شغّله مرة واحدة كمسؤول لتحديث الترجمات.</value>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value>هذا الإصدار من برنامج CapsLock (الإصدار {الإصدار}) غير مدعوم. يرجى التحديث إلى أحدث إصدار! </value>
     <comment>Banner text when CLI version is unsupported</comment>

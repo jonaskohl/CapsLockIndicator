@@ -486,6 +486,16 @@
     <value>알림</value>
     <comment>Tab header for advanced settings</comment>
   </data>
+  <data name="translationChecksumMismatch" xml:space="preserve">
+    <value>다운로드한 파일이 손상되었습니다 (체크섬 불일치).</value>
+  </data>
+  <data name="translationFolderNotWritable" xml:space="preserve">
+    <value>CapsLock Indicator가 있는 폴더에 쓸 수 없으므로 번역을 설치할 수 없습니다:
+
+{0}
+
+CapsLock Indicator를 쓰기 권한이 있는 폴더로 옮기거나, 한 번 관리자 권한으로 실행하여 번역을 업데이트하십시오.</value>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value> 이 버전의 CapsLock Indicator (버전 {version})는 지원되지 않습니다. 최신 버전으로 업데이트하십시오!</value>
     <comment>Banner text when CLI version is unsupported</comment>

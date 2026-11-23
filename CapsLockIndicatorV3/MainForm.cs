@@ -277,8 +277,14 @@ namespace CapsLockIndicatorV3
 
         private void BeginCheckOldLanguageFiles()
         {
+            // The prompt is shown from a worker thread, so pass on the UI language
+            // the user selected; otherwise it would appear in the Windows language.
+            var uiCulture = Thread.CurrentThread.CurrentUICulture;
+
             Task.Run(async () =>
             {
+                Thread.CurrentThread.CurrentUICulture = uiCulture;
+
                 var oldLangs = await CheckOldLanguageFiles();
 
                 if (oldLangs.Length > 0 && MessageBox.Show(strings.updateLocaleMessageBox, "CapsLock Indicator", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -299,13 +305,27 @@ namespace CapsLockIndicatorV3
                 foreach (var ci in cis)
                 {
                     var name = ci.Name;
-                    var path = Path.Combine(exeLocation, ci.Name, "CapsLockIndicatorV3.resources.dll");
-                    var inf = AssemblyName.GetAssemblyName(path);
-                    var ver = inf.Version;
+                    var path = Path.Combine(exeLocation, ci.Name, LanguageDownloadProgressForm.DLL_NAME);
+
+                    // Folder named like a culture but without our translation in it
+                    if (!File.Exists(path))
+                        continue;
+
+                    Version ver;
                     string sha1;
-                    using (var fs = File.OpenRead(path))
-                    using (var bs = new BufferedStream(fs))
-                        sha1 = ToLowerCaseHexString(cryptoProvider.ComputeHash(bs));
+                    try
+                    {
+                        ver = AssemblyName.GetAssemblyName(path).Version;
+                        using (var fs = File.OpenRead(path))
+                        using (var bs = new BufferedStream(fs))
+                            sha1 = ToLowerCaseHexString(cryptoProvider.ComputeHash(bs));
+                    }
+                    catch (Exception ex) when (ex is BadImageFormatException || ex is IOException || ex is UnauthorizedAccessException)
+                    {
+                        // Corrupt or unreadable translation: report it as outdated so it gets replaced
+                        ver = new Version(0, 0, 0, 0);
+                        sha1 = "";
+                    }
 
                     l.Add(new KeyValuePair<string, DllInfo>(name, new DllInfo()
                     {
@@ -378,10 +398,15 @@ namespace CapsLockIndicatorV3
                     var localVer = lang.Value.Version;
                     var remoteVer = remoteLang.Version;
 
+                    // If the installed file is identical to the one on the server, it is
+                    // up to date regardless of the advertised version number. This prevents
+                    // endless update prompts if the server metadata and DLL disagree.
+                    var sameFile = string.Equals(lang.Value.SHA1, remoteLang.SHA1, StringComparison.OrdinalIgnoreCase);
+
 #if DEBUG
-                    if (remoteVer != localVer)
+                    if (!sameFile && remoteVer != localVer)
 #else
-                    if (remoteVer > localVer)
+                    if (!sameFile && remoteVer > localVer)
 #endif
                         oldLangs.Add(new KeyValuePair<string, DllInfo>(lang.Key, remoteLang));
                 }
@@ -1305,20 +1330,25 @@ namespace CapsLockIndicatorV3
         {
             DropDownLocale locale = (DropDownLocale)localeComboBox.SelectedItem;
 
+            // Pseudo-items (separator and actions) are not languages: run the action,
+            // go back to the previous language (which re-enters this handler and saves
+            // that language) and don't save the pseudo-item as the selected language.
+            if (locale.localeString == "--ln" || locale.localeString == "--get-more" || locale.localeString == "--check-for-updates")
+            {
+                localeComboBox.SelectedIndex = previousLocaleIndex;
+
+                if (locale.localeString == "--get-more")
+                    Process.Start(URLs.DownloadTranslations);
+                else if (locale.localeString == "--check-for-updates")
+                    BeginCheckOldLanguageFiles();
+
+                return;
+            }
+
             if (locale.localeString == "__default")
             {
                 Thread.CurrentThread.CurrentUICulture = CultureInfo.DefaultThreadCurrentCulture;
                 previousLocaleIndex = localeComboBox.SelectedIndex;
-            }
-            else if (locale.localeString == "--get-more")
-            {
-                localeComboBox.SelectedIndex = previousLocaleIndex;
-                Process.Start(URLs.DownloadTranslations);
-            }
-            else if (locale.localeString == "--check-for-updates")
-            {
-                localeComboBox.SelectedIndex = previousLocaleIndex;
-                BeginCheckOldLanguageFiles();
             }
             else
             {

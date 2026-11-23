@@ -177,24 +177,41 @@ namespace CapsLockIndicatorV3
 
             var updateDir = Path.Combine(currDir, LanguageDownloadProgressForm.DLL_UPDATE_DIR);
 
-            if (Directory.Exists(updateDir))
+            if (!Directory.Exists(updateDir))
+                return;
+
+            // Install each staged translation separately. If one can't be installed
+            // (e.g. file locked or folder not writable), leave it staged and try again
+            // on the next start instead of crashing.
+            var allInstalled = true;
+
+            try
             {
-                var dlls = Directory.GetFiles(updateDir, "*.dll");
-
-                foreach (var dll in dlls)
+                foreach (var dll in Directory.GetFiles(updateDir, "*.dll"))
                 {
-                    var targetDir = Path.Combine(currDir, Path.GetFileNameWithoutExtension(dll));
-                    var targetFile = Path.Combine(targetDir, LanguageDownloadProgressForm.DLL_NAME);
+                    try
+                    {
+                        var targetDir = Path.Combine(currDir, Path.GetFileNameWithoutExtension(dll));
+                        var targetFile = Path.Combine(targetDir, LanguageDownloadProgressForm.DLL_NAME);
 
-                    Directory.CreateDirectory(targetDir);
+                        Directory.CreateDirectory(targetDir);
 
-                    if (File.Exists(targetFile))
-                        File.Delete(targetFile);
+                        if (File.Exists(targetFile))
+                            File.Delete(targetFile);
 
-                    File.Move(dll, targetFile);
+                        File.Move(dll, targetFile);
+                    }
+                    catch (Exception ex) when (ex is IOException || ex is UnauthorizedAccessException)
+                    {
+                        allInstalled = false;
+                    }
                 }
 
-                Directory.Delete(updateDir, true);
+                if (allInstalled)
+                    Directory.Delete(updateDir, true);
+            }
+            catch (Exception ex) when (ex is IOException || ex is UnauthorizedAccessException)
+            {
             }
         }
 

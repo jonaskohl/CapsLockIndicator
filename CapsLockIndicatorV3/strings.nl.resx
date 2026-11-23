@@ -632,6 +632,16 @@ Do you want to reset all settings now?</value>
     <comment>Banner text when Windows version is unsupported</comment>
   </data>
 -->
+  <data name="translationChecksumMismatch" xml:space="preserve">
+    <value>Het gedownloade bestand is beschadigd (controlesom komt niet overeen).</value>
+  </data>
+  <data name="translationFolderNotWritable" xml:space="preserve">
+    <value>De vertalingen kunnen niet worden geïnstalleerd omdat de map met CapsLock Indicator niet beschrijfbaar is:
+
+{0}
+
+Verplaats CapsLock Indicator naar een map waarin je schrijfrechten hebt, of voer het één keer uit als administrator om de vertalingen bij te werken.</value>
+  </data>
   <data name="updateAvailable" xml:space="preserve">
     <value>CapsLock Indicator Update beschikbaar!</value>
     <comment>The title for the update window.</comment>

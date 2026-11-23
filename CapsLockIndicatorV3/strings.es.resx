@@ -522,6 +522,16 @@ Do you want to reset all settings now?</value>
     <value>Notificación </value>
     <comment>Tab header for advanced settings</comment>
   </data>
+  <data name="translationChecksumMismatch" xml:space="preserve">
+    <value>El archivo descargado está dañado (la suma de comprobación no coincide).</value>
+  </data>
+  <data name="translationFolderNotWritable" xml:space="preserve">
+    <value>No se pueden instalar las traducciones porque no se puede escribir en la carpeta que contiene CapsLock Indicator:
+
+{0}
+
+Mueva CapsLock Indicator a una carpeta en la que tenga permisos de escritura o ejecútelo una vez como administrador para actualizar las traducciones.</value>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value>Esta versión del CapsLock Indicator (Versión {versión}) esta desactualizada. Por favor, actualice a la última versión.</value>
     <comment>Banner text when CLI version is unsupported</comment>

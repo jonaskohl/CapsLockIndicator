@@ -486,6 +486,16 @@
     <value>通知</value>
     <comment>Tab header for advanced settings</comment>
   </data>
+  <data name="translationChecksumMismatch" xml:space="preserve">
+    <value>下载的文件已损坏（校验和不匹配）。</value>
+  </data>
+  <data name="translationFolderNotWritable" xml:space="preserve">
+    <value>无法安装翻译，因为 CapsLock Indicator 所在的文件夹不可写入：
+
+{0}
+
+请将 CapsLock Indicator 移动到你有写入权限的文件夹，或以管理员身份运行一次以更新翻译。</value>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value>不支持此版本的 CapsLock Indicator (版本 {version})。请更新为最新版本！</value>
     <comment>Banner text when CLI version is unsupported</comment>

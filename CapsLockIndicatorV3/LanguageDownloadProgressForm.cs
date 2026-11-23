@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,6 +22,7 @@ namespace CapsLockIndicatorV3
 
         private int totalOperations = 0;
         private int completedOperations = 0;
+        private int successfulOperations = 0;
 
         private KeyValuePair<string, DllInfo>[] dlls;
         Dictionary<string, LanguageProgressRow> progs;
@@ -91,7 +93,19 @@ namespace CapsLockIndicatorV3
             panel1.ResumeLayout(true);
 
             var updateDir = Path.Combine(exeDir, DLL_UPDATE_DIR);
-            Directory.CreateDirectory(updateDir);
+            try
+            {
+                Directory.CreateDirectory(updateDir);
+            }
+            catch (Exception ex) when (ex is UnauthorizedAccessException || ex is IOException)
+            {
+                MessageBox.Show(this,
+                    string.Format(strings.translationFolderNotWritable, exeDir),
+                    "CapsLock Indicator", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Native.SetCloseButtonEnabled(this, true);
+                Close();
+                return;
+            }
 
             Parallel.ForEach(dlls, new ParallelOptions()
             {
@@ -117,28 +131,47 @@ namespace CapsLockIndicatorV3
                         {
                             var p = progs[dll.Key];
 
-                            if (e.Error != null)
+                            var error = e.Error?.Message;
+
+                            // Only stage the file if it is exactly what the server advertised
+                            if (error == null && !string.Equals(ComputeSHA1(tempFile), dll.Value.SHA1, StringComparison.OrdinalIgnoreCase))
+                                error = strings.translationChecksumMismatch;
+
+                            if (error == null)
+                            {
+                                try
+                                {
+                                    if (File.Exists(dllPath))
+                                        File.Delete(dllPath);
+
+                                    File.Move(tempFile, dllPath);
+                                    ++successfulOperations;
+                                }
+                                catch (Exception ex) when (ex is UnauthorizedAccessException || ex is IOException)
+                                {
+                                    error = ex.Message;
+                                }
+                            }
+
+                            if (error != null)
                             {
                                 p.Style = ProgressBarStyle.Continuous;
                                 p.Value = p.Maximum = 1;
-                                p.SetError(true, e.Error.Message);
+                                p.SetError(true, error);
 
-                                File.Delete(tempFile);
+                                try { File.Delete(tempFile); } catch { }
                             }
                             else
                             {
                                 p.Value = p.Maximum;
-
-                                if (File.Exists(dllPath))
-                                    File.Delete(dllPath);
-
-                                File.Move(tempFile, dllPath);
                             }
 
 
                             progressBar1.Value += 1;
+
+                            // On the UI thread: touches controls and the shared counters
+                            UpdateCompletion();
                         });
-                        UpdateCompletion();
                     };
                     wc.DownloadProgressChanged += (s, e) =>
                     {
@@ -156,6 +189,21 @@ namespace CapsLockIndicatorV3
             });
         }
 
+        private static string ComputeSHA1(string path)
+        {
+            try
+            {
+                using (var sha1 = new SHA1CryptoServiceProvider())
+                using (var fs = File.OpenRead(path))
+                using (var bs = new BufferedStream(fs))
+                    return string.Concat(sha1.ComputeHash(bs).Select(b => b.ToString("x2")));
+            }
+            catch (IOException)
+            {
+                return "";
+            }
+        }
+
         private static string GetNameOfLocale(string locale)
         {
             var culture = CultureInfo.GetCultureInfo(locale);
@@ -169,7 +217,8 @@ namespace CapsLockIndicatorV3
             if (completedOperations >= totalOperations)
             {
                 Native.SetCloseButtonEnabled(this, true);
-                button1.Enabled = true;
+                // Restarting only makes sense if something was actually installed
+                button1.Enabled = successfulOperations > 0;
                 DownloadCompleted?.Invoke(this, EventArgs.Empty);
             }
         }

@@ -486,6 +486,16 @@
     <value>通知</value>
     <comment>Tab header for advanced settings</comment>
   </data>
+  <data name="translationChecksumMismatch" xml:space="preserve">
+    <value>ダウンロードしたファイルが破損しています (チェックサムが一致しません)。</value>
+  </data>
+  <data name="translationFolderNotWritable" xml:space="preserve">
+    <value>CapsLock Indicator のフォルダーに書き込みできないため、翻訳をインストールできません:
+
+{0}
+
+CapsLock Indicator を書き込み可能なフォルダーに移動するか、一度管理者として実行して翻訳を更新してください。</value>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value>このバージョンのCapsLockインジケーター（(Version {version})はサポートされていません。 最新バージョンにアップデートしてください！</value>
     <comment>Banner text when CLI version is unsupported</comment>

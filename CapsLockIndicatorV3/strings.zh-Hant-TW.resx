@@ -487,6 +487,16 @@
     <value>通知</value>
     <comment>Tab header for advanced settings</comment>
   </data>
+  <data name="translationChecksumMismatch" xml:space="preserve">
+    <value>下載的檔案已損毀（總和檢查碼不符）。</value>
+  </data>
+  <data name="translationFolderNotWritable" xml:space="preserve">
+    <value>無法安裝翻譯，因為 CapsLock Indicator 所在的資料夾無法寫入：
+
+{0}
+
+請將 CapsLock Indicator 移至您有寫入權限的資料夾，或以系統管理員身分執行一次以更新翻譯。</value>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value>不支援此版本的 CapsLock Indicator (版本 {version})。請更新為最新版本！</value>
     <comment>Banner text when CLI version is unsupported</comment>

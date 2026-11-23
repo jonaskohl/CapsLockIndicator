@@ -486,6 +486,16 @@ Czy chcesz teraz zresetować wszystkie ustawienia?</value>
     <value>Powiadomienia</value>
     <comment>Tab header for advanced settings</comment>
   </data>
+  <data name="translationChecksumMismatch" xml:space="preserve">
+    <value>Pobrany plik jest uszkodzony (niezgodna suma kontrolna).</value>
+  </data>
+  <data name="translationFolderNotWritable" xml:space="preserve">
+    <value>Nie można zainstalować tłumaczeń, ponieważ folder zawierający CapsLock Indicator nie jest zapisywalny:
+
+{0}
+
+Przenieś CapsLock Indicator do folderu, w którym masz prawo zapisu, lub uruchom go raz jako administrator, aby zaktualizować tłumaczenia.</value>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value>Ta wersja CapsLock Indicator (wersja {version}) nie jest obsługiwana. Zaktualizuj do najnowszej wersji!</value>
     <comment>Banner text when CLI version is unsupported</comment>

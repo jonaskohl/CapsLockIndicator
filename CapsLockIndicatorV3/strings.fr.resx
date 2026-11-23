@@ -522,6 +522,16 @@ Do you want to reset all settings now?</value>
     <value>Notifications</value>
     <comment>Tab header for advanced settings</comment>
   </data>
+  <data name="translationChecksumMismatch" xml:space="preserve">
+    <value>Le fichier téléchargé est endommagé (somme de contrôle incorrecte).</value>
+  </data>
+  <data name="translationFolderNotWritable" xml:space="preserve">
+    <value>Impossible d'installer les traductions, car le dossier contenant CapsLock Indicator n'est pas accessible en écriture :
+
+{0}
+
+Déplacez CapsLock Indicator dans un dossier où vous disposez des droits d'écriture, ou exécutez-le une fois en tant qu'administrateur pour mettre à jour les traductions.</value>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value>Cette version de CapsLock Indicator (Version {version}) n'est plus supportée. Merci de la mettre à jour avec la dernière version disponible !</value>
     <comment>Banner text when CLI version is unsupported</comment>

@@ -486,6 +486,18 @@ Do you want to reset all settings now?</value>
     <value>Notification</value>
     <comment>Tab header for advanced settings</comment>
   </data>
+  <data name="translationChecksumMismatch" xml:space="preserve">
+    <value>The downloaded file is damaged (checksum mismatch).</value>
+    <comment>Error shown in the translation download window when a downloaded file does not match the expected checksum.</comment>
+  </data>
+  <data name="translationFolderNotWritable" xml:space="preserve">
+    <value>Translations cannot be installed because the folder containing CapsLock Indicator is not writable:
+
+{0}
+
+Move CapsLock Indicator to a folder you have write access to, or run it as administrator once to update the translations.</value>
+    <comment>Message box when translations cannot be installed because the program folder is not writable. {0} is the folder path.</comment>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value>This version of CapsLock Indicator (Version {version}) is not supported. Please update to the latest version!</value>
     <comment>Banner text when CLI version is unsupported</comment>

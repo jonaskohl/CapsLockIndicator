@@ -486,6 +486,16 @@
     <value>Уведомление</value>
     <comment>Tab header for advanced settings</comment>
   </data>
+  <data name="translationChecksumMismatch" xml:space="preserve">
+    <value>Загруженный файл повреждён (контрольная сумма не совпадает).</value>
+  </data>
+  <data name="translationFolderNotWritable" xml:space="preserve">
+    <value>Невозможно установить переводы, так как папка с CapsLock Indicator недоступна для записи:
+
+{0}
+
+Переместите CapsLock Indicator в папку, в которую у вас есть права на запись, или один раз запустите его от имени администратора, чтобы обновить переводы.</value>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value>Эта версия CapsLock Indicator ({version}) не поддерживается. Обновитесь до последней версии!</value>
     <comment>Banner text when CLI version is unsupported</comment>

@@ -498,6 +498,16 @@ Ora le troverai nelle schede qui sopra!
     <value>Notifiche</value>
     <comment>Tab header for advanced settings</comment>
   </data>
+  <data name="translationChecksumMismatch" xml:space="preserve">
+    <value>Il file scaricato è danneggiato (checksum non corrispondente).</value>
+  </data>
+  <data name="translationFolderNotWritable" xml:space="preserve">
+    <value>Impossibile installare le traduzioni perché la cartella che contiene CapsLock Indicator non è scrivibile:
+
+{0}
+
+Spostare CapsLock Indicator in una cartella con permessi di scrittura oppure eseguirlo una volta come amministratore per aggiornare le traduzioni.</value>
+  </data>
   <data name="unsupportedCLI" xml:space="preserve">
     <value>Questa versione di CapsLock (versione {version}) non è supportata. 
 Aggiorna alla versione più recente!</value>

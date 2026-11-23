@@ -662,6 +662,16 @@ Do you want to reset all settings now?</value>
     <comment>Banner text when Windows version is unsupported</comment>
   </data>
 -->
+  <data name="translationChecksumMismatch" xml:space="preserve">
+    <value>O ficheiro transferido está danificado (soma de verificação não corresponde).</value>
+  </data>
+  <data name="translationFolderNotWritable" xml:space="preserve">
+    <value>Não é possível instalar as traduções porque a pasta que contém o CapsLock Indicator não permite escrita:
+
+{0}
+
+Mova o CapsLock Indicator para uma pasta na qual tenha permissão de escrita ou execute-o uma vez como administrador para atualizar as traduções.</value>
+  </data>
   <data name="updateAvailable" xml:space="preserve">
     <value>atualização do CapsLock Indicator disponível!!</value>
     <comment>The title for the update window.</comment>
