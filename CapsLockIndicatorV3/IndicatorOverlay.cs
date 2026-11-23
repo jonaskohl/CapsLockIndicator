@@ -169,9 +169,16 @@ namespace CapsLockIndicatorV3
             base.OnLoad(e);
         }
 
+        /// <summary>
+        /// The screen this overlay is pinned to, or null to follow the screen containing the cursor.
+        /// </summary>
+        public Screen TargetScreen { get; private set; }
+
         void UpdatePosition()
         {
-            Rectangle workingArea = Screen.GetWorkingArea(Cursor.Position);
+            Rectangle workingArea = TargetScreen != null
+                ? TargetScreen.WorkingArea
+                : Screen.GetWorkingArea(Cursor.Position);
 
             Size = new Size(Width, Height);
 
@@ -225,7 +232,37 @@ namespace CapsLockIndicatorV3
             var factor = DPIHelper.GetScalingFactorPercent(Handle);
 
             if (BorderSize > 0)
-                e.Graphics.DrawRectangle(new Pen(BorderColour, (int)(BorderSize * factor)), e.ClipRectangle);
+            {
+                var penWidth = (int)(BorderSize * factor);
+
+                if (roundedCorners)
+                {
+                    // Draw along the centre line of the stroke so its outer edge
+                    // follows the rounded window outline DWM clips to
+                    var half = penWidth / 2f;
+                    var bounds = new RectangleF(half, half, ClientSize.Width - penWidth, ClientSize.Height - penWidth);
+                    var radius = Math.Max(ROUNDED_CORNER_RADIUS * (float)factor - half, 0.5f);
+
+                    using (var path = RoundedRectangle(bounds, radius))
+                    using (var pen = new Pen(BorderColour, penWidth))
+                    {
+                        var oldMode = e.Graphics.SmoothingMode;
+                        var oldOffset = e.Graphics.PixelOffsetMode;
+                        e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                        // By default GDI+ puts pixel centres on integer coordinates, which shifts
+                        // the anti-aliased stroke half a pixel up/left (thicker top and left edge)
+                        e.Graphics.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.Half;
+                        e.Graphics.DrawPath(pen, path);
+                        e.Graphics.PixelOffsetMode = oldOffset;
+                        e.Graphics.SmoothingMode = oldMode;
+                    }
+                }
+                else
+                {
+                    using (var pen = new Pen(BorderColour, penWidth))
+                        e.Graphics.DrawRectangle(pen, e.ClipRectangle);
+                }
+            }
 
             //using (var sf = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center })
             //using (var b = new SolidBrush(contentLabel.ForeColor))
@@ -242,6 +279,18 @@ namespace CapsLockIndicatorV3
                 Width - Padding.Horizontal,
                 Height - Padding.Vertical
             ), ForeColor, TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
+        }
+
+        private static System.Drawing.Drawing2D.GraphicsPath RoundedRectangle(RectangleF r, float radius)
+        {
+            var d = Math.Min(radius * 2, Math.Min(r.Width, r.Height));
+            var path = new System.Drawing.Drawing2D.GraphicsPath();
+            path.AddArc(r.Left, r.Top, d, d, 180, 90);
+            path.AddArc(r.Right - d, r.Top, d, d, 270, 90);
+            path.AddArc(r.Right - d, r.Bottom - d, d, d, 0, 90);
+            path.AddArc(r.Left, r.Bottom - d, d, d, 90, 90);
+            path.CloseFigure();
+            return path;
         }
 
         private int ClickThroughWindow(double opacity = 1d)
@@ -272,10 +321,40 @@ namespace CapsLockIndicatorV3
 
         private void InitializeCommon()
         {
-            // Doesn't look very nice and is Win11 only
-            //var attribute = DWMWINDOWATTRIBUTE.DWMWA_WINDOW_CORNER_PREFERENCE;
-            //var preference = DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;
-            //DwmSetWindowAttribute(Handle, attribute, ref preference, sizeof(uint));
+            ApplyCornerPreference();
+        }
+
+        // Radius Windows 11 uses for DWMWCP_ROUND, in pixels at 96 DPI
+        private const int ROUNDED_CORNER_RADIUS = 8;
+
+        private bool roundedCorners;
+
+        /// <summary>
+        /// On Windows 11, lets DWM round the window corners (anti-aliased). OnPaint then
+        /// draws the border along the same rounded outline so it isn't cut off at the corners.
+        /// </summary>
+        private void ApplyCornerPreference()
+        {
+            roundedCorners = false;
+
+            if (!Versions.IsWindows11 || IsDisposed)
+                return;
+
+            var wanted = SettingsManager.Get<bool>("indRoundedCorners");
+
+            var preference = wanted
+                ? DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND
+                : DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_DONOTROUND;
+
+            try
+            {
+                DwmSetWindowAttribute(Handle, DWMWINDOWATTRIBUTE.DWMWA_WINDOW_CORNER_PREFERENCE, ref preference, sizeof(uint));
+                roundedCorners = wanted;
+            }
+            catch (Exception ex) when (ex is DllNotFoundException || ex is EntryPointNotFoundException)
+            {
+                roundedCorners = false;
+            }
         }
 
         public IndicatorOverlay(IndicatorTrigger trigger, int timeoutInMs, IndicatorDisplayPosition position)
@@ -310,11 +389,12 @@ namespace CapsLockIndicatorV3
             BringToFrontNoFocus();
         }
 
-        public IndicatorOverlay(IndicatorTrigger trigger, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, int bdSize, Font font, IndicatorDisplayPosition position, int indOpacity, bool alwaysShow)
+        public IndicatorOverlay(IndicatorTrigger trigger, int timeoutInMs, Color bgColour, Color fgColour, Color bdColour, int bdSize, Font font, IndicatorDisplayPosition position, int indOpacity, bool alwaysShow, Screen targetScreen = null)
         {
             var ret = 0;
 
             pos = position;
+            TargetScreen = targetScreen;
 
             InitializeComponent();
             InitializeCommon();
@@ -442,6 +522,7 @@ namespace CapsLockIndicatorV3
             BorderColour = bdColour;
             BorderSize = bdSize;
             ReapplyPadding();
+            ApplyCornerPreference();
             Show();
             RecalculateSize();
             Invalidate();

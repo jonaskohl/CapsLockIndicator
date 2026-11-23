@@ -236,6 +236,24 @@ namespace CapsLockIndicatorV3
             darkModeCheckBox.CheckedChanged += DarkModeCheckBox_CheckedChanged;
             searchOnResumeCheckBox.CheckedChanged += SearchOnResumeCheckBox_CheckedChanged;
 
+            allScreensCheckBox.Checked = SettingsManager.Get<bool>("showNotificationOnAllScreens");
+            allScreensCheckBox.CheckedChanged += (s, ev) =>
+            {
+                SettingsManager.Set("showNotificationOnAllScreens", allScreensCheckBox.Checked);
+                SettingsManager.Save();
+            };
+
+            // Rounded corners are a Windows 11 feature
+            roundedCornersCheckBox.Visible = Versions.IsWindows11;
+            if (!Versions.IsWindows11)
+                tabPage2.Tag = "246"; // tab height without the hidden checkbox
+            roundedCornersCheckBox.Checked = SettingsManager.Get<bool>("indRoundedCorners");
+            roundedCornersCheckBox.CheckedChanged += (s, ev) =>
+            {
+                SettingsManager.Set("indRoundedCorners", roundedCornersCheckBox.Checked);
+                SettingsManager.Save();
+            };
+
             var oldVersionVer = Version.Parse(oldVersion);
 
             if (oldVersionVer < Versions.SettingsToTabs)
@@ -661,6 +679,8 @@ namespace CapsLockIndicatorV3
             onlyShowWhenActiveCheckBox.FlatStyle =
             darkModeCheckBox.FlatStyle =
             searchOnResumeCheckBox.FlatStyle =
+            allScreensCheckBox.FlatStyle =
+            roundedCornersCheckBox.FlatStyle =
             cbPersistentNumOff.FlatStyle =
             cbPersistentNumOn.FlatStyle =
             cbPersistentCapsOff.FlatStyle =
@@ -685,6 +705,8 @@ namespace CapsLockIndicatorV3
             onlyShowWhenActiveCheckBox.DarkMode =
             darkModeCheckBox.DarkMode =
             searchOnResumeCheckBox.DarkMode =
+            allScreensCheckBox.DarkMode =
+            roundedCornersCheckBox.DarkMode =
             cbPersistentNumOff.DarkMode =
             cbPersistentNumOn.DarkMode =
             cbPersistentCapsOff.DarkMode =
@@ -876,6 +898,8 @@ namespace CapsLockIndicatorV3
             tabPage2.Text = strings.tabAdvancedOptions;
             darkModeCheckBox.Text = strings.darkModeOption;
             searchOnResumeCheckBox.Text = strings.searchForUpdatesOnResumeOption;
+            allScreensCheckBox.Text = strings.showNotificationOnAllScreens;
+            roundedCornersCheckBox.Text = strings.roundedNotificationCorners;
             mainToolTip.SetToolTip(dismissButton, strings.dismiss);
             persistentHeadingLabel.Text = strings.persistentHeadingLabel;
             persistentNumLabel.Text = strings.persistentNumLabel;
@@ -959,40 +983,14 @@ namespace CapsLockIndicatorV3
         void ShowOverlay(IndicatorTrigger trigger)
         {
             var isActive = trigger.NewState;
-            int timeOut = SettingsManager.Get<int>("indDisplayTime");
-            var alwaysShow = SettingsManager.Get<bool>("alwaysShowWhenActive") && isActive;
-            var showOnAllScreens = SettingsManager.Get<bool>("showNotificationOnAllScreens");
-            if (Application.OpenForms.OfType<IndicatorOverlay>().Any() && Application.OpenForms.OfType<IndicatorOverlay>().Where(f => !f.IsDisposed).Any())
-            {
-                IndicatorOverlay indicatorOverlay = Application.OpenForms.OfType<IndicatorOverlay>().Where(f => !f.IsDisposed).First();
-                indicatorOverlay.UpdateIndicator(
-                      trigger
-                    , timeOut
-                    , isActive ? SettingsManager.Get<Color>("indBgColourActive") : SettingsManager.Get<Color>("indBgColourInactive")
-                    , isActive ? SettingsManager.Get<Color>("indFgColourActive") : SettingsManager.Get<Color>("indFgColourInactive")
-                    , isActive ? SettingsManager.Get<Color>("indBdColourActive") : SettingsManager.Get<Color>("indBdColourInactive")
-                    , SettingsManager.Get<int>("bdSize")
-                    , SettingsManager.GetOrDefault<Font>("indFont")
-                    , SettingsManager.Get<IndicatorDisplayPosition>("overlayPosition")
-                    , SettingsManager.Get<int>("indOpacity")
-                    , alwaysShow
-                );
-            }
-            else
-            {
-                IndicatorOverlay indicatorOverlay = new IndicatorOverlay(
-                      trigger
-                    , timeOut
-                    , isActive ? SettingsManager.Get<Color>("indBgColourActive") : SettingsManager.Get<Color>("indBgColourInactive")
-                    , isActive ? SettingsManager.Get<Color>("indFgColourActive") : SettingsManager.Get<Color>("indFgColourInactive")
-                    , isActive ? SettingsManager.Get<Color>("indBdColourActive") : SettingsManager.Get<Color>("indBdColourInactive")
-                    , SettingsManager.Get<int>("bdSize")
-                    , SettingsManager.GetOrDefault<Font>("indFont")
-                    , SettingsManager.Get<IndicatorDisplayPosition>("overlayPosition")
-                    , SettingsManager.Get<int>("indOpacity")
-                    , alwaysShow
-                );
-            }
+            DisplayOverlay(
+                  trigger
+                , SettingsManager.Get<int>("indDisplayTime")
+                , isActive ? SettingsManager.Get<Color>("indBgColourActive") : SettingsManager.Get<Color>("indBgColourInactive")
+                , isActive ? SettingsManager.Get<Color>("indFgColourActive") : SettingsManager.Get<Color>("indFgColourInactive")
+                , isActive ? SettingsManager.Get<Color>("indBdColourActive") : SettingsManager.Get<Color>("indBdColourInactive")
+                , SettingsManager.Get<bool>("alwaysShowWhenActive") && isActive
+            );
         }
 
         void ShowOverlayInfo(string message)
@@ -1000,46 +998,80 @@ namespace CapsLockIndicatorV3
             int timeOut = SettingsManager.Get<int>("indDisplayTime");
             if (timeOut < 0)
                 timeOut = 2000;
-            var alwaysShow = false;
-            if (Application.OpenForms.OfType<IndicatorOverlay>().Any() && Application.OpenForms.OfType<IndicatorOverlay>().Where(f => !f.IsDisposed).Any())
+            DisplayOverlay(
+                  new IndicatorTrigger()
+                  {
+                      DisplayText = message,
+                      Key = IndicatorKey.None
+                  }
+                , timeOut
+                , SettingsManager.Get<Color>("indBgColourInactive")
+                , SettingsManager.Get<Color>("indFgColourInactive")
+                , SettingsManager.Get<Color>("indFgColourInactive")
+                , false
+            );
+        }
+
+        /// <summary>
+        /// Shows the overlay on the screen containing the cursor, or on every screen if
+        /// "showNotificationOnAllScreens" is enabled. Existing overlays are reused.
+        /// </summary>
+        void DisplayOverlay(IndicatorTrigger trigger, int timeOut, Color bgColour, Color fgColour, Color bdColour, bool alwaysShow)
+        {
+            var showOnAllScreens = SettingsManager.Get<bool>("showNotificationOnAllScreens");
+
+            // null = follow the cursor; otherwise one overlay pinned to each screen
+            var targets = showOnAllScreens ? Screen.AllScreens : new Screen[] { null };
+
+            var overlays = Application.OpenForms.OfType<IndicatorOverlay>().Where(f => !f.IsDisposed).ToList();
+
+            // Close overlays that don't belong to the current mode or whose screen is gone
+            // (e.g. setting toggled or monitor disconnected)
+            foreach (var o in overlays.Where(o => !targets.Any(s => SameScreen(s, o.TargetScreen))).ToList())
             {
-                IndicatorOverlay indicatorOverlay = Application.OpenForms.OfType<IndicatorOverlay>().Where(f => !f.IsDisposed).First();
-                indicatorOverlay.UpdateIndicator(
-                      new IndicatorTrigger()
-                      {
-                          DisplayText = message,
-                          Key = IndicatorKey.None
-                      }
-                    , timeOut
-                    , SettingsManager.Get<Color>("indBgColourInactive")
-                    , SettingsManager.Get<Color>("indFgColourInactive")
-                    , SettingsManager.Get<Color>("indFgColourInactive")
-                    , SettingsManager.Get<int>("bdSize")
-                    , SettingsManager.GetOrDefault<Font>("indFont")
-                    , SettingsManager.Get<IndicatorDisplayPosition>("overlayPosition")
-                    , SettingsManager.Get<int>("indOpacity")
-                    , alwaysShow
-                );
+                o.Close();
+                overlays.Remove(o);
             }
-            else
+
+            foreach (var screen in targets)
             {
-                IndicatorOverlay indicatorOverlay = new IndicatorOverlay(
-                      new IndicatorTrigger()
-                      {
-                          DisplayText = message,
-                          Key = IndicatorKey.None
-                      }
-                    , timeOut
-                    , SettingsManager.Get<Color>("indBgColourInactive")
-                    , SettingsManager.Get<Color>("indFgColourInactive")
-                    , SettingsManager.Get<Color>("indFgColourInactive")
-                    , SettingsManager.Get<int>("bdSize")
-                    , SettingsManager.GetOrDefault<Font>("indFont")
-                    , SettingsManager.Get<IndicatorDisplayPosition>("overlayPosition")
-                    , SettingsManager.Get<int>("indOpacity")
-                    , alwaysShow
-                );
+                var existing = overlays.FirstOrDefault(o => SameScreen(screen, o.TargetScreen));
+
+                if (existing != null)
+                    existing.UpdateIndicator(
+                          trigger
+                        , timeOut
+                        , bgColour
+                        , fgColour
+                        , bdColour
+                        , SettingsManager.Get<int>("bdSize")
+                        , SettingsManager.GetOrDefault<Font>("indFont")
+                        , SettingsManager.Get<IndicatorDisplayPosition>("overlayPosition")
+                        , SettingsManager.Get<int>("indOpacity")
+                        , alwaysShow
+                    );
+                else
+                    new IndicatorOverlay(
+                          trigger
+                        , timeOut
+                        , bgColour
+                        , fgColour
+                        , bdColour
+                        , SettingsManager.Get<int>("bdSize")
+                        , SettingsManager.GetOrDefault<Font>("indFont")
+                        , SettingsManager.Get<IndicatorDisplayPosition>("overlayPosition")
+                        , SettingsManager.Get<int>("indOpacity")
+                        , alwaysShow
+                        , screen
+                    );
             }
+        }
+
+        private static bool SameScreen(Screen a, Screen b)
+        {
+            if (a == null || b == null)
+                return a == null && b == null;
+            return a.DeviceName == b.DeviceName && a.Bounds == b.Bounds;
         }
 
         void ShowNoIconsCheckedChanged(object sender, EventArgs e)

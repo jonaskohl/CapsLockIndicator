@@ -434,6 +434,9 @@
     <value>Начать сначала</value>
     <comment>Generic label for Restart button</comment>
   </data>
+  <data name="roundedNotificationCorners" xml:space="preserve">
+    <value>Скруглённые углы уведомления</value>
+  </data>
   <data name="saveAndCloseButton" xml:space="preserve">
     <value>&amp;Сохранить и выйти</value>
     <comment>The caption for the "Save &amp; Close" button. The character after the "&amp;" is the hotkey that is used with the ALT key. Use two "&amp;" to display a "&amp;" character</comment>
@@ -461,6 +464,9 @@
   <data name="showNoNotification" xml:space="preserve">
     <value>Не выводить всплывающие уведомления</value>
     <comment>The label for the check box that enables or disables all notifications</comment>
+  </data>
+  <data name="showNotificationOnAllScreens" xml:space="preserve">
+    <value>Показывать уведомление на всех экранах</value>
   </data>
   <data name="showNotificationWhen" xml:space="preserve">
     <value>Вывести уведомление, когда...</value>

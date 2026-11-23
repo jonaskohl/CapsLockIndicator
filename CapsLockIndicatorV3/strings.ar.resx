@@ -470,6 +470,9 @@ Do you want to reset all settings now?</value>
     <value>إعادة تشغيل</value>
     <comment>Generic label for Restart button</comment>
   </data>
+  <data name="roundedNotificationCorners" xml:space="preserve">
+    <value>زوايا الإشعار مستديرة</value>
+  </data>
   <data name="saveAndCloseButton" xml:space="preserve">
     <value>&amp; حفظ &amp;&amp; إغلاق</value>
     <comment>The caption for the "Save &amp; Close" button. The character after the "&amp;" is the hotkey that is used with the ALT key. Use two "&amp;" to display a "&amp;" character</comment>
@@ -497,6 +500,9 @@ Do you want to reset all settings now?</value>
   <data name="showNoNotification" xml:space="preserve">
     <value>عدم إظهار الاشعارات</value>
     <comment>The label for the check box that enables or disables all notifications</comment>
+  </data>
+  <data name="showNotificationOnAllScreens" xml:space="preserve">
+    <value>إظهار الإشعار على جميع الشاشات</value>
   </data>
   <data name="showNotificationWhen" xml:space="preserve">
     <value>إظهار الإشعار عند ...</value>

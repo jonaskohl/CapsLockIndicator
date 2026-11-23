@@ -355,6 +355,9 @@ Möchen Sie jetzt alle Einstellungen zurücksetzen?</value>
   <data name="restart" xml:space="preserve">
     <value>&amp;Neu starten</value>
   </data>
+  <data name="roundedNotificationCorners" xml:space="preserve">
+    <value>Abgerundete Ecken der Benachrichtigung</value>
+  </data>
   <data name="saveAndCloseButton" xml:space="preserve">
     <value>&amp;Speichern &amp;&amp; schließen</value>
   </data>
@@ -375,6 +378,9 @@ Möchen Sie jetzt alle Einstellungen zurücksetzen?</value>
   </data>
   <data name="showNoNotification" xml:space="preserve">
     <value>Keine Benachrichtigung anzeigen</value>
+  </data>
+  <data name="showNotificationOnAllScreens" xml:space="preserve">
+    <value>Benachrichtigung auf allen Bildschirmen anzeigen</value>
   </data>
   <data name="showNotificationWhen" xml:space="preserve">
     <value>Zeige Benachrichtigung wenn...</value>

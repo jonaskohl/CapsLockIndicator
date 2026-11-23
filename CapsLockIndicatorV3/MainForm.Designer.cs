@@ -138,6 +138,8 @@ namespace CapsLockIndicatorV3
             this.flowLayoutPanel1b = new System.Windows.Forms.FlowLayoutPanel();
             this.darkModeCheckBox = new CapsLockIndicatorV3.BetterCheckBox();
             this.searchOnResumeCheckBox = new CapsLockIndicatorV3.BetterCheckBox();
+            this.allScreensCheckBox = new CapsLockIndicatorV3.BetterCheckBox();
+            this.roundedCornersCheckBox = new CapsLockIndicatorV3.BetterCheckBox();
             this.advSettingsButton = new System.Windows.Forms.Button();
             this.resetSettingsButton = new System.Windows.Forms.Button();
             this.uninstallButton = new System.Windows.Forms.Button();
@@ -1441,7 +1443,7 @@ namespace CapsLockIndicatorV3
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(614, 693);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Tag = "220";
+            this.tabPage2.Tag = "272";
             this.tabPage2.Text = "advancedOptions";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
@@ -1449,6 +1451,8 @@ namespace CapsLockIndicatorV3
             // 
             this.flowLayoutPanel1b.Controls.Add(this.darkModeCheckBox);
             this.flowLayoutPanel1b.Controls.Add(this.searchOnResumeCheckBox);
+            this.flowLayoutPanel1b.Controls.Add(this.allScreensCheckBox);
+            this.flowLayoutPanel1b.Controls.Add(this.roundedCornersCheckBox);
             this.flowLayoutPanel1b.Controls.Add(this.downloadIcons);
             this.flowLayoutPanel1b.Controls.Add(this.advSettingsButton);
             this.flowLayoutPanel1b.Controls.Add(this.resetSettingsButton);
@@ -1470,6 +1474,26 @@ namespace CapsLockIndicatorV3
             this.darkModeCheckBox.TabIndex = 0;
             this.darkModeCheckBox.Text = "darkMode";
             this.darkModeCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // allScreensCheckBox
+            // 
+            this.allScreensCheckBox.AutoSize = true;
+            this.allScreensCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.allScreensCheckBox.Name = "allScreensCheckBox";
+            this.allScreensCheckBox.Size = new System.Drawing.Size(184, 20);
+            this.allScreensCheckBox.TabIndex = 15;
+            this.allScreensCheckBox.Text = "allScreensCheckBox";
+            this.allScreensCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // roundedCornersCheckBox
+            // 
+            this.roundedCornersCheckBox.AutoSize = true;
+            this.roundedCornersCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.roundedCornersCheckBox.Name = "roundedCornersCheckBox";
+            this.roundedCornersCheckBox.Size = new System.Drawing.Size(184, 20);
+            this.roundedCornersCheckBox.TabIndex = 16;
+            this.roundedCornersCheckBox.Text = "roundedCornersCheckBox";
+            this.roundedCornersCheckBox.UseVisualStyleBackColor = true;
             // 
             // searchOnResumeCheckBox
             // 
@@ -1692,6 +1716,8 @@ namespace CapsLockIndicatorV3
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1b;
         private BetterCheckBox darkModeCheckBox;
         private BetterCheckBox searchOnResumeCheckBox;
+        private BetterCheckBox allScreensCheckBox;
+        private BetterCheckBox roundedCornersCheckBox;
         private System.Windows.Forms.Button advSettingsButton;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;

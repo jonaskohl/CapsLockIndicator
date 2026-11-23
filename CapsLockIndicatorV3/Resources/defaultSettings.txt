@@ -15,6 +15,7 @@ b:firstRun=True
 b:hideHintShown=False
 b:searchForUpdatesAfterResume=True
 b:showNotificationOnAllScreens=False
+b:indRoundedCorners=True
 b:supressEOLMessage=False
 b:dontOverwriteApplicationOnUpdate=False
 b:persistentOverlayCapsOff=False

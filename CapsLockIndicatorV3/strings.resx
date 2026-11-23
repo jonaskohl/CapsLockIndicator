@@ -434,6 +434,10 @@ Do you want to reset all settings now?</value>
     <value>&amp;Restart</value>
     <comment>Generic label for Restart button</comment>
   </data>
+  <data name="roundedNotificationCorners" xml:space="preserve">
+    <value>Rounded notification corners</value>
+    <comment>Checkbox on the advanced options tab (Windows 11 only): round the corners of the notification.</comment>
+  </data>
   <data name="saveAndCloseButton" xml:space="preserve">
     <value>&amp;Save &amp;&amp; close</value>
     <comment>The caption for the "Save &amp; Close" button. The character after the "&amp;" is the hotkey that is used with the ALT key. Use two "&amp;" to display a "&amp;" character</comment>
@@ -461,6 +465,10 @@ Do you want to reset all settings now?</value>
   <data name="showNoNotification" xml:space="preserve">
     <value>Show no notification</value>
     <comment>The label for the check box that enables or disables all notifications</comment>
+  </data>
+  <data name="showNotificationOnAllScreens" xml:space="preserve">
+    <value>Show notification on all screens</value>
+    <comment>Checkbox on the advanced options tab: show the notification on every monitor instead of only the one with the mouse cursor.</comment>
   </data>
   <data name="showNotificationWhen" xml:space="preserve">
     <value>Show notification when...</value>

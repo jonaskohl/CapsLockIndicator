@@ -771,7 +771,16 @@ namespace CapsLockIndicatorV3 {
                 return ResourceManager.GetString("restart", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rounded notification corners ähnelt.
+        /// </summary>
+        internal static string roundedNotificationCorners {
+            get {
+                return ResourceManager.GetString("roundedNotificationCorners", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &amp;Save &amp;&amp; close ähnelt.
         /// </summary>
@@ -843,7 +852,16 @@ namespace CapsLockIndicatorV3 {
                 return ResourceManager.GetString("showNotificationWhen", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Show notification on all screens ähnelt.
+        /// </summary>
+        internal static string showNotificationOnAllScreens {
+            get {
+                return ResourceManager.GetString("showNotificationOnAllScreens", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Always show overlay when active ähnelt.
         /// </summary>

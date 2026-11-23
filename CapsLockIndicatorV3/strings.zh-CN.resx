@@ -434,6 +434,9 @@
     <value>重启程序 (&amp;R)</value>
     <comment>Generic label for Restart button</comment>
   </data>
+  <data name="roundedNotificationCorners" xml:space="preserve">
+    <value>通知使用圆角</value>
+  </data>
   <data name="saveAndCloseButton" xml:space="preserve">
     <value>保存并关闭 (&amp;S)</value>
     <comment>The caption for the "Save &amp; Close" button. The character after the "&amp;" is the hotkey that is used with the ALT key. Use two "&amp;" to display a "&amp;" character</comment>
@@ -461,6 +464,9 @@
   <data name="showNoNotification" xml:space="preserve">
     <value>不显示通知</value>
     <comment>The label for the check box that enables or disables all notifications</comment>
+  </data>
+  <data name="showNotificationOnAllScreens" xml:space="preserve">
+    <value>在所有屏幕上显示通知</value>
   </data>
   <data name="showNotificationWhen" xml:space="preserve">
     <value>显示通知：</value>
