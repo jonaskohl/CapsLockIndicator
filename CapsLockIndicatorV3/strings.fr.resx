@@ -166,7 +166,7 @@
     <comment>Generic label for Cancel button</comment>
   </data>
   <data name="capsLock" xml:space="preserve">
-    <value>Verrouillage majuscules</value>
+    <value>Mode majuscules</value>
     <comment>The name of the caps lock key</comment>
   </data>
   
@@ -400,7 +400,7 @@
     <comment>The caption of the notification settings window</comment>
   </data>
   <data name="numLock" xml:space="preserve">
-    <value>Verrouillage Numérique</value>
+    <value>Pavé numérique</value>
     <comment>The name of the num lock key</comment>
   </data>
   <data name="ok" xml:space="preserve">
@@ -478,7 +478,7 @@ Do you want to reset all settings now?</value>
     <comment>The caption for the "Save &amp; Close" button. The character after the "&amp;" is the hotkey that is used with the ALT key. Use two "&amp;" to display a "&amp;" character</comment>
   </data>
   <data name="scrollLock" xml:space="preserve">
-    <value>Arrêt défil.</value>
+    <value>Arrêt défilement</value>
     <comment>The name of the scroll lock key</comment>
   </data>
   <data name="searchForUpdatesOnResumeOption" xml:space="preserve">
