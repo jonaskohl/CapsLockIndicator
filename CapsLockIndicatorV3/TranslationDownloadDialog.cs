@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace CapsLockIndicatorV3
 {
@@ -55,21 +54,11 @@ namespace CapsLockIndicatorV3
                 FullRowSelect = true,
                 HeaderStyle = ColumnHeaderStyle.None,
                 MultiSelect = false,
+                ToggleCheckOnRowClick = true,
                 Visible = false
             };
             listView.Columns.Add("", -2);
-            listView.ItemChecked += (s, e) =>
-            {
-                downloadButton.Enabled = listView.CheckedItems.Count > 0;
-                listView.Invalidate(e.Item.Bounds);
-            };
-
-            // The themed default drawing renders hovered items with dark text on a
-            // highlight that is unreadable in dark mode, so the rows are drawn here
-            listView.DrawItem += ListView_DrawItem;
-            listView.MouseMove += (s, e) => SetHotItem(listView.GetItemAt(e.X, e.Y));
-            listView.MouseLeave += (s, e) => SetHotItem(null);
-            listView.MouseClick += ListView_MouseClick;
+            listView.ItemChecked += (s, e) => downloadButton.Enabled = listView.CheckedItems.Count > 0;
             listView.Resize += (s, e) =>
             {
                 if (listView.Columns.Count > 0)
@@ -80,7 +69,7 @@ namespace CapsLockIndicatorV3
             {
                 Text = strings.translationsLoading,
                 Dock = DockStyle.Fill,
-                TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+                TextAlign = ContentAlignment.MiddleCenter
             };
 
             downloadButton = new Button()
@@ -176,100 +165,6 @@ namespace CapsLockIndicatorV3
             };
         }
 
-        private ListViewItem hotItem;
-
-        private void SetHotItem(ListViewItem item)
-        {
-            if (item == hotItem)
-                return;
-
-            var previous = hotItem;
-            hotItem = item;
-
-            if (previous != null && previous.ListView != null)
-                listView.Invalidate(previous.Bounds);
-            if (item != null)
-                listView.Invalidate(item.Bounds);
-        }
-
-        // Clicking anywhere in a row toggles it. Clicks on the checkbox area itself are
-        // already handled by the list view.
-        private void ListView_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button != MouseButtons.Left)
-                return;
-
-            var hit = listView.HitTest(e.Location);
-            if (hit.Item != null && hit.Location != ListViewHitTestLocations.StateImage)
-                hit.Item.Checked = !hit.Item.Checked;
-        }
-
-        private void ListView_DrawItem(object sender, DrawListViewItemEventArgs e)
-        {
-            e.DrawDefault = false;
-
-            var dark = DarkModeProvider.IsDark;
-            var g = e.Graphics;
-            var bounds = e.Bounds;
-
-            Color back;
-            if (e.Item.Selected && listView.Focused)
-                back = dark ? Color.FromArgb(98, 98, 98) : Color.FromArgb(204, 232, 255);
-            else if (e.Item == hotItem || e.Item.Selected)
-                back = dark ? Color.FromArgb(68, 68, 68) : Color.FromArgb(229, 243, 255);
-            else
-                back = listView.BackColor;
-
-            using (var b = new SolidBrush(back))
-                g.FillRectangle(b, bounds);
-
-            // Checkbox: dark themed variant if Windows provides one, otherwise the normal one
-            var state = e.Item.Checked
-                ? (e.Item == hotItem ? CheckBoxState.CheckedHot : CheckBoxState.CheckedNormal)
-                : (e.Item == hotItem ? CheckBoxState.UncheckedHot : CheckBoxState.UncheckedNormal);
-
-            var glyphSize = CheckBoxRenderer.GetGlyphSize(g, state);
-            var glyphPos = new Point(bounds.Left + 4, bounds.Top + (bounds.Height - glyphSize.Height) / 2);
-
-            var darkCheckBox = dark ? GetDarkCheckBoxElement(state) : null;
-            if (darkCheckBox != null && VisualStyleRenderer.IsElementDefined(darkCheckBox))
-                new VisualStyleRenderer(darkCheckBox).DrawBackground(g, new Rectangle(glyphPos, glyphSize));
-            else
-                CheckBoxRenderer.DrawCheckBox(g, glyphPos, state);
-
-            var textBounds = new Rectangle(glyphPos.X + glyphSize.Width + 6, bounds.Top, bounds.Right - glyphPos.X - glyphSize.Width - 8, bounds.Height);
-            TextRenderer.DrawText(g, e.Item.Text, listView.Font, textBounds, listView.ForeColor,
-                TextFormatFlags.VerticalCenter | TextFormatFlags.Left | TextFormatFlags.EndEllipsis | TextFormatFlags.NoPrefix);
-
-            if (e.Item.Focused && listView.Focused && ShowFocusCues)
-                ControlPaint.DrawFocusRectangle(g, bounds, listView.ForeColor, back);
-        }
-
-        private static VisualStyleElement GetDarkCheckBoxElement(CheckBoxState state)
-        {
-            if (!VisualStyleRenderer.IsSupported)
-                return null;
-
-            // BP_CHECKBOX = 3; states: 1 unchecked normal, 2 unchecked hot, 5 checked normal, 6 checked hot
-            int s;
-            switch (state)
-            {
-                case CheckBoxState.UncheckedHot: s = 2; break;
-                case CheckBoxState.CheckedNormal: s = 5; break;
-                case CheckBoxState.CheckedHot: s = 6; break;
-                default: s = 1; break;
-            }
-
-            try
-            {
-                return VisualStyleElement.CreateElement("DarkMode_Explorer::Button", 3, s);
-            }
-            catch (ArgumentException)
-            {
-                return null;
-            }
-        }
-
         private void DownloadButton_Click(object sender, EventArgs e)
         {
             SelectedLanguages = listView.CheckedItems.Cast<ListViewItem>().Select(i => (RemoteLanguage)i.Tag).ToArray();
@@ -289,13 +184,9 @@ namespace CapsLockIndicatorV3
             BackColor = dark ? Color.FromArgb(255, 32, 32, 32) : SystemColors.Window;
             ForeColor = dark ? Color.White : SystemColors.WindowText;
 
-            ControlScheduleSetDarkMode(listView, dark);
             ControlScheduleSetDarkMode(downloadButton, dark);
             ControlScheduleSetDarkMode(cancelButton, dark);
-            if (listView.IsHandleCreated)
-                listView.SetDark(dark);
-            else
-                listView.HandleCreated += (s, e) => listView.SetDark(dark);
+            listView.SetDark(dark);
         }
     }
 }

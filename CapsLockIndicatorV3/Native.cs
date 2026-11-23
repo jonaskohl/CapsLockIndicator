@@ -315,9 +315,26 @@ namespace CapsLockIndicatorV3
             return res;
         }
 
+        [DllImport("uxtheme.dll", EntryPoint = "#136")]
+        static extern void FlushMenuThemes();
+
         public static void SetPrefferDarkMode(bool dark)
         {
             SetPreferredAppMode(dark ? PREFFERED_APP_MODE__FORCE_DARK : PREFFERED_APP_MODE__DEFAULT);
+        }
+
+        /// <summary>
+        /// Changes the app-wide dark mode at runtime (context menus, scroll bars, themed
+        /// controls) and drops cached theme data so the change takes effect immediately.
+        /// </summary>
+        public static void ChangePreferredDarkMode(bool dark)
+        {
+            try
+            {
+                SetPrefferDarkMode(dark);
+                FlushMenuThemes();
+            }
+            catch (Exception ex) when (ex is EntryPointNotFoundException || ex is DllNotFoundException) { }
         }
 
         public static bool UseImmersiveDarkMode(IntPtr handle, bool enabled)

@@ -24,6 +24,11 @@ namespace CapsLockIndicatorV3
         public static void SetDarkModeEnabled(bool enabled)
         {
             SettingsManager.Set("darkMode", enabled);
+
+            // Previously only set at startup, so themed controls kept the old mode
+            if (SystemSupportsDarkMode)
+                Native.ChangePreferredDarkMode(IsDark);
+
             UpdateForms();
         }
 
