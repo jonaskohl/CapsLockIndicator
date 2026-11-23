@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration ("")]
 [assembly: AssemblyCompany ("Jonas Kohl")]
 [assembly: AssemblyProduct ("CapsLock Indicator")]
-[assembly: AssemblyCopyright("© 2017-2022 Jonas Kohl / All rights reserved")]
+[assembly: AssemblyCopyright("© 2017-2026 Jonas Kohl / All rights reserved")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
 // This sets the default COM visibility of types in the assembly to invisible.
