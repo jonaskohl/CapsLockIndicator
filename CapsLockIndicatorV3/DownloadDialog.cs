@@ -131,13 +131,7 @@ namespace CapsLockIndicatorV3
 #if !DEBUG
             if (SettingsManager.Get<bool>("dontOverwriteApplicationOnUpdate"))
             {
-                bool runAtStarup = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "CapsLock Indicator", null) != null;
-
-                if (runAtStarup)
-                {
-                    RegistryKey rk = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
-                    rk.SetValue("CapsLock Indicator", newPath);
-                }
+                AutostartManager.UpdatePath(newPath);
 
                 MainForm mainForm = Application.OpenForms.OfType<MainForm>().First();
 
@@ -156,7 +150,7 @@ namespace CapsLockIndicatorV3
                 var bakFile = Path.Combine(currDir, BAK_NAME);
                 if (File.Exists(bakFile))
                     File.Delete(bakFile);
-                File.Move(currExe, BAK_NAME);
+                File.Move(currExe, bakFile);
                 File.Move(newPath, currExe);
 
                 Program.Restart();

@@ -200,6 +200,7 @@
     </Compile>
     <Compile Include="ProgressInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AutostartManager.cs" />
     <Compile Include="QueryBuilder.cs" />
     <Compile Include="resources.Designer.cs">
       <AutoGen>True</AutoGen>

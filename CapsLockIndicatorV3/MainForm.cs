@@ -132,7 +132,8 @@ namespace CapsLockIndicatorV3
             };
 
             // Check if application is in startup
-            startonlogonCheckBox.Checked = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "CapsLock Indicator", null) != null;
+            // (setting Checked = true also rewrites the entry, migrating old unquoted paths)
+            startonlogonCheckBox.Checked = AutostartManager.IsEnabled;
             hideOnStartupCheckBox.Checked = SettingsManager.Get<bool>("hideOnStartup");
             checkForUpdatedCheckBox.Checked = SettingsManager.Get<bool>("checkForUpdates");
 
@@ -1203,12 +1204,24 @@ namespace CapsLockIndicatorV3
 
         private void startonlogonCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            RegistryKey rk = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
-
             if (startonlogonCheckBox.Checked)
-                rk.SetValue("CapsLock Indicator", Application.ExecutablePath);
+                AutostartManager.Enable(Application.ExecutablePath);
             else
-                rk.DeleteValue("CapsLock Indicator", false);
+                AutostartManager.Disable();
+        }
+
+        /// <summary>
+        /// Brings the settings window to the front. Called when another
+        /// instance of the application is launched.
+        /// </summary>
+        public void ShowSettingsWindow()
+        {
+            Show();
+            if (WindowState == FormWindowState.Minimized)
+                WindowState = FormWindowState.Normal;
+            isHidden = false;
+            ShowInTaskbar = true;
+            Activate();
         }
 
         private void hideOnStartupCheckBox_CheckedChanged(object sender, EventArgs e)

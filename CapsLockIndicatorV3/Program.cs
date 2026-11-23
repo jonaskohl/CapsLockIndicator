@@ -58,8 +58,41 @@ namespace CapsLockIndicatorV3
 
         public static MainForm MainForm { get; private set; }
 
+        [DllImport("user32.dll")]
+        private static extern bool AllowSetForegroundWindow(int dwProcessId);
+        private const int ASFW_ANY = -1;
+
+        private const string InstanceGuid = "{6f54c357-0542-4d7d-9225-338bc3cd7834}";
+
         // Create a mutex to check if an instance is already running
-        static Mutex mutex = new Mutex(true, "{6f54c357-0542-4d7d-9225-338bc3cd7834}");
+        static Mutex mutex = new Mutex(false, InstanceGuid);
+        static bool mutexOwned = false;
+
+        // Signalled by a second instance to ask the running one to show its window
+        static EventWaitHandle showWindowEvent = new EventWaitHandle(false, EventResetMode.AutoReset, InstanceGuid + "-show");
+
+        private static bool TryAcquireMutex()
+        {
+            try
+            {
+                return mutex.WaitOne(TimeSpan.Zero, false);
+            }
+            catch (AbandonedMutexException)
+            {
+                // A previous instance crashed without releasing the mutex; we own it now
+                return true;
+            }
+        }
+
+        private static void ListenForShowRequests()
+        {
+            var syncContext = SynchronizationContext.Current;
+            ThreadPool.RegisterWaitForSingleObject(showWindowEvent, (state, timedOut) =>
+            {
+                syncContext.Post(_ => MainForm?.ShowSettingsWindow(), null);
+            }, null, Timeout.Infinite, false);
+        }
+
         [STAThread]
         private static void Main(string[] args)
         {
@@ -71,7 +104,9 @@ namespace CapsLockIndicatorV3
             //if (Environment.OSVersion.Version.Major >= 6)
             //    SetProcessDPIAware();
 
-            if (mutex.WaitOne(TimeSpan.Zero, true)) // No instance is open
+            mutexOwned = TryAcquireMutex();
+
+            if (mutexOwned) // No instance is open
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
@@ -106,19 +141,26 @@ namespace CapsLockIndicatorV3
                 if (runApp)
                 {
                     MainForm = new MainForm();
+                    ListenForShowRequests();
 
                     Application.Run();
                 }
 
                 // Release the mutex
-                mutex.ReleaseMutex();
+                ReleaseMutex();
 
                 SettingsManager.Save();
             }
             else // An instance is already open
             {
-                Application.EnableVisualStyles();
-                MessageBox.Show("An instance is already open!");
+                // Started automatically at logon while already running (e.g. duplicate
+                // autostart entry): exit silently. Otherwise bring up the running
+                // instance's settings window.
+                if (Array.IndexOf(args, AutostartManager.AutostartArgument) < 0)
+                {
+                    AllowSetForegroundWindow(ASFW_ANY);
+                    showWindowEvent.Set();
+                }
             }
         }
 
@@ -152,8 +194,11 @@ namespace CapsLockIndicatorV3
 
         public static void ReleaseMutex()
         {
+            if (!mutexOwned)
+                return;
+
+            mutexOwned = false;
             mutex.ReleaseMutex();
-            mutex.Close();
             mutex.Dispose();
         }
 
