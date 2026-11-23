@@ -52,7 +52,7 @@ namespace CapsLockIndicatorV3
             this.showNoIcons = new CapsLockIndicatorV3.BetterCheckBox();
             this.showNoNotification = new CapsLockIndicatorV3.BetterCheckBox();
             this.aboutPanel = new System.Windows.Forms.Panel();
-            this.logo = new System.Windows.Forms.PictureBox();
+            this.logo = new CapsLockIndicatorV3.CustomPictureBox();
             this.appNameLabel = new CapsLockIndicatorV3.LnkLabel();
             this.aboutPanelTopBorder = new System.Windows.Forms.PictureBox();
             this.aboutText = new System.Windows.Forms.Label();
@@ -390,6 +390,7 @@ namespace CapsLockIndicatorV3
             // 
             this.logo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logo.Image = global::CapsLockIndicatorV3.resources.logo;
+            this.logo.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
             this.logo.Location = new System.Drawing.Point(12, 9);
             this.logo.Name = "logo";
             this.logo.Size = new System.Drawing.Size(48, 48);
@@ -1665,7 +1666,7 @@ namespace CapsLockIndicatorV3
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button hideWindow;
-        private System.Windows.Forms.PictureBox logo;
+        private CapsLockIndicatorV3.CustomPictureBox logo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button dismissButton;

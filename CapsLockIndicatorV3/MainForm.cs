@@ -769,7 +769,8 @@ namespace CapsLockIndicatorV3
             appNameLabel.LinkColor =
             appNameLabel.ActiveLinkColor =
             dark ? Color.FromArgb(255, 196, 204, 238) : Color.FromArgb(255, 52, 77, 180); ;
-            logo.Image = (Bitmap)resources.GetObject("logo" + (dark ? "_dark" : ""));
+            //logo.Image = (Bitmap)resources.GetObject("logo" + (dark ? "_dark" : ""));
+            logo.SizeMode = PictureBoxSizeMode.Zoom;
 
             foreach (TabPage p in tabControl1.TabPages)
             {

@@ -96,6 +96,9 @@
     <Compile Include="ColourButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CustomPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DarkModeChangingForm.cs">
       <SubType>Form</SubType>
     </Compile>
